@@ -1,6 +1,7 @@
-all: bin/jeu
+all: bin/main.out
 
-bin/jeu:
+bin/main.out: Ingredient.o
+	g++ -Wall -c
 
 
 

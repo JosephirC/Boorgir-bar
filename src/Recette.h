@@ -1,7 +1,7 @@
 #ifndef _RECETTE_H
 #define _RECETTE_H
 
-#include "Ingredrient.h"
+#include "Ingredient.h"
 #include <string>
 #include <iostream>
 

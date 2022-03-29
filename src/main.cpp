@@ -1,7 +1,7 @@
 #include "Jeu.h"
 //#include "Recette.h"
 //#include "Ingredient.h"
-#include "Client.h"
+//#include "Client.h"
 #include <iostream>
 #include <string>
 #include <fstream>
@@ -26,10 +26,9 @@ int main()
     else 
         cout << "FAILED..." << endl;*/
     
-    Jeu j1;
+    Jeu j1(0,0);
     string ingredient = "Salade";
     //j1.chargerIngredient(ingredient, "test.txt");
     
-
 
 }

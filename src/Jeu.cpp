@@ -28,9 +28,19 @@ Jeu::~Jeu(){
 }*/
 
 
+<<<<<<< HEAD
 void Jeu::chargerIngredient(const string &filename){
     vector<Ingredient> ingVec;
     int 
+=======
+void Jeu::chargerIngredient(string ingNom, const string &filename){
+    Ingredient ing;
+    vector<int> ingVec;
+    string nomIng = ing.getNom();
+    int prix = ing.getPrix();
+    int pos = ing.getEmplacement();
+    int tempsCuisson = ing.getCuisson();
+>>>>>>> 9be274ca4efb6ffe8d9b714c331679f917db509b
     ifstream fileIng("ingredients.txt");
     if(fileIng.is_open()){
 

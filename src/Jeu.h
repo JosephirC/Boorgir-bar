@@ -40,7 +40,7 @@ class Jeu{
         ~Jeu();
 
         //void chargerIngredient(Ingredient *tabIng, const string& nom_ingredient);
-        void chargerIngredient(string ingNom, const string& filename);
+        void chargerIngredient(const string& filename);
 
 
         void chargerRecette(Recette tabRec, const string& nom_recette);

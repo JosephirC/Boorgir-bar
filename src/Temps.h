@@ -1,8 +1,6 @@
 #ifndef _TEMPS_H
 #define _TEMPS_H
 
-#include "Ingredient.h"
-#include "Temps.h"
 #include <string>
 #include <time.h>
 #include <iostream>

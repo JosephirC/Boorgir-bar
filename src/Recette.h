@@ -1,7 +1,7 @@
 #ifndef _RECETTE_H
 #define _RECETTE_H
 
-#include "Ingredrient.h"
+#include "Ingredient.h"
 #include <string>
 #include <iostream>
 
@@ -21,7 +21,7 @@ class Recette{
 
     private :
   
-        Ingredient ing[50];
+        Ingredient *ing;
         string nomRec;
         int prixR;
 
@@ -30,6 +30,8 @@ class Recette{
         Recette(string recette);
 
         ~Recette();
+
+
 
         //void lireRecette(tab, const string &nom_recette, prixR);
          //Idee : Apres avoir appeler lireRecette(), est ce que je dois avoir un tableau calcul[] et puis dans une boucle durant chaque iteration je stocke le prix de chaque recette (i=0, i=1, i=2, etc)

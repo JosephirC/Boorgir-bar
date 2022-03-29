@@ -2,7 +2,6 @@
 #define _OBJECTIF_H
 
 #include "Temps.h"
-#include "Argent.h"
 #include <string>
 #include <iostream>
 

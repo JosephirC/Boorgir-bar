@@ -1,20 +1,27 @@
-Salade 2, 1, 0;
-Tomates, 3, 2, 0;
+Salade 2, 1, 0
 
-PainHD 4, 3, 0;
-Saucisse 7, 4, 5;
+Tomates, 3, 2, 0
 
-PainBurger 5,  5, 0;
-Steak 8, 6, 5;
+PainHD 4, 3, 0
 
-Mayo 1, 7, 0;
-Ketchup 1, 8, 0;
-Frites 6, 9, 5;
+Saucisse 7, 4, 5
 
-Jus 4, 11, 0;
-Soda 5, 12, 0;
+PainBurger 5,  5, 0
 
-SteakCuit 8, 16, 0 ;
-SaucisseCuit 7, 15, 0;
+Steak 8, 6, 5
+
+Mayo 1, 7, 0
+
+Ketchup 1, 8, 0
+
+Frites 6, 9, 5
+
+Jus 4, 11, 0
+
+Soda 5, 12, 0
+
+SteakCuit 8, 16, 0 
+
+SaucisseCuit 7, 15, 0
 
 

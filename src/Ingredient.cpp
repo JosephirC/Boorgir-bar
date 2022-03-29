@@ -16,6 +16,7 @@ Ingredient::Ingredient(const string & nomI, const unsigned int & prixI, const un
 
 }
 
+
 /*bool Ingredient::ruptureStock(){
     return (nbrIng == 0);
 }

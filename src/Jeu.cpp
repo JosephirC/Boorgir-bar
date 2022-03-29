@@ -28,7 +28,7 @@ Jeu::~Jeu(){
 }*/
 
 
-<<<<<<< HEAD
+/*<<<<<<< HEAD
 void Jeu::chargerIngredient(const string &filename){
     vector<Ingredient> ingVec;
     int 
@@ -63,4 +63,4 @@ void Jeu::chargerIngredient(string ingNom, const string &filename){
         cout << "Failed to open file..." << endl;
 
     cout << "Sucess"<< endl;
-}
+}*/

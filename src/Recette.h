@@ -21,7 +21,7 @@ class Recette{
 
     private :
   
-        Ingredient *ing;
+        Ingredient * ing;
         string nomRec;
         int prixR;
 

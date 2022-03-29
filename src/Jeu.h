@@ -45,7 +45,9 @@ class Jeu{
 
         void chargerRecette(Recette tabRec, const string& nom_recette);
 
-        
+
+        const vector<Recette>& getvector() const {return tabRec;}
+        void setvector(vector<Recette> vec){tabRec = vec;}
 
 
 

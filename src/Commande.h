@@ -11,7 +11,9 @@ class Commande{
 
     private :
   
-        Recette tabC;
+        Recette * tabC;
+        int prixC;
+
 
     public :
 
@@ -19,7 +21,7 @@ class Commande{
 
         ~Commande();
 
-        int nbrRecette(); // remplie le tableau de commande avec des recette entre 1 et 3
+        void nbrRecette(); // remplie le tableau de commande avec des recette entre 1 et 3
 
         int calculePrix(); // retourne le prix de la commande
         

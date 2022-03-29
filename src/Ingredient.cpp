@@ -1,6 +1,6 @@
 #include "Temps.h"
 #include <string>
-#include "Ingredrient.h"
+#include "Ingredient.h"
 #include <iostream>
 
 using namespace  std;

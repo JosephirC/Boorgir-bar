@@ -2,6 +2,7 @@
 #define _CLIENT_H
 
 #include "Temps.h"
+#include "Commande.h"
 #include <time.h>
 #include <iostream>
 

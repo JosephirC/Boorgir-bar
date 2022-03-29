@@ -1,7 +1,7 @@
 #ifndef _JEU_H
 #define _JEU_H
 
-#include "Ingredrient.h"
+#include "Ingredient.h"
 #include "Recette.h"
 #include "Client.h"
 #include "Temps.h"
@@ -40,7 +40,7 @@ class Jeu{
         ~Jeu();
 
         //void chargerIngredient(Ingredient *tabIng, const string& nom_ingredient);
-        void chargerIngredient(string ingName, const string& filename);
+        void chargerIngredient(string ingNom, const string& filename);
 
 
         void chargerRecette(Recette tabRec, const string& nom_recette);

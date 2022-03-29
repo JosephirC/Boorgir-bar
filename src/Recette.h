@@ -7,7 +7,7 @@
 
 using namespace  std;
 
-enum class TypeRecette {
+/*enum class TypeRecette {
     Burger_Ketchup;
     Burger_Mayo;
     HotDog_Ketchup;
@@ -15,7 +15,7 @@ enum class TypeRecette {
     Soda;
     JusOrange;
     Frite;
-}
+}*/
 
 class Recette{
 
@@ -27,7 +27,7 @@ class Recette{
 
     public :
 
-        Recette();
+        Recette(string recette);
 
         ~Recette();
 
@@ -35,8 +35,8 @@ class Recette{
          //Idee : Apres avoir appeler lireRecette(), est ce que je dois avoir un tableau calcul[] et puis dans une boucle durant chaque iteration je stocke le prix de chaque recette (i=0, i=1, i=2, etc)
 
         //int calculePrix(/*tabIng[j]*/); // retourne le prix d'une seule recette 
-        ^
-        |
+       // ^
+        //|
 
        // c'est pas la peine, on le met directement dans le .txt
 

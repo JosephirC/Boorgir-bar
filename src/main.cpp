@@ -1,6 +1,6 @@
 #include "Jeu.h"
 //#include "Recette.h"
-//#include "Ingredrient.h"
+//#include "Ingredient.h"
 #include "Client.h"
 #include <iostream>
 #include <string>

@@ -1,7 +1,7 @@
 #ifndef _TEMPS_H
 #define _TEMPS_H
 
-//#include "Ingredrient.h"
+#include "Ingredient.h"
 #include "Temps.h"
 #include <string>
 #include <time.h>

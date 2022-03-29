@@ -29,15 +29,8 @@ Jeu::~Jeu(){
 
 
 void Jeu::chargerIngredient(string ingNom, const string &filename){
-    Ingredient ing;
-    vector<int> ingVec;
-    int i;
-    string nomIng = ing.getNom();
-    int prix = ing.getPrix();
-    int pos = ing.getEmplacement();
-    int tempsCuisson = ing.getCuisson();
+    vector<Ingredient> ingVec;
     ifstream fileIng("ingredients.txt");
-    
     if(fileIng.is_open()){
 
         //ignorer la premiere ligne
@@ -45,10 +38,8 @@ void Jeu::chargerIngredient(string ingNom, const string &filename){
 		getline(fileIng, line);
 
         while(fileIng >> nomIng >> prix >> pos >> tempsCuisson){
-            ingVec.push_back(stoi(nomIng));
-            ingVec.push_back(prix);
-            ingVec.push_back(pos);
-            ingVec.push_back(tempsCuisson);
+            Ingredient ing(nomIng, prix, pos, 10, tempsCuisson);
+            ingVec.push_back(ing);
         }
 
         for(unsigned int i = 0; i < ingVec.size(); i++){

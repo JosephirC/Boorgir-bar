@@ -1,28 +1,35 @@
 #ifndef _JEU_H
 #define _JEU_H
 
-
-#include <string>
+#include "Ingredrient.h"
+#include "Recette.h"
+#include "Client.h"
+#include "Temps.h"
+#include <vector>
 #include <iostream>
 
 using namespace  std;
 
-enum class TypeNiveau {
+/*enum class TypeNiveau {
     Facile;
     Difficile;
     Crazy;
-}
+}*/
 
 class Jeu{
 
     private :
 
         Client *tabC;
-        Temps tempsJ;
-        Ingredient tabIng[50];
-        Recette tabRec[50];
+        Temps tempsJ(int periode);
+        vector<Ingredient> tabIng; //[50]
+        vector<Recette> tabRec; //[50]
         int objectif; 
         int additionArgent;  // additionArgent = tabC[i].paiement;
+        int ingSelectionne; // prend la valeur de l'emplacement de l'ingredient selectionner/// REMARQUE IL FAUT METTRE L EMPLACEMENT ICI 
+        bool estSelectionne;
+        //faire un tab statique de taille 11, chaque case contient les coordonnees x y pour chaque ingredient  dans SDL
+
 
     public :
 
@@ -32,9 +39,13 @@ class Jeu{
 
         ~Jeu();
 
-        void chargerIngredient(*tabIng, const string& nom_ingredient;
+        //void chargerIngredient(Ingredient *tabIng, const string& nom_ingredient);
+        void chargerIngredient(string ingName, const string& filename);
 
-        void chargerRecette(tabR, const string& nom_recette);
+
+        void chargerRecette(Recette tabRec, const string& nom_recette);
+
+        
 
 
 

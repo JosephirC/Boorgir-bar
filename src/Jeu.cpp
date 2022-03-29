@@ -28,8 +28,9 @@ Jeu::~Jeu(){
 }*/
 
 
-void Jeu::chargerIngredient(string ingNom, const string &filename){
+void Jeu::chargerIngredient(const string &filename){
     vector<Ingredient> ingVec;
+    int 
     ifstream fileIng("ingredients.txt");
     if(fileIng.is_open()){
 

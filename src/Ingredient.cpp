@@ -1,5 +1,6 @@
 #include "Temps.h"
 #include <string>
+#include "Ingredrient.h"
 #include <iostream>
 
 using namespace  std;
@@ -9,16 +10,13 @@ Ingredient::Ingredient(){
     emplacement=0;
     nbrIng=0;
     cuisson=0;
-    ingSelectionne=0; // prend la valeur de l'emplacement de l'ingredient selectionner/// REMARQUE IL FAUT METTRE L EMPLACEMENT ICI 
-    estSelectionne=FALSE;
 }
 
-Ingredient::Ingredient(const string &name, const unsigned int & price, const unsigned int & emplacement, const unsigned int & nbr, const unsigned int & cookTime){
-    
+Ingredient::Ingredient(const string & nomI, const unsigned int & prixI, const unsigned int & emplacementI, const unsigned int & nbrI, const unsigned int & cuissonI){
+
 }
 
-
-bool Ingredient::ruptureStock(){
+/*bool Ingredient::ruptureStock(){
     return (nbrIng == 0);
 }
 
@@ -27,44 +25,44 @@ void Ingredient::achete(){
     if(ruptureStock == true){
         nbrIng = 10;
     }
-}
+}*/
 
-void setName(const string & name){ //Mutateur : modifie le nom de l'ingredient
-
+void Ingredient::setNom(const string & nomI){ //Mutateur : modifie le nom de l'ingredient
+    nomIng = nomI;
 } 
 
-void setPrice(const unsigned int & price){ //Mutateur : modifie le prix de l'ingredient
-
+void Ingredient::setPrix(const unsigned int & prixI){ //Mutateur : modifie le prix de l'ingredient
+    prixIng = prixI;
 } 
 
-void setPosition(const unsigned int & pos){ //Mutateur : modifie l'emplacement de l'ingredient
-
+void Ingredient::setEmplacement(const unsigned int & emplacementI){ //Mutateur : modifie l'emplacement de l'ingredient
+    emplacement = emplacementI;
 } 
 
-void setNumber(const unsigned int & nbr){ //Mutateur : modifie le nombre d'ingredient
-
+void Ingredient::setNbr(const unsigned int & nbrI){ //Mutateur : modifie le nombre d'ingredient
+    nbrIng = nbrI;
 }
 
-void setTime(const unsigned int & cookTime){ //Mutateur : modifie le temps de cuisson
-
+void Ingredient::setCuisson(const unsigned int & cuissonI){ //Mutateur : modifie le temps de cuisson
+    cuisson = cuissonI;
 }
 
-string getName() const{ //Accesseur : recupere le nom de l'ingredient 
-
+string Ingredient::getNom() const{ //Accesseur : recupere le nom de l'ingredient 
+    return nomIng;
 } 
 
-unsigned int getPrice() const{ //Accesseur : recupere le prix de l'ingredient
-
+unsigned int Ingredient::getPrix() const{ //Accesseur : recupere le prix de l'ingredient
+    return prixIng;
 }
 
-unsigned int getPosition() const{ //Accesseur : recupere l'emplacement de l'ingredient
-    
+unsigned int Ingredient::getEmplacement() const{ //Accesseur : recupere l'emplacement de l'ingredient
+    return emplacement;
 } 
 
-unsigned int getNumber() const{ //Accesseur : recupere le nombre d'ingredient
-
+unsigned int Ingredient::getNbr() const{ //Accesseur : recupere le nombre d'ingredient
+    return nbrIng;
 }
 
-unsigned int getTime() const{ //Accesseur : recupere le temps de cuisson
-
+unsigned int Ingredient::getCuisson() const{ //Accesseur : recupere le temps de cuisson
+    return cuisson;
 }

@@ -31,7 +31,6 @@ Jeu::~Jeu(){
 void Jeu::chargerIngredient(string ingNom, const string &filename){
     Ingredient ing;
     vector<int> ingVec;
-    int i;
     string nomIng = ing.getNom();
     int prix = ing.getPrix();
     int pos = ing.getEmplacement();

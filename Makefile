@@ -4,7 +4,7 @@ bin/main: obj/main.o obj/Jeu.o obj/Recette.o obj/Ingredient.o obj/Commande.o obj
 	g++ obj/main.o obj/Ingredient.o obj/Recette.o obj/Jeu.o obj/Commande.o obj/Menu.o obj/Objectif.o obj/Temps.o -o bin/main
 
 obj/main.o: src/main.cpp src/Jeu.h src/Client.h src/Ingredient.h src/Recette.h
-	g++ -ggdb src/main.cpp -o obj/main.o
+	g++ -ggdb -Wall -c src/main.cpp -o obj/main.o
 
 obj/Jeu.o: src/Jeu.cpp src/Jeu.h src/Ingredient.h src/Recette.h src/Temps.h src/Client.h
 	g++ -ggdb -Wall -c src/Jeu.cpp -o obj/Jeu.o
@@ -32,5 +32,4 @@ clean:
 
 veryclean: clean 
 	rm *.out
-
 

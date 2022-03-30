@@ -10,7 +10,7 @@
 using namespace std;
 
 Jeu::Jeu(){
-    
+
 }
 
 Jeu::Jeu(int typeJeu, int niveau){
@@ -24,8 +24,6 @@ Jeu::~Jeu(){
 /*void Jeu::chargerIngredient(tabIng, string ingName, const string &filename){
     nomIng = ingName;
     vector<int> ingVec;
-
-
 }*/
 
 void Jeu::chargerIngredient(const string &filename){
@@ -53,4 +51,6 @@ void Jeu::chargerIngredient(const string &filename){
     else 
         cout << "Failed to open file..." << endl;
 
+
+    cout << "Sucess"<< endl;
 }

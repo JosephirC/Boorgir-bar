@@ -18,7 +18,7 @@ class Objectif{
 
         ~Objectif();
 
-        bool objAtteint(Temps temps_donnee, Argent argent); // renvoie vraie si l'objectif de la partie est atteint
+        bool objAtteint(Temps temps_donnee); // renvoie vraie si l'objectif de la partie est atteint
 
 };
 

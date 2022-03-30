@@ -1,5 +1,6 @@
 #include "Jeu.h"
 #include "Recette.h"
+#include "Ingredient.h"
 #include "Client.h"
 #include "Temps.h"
 #include <vector>
@@ -27,21 +28,11 @@ Jeu::~Jeu(){
 
 }*/
 
-
-<<<<<<< HEAD
 void Jeu::chargerIngredient(const string &filename){
     vector<Ingredient> ingVec;
-    int 
-=======
-void Jeu::chargerIngredient(string ingNom, const string &filename){
-    Ingredient ing;
-    vector<int> ingVec;
-    string nomIng = ing.getNom();
-    int prix = ing.getPrix();
-    int pos = ing.getEmplacement();
-    int tempsCuisson = ing.getCuisson();
->>>>>>> 9be274ca4efb6ffe8d9b714c331679f917db509b
-    ifstream fileIng("ingredients.txt");
+    ifstream fileIng(filename.c_str());
+    string nomIng;
+    int prix, pos, tempsCuisson;
     if(fileIng.is_open()){
 
         //ignorer la premiere ligne
@@ -54,7 +45,7 @@ void Jeu::chargerIngredient(string ingNom, const string &filename){
         }
 
         for(unsigned int i = 0; i < ingVec.size(); i++){
-            cout << ingVec[i];
+            cout << ingVec[i]; // fait un operateur friend <<
         }
         fileIng.close();
     }
@@ -62,5 +53,4 @@ void Jeu::chargerIngredient(string ingNom, const string &filename){
     else 
         cout << "Failed to open file..." << endl;
 
-    cout << "Sucess"<< endl;
 }

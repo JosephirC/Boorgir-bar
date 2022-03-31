@@ -1,0 +1,63 @@
+/// Burgers 
+
+B_Steak : Steak, PainB 13$
+
+B_Ketchup :
+Steak, PainB, Ketchup
+14$
+
+B_Mayo :
+Steak, PainB, Mayo
+14$
+
+B_Salade :
+Steak, PainB, Salade
+15$
+
+B_Salade_Ketchup :
+Steak, PainB, Salade, Ketchup
+16$
+
+B_Salade_Mayo :
+Steak, PainB, Salade, Mayo
+16$
+
+B_Tomate :
+Steak, PainB, Tomate
+16$
+
+B_Tomate_Ketchup :
+Steak, PainB, Tomate, Ketchup
+17$
+
+B_Tomate_Mayo :
+Steak, PainB, Tomate, Mayo
+17$
+
+B_Salade_Tomate :
+Steak, PainB, Salade, Tomate
+18$
+
+B_Salade_Tomate_Ketchup :
+Steak, PainB, Salade, Tomate, Ketchup
+19$
+
+B_Salade_Tomate_Mayo :
+Steak, PainB, Salade, Tomate, Mayo
+19$
+
+
+/// Hot-Dog
+
+HD_Saucisse :
+Saucisse, PainHD
+11$
+
+HD_Saucisse_Ketchup :
+Saucisse, PainHD, Ketchup
+12$
+
+HD_Saucisse_Mayo :
+Saucisse, PainHD, Mayo
+12$
+

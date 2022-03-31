@@ -13,7 +13,11 @@ Ingredient::Ingredient(){
 }
 
 Ingredient::Ingredient(const string & nomI, const unsigned int & prixI, const unsigned int & emplacementI, const unsigned int & nbrI, const unsigned int & cuissonI){
-
+    nomIng = nomI;
+    prixIng = prixI;
+    emplacement = emplacementI;
+    nbrIng = nbrI;
+    cuisson = cuissonI;
 }
 
 

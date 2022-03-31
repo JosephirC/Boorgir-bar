@@ -20,37 +20,42 @@ Jeu::Jeu(int typeJeu, int niveau){
 Jeu::~Jeu(){
 
 }
+     
+ostream &operator<< (ostream & flux, const Ingredient &ing){
+    flux << "Nom : " << ing.getNom() << " | Prix : " << ing.getPrix() << "$ | Emplacement : " << ing.getEmplacement() << " | Temps de cuisson : " << ing.getCuisson() << " sec"  << endl; 
+    return flux;
+}
 
-/*void Jeu::chargerIngredient(tabIng, string ingName, const string &filename){
-    nomIng = ingName;
-    vector<int> ingVec;
-}*/
-
-void Jeu::chargerIngredient(const string &filename){
+void Jeu::chargerIngredient(const string &filenameIng){
     vector<Ingredient> ingVec;
-    ifstream fileIng(filename.c_str());
+    ifstream fileIng(filenameIng.c_str());
     string nomIng;
     int prix, pos, tempsCuisson;
     if(fileIng.is_open()){
 
-        //ignorer la premiere ligne
+        //Pour ignorer la premiere ligne
 		string line;
 		getline(fileIng, line);
 
         while(fileIng >> nomIng >> prix >> pos >> tempsCuisson){
             Ingredient ing(nomIng, prix, pos, 10, tempsCuisson);
             ingVec.push_back(ing);
+            cout << nomIng << " " << prix << " " << pos << " " << tempsCuisson << endl;
         }
 
         for(unsigned int i = 0; i < ingVec.size(); i++){
-            cout << ingVec[i]; // fait un operateur friend <<
+            cout << ingVec[i] << endl;
         }
         fileIng.close();
     }
 
     else 
         cout << "Failed to open file..." << endl;
+}
 
+void Jeu::chargerRecette(const string &filenameRec){
+    vector<Recette> ingRec;
+    ifstream fileRec(filenameRec.c_str());
+    //string 
 
-    cout << "Sucess"<< endl;
 }

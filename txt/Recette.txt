@@ -1,63 +1,42 @@
 /// Burgers 
 
-B_Steak : Steak, PainB 13$
+B_Steak 2 Steak PainB 13
 
-B_Ketchup :
-Steak, PainB, Ketchup
-14$
+B_Tomate 2 Tomate PainB 8
 
-B_Mayo :
-Steak, PainB, Mayo
-14$
+B_Salade 2 Salade PainB 7
 
-B_Salade :
-Steak, PainB, Salade
-15$
+B_Ketchup 2 Ketchup PainB 6
 
-B_Salade_Ketchup :
-Steak, PainB, Salade, Ketchup
-16$
+B_Mayo 2 Mayo PainB 6
 
-B_Salade_Mayo :
-Steak, PainB, Salade, Mayo
-16$
+B_Steak_Ketchup 3 Steak PainB Ketchup 14
 
-B_Tomate :
-Steak, PainB, Tomate
-16$
+B_Steak_Mayo 3 Steak PainB Mayo 14
 
-B_Tomate_Ketchup :
-Steak, PainB, Tomate, Ketchup
-17$
+B_Steak_Salade 3 Steak PainB Salade 15
 
-B_Tomate_Mayo :
-Steak, PainB, Tomate, Mayo
-17$
+B_Steak_Salade_Ketchup 4 Steak PainB Salade Ketchup 16
 
-B_Salade_Tomate :
-Steak, PainB, Salade, Tomate
-18$
+B_Steak_Salade_Mayo 4 Steak PainB Salade Mayo 16
 
-B_Salade_Tomate_Ketchup :
-Steak, PainB, Salade, Tomate, Ketchup
-19$
+B_Steak_Tomate 3 Steak PainB Tomate 16
 
-B_Salade_Tomate_Mayo :
-Steak, PainB, Salade, Tomate, Mayo
-19$
+B_Steak_Tomate_Ketchup 4 Steak PainB Tomate Ketchup 17
 
+B_Steak_Tomate_Mayo 4 Steak PainB Tomate Mayo 17
+
+B_Steak_Salade_Tomate 4 Steak PainB Salade Tomate 18
+
+B_Steak_Salade_Tomate_Ketchup5  Steak PainB Salade Tomate Ketchup 19
+
+B_Steak_Salade_Tomate_Mayo 5 Steak PainB Salade Tomate Mayo 19
 
 /// Hot-Dog
 
-HD_Saucisse :
-Saucisse, PainHD
-11$
+HD_Saucisse 2 Saucisse PainHD 11
 
-HD_Saucisse_Ketchup :
-Saucisse, PainHD, Ketchup
-12$
+HD_Saucisse_Ketchup 3 Saucisse PainHD Ketchup 12
 
-HD_Saucisse_Mayo :
-Saucisse, PainHD, Mayo
-12$
+HD_Saucisse_Mayo 3 Saucisse PainHD Mayo 12
 

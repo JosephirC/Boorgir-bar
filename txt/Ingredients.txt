@@ -10,8 +10,6 @@ Mayo 1 7 0
 
 Ketchup 1 8 0
 
-Frites 6 9 5
-
 Jus 4 11 0
 
 Soda 5 12 0

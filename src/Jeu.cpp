@@ -54,8 +54,19 @@ void Jeu::chargerIngredient(const string &filenameIng){
 }
 
 void Jeu::chargerRecette(const string &filenameRec){
-    vector<Recette> ingRec;
+    vector<Recette> recVec;
+    vector<Ingredient> ingRecVec;
     ifstream fileRec(filenameRec.c_str());
-    //string 
+    string nom;
+    int nbr, prix;
+
+    
+
+    if(fileRec.is_open()){
+
+        while(fileRec >> nom >> nbr >> ingRecVec >> prix)
+
+        fileRec.close();
+    }
 
 }

@@ -3,10 +3,16 @@
 
 using namespace std;
 
-Recette::Recette (string nomRec){
-    ing = NULL;
+Recette::Recette(){
+    nomRec = "";
+    nbrIngRec = 0;
     prixR = 0;
+    ing = NULL;
 }
+
+Recette::Recette(string recette){
+    nomRec = recette;
+} 
 
 Recette::~Recette(){
     if(ing!=NULL)

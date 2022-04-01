@@ -1,5 +1,3 @@
-/// Burgers 
-
 B_Steak 2 Steak PainB 13
 
 B_Tomate 2 Tomate PainB 8
@@ -31,8 +29,6 @@ B_Steak_Salade_Tomate 4 Steak PainB Salade Tomate 18
 B_Steak_Salade_Tomate_Ketchup5  Steak PainB Salade Tomate Ketchup 19
 
 B_Steak_Salade_Tomate_Mayo 5 Steak PainB Salade Tomate Mayo 19
-
-/// Hot-Dog
 
 HD_Saucisse 2 Saucisse PainHD 11
 

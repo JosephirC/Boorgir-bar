@@ -1,6 +1,7 @@
 #include "Temps.h"
 #include <time.h>
 #include <iostream>
+#include <stdio.h>
 
 using namespace std;
 
@@ -22,4 +23,5 @@ bool Temps::tempsAtteint(){
     //t1 = clock();
 
 }*/
+
 

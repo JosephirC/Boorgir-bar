@@ -32,6 +32,7 @@ obj/Temps.o: src/Temps.cpp src/Temps.h
 
 clean:
 	rm obj/*.o
+	rm bin/*
 
 veryclean: clean 
 	rm *.out

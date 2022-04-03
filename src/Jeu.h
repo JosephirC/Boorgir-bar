@@ -40,15 +40,25 @@ class Jeu{
         ~Jeu();
 
         //void chargerIngredient(Ingredient *tabIng, const string& nom_ingredient);
-        void chargerIngredient(const string& filename);
+        void chargerIngredient(vector<Ingredient> & tabI, const string& fileIngredient);
 
 
-        void chargerRecette(const string& nom_recette);
+        void chargerRecette(vector<Recette> & tabR, const string& fileRecette);
 
 
         const vector<Recette>& getvector() const {return tabRec;}
+
         void setvector(vector<Recette> vec){tabRec = vec;}
 
+        void chargerCarte(vector<string> &tabC, const string & fileCarte);
+
+        string getNomCarte() const ; //Accesseur : recupere le nom de la recette de la carte
+
+        void recetteAleatoire(vector<string> &carte);
+
+        
+
+        
         
 
 

@@ -57,7 +57,7 @@ void Commande::chargerCarte(vector<Commande> &tabC, const string &fileCarte){
         cout << "----------Voici la Carte----------" << endl << endl;
 
         for(unsigned int i = 0; i < tabC.size(); i++){
-            cout << tabC[i] << endl;
+            //cout << tabC[i] << endl;
         }
 
         fileC.close();
@@ -148,16 +148,16 @@ void Commande::commandeAleatoire(vector<Commande> &carte, vector<Commande> & com
                 }
             }
         }
-        cout << "random1 = " << random1 << endl;
-        cout << "random2 : " << random2 << endl;
-        cout << "random3 : " << random3 << endl;
+        //cout << "random1 = " << random1 << endl;
+        //cout << "random2 : " << random2 << endl;
+        //cout << "random3 : " << random3 << endl;
 
     }
 
     for(unsigned int i = 0; i < commandeAl.size(); i++){
-        cout << endl << "Transfer reussi et la commande est : " << endl;
+        //cout << endl << "Transfer reussi et la commande est : " << endl;
         for(unsigned int j = 0; j < 1; j++){
-            cout  << "Recette" << i+1 << " = " << commandeAl[i] << endl << endl;
+            //cout  << "Recette" << i+1 << " = " << commandeAl[i] << endl << endl;
         }
     }
 }

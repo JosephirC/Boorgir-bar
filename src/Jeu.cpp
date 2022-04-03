@@ -19,9 +19,11 @@ Jeu::Jeu(int typeJeu, int niveau){
 
 }
 
-Jeu::~Jeu(){
 
+Jeu::~Jeu(){
+    
 }
+
      
 ostream &operator<< (ostream & flux, const Ingredient &ing){
     flux << "Nom : " << ing.getNom() << " | Prix : " << ing.getPrix() << "$ | Emplacement : " << ing.getEmplacement() << " | Temps de cuisson : " << ing.getCuisson() << " sec"  << endl; 
@@ -120,13 +122,7 @@ void Jeu::chargerRecette(vector<Recette> &recVec, const string &filenameRec){
 
 
 
-Client & Jeu::getClient(const unsigned int &IdC) const{
-    return tabC[IdC];
-}
 
-void Jeu::setClient(const unsigned int &IdC,const Client &c) {
-    tabC[IdC]=c;
-}
 
 void Jeu::creationClient(const unsigned int &I){
 
@@ -134,13 +130,12 @@ void Jeu::creationClient(const unsigned int &I){
     vector<Commande> comAl;
     unsigned int i;
     for(i=0;i<I;i++){
-        cout<<i<<I<<endl;
         int prix = com.calculePrix(comAl);
-        Client c(i+1,com,prix);
-        //setClient(i,c);
+        Client cli(i+1,com,prix);
+        tabC.push_back(cli);
         comAl.clear();
     }
-
+    
     /*
     for (int j=0;j<4;j++){
         cout << tabC[j].getPrix() << "hii";

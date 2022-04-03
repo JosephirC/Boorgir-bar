@@ -143,3 +143,4 @@ void Jeu::creationClient(const unsigned int &I){
         cout << tabC[j].getPrix() << "hii";
     }
 }
+

@@ -30,6 +30,7 @@ class Client{
         int paiement(); // renvoie le prixTot
 
         unsigned int getIdC() const;
+        unsigned int getPrix() const;
 };
 
 #endif

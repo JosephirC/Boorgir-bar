@@ -18,7 +18,10 @@ Client::~Client(){
 }
 
 unsigned int Client::getIdC() const{
-     return prixTot;
+     return idClient;
  }
 
+ unsigned int Client::getPrix() const{
+     return prixTot;
+ }
 

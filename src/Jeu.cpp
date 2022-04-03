@@ -129,12 +129,17 @@ void Jeu::setClient(const unsigned int &IdC,const Client &c) {
 }
 
 void Jeu::creationClient(const unsigned int &I){
-
+    Commande com;
+    vector<string> comAl;
     for(unsigned int i=0;i<I;i++){
-        Commande com;
-        vector<string> comAl;
+        cout<<i<<endl;
         int prix = com.calculePrix(comAl);
         Client c(i+1,com,prix);
         setClient(i,c);
+        comAl.clear();
+    }
+
+    for (int j=0;j<4;j++){
+        cout << tabC[j].getPrix() << "hii";
     }
 }

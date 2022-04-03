@@ -12,7 +12,8 @@ int main()
 {
     Jeu j1(0,0);
     //string ingredient = "Salade";
-    j1.chargerIngredient("./txt/Ingredient.md");
+    j1.chargerIngredient("./txt/Ingredients.txt");
+    j1.chargerRecette("./txt/Recette.txt");
     
 
 }

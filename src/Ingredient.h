@@ -94,7 +94,7 @@ class Ingredient{
 /*ostream &operator<< (ostream & flux, const Ingredient &ing){
     flux << "Le nom de l'ingredient est " << ing.getNom() << endl; 
     return flux;
-} */ 
+} */  
 
 ostream &operator<< (ostream & flux, const Ingredient &ing);
 

@@ -49,7 +49,7 @@ class Jeu{
         const vector<Recette>& getvector() const {return tabRec;}
         void setvector(vector<Recette> vec){tabRec = vec;}
 
-
+        
 
 
 

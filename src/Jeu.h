@@ -54,8 +54,11 @@ class Jeu{
 
         void commandeAleatoire(vector<string> carte, vector<string> & commandeAl);
 
-        
+        Client & getClient(const unsigned int &IdC) const;
 
+        void setClient(const unsigned int &IdC, const Client &c);
+
+        void creationClient(const unsigned int &I);
         
         
 

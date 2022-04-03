@@ -1,4 +1,4 @@
-Nom Ingredient Prix Emplacement TempsCuisson
+NomIngredient | Prix | Emplacement |  TempsCuisson
 
 Salade 2 1 0
 

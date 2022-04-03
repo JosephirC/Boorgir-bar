@@ -12,21 +12,24 @@ class Client{
 
     private :
 
-        Temps patience(unsigned int duree);
-        int emplacement;
-        int idClient; 
+        //Temps patience(unsigned int duree);
+        //int emplacement;
+        unsigned int idClient; 
         Commande com;
         int prixTot;
 
 
     public :
 
-        Client(); // on appelle le constructeur de temps pour creer un objet de la classe 
+        Client();
+
+        Client(const unsigned int idC, Commande comm, const int prix); // on appelle le constructeur de temps pour creer un objet de la classe 
 
         ~Client();
 
         int paiement(); // renvoie le prixTot
 
+        unsigned int getIdC() const;
 };
 
 #endif

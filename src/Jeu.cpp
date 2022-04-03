@@ -117,3 +117,24 @@ void Jeu::chargerRecette(vector<Recette> &recVec, const string &filenameRec){
         cout << "Failed to open file..." << endl;
     
 }
+
+
+
+Client & Jeu::getClient(const unsigned int &IdC) const{
+    return tabC[IdC];
+}
+
+void Jeu::setClient(const unsigned int &IdC,const Client &c) {
+    tabC[IdC]=c;
+}
+
+void Jeu::creationClient(const unsigned int &I){
+
+    for(unsigned int i=0;i<I;i++){
+        Commande com;
+        vector<string> comAl;
+        int prix = com.calculePrix(comAl);
+        Client c(i+1,com,prix);
+        setClient(i,c);
+    }
+}

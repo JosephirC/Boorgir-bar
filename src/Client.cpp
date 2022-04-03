@@ -7,3 +7,18 @@
 using namespace  std;
 
 
+Client::Client(const unsigned int idC, Commande comm, const int prix){
+    idClient=idC;
+    com=comm;
+    prixTot=prix;
+}
+
+Client::~Client(){
+
+}
+
+unsigned int Client::getIdC() const{
+     return prixTot;
+ }
+
+

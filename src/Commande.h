@@ -23,15 +23,19 @@ class Commande{
 
         ~Commande();
 
+        void setNom(const string &nom);
+
+        void setPrix(const unsigned int & prix);
+
         string getNom() const;
 
         unsigned int getPrix() const;
 
         void chargerCarte(vector<Commande> & tabC, const string & fileCarte);
 
-        void commandeAleatoire(vector<Commande> & carte, vector<string> & commendeAl); // remplie le tableau de commande avec des recette entre 1 et 3
+        void commandeAleatoire(vector<Commande> & carte, vector<Commande> & commendeAl); // remplie le tableau de commande avec des recette entre 1 et 3
 
-        unsigned int calculePrix(vector<string> commandeAl); // retourne le prix de la commande
+        unsigned int calculePrix(vector<Commande> commandeAl); // retourne le prix de la commande
 };
 
 

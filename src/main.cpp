@@ -13,7 +13,7 @@ int main()
     vector<Ingredient> tabI;
     vector<Recette> tabR;
     vector<Commande> tabC;
-    vector<string> commande;
+    vector<Commande> commande;
     Jeu j1(0,0);
     //j1.chargerIngredient(tabI, "./txt/Ingredients.txt");
     //j1.chargerRecette(tabR, "./txt/Recette.txt");

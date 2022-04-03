@@ -11,20 +11,29 @@ class Commande{
 
     private :
   
-        Recette * tabC;
-        int prixC;
+        string nomC;
+        unsigned int prixC;
 
 
     public :
 
         Commande();
 
+        Commande(string nom, unsigned int prix);
+
         ~Commande();
 
-        void nbrRecette(); // remplie le tableau de commande avec des recette entre 1 et 3
+        string getNom() const;
 
-        int calculePrix(); // retourne le prix de la commande
-        
+        unsigned int getPrix() const;
+
+        void chargerCarte(vector<Commande> &tabC, const string & fileCarte);
+
+        void commandeAleatoire(vector<Commande> carte, vector<string> &commendeAl); // remplie le tableau de commande avec des recette entre 1 et 3
+
+        unsigned int calculePrix(); // retourne le prix de la commande
 };
+
+
 
 #endif

@@ -67,35 +67,9 @@ class Ingredient{
 
         unsigned int getNbr() const; //Accesseur : recupere le nombre d'ingredient
 
-        unsigned int getCuisson() const; //Accesseur : recupere le temps de cuisson
+        unsigned int getCuisson() const; //Accesseur : recupere le temps de cuisson      
+}; 
 
-        /*friend ostream& operator << (std::ostream& flux, const Vect2D& v) {
-        flux << "( " << v.x << " , " << v.y << " )" <<endl;
-        return flux;
-        }
-
-        friend istream& operator >> (std::istream& flux, Vect2D& v) {
-        flux >> v.x >> v.y;
-        return flux;
-
-        friend ostream & operator << (ostream % flux, const )*/
-
-       
-
-        
-        
-};
-
-    /*ostream &operator<< (ostream & flux, const Ingredient &ing){
-            flux << "Le nom de l'ingredient est " << ing.nomIng << ". Le prix de l'ingredient est " << ing.pringIng << ". L'emplacemnt de l'ingredient est " << ing.emplacement << ". Le nombre d'ingredient est " << ing.nbrIng << ". Le temps de cuisson est " << ing.cuisson << "." << endl; 
-            return flux;
-        }*/
-        
-/*ostream &operator<< (ostream & flux, const Ingredient &ing){
-    flux << "Le nom de l'ingredient est " << ing.getNom() << endl; 
-    return flux;
-} */  
-
-ostream &operator<< (ostream & flux, const Ingredient &ing);
+//ostream &operator<< (ostream & flux, const Ingredient &ing);
 
 #endif

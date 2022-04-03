@@ -50,11 +50,9 @@ class Jeu{
 
         void setvector(vector<Recette> vec){tabRec = vec;}
 
-        void chargerCarte(vector<string> &tabC, const string & fileCarte);
-
         string getNomCarte() const ; //Accesseur : recupere le nom de la recette de la carte
 
-        void recetteAleatoire(vector<string> &carte);
+        void commandeAleatoire(vector<string> carte, vector<string> & commandeAl);
 
         
 

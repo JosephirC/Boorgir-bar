@@ -12,10 +12,12 @@ int main()
 {
     vector<Ingredient> tabI;
     vector<Recette> tabR;
-    vector<string> tabC;
+    vector<Commande> tabC;
+    vector<string> commande;
     Jeu j1(0,0);
-    j1.chargerIngredient(tabI, "./txt/Ingredients.txt");
-    j1.chargerRecette(tabR, "./txt/Recette.txt");
-    j1.recetteAleatoire(tabC);
+    //j1.chargerIngredient(tabI, "./txt/Ingredients.txt");
+    //j1.chargerRecette(tabR, "./txt/Recette.txt");
+    Commande c;
+    c.commandeAleatoire(tabC, commande);
 
 }

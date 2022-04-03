@@ -14,7 +14,6 @@ int main()
     vector<Recette> tabR;
     vector<string> tabC;
     Jeu j1(0,0);
-    //string ingredient = "Salade";
     j1.chargerIngredient(tabI, "./txt/Ingredients.txt");
     j1.chargerRecette(tabR, "./txt/Recette.txt");
     j1.recetteAleatoire(tabC);

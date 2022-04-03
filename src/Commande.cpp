@@ -68,7 +68,6 @@ void Commande::chargerCarte(vector<Commande> &tabC, const string &fileCarte){
 }
 
 void Commande::commandeAleatoire(vector<Commande> &carte, vector<Commande> & commandeAl){  // commandeAl : Tableau dynamique qui prend aleatoire des recettes de la carte
-    srand(time(NULL));
     chargerCarte(carte, "./txt/Carte.txt");
 
     unsigned int random1, random2, random3;

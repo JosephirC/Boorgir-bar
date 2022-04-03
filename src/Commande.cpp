@@ -19,7 +19,15 @@ Commande::Commande(string nom, unsigned int prix){
 }
 
 Commande:: ~Commande(){   
+    
+}
 
+void Commande::setNom(const string & nom){
+    nomC = nom;
+}
+
+void Commande::setPrix(const unsigned int & prix){
+    prixC = prix;
 }
 
 string Commande::getNom() const{
@@ -59,7 +67,7 @@ void Commande::chargerCarte(vector<Commande> &tabC, const string &fileCarte){
         cout << "Failed to open file..." << endl;
 }
 
-void Commande::commandeAleatoire(vector<Commande> &carte, vector<string> & commandeAl){  // commandeAl : Tableau dynamique qui prend aleatoire des recettes de la carte
+void Commande::commandeAleatoire(vector<Commande> &carte, vector<Commande> & commandeAl){  // commandeAl : Tableau dynamique qui prend aleatoire des recettes de la carte
     srand(time(NULL));
     chargerCarte(carte, "./txt/Carte.txt");
 
@@ -74,44 +82,67 @@ void Commande::commandeAleatoire(vector<Commande> &carte, vector<string> & comma
     unsigned int jus = 8;
     unsigned int rien = 9;
 
-    string recette1, recette2, recette3;
+    string recette1, recette2, recette3, nom1, nom2, nom3;
+    unsigned int prix1, prix2, prix3;
 
     for (unsigned int i = 0; i < 1; i++){
         random1 = rand()%(max1 - min1 + 1) + min1; // nombre aleatoire entre 0 et 5
-        recette1 = carte[random1].getNom();
-        cout << "recette1 : " << recette1 << endl;
+        nom1 = carte[random1].getNom();
+        prix1 = carte[random1].getPrix();
+        Commande c1(nom1, prix1);
+        commandeAl.push_back(c1);
+        cout << "recette1 : " << commandeAl[i] << endl;
 
-        for(unsigned int j = 0; j < 1; j++){
+        for(unsigned int j = 1; j < 2; j++){
             random2 = rand()%(max2 - min2 + 1) + min2; // nombre aleatoire entre 6 et 9
-            recette2 = carte[random2].getNom();;
-            cout << "recette2 : " << recette2 << endl;
+            nom2 = carte[random2].getNom();
+            prix2 = carte[random2].getPrix();
+            Commande c2(nom2, prix2);
+            commandeAl.push_back(c2);
+            cout << "recette2 : " << commandeAl[j] << endl;
             
-            for(unsigned int k = 0; k < 1; k++){
+            for(unsigned int k = 2; k < 3; k++){
                 random3 = rand()%(max2 - min2 + 1) + min2; // nombre aleatoire entre 6 et 9
 
                 if(random3 == random2){
                     cout << "recette3 = NULL" << endl;
                     cout << "Pas de 3eme recette " << endl;
+                    nom3 = " ";
+                    prix3 = 0;
+                    Commande c3(nom3, prix3);
+                    commandeAl.push_back(c3);
                 }
 
                 else{
                     if(random3 == frites){
-                        recette3 = carte[frites].getNom();
-                        cout << "recette3 : " << recette3 << endl;
+                        nom3 = carte[frites].getNom();
+                        prix3 = carte[frites].getPrix();
+                        Commande c3(nom3, prix3);
+                        commandeAl.push_back(c3);
+                        cout << "recette3 : " << commandeAl[k] << endl;
                     }
                     else{
                         if(random3 == soda && random2 != jus){
-                            recette3 = carte[soda].getNom();
-                            cout << "recette3 : " << recette3 << endl;
+                            nom3 = carte[soda].getNom();
+                            prix3 = carte[soda].getPrix();
+                            Commande c3(nom3, prix3);
+                            commandeAl.push_back(c3);
+                            cout << "recette3 : " << commandeAl[k] << endl;
                         }
                         else{
                             if(random3 == jus && random2 != soda){
-                                recette3 = carte[jus].getNom();
-                                cout << "recette3 : " << recette3 << endl;
+                                nom3 = carte[jus].getNom();
+                                prix3 = carte[jus].getPrix();
+                                Commande c3(nom3, prix3);
+                                commandeAl.push_back(c3);
+                                cout << "recette3 : " << commandeAl[k] << endl;
                             }
                             else{
-                                recette3 = carte[rien].getNom();
-                                cout << "recette3 : " << recette3 << endl;
+                                nom3 = carte[rien].getNom();
+                                prix3 = carte[rien].getPrix();
+                                Commande c3(nom3, prix3);
+                                commandeAl.push_back(c3);
+                                cout << "recette3 : " << commandeAl[k] << endl;
                             }    
                         }
                     }
@@ -123,9 +154,6 @@ void Commande::commandeAleatoire(vector<Commande> &carte, vector<string> & comma
         cout << "random3 : " << random3 << endl;
 
     }
-    commandeAl.push_back(recette1);
-    commandeAl.push_back(recette2);
-    commandeAl.push_back(recette3);
 
     for(unsigned int i = 0; i < commandeAl.size(); i++){
         cout << endl << "Transfer reussi et la commande est : " << endl;
@@ -135,18 +163,15 @@ void Commande::commandeAleatoire(vector<Commande> &carte, vector<string> & comma
     }
 }
 
-unsigned int Commande::calculePrix(vector<string> commandeAl){
+unsigned int Commande::calculePrix(vector<Commande> commandeAl){
     vector<Commande> carte;
     commandeAleatoire(carte, commandeAl);
+    unsigned int prix = 0;
 
-    cout << "test" << endl;
-
-    for(unsigned int i = 0; i<carte.size(); i++){
-        cout << carte[i].getNom() << " " << carte[i].getPrix() << endl;
+    for(unsigned int i = 0; i<commandeAl.size(); i++){
+        //cout << commandeAl[i].getNom() << " " << commandeAl[i].getPrix() << endl;
+        prix = prix + commandeAl[i].getPrix();
     }
-
-    cout << "test 2" << endl;
-
-
-    return 0;
+    cout << "Le prix de la commande est : " << prix << endl;
+    return prix;
 }

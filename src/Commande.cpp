@@ -19,7 +19,7 @@ Commande::Commande(string nom, unsigned int prix){
 }
 
 Commande:: ~Commande(){   
-    
+
 }
 
 string Commande::getNom() const{
@@ -59,7 +59,7 @@ void Commande::chargerCarte(vector<Commande> &tabC, const string &fileCarte){
         cout << "Failed to open file..." << endl;
 }
 
-void Commande::commandeAleatoire(vector<Commande> carte, vector<string> & commandeAl){  // commandeAl : Tableau dynamique qui prend aleatoire des recettes de la carte
+void Commande::commandeAleatoire(vector<Commande> &carte, vector<string> & commandeAl){  // commandeAl : Tableau dynamique qui prend aleatoire des recettes de la carte
     srand(time(NULL));
     chargerCarte(carte, "./txt/Carte.txt");
 
@@ -135,9 +135,18 @@ void Commande::commandeAleatoire(vector<Commande> carte, vector<string> & comman
     }
 }
 
-unsigned int Commande::calculePrix()
-{
+unsigned int Commande::calculePrix(vector<string> commandeAl){
+    vector<Commande> carte;
+    commandeAleatoire(carte, commandeAl);
+
+    cout << "test" << endl;
+
+    for(unsigned int i = 0; i<carte.size(); i++){
+        cout << carte[i].getNom() << " " << carte[i].getPrix() << endl;
+    }
+
+    cout << "test 2" << endl;
+
 
     return 0;
-
 }

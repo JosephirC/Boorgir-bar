@@ -18,6 +18,7 @@ int main()
     //j1.chargerIngredient(tabI, "./txt/Ingredients.txt");
     //j1.chargerRecette(tabR, "./txt/Recette.txt");
     Commande c;
-    c.commandeAleatoire(tabC, commande);
+    //c.commandeAleatoire(tabC, commande);
+    c.calculePrix(commande);
 
 }

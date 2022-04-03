@@ -19,6 +19,8 @@ int main()
     //j1.chargerRecette(tabR, "./txt/Recette.txt");
     Commande c;
     //c.commandeAleatoire(tabC, commande);
-    c.calculePrix(commande);
+    //c.calculePrix(commande);
+    cout<<"hii";
+    j1.creationClient(4);
 
 }

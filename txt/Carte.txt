@@ -1,17 +1,17 @@
-BurgerSteakTomateSalade
+BurgerSteakTomateSalade 18
 
-BurgerSteakTomateSaladeMayo
+BurgerSteakTomateSaladeMayo 19
 
-BurgerSteakTomateSaladeKetchup
+BurgerSteakTomateSaladeKetchup 19
 
-HotDog
+HotDog 11
 
-HotDogKetchup 
+HotDogKetchup 12
 
-HotDogMayo
+HotDogMayo 12
 
-Frites
+Frites 6
 
-Soda
+Soda 5
 
-Jus
+Jus 4

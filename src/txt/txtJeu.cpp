@@ -94,6 +94,10 @@ void txtBoucle (Jeu & jeu,vector<Commande> carte) {
 				affClient(jeu.tabC);
 				break;
 
+			case '0':
+				txtChoixIng(0,carte);
+				break;
+
 			case 'q':
 				ok = false;
 				break;

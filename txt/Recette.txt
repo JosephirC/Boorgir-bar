@@ -35,3 +35,9 @@ HD_Saucisse 2 Saucisse PainHD 11
 HD_Saucisse_Ketchup 3 Saucisse PainHD Ketchup 12
 
 HD_Saucisse_Mayo 3 Saucisse PainHD Mayo 12
+
+Frites 1 Frites 6
+
+Soda 2 Soda 5
+
+Jus 2 Jus 4

@@ -1,14 +1,14 @@
-BurgerSteakTomateSalade 18
+B_Steak_Salade_Tomate 18
 
-BurgerSteakTomateSaladeMayo 19
+B_Steak_Salade_Tomate_Ketchup5 19
 
-BurgerSteakTomateSaladeKetchup 19
+B_Steak_Salade_Tomate_Mayo 19
 
-HotDog 11
+HD_Saucisse 11
 
-HotDogKetchup 12
+HD_Saucisse_Ketchup 12
 
-HotDogMayo 12
+HD_Saucisse_Mayo 12
 
 Frites 6
 

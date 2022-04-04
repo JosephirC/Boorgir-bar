@@ -7,10 +7,10 @@ bin/mainTxt: obj/mainTxt.o obj/Jeu.o obj/Recette.o obj/Ingredient.o obj/Commande
 obj/mainTxt.o: src/txt/mainTxt.cpp src/txt/winTxt.h src/txt/txtJeu.h
 	g++ -ggdb -Wall -c src/txt/mainTxt.cpp -o obj/mainTxt.o
 
-obj/winTxt.o: src/txt/winTxt.h
+obj/winTxt.o: src/txt/winTxt.cpp src/txt/winTxt.h
 	g++ -ggdb -Wall -c src/txt/winTxt.cpp -o obj/winTxt.o
 
-obj/txtJeu.o: src/txt/txtJeu.h
+obj/txtJeu.o: src/txt/txtJeu.cpp src/txt/txtJeu.h
 	g++ -ggdb -Wall -c src/txt/txtJeu.cpp -o obj/txtJeu.o
 
 bin/main: obj/main.o obj/Jeu.o obj/Recette.o obj/Ingredient.o obj/Commande.o obj/Client.o obj/Menu.o obj/Objectif.o obj/Temps.o

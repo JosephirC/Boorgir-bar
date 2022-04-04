@@ -25,3 +25,8 @@ unsigned int Client::getIdC() const{
      return prixTot;
  }
 
+ Commande Client::getCom(){
+
+     return com;
+ }
+

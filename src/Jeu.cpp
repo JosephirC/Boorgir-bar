@@ -24,6 +24,16 @@ Jeu::~Jeu(){
     
 }
 
+/*
+const vector<Commande>& Jeu::getCarte() const {
+    return carte;
+}
+
+void Jeu::setCarte(vector<Commande> cart){
+    carte = cart;
+}
+*/
+
      
 ostream &operator<< (ostream & flux, const Ingredient &ing){
     flux << "Nom : " << ing.getNom() << " | Prix : " << ing.getPrix() << "$ | Emplacement : " << ing.getEmplacement() << " | Temps de cuisson : " << ing.getCuisson() << " sec"  << endl; 
@@ -142,4 +152,5 @@ void Jeu::creationClient(const unsigned int &I){
     }
     */
 }
+
 

@@ -1,6 +1,6 @@
 B_Steak_Salade_Tomate 18
 
-B_Steak_Salade_Tomate_Ketchup5 19
+B_Steak_Salade_Tomate_Ketchup 19
 
 B_Steak_Salade_Tomate_Mayo 19
 

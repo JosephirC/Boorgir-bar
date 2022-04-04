@@ -33,7 +33,7 @@ class Commande{
 
         void commandeAleatoire(vector<Commande> & carte, vector<Commande> & commendeAl); // remplie le tableau de commande avec des recette entre 1 et 3
 
-        unsigned int calculePrix(vector<Commande> commandeAl); // retourne le prix de la commande
+        void calculePrix(vector<Commande> &commandeAl, unsigned int & prix); // retourne le prix de la commande
 };
 
 

@@ -19,7 +19,6 @@ Jeu::Jeu(int typeJeu, int niveau){
 
 }
 
-
 Jeu::~Jeu(){
     
 }
@@ -50,7 +49,6 @@ ostream &operator<< (ostream & flux, const Recette &rec){
     flux << endl; 
     return flux;
 }
-
 
 void Jeu::chargerIngredient(vector<Ingredient> &ingVec, const string &filenameIng){
     //vector<Ingredient> ingVec;
@@ -130,22 +128,41 @@ void Jeu::chargerRecette(vector<Recette> &recVec, const string &filenameRec){
     
 }
 
-
-
-
-
-void Jeu::creationClient(const unsigned int &I){
-
+void Jeu::creationClient(const unsigned int &I, vector<Client> & tabC){
+    cout << "im in" << endl << endl << endl;
     Commande com;
     vector<Commande> comAl;
-    unsigned int i;
+    unsigned int i, prix;
+
+    
+
     for(i=0;i<I;i++){
-        int prix = com.calculePrix(comAl);
-        Client cli(i+1,com,prix);
+        com.calculePrix(comAl, prix);
+
+        for(unsigned int i = 0; i<comAl.size(); i++)
+        {
+            cout << "size " <<  comAl.size() << endl;
+
+            com.setNom(comAl[i].getNom());
+            cout << "Le nom de comAL : " << comAl[i].getNom() << endl;
+            cout << "Le nom de com a " << i << "i" << com.getNom();
+
+            com.setPrix(comAl[i].getPrix());
+
+
+        }
+
+
+        Client cli(i+1, com, prix);
         tabC.push_back(cli);
         comAl.clear();
     }
+
+
     
+    
+    //carte.clear();
+
     /*
     for (int j=0;j<4;j++){
         cout << tabC[j].getPrix() << "hii";
@@ -153,4 +170,17 @@ void Jeu::creationClient(const unsigned int &I){
     */
 }
 
+bool Jeu::compareRecette(vector<Recette> &tabR){
+    unsigned int I = 4;
+    //bool egale = false;
+    vector<Client> tabC;
+    chargerRecette(tabR, "./txt/Recette.txt");
+    creationClient(I, tabC);
 
+    for(unsigned int i = 0; i < I; i++){
+        cout << "Le client est : " << endl;
+        cout << "test1    " << tabC[i].getCom().getNom() << "   test2"  << endl;
+    }
+
+
+}

@@ -7,7 +7,7 @@
 using namespace  std;
 
 
-Client::Client(const unsigned int idC, Commande comm, const int prix){
+Client::Client(const unsigned int idC, Commande  comm, unsigned int prix){
     idClient=idC;
     com=comm;
     prixTot=prix;

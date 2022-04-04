@@ -23,7 +23,7 @@ class Client{
 
         Client();
 
-        Client(const unsigned int idC, Commande comm, const int prix); // on appelle le constructeur de temps pour creer un objet de la classe 
+        Client(const unsigned int idC, Commande comm, unsigned int prix); // on appelle le constructeur de temps pour creer un objet de la classe 
 
         ~Client();
 

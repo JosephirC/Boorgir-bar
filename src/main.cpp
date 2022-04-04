@@ -11,6 +11,7 @@ using namespace std;
 int main()
 {
     srand(time(NULL));
+    unsigned int prix;
     vector<Ingredient> tabI;
     vector<Recette> tabR;
     vector<Commande> tabC;
@@ -20,8 +21,9 @@ int main()
     //j1.chargerRecette(tabR, "./txt/Recette.txt");
     Commande c;
     //c.commandeAleatoire(tabC, commande);
-    c.calculePrix(commande);
+    //c.calculePrix(commande, prix);
     cout<<"hii";
-    j1.creationClient(4);
+    //j1.creationClient(4);
 
+    j1.compareRecette(tabR);
 }

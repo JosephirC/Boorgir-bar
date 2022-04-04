@@ -3,6 +3,7 @@
 #include "../Jeu.h"
 
 int main ( int argc, char** argv ) {
+	srand(time(NULL));
     termClear();
 	cout<< "Bienvenu a Boorgir Bar"<<endl;
 	cout<< "h: help carte"<<endl;
@@ -10,9 +11,10 @@ int main ( int argc, char** argv ) {
 	cout<< "q: quit"<<endl;
 
 	Jeu j;
+	vector<Client> tabC;
+	j.creationClient(4, tabC);
 
-	j.creationClient(4);
-	cout<<"ok creation";
+	cout<<"ok creation" << endl;
 
 	Commande com;
 	vector<Commande> carte;
@@ -22,9 +24,10 @@ int main ( int argc, char** argv ) {
 	//carte=j.getCarte();
 
 	
-
-
 	txtBoucle(j,carte);
+
+	cout << "bro ? " << endl;
+	
     termClear();
 	return 0;
 }

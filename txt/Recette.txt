@@ -38,6 +38,6 @@ HD_Saucisse_Mayo 3 Saucisse PainHD Mayo 12
 
 Frites 1 Frites 6
 
-Soda 2 Soda 5
+Soda 1 Soda 5
 
-Jus 2 Jus 4
+Jus 1 Jus 4

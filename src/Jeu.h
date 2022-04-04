@@ -33,7 +33,7 @@ class Jeu{
 
 
     public :
-        vector<Client> tabC;
+        vector<Client> tabC1;
 
         Jeu();
 
@@ -60,9 +60,9 @@ class Jeu{
 
         void setClient(const unsigned int &IdC, const Client &c);
 
-        void creationClient(const unsigned int &I);
+        void creationClient(const unsigned int &I, vector<Client> &tabC);
         
-        
+        bool compareRecette(vector<Recette> & tabR);
 
 
 

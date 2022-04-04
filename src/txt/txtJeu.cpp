@@ -28,8 +28,6 @@ bool selectIng(vector <Commande> carte, Commande commande){
 */
 
 
-
-
 void affCarte(vector <Commande> carte){
 	cout<< "----- Voici la Carte -------"<<endl;
 	for (unsigned int i = 0; i < carte.size(); i++) // unsigned int i = 0; i < v.size(); i++ présentent le risque que le compilateur ne sorte pas de la boucle le calcul de v.size() 
@@ -61,15 +59,11 @@ void txtChoixIngredient(char c){
 	
 }
 
-
-
 void txtBoucle (Jeu & jeu,vector<Commande> carte) {
-	
 	bool ok = true;
 	char c;
-	cout<<"boucle";
+	cout << "boucle";
 	WinTXT win;
-
 
 	do {
 	    //txtAff(win,jeu);
@@ -81,7 +75,6 @@ void txtBoucle (Jeu & jeu,vector<Commande> carte) {
         #endif // WIN32
 		
     	c=win.getCh();
-
 		
 		switch(c)
 		{
@@ -103,8 +96,5 @@ void txtBoucle (Jeu & jeu,vector<Commande> carte) {
 				break;
 
 		}
-			
-
 	} while (ok);
-
 }

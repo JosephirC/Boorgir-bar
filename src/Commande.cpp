@@ -54,7 +54,7 @@ void Commande::chargerCarte(vector<Commande> &tabC, const string &fileCarte){
             tabC.push_back(c);
         }
         
-        cout << "----------Voici la Carte----------" << endl << endl;
+        cout << "----------Voici un client----------" << endl;
 
         for(unsigned int i = 0; i < tabC.size(); i++){
             //cout << tabC[i] << endl;

@@ -13,7 +13,7 @@ void txtAff(WinTXT & win, const Jeu & jeu) {
 	
 }
 
-/*
+/* 
 bool selectIng(vector <Commande> carte, Commande commande){
 	bool result = false;
 	for (unsigned int i = 0; i < v.size(); i++) // unsigned int i = 0; i < v.size(); i++ présentent le risque que le compilateur ne sorte pas de la boucle le calcul de v.size() 
@@ -28,9 +28,7 @@ bool selectIng(vector <Commande> carte, Commande commande){
 */
 
 
-Commande txtChoixIng(int c,vector <Commande> carte){   //c' est getch
-	return carte[c];
-}
+
 
 void affCarte(vector <Commande> carte){
 	cout<< "----- Voici la Carte -------"<<endl;
@@ -40,14 +38,24 @@ void affCarte(vector <Commande> carte){
 	}
 }
 
-void affClient(vector <Commande> carte){
-	cout<< "----- Voici la Carte -------"<<endl;
-	for (unsigned int i = 0; i < carte.size(); i++) // unsigned int i = 0; i < v.size(); i++ présentent le risque que le compilateur ne sorte pas de la boucle le calcul de v.size() 
+void affClient(vector <Client> tab){
+	cout<< "----- Voici les client -------"<<endl;
+	unsigned int i,j;
+	for (i = 0; i < tab.size(); i++) // unsigned int i = 0; i < v.size(); i++ présentent le risque que le compilateur ne sorte pas de la boucle le calcul de v.size() 
 	{
-		cout<<i<<" "<<carte[i].getNom()<<" "<<carte[i].getPrix()<< "$ "<<endl;
+		cout<<"Le client "<<tab[i].getIdC()<<" veut: "<<endl;
+		//for (j = 0; j < 3; j++) {              //ici il faut afficher la commande du client
+		//	cout<<tabC[i].getCom().getNom();
+			
+		//}
+		cout<<tab[i].getPrix()<< "$ "<<endl;
 	}
 }
 
+
+Commande txtChoixIng(int c,vector <Commande> carte){   //c' est getch
+	return carte[c];
+}
 
 void txtChoixIngredient(char c){
 	
@@ -73,6 +81,7 @@ void txtBoucle (Jeu & jeu,vector<Commande> carte) {
         #endif // WIN32
 		
     	c=win.getCh();
+
 		
 		switch(c)
 		{
@@ -81,8 +90,8 @@ void txtBoucle (Jeu & jeu,vector<Commande> carte) {
 				affCarte(carte);
 				break;
 
-			case 2:
-			//something else
+			case 'c':
+				affClient(jeu.tabC);
 				break;
 
 			case 'q':

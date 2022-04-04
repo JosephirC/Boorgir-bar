@@ -20,7 +20,7 @@ class Jeu{
 
     private :
 
-        vector<Client> tabC;
+        
         Temps tempsJ(int periode);
         vector<Ingredient> tabIng; //[50]
         vector<Recette> tabRec; //[50]
@@ -33,6 +33,7 @@ class Jeu{
 
 
     public :
+        vector<Client> tabC;
 
         Jeu();
 

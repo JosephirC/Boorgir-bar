@@ -15,11 +15,11 @@ class Client{
         //Temps patience(unsigned int duree);
         //int emplacement;
         unsigned int idClient; 
-        Commande com;
         int prixTot;
-
+        Commande com;
 
     public :
+        
 
         Client();
 
@@ -31,6 +31,7 @@ class Client{
 
         unsigned int getIdC() const;
         unsigned int getPrix() const;
+        Commande getCom();
 };
 
 #endif

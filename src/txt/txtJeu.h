@@ -3,6 +3,6 @@
 
 #include "../Jeu.h"
 
-void txtBoucle (Jeu & j);
+void txtBoucle (Jeu & j,vector<Commande> carte);
 
 #endif

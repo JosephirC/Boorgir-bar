@@ -24,6 +24,7 @@ class Jeu{
         Temps tempsJ(int periode);
         vector<Ingredient> tabIng; //[50]
         vector<Recette> tabRec; //[50]
+        //vector<Commande> carte;
         int objectif; 
         int additionArgent;  // additionArgent = tabC[i].paiement;
         int ingSelectionne; // prend la valeur de l'emplacement de l'ingredient selectionner/// REMARQUE IL FAUT METTRE L EMPLACEMENT ICI 
@@ -45,10 +46,10 @@ class Jeu{
 
         void chargerRecette(vector<Recette> & tabR, const string& fileRecette);
 
-
-        const vector<Recette>& getvector() const {return tabRec;}
-
-        void setvector(vector<Recette> vec){tabRec = vec;}
+        //const vector<Commande>& getCarte() const;
+        //void setCarte(vector<Commande> carte);
+        //const vector<Recette>& getvector() const {return tabRec;}
+        //void setvector(vector<Recette> vec){tabRec = vec;}
 
         string getNomCarte() const ; //Accesseur : recupere le nom de la recette de la carte
 

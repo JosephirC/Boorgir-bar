@@ -28,6 +28,8 @@ bool selectIng(vector <Commande> carte, Commande commande){
 */
 
 
+
+
 void affCarte(vector <Commande> carte){
 	cout<< "----- Voici la Carte -------"<<endl;
 	for (unsigned int i = 0; i < carte.size(); i++) // unsigned int i = 0; i < v.size(); i++ présentent le risque que le compilateur ne sorte pas de la boucle le calcul de v.size() 
@@ -38,7 +40,7 @@ void affCarte(vector <Commande> carte){
 
 void affClient(vector <Client> tab){
 	cout<< "----- Voici les client -------"<<endl;
-	unsigned int i,j;
+	unsigned int i; //j
 	for (i = 0; i < tab.size(); i++) // unsigned int i = 0; i < v.size(); i++ présentent le risque que le compilateur ne sorte pas de la boucle le calcul de v.size() 
 	{
 		cout<<"Le client "<<tab[i].getIdC()<<" veut: "<<endl;
@@ -51,7 +53,7 @@ void affClient(vector <Client> tab){
 }
 
 
-Commande txtChoixIng(int c,vector <Commande> carte){   //c' est getch
+Commande txtChoixIng(int c,vector <Commande> carte){   //c
 	return carte[c];
 }
 
@@ -59,11 +61,15 @@ void txtChoixIngredient(char c){
 	
 }
 
-void txtBoucle (Jeu & jeu,vector<Commande> carte) {
+
+
+void txtBoucle (Jeu & jeu,vector<Commande> carte,vector<Client> &tab) {
+	
 	bool ok = true;
 	char c;
-	cout << "boucle";
+	cout<<"boucle";
 	WinTXT win;
+
 
 	do {
 	    //txtAff(win,jeu);
@@ -75,6 +81,7 @@ void txtBoucle (Jeu & jeu,vector<Commande> carte) {
         #endif // WIN32
 		
     	c=win.getCh();
+
 		
 		switch(c)
 		{
@@ -84,7 +91,7 @@ void txtBoucle (Jeu & jeu,vector<Commande> carte) {
 				break;
 
 			case 'c':
-				affClient(jeu.tabC);
+				affClient(tab);
 				break;
 
 			case '0':
@@ -96,5 +103,8 @@ void txtBoucle (Jeu & jeu,vector<Commande> carte) {
 				break;
 
 		}
+			
+
 	} while (ok);
+
 }

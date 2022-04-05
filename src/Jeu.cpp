@@ -148,8 +148,6 @@ void Jeu::creationClient(const unsigned int &I, vector<Client> & tabC){
             cout << "Le nom de com a " << i << "i" << com.getNom();
 
             com.setPrix(comAl[i].getPrix());
-
-
         }
 
 
@@ -178,9 +176,10 @@ bool Jeu::compareRecette(vector<Recette> &tabR){
     creationClient(I, tabC);
 
     for(unsigned int i = 0; i < I; i++){
-        cout << "Le client est : " << endl;
-        cout << "test1    " << tabC[i].getCom().getNom() << "   test2"  << endl;
+        for(unsigned int j = 0; j < 2; j++){
+            cout << "Le client est : " << i << "  ";
+            cout << "test1    " << tabC[i].getCom().getNom() << "   test2"  << endl;
+        }
     }
-
-
+    return true;
 }

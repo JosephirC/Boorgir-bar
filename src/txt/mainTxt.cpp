@@ -24,7 +24,7 @@ int main ( int argc, char** argv ) {
 	//carte=j.getCarte();
 
 	
-	txtBoucle(j,carte);
+	txtBoucle(j,carte,tabC);
 
 	cout << "bro ? " << endl;
 	

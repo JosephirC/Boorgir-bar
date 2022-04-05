@@ -9,6 +9,9 @@ int main ( int argc, char** argv ) {
 	cout<< "h: help carte"<<endl;
 	cout<< "c: client"<<endl;
 	cout<< "q: quit"<<endl;
+	int i=strtol("1",NULL,10);
+	cout << i;
+	
 
 	Jeu j;
 	vector<Client> tabC;

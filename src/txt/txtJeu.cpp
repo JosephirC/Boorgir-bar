@@ -58,9 +58,14 @@ Commande txtChoixIng(int c,vector <Commande> carte){   //c
 	return carte[c];
 }
 
-void txtChoixIngredient(char c){
+void theChoixIngredient(char c){
+	//int i=strtol("1",NULL,10)
+	int i=strtol("c",NULL,10);
 	
+
 }
+
+
 
 
 
@@ -92,7 +97,7 @@ void txtBoucle (Jeu & jeu,vector<Commande> carte,vector<Client> &tab) {
 				break;
 
 			case 'c':
-				//affClient(tab);
+				affClient(tab);
 				break;
 
 			case '0':
@@ -101,6 +106,34 @@ void txtBoucle (Jeu & jeu,vector<Commande> carte,vector<Client> &tab) {
 
 			case 'q':
 				ok = false;
+				break;
+			
+			case '0':                //Je voulais faire une boucle mais switch ne me permet pas. A voir :)
+				creationRecette("B_Steak_Salade_Tomate");
+				break;
+			case '1':
+				creationRecette("B_Steak_Salade_Tomate_Ketchup");
+				break;
+			case '2':
+				creationRecette("B_Steak_Salade_Tomate_Mayo");
+				break;
+			case '3':
+				creationRecette("HD_Saucisse");
+				break;
+			case '4':
+				creationRecette("HD_Saucisse_Ketchup");
+				break;	
+			case '5':
+				creationRecette("HD_Saucisse_Mayo");
+				break;
+			case '6':
+				creationRecette("Frites");
+				break;
+			case '7':
+				creationRecette("Soda");
+				break;
+			case '8':
+				creationRecette("Jus");
 				break;
 
 		}

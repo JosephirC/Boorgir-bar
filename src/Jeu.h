@@ -61,8 +61,10 @@ class Jeu{
         void setClient(const unsigned int &IdC, const Client &c);
 
         void creationClient(const unsigned int &I, vector<Client> &tabC);
+
+        string creationRecette(const string & recette);
         
-        bool compareRecette(vector<Recette> & tabR);
+        bool compareRecette(vector<Recette> & tabR, const string & r, unsigned int & IdCl);
 
 
 

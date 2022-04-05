@@ -140,37 +140,43 @@ void Jeu::creationClient(const unsigned int &I, vector<Client> & tabC){
     }
 }
 
-bool Jeu::compareRecette(vector<Recette> &tabR){
-    unsigned int I = 4;
-    //bool egale = false;
-    vector<Client> tabC;
-    //chargerRecette(tabR, "./txt/Recette.txt");
-    Commande C;
-    vector <Commande> tabCom;
-    C.chargerCarte(tabCom, "./txt/Carte.txt");
+string Jeu::creationRecette(const string & recette){
+    vector<Recette> vecRec;
+    chargerRecette(vecRec, "./txt/Recette.txt");
+    bool trouve = false;
 
-    for(unsigned int i = 0; i<tabCom.size(); i++){
-        //cout << "Le nom est : " << tabCom[i].getNom() << " | Le prix est : " << tabCom[i].getPrix() << endl;
-    
+    for(unsigned int i = 0; i < vecRec.size(); i++){
 
-    }
-
-    for(unsigned int i = 0; i<tabC.size(); i++){
-        //cout << "Le nom est : " << tabC[i].getCom << " | Le prix est : " << tabCom[i].getPrix() << endl;
-    
-
-    }
-
-    
-
-    creationClient(I, tabC);
-
-    for(unsigned int i = 0; i < I; i++){
-        for(unsigned int j = 0; j < 2; j++){
-            
-            //cout << "Le client est : " << i << "  ";
-            //cout << "test1    " << tabC[i].getCom().getNom() << "   test2"  << endl;
+        if(recette == vecRec[i].getNom()){
+            cout << trouve << endl;
+            trouve = true; 
+            cout << trouve << endl;
+            return recette;
         }
     }
-    return true;
+}
+
+bool Jeu::compareRecette(vector<Recette> &tabR, const string & r, unsigned int & IdCl){
+     bool egale = false;
+    unsigned int I = 4;
+    vector<Client> tabC; // pour le client
+    creationClient(I, tabC);
+    string rec = creationRecette(r);
+
+    for(unsigned int i = 0; i < tabC.size(); i++){
+        for(unsigned int j = 0; j < tabC[i].com.size(); j++){
+            cout << "Client : " << i <<"Nom : " << tabC[i].com[j].getNom() << endl;
+            
+            if(rec == tabC[i].com[j].getNom()){
+                egale = true;
+                cout << "FOUND" << endl;
+                IdCl = i;
+                return egale;
+            }
+            
+            
+        }
+    }
+        return egale;
+    
 }

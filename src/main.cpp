@@ -25,5 +25,8 @@ int main()
     //c.calculePrix(commande, prix);
     //j1.creationClient(4,cli);
 
-    j1.compareRecette(tabR);
+    //j1.compareRecette(tabR);
+    //j1.creationRecette("B_Steak");
+    unsigned int IdCl;
+    j1.compareRecette(tabR, "Frites", IdCl);
 }

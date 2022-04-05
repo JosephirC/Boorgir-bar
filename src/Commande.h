@@ -24,10 +24,12 @@ class Commande{
         ~Commande();
 
         void setNom(const string &nom);
+
         void setPrix(const unsigned int & prix);
+
         string getNom() const;
+
         unsigned int getPrix() const;
-        
 
         void chargerCarte(vector<Commande> & tabC, const string & fileCarte);
 
@@ -35,7 +37,5 @@ class Commande{
 
         void calculePrix(vector<Commande> &commandeAl, unsigned int & prix); // retourne le prix de la commande
 };
-
-
 
 #endif

@@ -165,8 +165,8 @@ bool Jeu::compareRecette(vector<Recette> &tabR, vector<Client> & tabC, const str
 
     for(unsigned int i = 0; i < tabC.size(); i++){
         for(unsigned int j = 0; j < tabC[i].com.size(); j++){
-            cout << "Client : " << i <<"Nom : " << tabC[i].com[j].getNom() << endl;
-            cout << "i = " << i << endl;
+            //cout << "Client : " << i <<"Nom : " << tabC[i].com[j].getNom() << endl;
+            //cout << "i = " << i << endl;
             if(rec == tabC[i].com[j].getNom()){
                 egale = true;
                 cout << "FOUND" << endl;

@@ -55,7 +55,7 @@ void affClient(vector <Client> tab){
 }
 
 
-Commande txtChoixIng(int c,vector <Commande> carte){   //c
+Commande txtChoixIng(int c,vector <Commande> carte){   //cHint
 	return carte[c];
 }
 

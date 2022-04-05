@@ -51,6 +51,7 @@ void affClient(vector <Client> tab){
 		}
 		cout<<tab[i].getPrix()<< "$ "<<endl;
 	}
+	cout << endl;
 }
 
 

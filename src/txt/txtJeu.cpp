@@ -39,7 +39,7 @@ void affCarte(vector <Commande> carte){
 }
 
 void affClient(vector <Client> tab){
-	cout<< "----- Voici les client -------"<<endl;
+	cout<< "------------ Voici les clients -----------"<<endl;
 	unsigned int i,j; //j
 	for (i = 0; i < tab.size(); i++) // unsigned int i = 0; i < v.size(); i++ présentent le risque que le compilateur ne sorte pas de la boucle le calcul de v.size() 
 	{
@@ -60,7 +60,7 @@ Commande txtChoixIng(int c,vector <Commande> carte){   //c
 
 void theChoixIngredient(char c){
 	//int i=strtol("1",NULL,10)
-	int i=strtol("c",NULL,10);
+	//int i=strtol("c",NULL,10);
 	
 
 }
@@ -69,12 +69,13 @@ void theChoixIngredient(char c){
 
 
 
-void txtBoucle (Jeu & jeu,vector<Commande> carte,vector<Client> &tab) {
+void txtBoucle (Jeu & jeu,vector<Commande> carte,vector<Client> &tab,vector<Recette> &R) {
 	
 	bool ok = true;
 	char c;
 	cout<<"boucle";
 	WinTXT win;
+	unsigned int id;
 
 
 	do {
@@ -100,40 +101,49 @@ void txtBoucle (Jeu & jeu,vector<Commande> carte,vector<Client> &tab) {
 				affClient(tab);
 				break;
 
-			case '0':
-				txtChoixIng(0,carte);
-				break;
+			//case '0':
+			//	txtChoixIng(0,carte);
+			//	break;
 
 			case 'q':
 				ok = false;
 				break;
 			
 			case '0':                //Je voulais faire une boucle mais switch ne me permet pas. A voir :)
-				creationRecette("B_Steak_Salade_Tomate");
+				cout << " B_Steak_Salade_Tomate selectionne "<<endl;
+				jeu.compareRecette(R,"B_Steak_Salade_Tomate",id);
 				break;
 			case '1':
-				creationRecette("B_Steak_Salade_Tomate_Ketchup");
+				cout << " B_Steak_Salade_Tomate_Ketchup selectionne "<<endl;
+				jeu.compareRecette(R,"B_Steak_Salade_Tomate_Ketchup",id);
 				break;
 			case '2':
-				creationRecette("B_Steak_Salade_Tomate_Mayo");
+				cout << " B_Steak_Salade_Tomate_Mayo selectionne "<<endl;
+				jeu.compareRecette(R,"B_Steak_Salade_Tomate_Mayo",id);
 				break;
 			case '3':
-				creationRecette("HD_Saucisse");
+				cout << " HD_Saucisse selectionne "<<endl;
+				jeu.compareRecette(R,"HD_Saucisse",id);
 				break;
 			case '4':
-				creationRecette("HD_Saucisse_Ketchup");
+				cout << " HD_Saucisse_Ketchup selectionne "<<endl;
+				jeu.compareRecette(R,"HD_Saucisse_Ketchup",id);
 				break;	
 			case '5':
-				creationRecette("HD_Saucisse_Mayo");
+				cout << " HD_Saucisse_Mayo selectionne "<<endl;
+				jeu.compareRecette(R,"HD_Saucisse_Mayo",id);
 				break;
 			case '6':
-				creationRecette("Frites");
+				cout << " Frites selectionne "<<endl;
+				jeu.compareRecette(R,"Frites",id);
 				break;
 			case '7':
-				creationRecette("Soda");
+				cout << " Soda selectionne "<<endl;
+				jeu.compareRecette(R,"Soda",id);
 				break;
 			case '8':
-				creationRecette("Jus");
+				cout << " Jus selectionne "<<endl;
+				jeu.compareRecette(R,"Jus",id);
 				break;
 
 		}

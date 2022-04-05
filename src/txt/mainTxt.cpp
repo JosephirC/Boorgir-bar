@@ -25,9 +25,10 @@ int main ( int argc, char** argv ) {
 	
 	//vector<Commande> carte;
 	//carte=j.getCarte();
+	vector<Recette> R;
 
 	
-	txtBoucle(j,carte,tabC);
+	txtBoucle(j,carte,tabC,R);
 
 	cout << "bro ? " << endl;
 	

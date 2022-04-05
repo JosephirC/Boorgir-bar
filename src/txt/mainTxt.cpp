@@ -3,7 +3,7 @@
 #include "../Jeu.h"
 
 int main ( int argc, char** argv ) {
-	srand(time(NULL));
+	//srand(time(NULL));
     termClear();
 	cout<< "Bienvenu a Boorgir Bar"<<endl;
 	cout<< "h: help carte"<<endl;

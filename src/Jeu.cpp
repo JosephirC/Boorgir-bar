@@ -143,14 +143,14 @@ void Jeu::creationClient(const unsigned int &I, vector<Client> & tabC){
 string Jeu::creationRecette(const string & recette){
     vector<Recette> vecRec;
     chargerRecette(vecRec, "./txt/Recette.txt");
-    bool trouve = false;
+    //bool trouve = false;
 
     for(unsigned int i = 0; i < vecRec.size(); i++){
 
         if(recette == vecRec[i].getNom()){
-            cout << trouve << endl;
-            trouve = true; 
-            cout << trouve << endl;
+            //cout << trouve << endl;
+            //trouve = true; 
+            //cout << trouve << endl;
             return recette;
         }
     }
@@ -165,7 +165,7 @@ bool Jeu::compareRecette(vector<Recette> &tabR, vector<Client> & tabC, const str
 
     for(unsigned int i = 0; i < tabC.size(); i++){
         for(unsigned int j = 0; j < tabC[i].com.size(); j++){
-            cout << "Client : " << i <<"Nom : " << tabC[i].com[j].getNom() << endl;
+            //cout << "Client : " << i <<"Nom : " << tabC[i].com[j].getNom() << endl;
             
             if(rec == tabC[i].com[j].getNom()){
                 egale = true;

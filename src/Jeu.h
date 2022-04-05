@@ -64,7 +64,7 @@ class Jeu{
 
         string creationRecette(const string & recette);
         
-        bool compareRecette(vector<Recette> & tabR, const string & r, unsigned int & IdCl);
+        bool compareRecette(vector<Recette> & tabR, vector<Client> & tabC, const string & r, unsigned int & IdCl);
 
 
 

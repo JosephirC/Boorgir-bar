@@ -28,5 +28,5 @@ int main()
     //j1.compareRecette(tabR);
     //j1.creationRecette("B_Steak");
     unsigned int IdCl;
-    j1.compareRecette(tabR, "Frites", IdCl);
+    j1.compareRecette(tabR, cli, "Frites", IdCl);
 }

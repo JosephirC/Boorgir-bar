@@ -156,10 +156,10 @@ string Jeu::creationRecette(const string & recette){
     }
 }
 
-bool Jeu::compareRecette(vector<Recette> &tabR, const string & r, unsigned int & IdCl){
+bool Jeu::compareRecette(vector<Recette> &tabR, vector<Client> & tabC, const string & r, unsigned int & IdCl){
      bool egale = false;
     unsigned int I = 4;
-    vector<Client> tabC; // pour le client
+    //vector<Client> tabC; // pour le client
     creationClient(I, tabC);
     string rec = creationRecette(r);
 
@@ -171,12 +171,14 @@ bool Jeu::compareRecette(vector<Recette> &tabR, const string & r, unsigned int &
                 egale = true;
                 cout << "FOUND" << endl;
                 IdCl = i;
+                tabR.clear();
                 return egale;
             }
             
             
         }
     }
+        tabR.clear();
         return egale;
     
 }

@@ -66,6 +66,7 @@ class Jeu{
         
         bool compareRecette(vector<Recette> & tabR, vector<Client> & tabC, const string & r, unsigned int & IdCl);
 
+        void effaceRecette(vector<Client> & Cl, unsigned int & IdCl);
 
 
 };

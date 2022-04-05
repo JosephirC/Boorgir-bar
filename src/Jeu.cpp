@@ -165,7 +165,7 @@ bool Jeu::compareRecette(vector<Recette> &tabR, vector<Client> & tabC, const str
 
     for(unsigned int i = 0; i < tabC.size(); i++){
         for(unsigned int j = 0; j < tabC[i].com.size(); j++){
-            //cout << "Client : " << i <<"Nom : " << tabC[i].com[j].getNom() << endl;
+            cout << "Client : " << i <<"Nom : " << tabC[i].com[j].getNom() << endl;
             
             if(rec == tabC[i].com[j].getNom()){
                 egale = true;
@@ -181,4 +181,20 @@ bool Jeu::compareRecette(vector<Recette> &tabR, vector<Client> & tabC, const str
         tabR.clear();
         return egale;
     
+}
+
+void Jeu::effaceRecette(vector<Client> & Cl, unsigned int & IdCl){
+    vector<Recette> tabR;
+    string recette;
+    bool trouve;
+
+    cout << "work" << endl;
+
+    trouve = compareRecette(tabR, Cl, recette, IdCl);
+
+    cout << "trouve = " << trouve << endl;
+
+
+
+
 }

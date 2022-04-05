@@ -23,10 +23,11 @@ int main()
     Commande c;
     //c.commandeAleatoire(tabC, commande);
     //c.calculePrix(commande, prix);
-    //j1.creationClient(4,cli);
+    j1.creationClient(4,cli);
 
     //j1.compareRecette(tabR);
     //j1.creationRecette("B_Steak");
     unsigned int IdCl;
-    j1.compareRecette(tabR, cli, "Frites", IdCl);
+    //j1.compareRecette(tabR, cli, "Frites", IdCl);
+    j1.effaceRecette(cli, IdCl);
 }

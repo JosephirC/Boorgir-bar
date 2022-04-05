@@ -31,7 +31,7 @@ bool selectIng(vector <Commande> carte, Commande commande){
 
 
 void affCarte(vector <Commande> carte){
-	cout<< "----- Voici la Carte -------"<<endl;
+	cout<<endl<< "----- Voici la Carte -------"<<endl;
 	for (unsigned int i = 0; i < carte.size(); i++) // unsigned int i = 0; i < v.size(); i++ présentent le risque que le compilateur ne sorte pas de la boucle le calcul de v.size() 
 	{
 		cout<<i<<" "<<carte[i].getNom()<<" "<<carte[i].getPrix()<< "$ "<<endl;
@@ -39,7 +39,7 @@ void affCarte(vector <Commande> carte){
 }
 
 void affClient(vector <Client> tab){
-	cout<< "------------ Voici les clients -----------"<<endl;
+	cout<<endl<< "------------ Voici les clients -----------"<<endl;
 	unsigned int i,j; //j
 	for (i = 0; i < tab.size(); i++) // unsigned int i = 0; i < v.size(); i++ présentent le risque que le compilateur ne sorte pas de la boucle le calcul de v.size() 
 	{
@@ -73,7 +73,7 @@ void txtBoucle (Jeu & jeu,vector<Commande> carte,vector<Client> &tab,vector<Rece
 	
 	bool ok = true;
 	char c;
-	cout<<"boucle";
+	//cout<<"boucle";
 	WinTXT win;
 	unsigned int id;
 
@@ -92,8 +92,7 @@ void txtBoucle (Jeu & jeu,vector<Commande> carte,vector<Client> &tab,vector<Rece
 		
 		switch(c)
 		{
-			case 'h':
-				cout<<"enter";
+			case 'm':
 				affCarte(carte);
 				break;
 

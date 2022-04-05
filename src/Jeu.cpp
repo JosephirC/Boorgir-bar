@@ -148,29 +148,13 @@ bool Jeu::compareRecette(vector<Recette> &tabR){
     Commande C;
     vector <Commande> tabCom;
     C.chargerCarte(tabCom, "./txt/Carte.txt");
-
-    for(unsigned int i = 0; i<tabCom.size(); i++){
-        //cout << "Le nom est : " << tabCom[i].getNom() << " | Le prix est : " << tabCom[i].getPrix() << endl;
-    
-
-    }
-
-    for(unsigned int i = 0; i<tabC.size(); i++){
-        //cout << "Le nom est : " << tabC[i].getCom << " | Le prix est : " << tabCom[i].getPrix() << endl;
-    
-
-    }
-
-    
-
     creationClient(I, tabC);
 
-    for(unsigned int i = 0; i < I; i++){
-        for(unsigned int j = 0; j < 2; j++){
-            
-            //cout << "Le client est : " << i << "  ";
-            //cout << "test1    " << tabC[i].getCom().getNom() << "   test2"  << endl;
-        }
+    for(unsigned int i = 0; i < tabC.size(); i++){
+        for(unsigned int j = 0; j < tabC[i].com.size(); j++){
+            cout << "Client num : " << i << " | Nom : " << tabC[i].com[j].getNom() << " | Prix : " << tabC[i].com[j].getPrix() << endl << endl;
+            }
     }
+
     return true;
 }

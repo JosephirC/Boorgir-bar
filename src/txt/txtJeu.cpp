@@ -46,7 +46,7 @@ void affClient(vector <Client> tab){
 		cout<<"Le client "<<tab[i].getIdC()<<" veut: "<<endl;
 		for (j = 0; j < 2; j++) {              //ici il faut afficher la commande du client
 			
-			cout<<" "<<tab[0].getCom().getNom()[1]<<" ";
+			cout<<" "<<tab[i].com[j].getNom() <<" ";
 			
 		}
 		cout<<tab[i].getPrix()<< "$ "<<endl;
@@ -92,7 +92,7 @@ void txtBoucle (Jeu & jeu,vector<Commande> carte,vector<Client> &tab) {
 				break;
 
 			case 'c':
-				affClient(tab);
+				//affClient(tab);
 				break;
 
 			case '0':

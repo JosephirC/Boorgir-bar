@@ -140,21 +140,43 @@ void Jeu::creationClient(const unsigned int &I, vector<Client> & tabC){
     }
 }
 
-bool Jeu::compareRecette(vector<Recette> &tabR){
+string Jeu::creationRecette(const string & recette){
+    vector<Recette> vecRec;
+    chargerRecette(vecRec, "./txt/Recette.txt");
+    bool trouve = false;
+
+    for(unsigned int i = 0; i < vecRec.size(); i++){
+
+        if(recette == vecRec[i].getNom()){
+            cout << trouve << endl;
+            trouve = true; 
+            cout << trouve << endl;
+            return recette;
+        }
+    }
+}
+
+bool Jeu::compareRecette(vector<Recette> &tabR, const string & r, unsigned int & IdCl){
+     bool egale = false;
     unsigned int I = 4;
-    //bool egale = false;
-    vector<Client> tabC;
-    //chargerRecette(tabR, "./txt/Recette.txt");
-    Commande C;
-    vector <Commande> tabCom;
-    C.chargerCarte(tabCom, "./txt/Carte.txt");
+    vector<Client> tabC; // pour le client
     creationClient(I, tabC);
+    string rec = creationRecette(r);
 
     for(unsigned int i = 0; i < tabC.size(); i++){
         for(unsigned int j = 0; j < tabC[i].com.size(); j++){
-            cout << "Client num : " << i << " | Nom : " << tabC[i].com[j].getNom() << " | Prix : " << tabC[i].com[j].getPrix() << endl << endl;
+            cout << "Client : " << i <<"Nom : " << tabC[i].com[j].getNom() << endl;
+            
+            if(rec == tabC[i].com[j].getNom()){
+                egale = true;
+                cout << "FOUND" << endl;
+                IdCl = i;
+                return egale;
             }
+            
+            
+        }
     }
-
-    return true;
+        return egale;
+    
 }

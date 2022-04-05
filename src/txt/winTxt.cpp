@@ -75,7 +75,7 @@ void termInit()      // configure la saisie : ne pas afficher les caracteres tap
 }
 
 WinTXT::WinTXT () {
-    clear();
+    //clear();
     termInit();
 }
 

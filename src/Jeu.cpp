@@ -174,8 +174,6 @@ bool Jeu::compareRecette(vector<Recette> &tabR, vector<Client> & tabC, const str
                 tabR.clear();
                 return egale;
             }
-            
-            
         }
     }
         tabR.clear();
@@ -188,7 +186,7 @@ void Jeu::effaceRecette(vector<Client> & Cl, unsigned int & IdCl){
     string recette;
     bool trouve;
 
-    cout << "work" << endl;
+    //cout << "work" << endl;
 
     trouve = compareRecette(tabR, Cl, recette, IdCl);
 

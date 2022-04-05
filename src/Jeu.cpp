@@ -114,7 +114,7 @@ void Jeu::chargerRecette(vector<Recette> &recVec, const string &filenameRec){
             }
         }
 
-        cout << "----------Voici les Recettes----------" << endl << endl;
+        //cout << "----------Voici les Recettes----------" << endl << endl;
 
         for(unsigned int i = 0; i < recVec.size(); i++){
             cout << recVec[i] << endl;
@@ -129,7 +129,7 @@ void Jeu::chargerRecette(vector<Recette> &recVec, const string &filenameRec){
 }
 
 void Jeu::creationClient(const unsigned int &I, vector<Client> & tabC){
-    cout << "im in" << endl << endl << endl;
+    //cout << "im in" << endl << endl << endl;
     Commande com;
     vector<Commande> comAl;
     unsigned int i, prix;
@@ -141,11 +141,11 @@ void Jeu::creationClient(const unsigned int &I, vector<Client> & tabC){
 
         for(unsigned int i = 0; i<comAl.size(); i++)
         {
-            cout << "size " <<  comAl.size() << endl;
+            //cout << "size " <<  comAl.size() << endl;
 
             com.setNom(comAl[i].getNom());
-            cout << "Le nom de comAL : " << comAl[i].getNom() << endl;
-            cout << "Le nom de com a " << i << "i" << com.getNom();
+            //cout << "Le nom de comAL : " << comAl[i].getNom() << endl;
+            //cout << "Le nom de com a " << i << "i" << com.getNom();
 
             com.setPrix(comAl[i].getPrix());
         }

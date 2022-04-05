@@ -16,14 +16,14 @@ int main()
     vector<Recette> tabR;
     vector<Commande> tabC;
     vector<Commande> commande;
+    vector<Client> cli;
     Jeu j1(0,0);
     //j1.chargerIngredient(tabI, "./txt/Ingredients.txt");
     //j1.chargerRecette(tabR, "./txt/Recette.txt");
     Commande c;
     //c.commandeAleatoire(tabC, commande);
     //c.calculePrix(commande, prix);
-    cout<<"hii";
-    //j1.creationClient(4);
+    //j1.creationClient(4,cli);
 
     j1.compareRecette(tabR);
 }

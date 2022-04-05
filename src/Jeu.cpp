@@ -117,7 +117,7 @@ void Jeu::chargerRecette(vector<Recette> &recVec, const string &filenameRec){
         //cout << "----------Voici les Recettes----------" << endl << endl;
 
         for(unsigned int i = 0; i < recVec.size(); i++){
-            cout << recVec[i] << endl;
+            //cout << recVec[i] << endl;
         }
 
         fileRec.close();
@@ -129,56 +129,47 @@ void Jeu::chargerRecette(vector<Recette> &recVec, const string &filenameRec){
 }
 
 void Jeu::creationClient(const unsigned int &I, vector<Client> & tabC){
-    //cout << "im in" << endl << endl << endl;
-    Commande com;
+    Commande com1;
     vector<Commande> comAl;
     unsigned int i, prix;
-
-    
-
     for(i=0;i<I;i++){
-        com.calculePrix(comAl, prix);
-
-        for(unsigned int i = 0; i<comAl.size(); i++)
-        {
-            //cout << "size " <<  comAl.size() << endl;
-
-            com.setNom(comAl[i].getNom());
-            //cout << "Le nom de comAL : " << comAl[i].getNom() << endl;
-            //cout << "Le nom de com a " << i << "i" << com.getNom();
-
-            com.setPrix(comAl[i].getPrix());
-        }
-
-
-        Client cli(i+1, com, prix);
+        com1.calculePrix(comAl, prix);
+        Client cli(i+1, comAl, prix);
         tabC.push_back(cli);
         comAl.clear();
     }
-
-
-    
-    
-    //carte.clear();
-
-    /*
-    for (int j=0;j<4;j++){
-        cout << tabC[j].getPrix() << "hii";
-    }
-    */
 }
 
 bool Jeu::compareRecette(vector<Recette> &tabR){
     unsigned int I = 4;
     //bool egale = false;
     vector<Client> tabC;
-    chargerRecette(tabR, "./txt/Recette.txt");
+    //chargerRecette(tabR, "./txt/Recette.txt");
+    Commande C;
+    vector <Commande> tabCom;
+    C.chargerCarte(tabCom, "./txt/Carte.txt");
+
+    for(unsigned int i = 0; i<tabCom.size(); i++){
+        //cout << "Le nom est : " << tabCom[i].getNom() << " | Le prix est : " << tabCom[i].getPrix() << endl;
+    
+
+    }
+
+    for(unsigned int i = 0; i<tabC.size(); i++){
+        //cout << "Le nom est : " << tabC[i].getCom << " | Le prix est : " << tabCom[i].getPrix() << endl;
+    
+
+    }
+
+    
+
     creationClient(I, tabC);
 
     for(unsigned int i = 0; i < I; i++){
         for(unsigned int j = 0; j < 2; j++){
-            cout << "Le client est : " << i << "  ";
-            cout << "test1    " << tabC[i].getCom().getNom() << "   test2"  << endl;
+            
+            //cout << "Le client est : " << i << "  ";
+            //cout << "test1    " << tabC[i].getCom().getNom() << "   test2"  << endl;
         }
     }
     return true;

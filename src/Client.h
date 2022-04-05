@@ -16,14 +16,15 @@ class Client{
         //int emplacement;
         unsigned int idClient; 
         int prixTot;
-        Commande com;
+       
 
     public :
         
+        vector<Commande> com;
 
         Client();
 
-        Client(const unsigned int idC, Commande comm, unsigned int prix); // on appelle le constructeur de temps pour creer un objet de la classe 
+        Client(const unsigned int idC, vector<Commande> & comm, unsigned int prix); // on appelle le constructeur de temps pour creer un objet de la classe 
 
         ~Client();
 
@@ -31,7 +32,7 @@ class Client{
 
         unsigned int getIdC() const;
         unsigned int getPrix() const;
-        Commande getCom();
+        //Commande getCom();
 };
 
 #endif

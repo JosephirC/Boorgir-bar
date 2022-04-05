@@ -7,7 +7,7 @@
 using namespace  std;
 
 
-Client::Client(const unsigned int idC, Commande  comm, unsigned int prix){
+Client::Client(const unsigned int idC, vector<Commande> & comm, unsigned int prix){
     idClient=idC;
     com=comm;
     prixTot=prix;
@@ -25,8 +25,8 @@ unsigned int Client::getIdC() const{
      return prixTot;
  }
 
- Commande Client::getCom(){
+ /*Commande Client::getCom(){
 
      return com;
- }
+ }*/
 

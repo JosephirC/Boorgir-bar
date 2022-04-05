@@ -40,14 +40,15 @@ void affCarte(vector <Commande> carte){
 
 void affClient(vector <Client> tab){
 	cout<< "----- Voici les client -------"<<endl;
-	unsigned int i; //j
+	unsigned int i,j; //j
 	for (i = 0; i < tab.size(); i++) // unsigned int i = 0; i < v.size(); i++ présentent le risque que le compilateur ne sorte pas de la boucle le calcul de v.size() 
 	{
 		cout<<"Le client "<<tab[i].getIdC()<<" veut: "<<endl;
-		//for (j = 0; j < 3; j++) {              //ici il faut afficher la commande du client
-		//	cout<<tabC[i].getCom().getNom();
+		for (j = 0; j < 2; j++) {              //ici il faut afficher la commande du client
 			
-		//}
+			cout<<" "<<tab[0].getCom().getNom()[1]<<" ";
+			
+		}
 		cout<<tab[i].getPrix()<< "$ "<<endl;
 	}
 }

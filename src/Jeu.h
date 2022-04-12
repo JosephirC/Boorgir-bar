@@ -47,6 +47,8 @@ class Jeu{
 
         void chargerRecette(vector<Recette> & tabR, const string& fileRecette);
 
+        void chargerCarte(vector<Commande> & tabC, const string &fileCarte);
+
         //const vector<Commande>& getCarte() const;
         //void setCarte(vector<Commande> carte);
         //const vector<Recette>& getvector() const {return tabRec;}
@@ -66,7 +68,7 @@ class Jeu{
         
         bool compareRecette(vector<Recette> & tabR, vector<Client> & tabC, const string & r, unsigned int & IdCl);
 
-        void effaceRecette(vector<Client> & Cl, unsigned int & IdCl);
+        void effaceRecette(vector<Client> & Cl, unsigned int & IdCl, string & rec);
 
 
 };

@@ -29,5 +29,7 @@ int main()
     //j1.creationRecette("B_Steak");
     unsigned int IdCl;
     //j1.compareRecette(tabR, cli, "Frites", IdCl);
-    j1.effaceRecette(cli, IdCl);
+    string rec = "B_Steak_Salade_Tomate";
+    //j1.effaceRecette(cli, IdCl, rec);
+    return 0;
 }

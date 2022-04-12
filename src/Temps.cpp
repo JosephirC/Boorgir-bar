@@ -15,13 +15,13 @@ Temps::~Temps(){ // Est ce qu'on a besoin d'un destructeur de temps ?
 }
 
 
-/*int ::Temps::tempsRestant(t1, int t2){
-    return temps - (t2 - t1);
+int Temps::tempsRestant(){
+    return temps - (clock() - t1);
 }
 
 bool Temps::tempsAtteint(){
-    //t1 = clock();
+    return tempsAtteint() <=0;
 
-}*/
+}
 
 

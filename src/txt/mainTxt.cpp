@@ -19,7 +19,7 @@ int main ( int argc, char** argv ) {
 
 	Commande com;
 	vector<Commande> carte;
-	com.chargerCarte(carte, "./txt/Carte.txt");
+	j.chargerCarte(carte, "./txt/Carte.txt");
 	
 	vector<Recette> R;
 

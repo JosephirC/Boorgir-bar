@@ -23,7 +23,7 @@ class Temps{
 
         ~Temps();
 
-        int tempsRestant(int t1, int t2);
+        int tempsRestant();
         // temps - (t2 - t1)
 
         bool tempsAtteint(); // temps_donne - (t2 - t1) avec t2 le temps qui se calcule au debut de la partie

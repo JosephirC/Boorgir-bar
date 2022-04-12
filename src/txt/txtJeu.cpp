@@ -44,12 +44,12 @@ void affClient(vector <Client> tab){
 	for (i = 0; i < tab.size(); i++) // unsigned int i = 0; i < v.size(); i++ présentent le risque que le compilateur ne sorte pas de la boucle le calcul de v.size() 
 	{
 		cout<<"Le client "<<tab[i].getIdC()<<" veut: "<<endl;
-		for (j = 0; j < 2; j++) {              //ici il faut afficher la commande du client
+		for (j = 0; j < tab[i].com.size(); j++) {              //ici il faut afficher la commande du client
 			
 			cout<<" "<<tab[i].com[j].getNom() <<" ";
 			
 		}
-		cout<<tab[i].getPrix()<< "$ "<<endl;
+		cout<<tab[i].getPrix()<< "$ "<< endl <<endl;
 	}
 	cout << endl;
 }

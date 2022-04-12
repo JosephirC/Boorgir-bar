@@ -38,12 +38,12 @@ unsigned int Commande::getPrix() const{
     return prixC;    
 }
 
-ostream &operator<< (ostream & flux, const Commande &c){
+/*ostream &operator<< (ostream & flux, const Commande &c){
     flux << "Commande : " << c.getNom() << " | Prix : " << c.getPrix() << "$" << endl;
     return flux;
-}
+}*/
 
-void Commande::chargerCarte(vector<Commande> &tabC, const string &fileCarte){
+/*void Commande::chargerCarte(vector<Commande> &tabC, const string &fileCarte){
     ifstream fileC(fileCarte.c_str());
     string nom;
     int prix;
@@ -65,16 +65,16 @@ void Commande::chargerCarte(vector<Commande> &tabC, const string &fileCarte){
 
     else 
         cout << "Failed to open file..." << endl;
-}
+}*/
 
-void Commande::commandeAleatoire(vector<Commande> &carte, vector<Commande> & commandeAl){  // commandeAl : Tableau dynamique qui prend aleatoire des recettes de la carte
-    chargerCarte(carte, "./txt/Carte.txt");
+void Commande::commandeAleatoire(const vector<Commande> &carte, vector<Commande> & commandeAl){  // commandeAl : Tableau dynamique qui prend aleatoire des recettes de la carte
+    //chargerCarte(carte, "./txt/Carte.txt");
 
     unsigned int random1, random2, random3;
     unsigned int min1 = 0;
     unsigned int max1 = 5;
     unsigned int min2 = 6;
-    unsigned int max2 = 8; // 9 car il y a une chance que la commande ne soit qu'une seule recette
+    unsigned int max2 = 8; //  
 
     unsigned int frites = 6;
     unsigned int soda = 7;
@@ -100,13 +100,9 @@ void Commande::commandeAleatoire(vector<Commande> &carte, vector<Commande> & com
             
                 random3 = rand()%(max2 - min2 + 1) + min2; // nombre aleatoire entre 6 et 9
 
-                if(random3 == random2){
+                if(random3 == random2){ // Il ne fait rien !
                     //cout << "recette3 = NULL" << endl;
-                    //cout << "Pas de 3eme recette " << endl;
-                    nom3 = " ";
-                    prix3 = 0;
-                    Commande c3(nom3, prix3);
-                    commandeAl.push_back(c3);
+                    //cout << "Pas de 3eme recette " << endl;           
                 }
 
                 else{
@@ -139,16 +135,13 @@ void Commande::commandeAleatoire(vector<Commande> &carte, vector<Commande> & com
                                 Commande c3(nom3, prix3);
                                 commandeAl.push_back(c3);
                                 cout << "recette3 : " << commandeAl[2] << endl;
-                            }   */ 
+                            }  */ 
                         }
                     }
                 }
-            
-        
         //cout << "random1 = " << random1 << endl;
         //cout << "random2 : " << random2 << endl;
         //cout << "random3 : " << random3 << endl;
-
 
     for(unsigned int i = 0; i < commandeAl.size(); i++){
         //cout << endl << "Transfer reussi et la commande est : " << endl;
@@ -158,12 +151,9 @@ void Commande::commandeAleatoire(vector<Commande> &carte, vector<Commande> & com
     }
 }
 
-
-
-
 void Commande::calculePrix(vector<Commande>  & commandeAl, unsigned int & prix){
-    vector<Commande> carte;
-    commandeAleatoire(carte, commandeAl);
+    //vector<Commande> carte;
+    //commandeAleatoire(carte, commandeAl);
     prix = 0;
 
     for(unsigned int i = 0; i<commandeAl.size(); i++){

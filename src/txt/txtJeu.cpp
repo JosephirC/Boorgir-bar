@@ -70,7 +70,7 @@ void theChoixIngredient(char c){
 
 
 
-void txtBoucle (Jeu & jeu,vector<Commande> carte,vector<Client> &tab,vector<Recette> &R) {
+void txtBoucle (Jeu & jeu,vector<Recette> &R) {
 	
 	bool ok = true;
 	char c;
@@ -94,11 +94,11 @@ void txtBoucle (Jeu & jeu,vector<Commande> carte,vector<Client> &tab,vector<Rece
 		switch(c)
 		{
 			case 'm':
-				affCarte(carte);
+				affCarte(jeu.carte);
 				break;
 
 			case 'c':
-				affClient(tab);
+				affClient(jeu.tabClient);
 				break;
 
 			//case '0':
@@ -111,39 +111,39 @@ void txtBoucle (Jeu & jeu,vector<Commande> carte,vector<Client> &tab,vector<Rece
 			
 			case '0':                //Je voulais faire une boucle mais switch ne me permet pas. A voir :)
 				cout << "B_Steak_Salade_Tomate selectionne "<<endl;
-				jeu.compareRecette(R,tab,"B_Steak_Salade_Tomate",id);
+				jeu.compareRecette(R,jeu.tabClient,"B_Steak_Salade_Tomate",id);
 				break;
 			case '1':
 				cout << "B_Steak_Salade_Tomate_Ketchup selectionne "<<endl;
-				jeu.compareRecette(R,tab,"B_Steak_Salade_Tomate_Ketchup",id);
+				jeu.compareRecette(R,jeu.tabClient,"B_Steak_Salade_Tomate_Ketchup",id);
 				break;
 			case '2':
 				cout << "B_Steak_Salade_Tomate_Mayo selectionne "<<endl;
-				jeu.compareRecette(R,tab,"B_Steak_Salade_Tomate_Mayo",id);
+				jeu.compareRecette(R,jeu.tabClient,"B_Steak_Salade_Tomate_Mayo",id);
 				break;
 			case '3':
 				cout << "HD_Saucisse selectionne "<<endl;
-				jeu.compareRecette(R,tab,"HD_Saucisse",id);
+				jeu.compareRecette(R,jeu.tabClient,"HD_Saucisse",id);
 				break;
 			case '4':
 				cout << "HD_Saucisse_Ketchup selectionne "<<endl;
-				jeu.compareRecette(R,tab,"HD_Saucisse_Ketchup",id);
+				jeu.compareRecette(R,jeu.tabClient,"HD_Saucisse_Ketchup",id);
 				break;	
 			case '5':
 				cout << "HD_Saucisse_Mayo selectionne "<<endl;
-				jeu.compareRecette(R,tab,"HD_Saucisse_Mayo",id);
+				jeu.compareRecette(R,jeu.tabClient,"HD_Saucisse_Mayo",id);
 				break;
 			case '6':
 				cout << "Frites selectionne "<<endl;
-				jeu.compareRecette(R,tab,"Frites",id);
+				jeu.compareRecette(R,jeu.tabClient,"Frites",id);
 				break;
 			case '7':
 				cout << "Soda selectionne "<<endl;
-				jeu.compareRecette(R,tab,"Soda",id);
+				jeu.compareRecette(R,jeu.tabClient,"Soda",id);
 				break;
 			case '8':
 				cout << "Jus selectionne "<<endl;
-				jeu.compareRecette(R,tab,"Jus",id);
+				jeu.compareRecette(R,jeu.tabClient,"Jus",id);
 				break;
 
 		}

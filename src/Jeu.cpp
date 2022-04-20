@@ -88,7 +88,6 @@ void Jeu::chargerRecette(vector<Recette> &recVec, const string &filenameRec){
     int nbr, prix;
     vector<string> nomIngRec; //car nom
     istringstream iss;
-
     if(fileRec.is_open()){
         while(!fileRec.eof()){
             getline(fileRec, line);
@@ -98,30 +97,18 @@ void Jeu::chargerRecette(vector<Recette> &recVec, const string &filenameRec){
                 while (iss.good()){
                     iss >> nom; 
                     iss >> nbr;
-                    //cout << nbr << " " << typeid(nbr).name() << " no? " << endl;
                     for (int i=0 ;i<nbr;i++){
                         iss >>nomI;
-                        //cout<<nomI<<i<<endl;
                         nomIngRec.push_back(nomI);
                     }
                     iss >> prix;
-                    //cout << nom <<" "<<nbr<<" "<<prix<<endl;
                     Recette Rec(nom,nbr,nomIngRec,prix);
                     recVec.push_back(Rec);
                     nomIngRec.clear();
-
                 }
             }
         }
-
-        //cout << "----------Voici les Recettes----------" << endl << endl;
-
-        for(unsigned int i = 0; i < recVec.size(); i++){
-            //cout << recVec[i] << endl;
-        }
-
         fileRec.close();
-
     }
     else
         cout << "Failed to open file..." << endl;
@@ -139,32 +126,20 @@ void Jeu::chargerCarte(vector<Commande> &tabC, const string &fileCarte){
     string nom;
     int prix;
     if(fileC.is_open()){
-
         while(fileC >> nom >> prix){
             Commande c(nom, prix);
             tabC.push_back(c);
         }
-        
-        //cout << "----------Voici un client----------" << endl;
-
-        for(unsigned int i = 0; i < tabC.size(); i++){
-            //cout << tabC[i] << endl;
-        }
-
         fileC.close();
     }
-
     else 
         cout << "Failed to open file..." << endl;
 }
 
 
-void Jeu::creationClient(const unsigned int &I, vector<Client> & tabC){
+void Jeu::creationClient(const unsigned int &I, vector<Client> & tabC,vector<Commande> & carte){
     Commande com1;
     vector<Commande> comAl;
-    vector<Commande> carte;
-
-    chargerCarte(carte, "./txt/Carte.txt");
     unsigned int i, prix;
     for(i=0;i<I;i++){
         com1.commandeAleatoire(carte, comAl);
@@ -173,7 +148,6 @@ void Jeu::creationClient(const unsigned int &I, vector<Client> & tabC){
         tabC.push_back(cli);
         comAl.clear();
     }
-
     /*for(unsigned int i = 0; i < tabC.size(); i++){
         for(unsigned int j =0; j < tabC[i].com.size(); j++){
             cout << "Client : " << i <<" Nom : " << tabC[i].com[j].getNom() << " |Prix : " << tabC[i].com[j].getPrix() << endl; 
@@ -181,12 +155,8 @@ void Jeu::creationClient(const unsigned int &I, vector<Client> & tabC){
     }*/
 }
 
-string Jeu::creationRecette(const string & recette){
-    vector<Recette> vecRec;
-    chargerRecette(vecRec, "./txt/Recette.txt");
+string Jeu::creationRecette(const string & recette, vector<Recette> &vecRec){
     //bool trouve = false;
-
-
     for(unsigned int i = 0; i < vecRec.size(); i++){
         cout << endl << endl << "RECETTE PASSE EN PARAM : " << recette << endl;
         cout << "rec ==== " << vecRec[i].getNom() << endl;
@@ -207,7 +177,7 @@ bool Jeu::compareRecette(vector<Recette> &tabR, vector<Client> & tabC, const str
     bool egale = false;
     //vector<Client> tabC; // pour le client
     //creationClient(I, tabC);
-    string rec = creationRecette(r);
+    string rec = creationRecette(r,tabRec);
     for(unsigned int i = 0; i < tabC.size(); i++){
         for(unsigned int j = 0; j < tabC[i].com.size(); j++){
             //cout << "Client : " << i <<"Nom : " << tabC[i].com[j].getNom() << endl;

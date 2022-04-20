@@ -22,9 +22,7 @@ class Jeu{
 
         
         Temps tempsJ(int periode);
-        vector<Ingredient> tabIng; //[50]
-        vector<Recette> tabRec; //[50]
-        //vector<Commande> carte;
+        
         int objectif; 
         int additionArgent;  // additionArgent = tabC[i].paiement;
         int ingSelectionne; // prend la valeur de l'emplacement de l'ingredient selectionner/// REMARQUE IL FAUT METTRE L EMPLACEMENT ICI 
@@ -33,7 +31,10 @@ class Jeu{
 
 
     public :
-        vector<Client> tabC1;
+        vector<Client> tabClient;
+        vector<Commande> carte;
+        vector<Ingredient> tabIng; //[50]
+        vector<Recette> tabRec; //[50]
 
         Jeu();
 
@@ -62,9 +63,9 @@ class Jeu{
 
         void setClient(const unsigned int &IdC, const Client &c);
 
-        void creationClient(const unsigned int &I, vector<Client> &tabC);
+        void creationClient(const unsigned int &I, vector<Client> &tabC,vector<Commande> &carte );
 
-        string creationRecette(const string & recette);
+        string creationRecette(const string & recette,vector<Recette> &recVec);
         
         bool compareRecette(vector<Recette> & tabR, vector<Client> & tabC, const string & r, unsigned int & IdCl);
 

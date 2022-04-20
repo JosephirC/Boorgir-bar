@@ -38,34 +38,6 @@ unsigned int Commande::getPrix() const{
     return prixC;    
 }
 
-/*ostream &operator<< (ostream & flux, const Commande &c){
-    flux << "Commande : " << c.getNom() << " | Prix : " << c.getPrix() << "$" << endl;
-    return flux;
-}*/
-
-/*void Commande::chargerCarte(vector<Commande> &tabC, const string &fileCarte){
-    ifstream fileC(fileCarte.c_str());
-    string nom;
-    int prix;
-    if(fileC.is_open()){
-
-        while(fileC >> nom >> prix){
-            Commande c(nom, prix);
-            tabC.push_back(c);
-        }
-        
-        //cout << "----------Voici un client----------" << endl;
-
-        for(unsigned int i = 0; i < tabC.size(); i++){
-            //cout << tabC[i] << endl;
-        }
-
-        fileC.close();
-    }
-
-    else 
-        cout << "Failed to open file..." << endl;
-}*/
 
 void Commande::commandeAleatoire(const vector<Commande> &carte, vector<Commande> & commandeAl){  // commandeAl : Tableau dynamique qui prend aleatoire des recettes de la carte
     //chargerCarte(carte, "./txt/Carte.txt");
@@ -152,12 +124,8 @@ void Commande::commandeAleatoire(const vector<Commande> &carte, vector<Commande>
 }
 
 void Commande::calculePrix(vector<Commande>  & commandeAl, unsigned int & prix){
-    //vector<Commande> carte;
-    //commandeAleatoire(carte, commandeAl);
     prix = 0;
-
     for(unsigned int i = 0; i<commandeAl.size(); i++){
-        //cout << commandeAl[i].getNom() << " " << commandeAl[i].getPrix() << endl;
         prix = prix + commandeAl[i].getPrix();
     }
     //cout << "Le prix de la commande est : " << prix << endl;

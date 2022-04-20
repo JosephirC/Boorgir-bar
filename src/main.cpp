@@ -10,7 +10,18 @@ using namespace std;
 
 int main()
 {
+    
     srand(time(NULL));
+    Jeu j;
+    vector<Commande> carte;
+    vector<Client> cli;
+    j.chargerCarte(j.carte, "./txt/Carte.txt");
+    j.chargerRecette(j.tabRec,"./txt/Recette.txt");
+
+    j.creationClient(4,j.tabClient ,j.carte);
+
+
+    /*
     unsigned int prix;
     vector<Ingredient> tabI;
     vector<Recette> tabR;
@@ -31,5 +42,6 @@ int main()
     //j1.compareRecette(tabR, cli, "Frites", IdCl);
     string rec = "B_Steak_Salade_Tomate";
     //j1.effaceRecette(cli, IdCl, rec);
+    */
     return 0;
 }

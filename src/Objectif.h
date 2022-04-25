@@ -10,7 +10,9 @@ using namespace  std;
 class Objectif{
 
     private :
-  
+        double Temp;
+        int Argent;
+        Temps evolTemp;
 
     public :
 
@@ -18,7 +20,14 @@ class Objectif{
 
         ~Objectif();
 
+        unsigned int getTemps() const;
+        void setTemps(Temps &t);
+        unsigned int getArgent() const;
+
+        void choixNiveau(int choix);
+
         bool objAtteint(Temps temps_donnee); // renvoie vraie si l'objectif de la partie est atteint
+        bool finJeu() const;
 
 };
 

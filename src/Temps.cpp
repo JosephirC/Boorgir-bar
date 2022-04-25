@@ -5,22 +5,27 @@
 
 using namespace std;
 
-Temps::Temps(int t){
-    temps = t;
-    t1 = clock();
-}
-
-Temps::~Temps(){ // Est ce qu'on a besoin d'un destructeur de temps ? 
+Temps::Temps(){
     
 }
 
+Temps::Temps(double t){
+    temps = t;
+    t1 = clock()/(double)CLOCKS_PER_SEC;
+}
 
-int Temps::tempsRestant(){
-    return temps - (clock() - t1);
+Temps::~Temps(){ // Est ce qu'on a besoin d'un destructeur de temps ?     
+}
+
+//double timeInSeconds = clockTicksTaken / (double) CLOCKS_PER_SEC;
+
+
+double Temps::tempsRestant(){
+    return temps - (clock()/(double) CLOCKS_PER_SEC - t1);
 }
 
 bool Temps::tempsAtteint(){
-    return tempsAtteint() <=0;
+    return tempsRestant() <=0;
 
 }
 

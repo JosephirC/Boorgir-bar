@@ -70,7 +70,7 @@ void theChoixIngredient(char c){
 
 
 
-void txtBoucle (Jeu &jeu, vector<Recette> &R, Objectif &o) {
+void txtBoucle (Jeu &jeu, vector<Recette> &R) {
 	
 	bool ok = true;
 	char c;
@@ -90,8 +90,8 @@ void txtBoucle (Jeu &jeu, vector<Recette> &R, Objectif &o) {
 		
     	c=win.getCh();
 
-		cout << clock()/(double)CLOCKS_PER_SEC*100 << "  hihi "<<endl;
-		cout<< o.getTemps()<<endl;
+		cout<<endl<<"passe1 " <<jeu.getObj().Temp.tempsRestant()<<endl;
+		cout<< jeu.getObj().Temp.tempsAtteint()<<endl;
 		
 		
 		switch(c)

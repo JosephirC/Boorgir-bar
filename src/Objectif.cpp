@@ -13,32 +13,37 @@ Objectif::~Objectif() {
 
 }
 
-unsigned int Objectif::getTemps() const{
+/*
+double Objectif::getTemps() const{
      return Temp;
  }
+ 
 void Objectif::setTemps(Temps &t){
+
      t=Temp;
  } 
-
+*/
  unsigned int Objectif::getArgent() const{
      return Argent;
  }
 
 
 void Objectif::choixNiveau(int choix) {
-    switch(choix){
-        case '1':
-            Temp=3;
+    cout<<"no ? ";
+    switch(choix)
+    {
+        case 1:
+            Temp.setTemps(3);
             Argent=300;
-        case '2':
-            Temp=3;
+            break;
+        case 2:
+            Temp.setTemps(3);
             Argent=400;
-        case '3':
-            Temp=2;
+            break;
+        case 3:
+            Temp.setTemps(2);
             Argent=400;
-            
-
-
+            break;   
     }
 }
 

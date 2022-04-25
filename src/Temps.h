@@ -11,8 +11,8 @@ class Temps{
 
     private :
 
-        clock_t t1;
-        double temps;
+        clock_t t1;    //le tick au debut
+        double temps;  //temps toal de l'evenemt que nous avons defini
 
     public :
 
@@ -23,8 +23,13 @@ class Temps{
 
         ~Temps();
 
+        double getTemps() const;
+        void setTemps(double t);
+        clock_t getClock() const;
+
         double tempsRestant();
         // temps - (t2 - t1)
+        double tempsPasse();
 
         bool tempsAtteint(); // temps_donne - (t2 - t1) avec t2 le temps qui se calcule au debut de la partie
 

@@ -5,6 +5,7 @@
 #include "Recette.h"
 #include "Client.h"
 #include "Temps.h"
+#include "Objectif.h"
 #include <vector>
 #include <iostream>
 
@@ -21,9 +22,8 @@ class Jeu{
     private :
 
         
-        Temps tempsJ(int periode);
-        
-        int objectif; 
+        //Temps tempsJ(int periode);
+        Objectif obj; 
         int additionArgent;  // additionArgent = tabC[i].paiement;
         int ingSelectionne; // prend la valeur de l'emplacement de l'ingredient selectionner/// REMARQUE IL FAUT METTRE L EMPLACEMENT ICI 
         bool estSelectionne;
@@ -31,10 +31,12 @@ class Jeu{
 
 
     public :
-        vector<Client> tabClient;
-        vector<Commande> carte;
-        vector<Ingredient> tabIng; //[50]
-        vector<Recette> tabRec; //[50]
+        vector<Client> tabClient;   // Contient les Clients cree qui arrivent au restau
+        vector<Commande> carte;     // Contient le chargement de la carte du restau
+        vector<Ingredient> tabIng;  //[50]
+        vector<Recette> tabRec;     //Contient le tableau de recette entier avec toutes les etapes possibles
+        vector<string> tabPrep[4];     //Contient les burger en cours de preparation
+
 
         Jeu();
 
@@ -42,12 +44,11 @@ class Jeu{
 
         ~Jeu();
 
+        Objectif & getObj();
+
         //void chargerIngredient(Ingredient *tabIng, const string& nom_ingredient);
         void chargerIngredient(vector<Ingredient> & tabI, const string& fileIngredient);
-
-
         void chargerRecette(vector<Recette> & tabR, const string& fileRecette);
-
         void chargerCarte(vector<Commande> & tabC, const string &fileCarte);
 
         //const vector<Commande>& getCarte() const;
@@ -60,15 +61,14 @@ class Jeu{
         void commandeAleatoire(vector<string> carte, vector<string> & commandeAl);
 
         Client & getClient(const unsigned int &IdC) const;
-
         void setClient(const unsigned int &IdC, const Client &c);
 
         void creationClient(const unsigned int &I, vector<Client> &tabC,vector<Commande> &carte );
 
-        string creationRecette(const string & recette,vector<Recette> &recVec);
-        
-        bool compareRecette(vector<Recette> & tabR, vector<Client> & tabC, const string & r, unsigned int & IdCl);
+        string PreparerCommande( const string & ing);
 
+        string creationRecette(const string & recette,vector<Recette> &recVec);
+        bool compareRecette(vector<Recette> & tabR, vector<Client> & tabC, const string & r, unsigned int & IdCl);
         void effaceRecette(vector<Client> & Cl, unsigned int & IdCl, string & rec);
 
 

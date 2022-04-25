@@ -19,6 +19,7 @@ int main()
     j.chargerRecette(j.tabRec,"./txt/Recette.txt");
 
     j.creationClient(4,j.tabClient ,j.carte);
+    
 
 
     /*

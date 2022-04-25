@@ -11,15 +11,23 @@ int main ( int argc, char** argv ) {
 	cout<< "Q: Quit"<<endl;
 
 	cout<< "Aide: Vous pouvez utiliser la carte menu pour trouver les touches des ingredients."<<endl<<endl;
-		
+
+	Temps t(400);
+	//int test;
+	//test = t.tempsRestant;
+	//cout<< clock();
 
 	Jeu j;
 	j.chargerCarte(j.carte, "./txt/Carte.txt");
 	j.creationClient(4,j.tabClient ,j.carte);
 
+
+	j.getObj().choixNiveau(1);
+	//cout<< j.getObj().finJeu()<<endl;
+	cout<<endl<<"ho" <<j.getObj().getTemps()<<endl;
 	vector<Recette> R;
 
-	txtBoucle(j,R);
+	txtBoucle(j,R,j.getObj());
     termClear();
 	return 0;
 }

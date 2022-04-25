@@ -4,6 +4,7 @@
 #include "Commande.h"
 #include "Client.h"
 #include "Temps.h"
+#include "Objectif.h"
 #include <vector>
 #include <fstream>
 #include <iostream>
@@ -32,6 +33,12 @@ void Jeu::setCarte(vector<Commande> cart){
     carte = cart;
 }
 */
+
+Objectif & Jeu::getObj(){
+     return obj;
+ }
+
+
 
      
 ostream &operator<< (ostream & flux, const Ingredient &ing){
@@ -155,6 +162,16 @@ void Jeu::creationClient(const unsigned int &I, vector<Client> & tabC,vector<Com
     }*/
 }
 
+// PreparerCommande : 
+string Jeu::PreparerCommande( const string & ing){
+    
+    return "haha";
+}
+
+
+
+/*
+
 string Jeu::creationRecette(const string & recette, vector<Recette> &vecRec){
     //bool trouve = false;
     for(unsigned int i = 0; i < vecRec.size(); i++){
@@ -230,19 +247,17 @@ void Jeu::effaceRecette(vector<Client> & Cl, unsigned int & IdCl, string & rec){
                 break;
             }
         }
-
         if(trouve == true){
                 break;
             }
 
     }
-
     for(unsigned int i = 0; i < Cl.size(); i++){
         for(unsigned int j =0; j < Cl[i].com.size(); j++){
     cout << " NOUVEAU Client : " << i <<" Nom : " << Cl[i].com[j].getNom() << endl; 
         }
     }
     cout << "Done " << endl;
-
-
 }
+
+*/

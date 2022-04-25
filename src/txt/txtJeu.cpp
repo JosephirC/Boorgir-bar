@@ -54,6 +54,12 @@ void affClient(vector <Client> tab){
 	cout << endl;
 }
 
+void affTabPrep(string tabPrep[4]){
+	for(int i=0;i<4;i++){
+		cout<<"Bar de preparation "<<i<<": " <<tabPrep[i]<<endl;
+	}
+}
+
 
 Commande txtChoixIng(int c,vector <Commande> carte){   //cHint
 	return carte[c];
@@ -76,7 +82,8 @@ void txtBoucle (Jeu &jeu, vector<Recette> &R) {
 	char c;
 	//cout<<"boucle";
 	WinTXT win;
-	unsigned int id;
+	//unsigned int id;
+	string ingred;
 
 
 	do {
@@ -90,8 +97,8 @@ void txtBoucle (Jeu &jeu, vector<Recette> &R) {
 		
     	c=win.getCh();
 
-		cout<<endl<<"passe1 " <<jeu.getObj().Temp.tempsRestant()<<endl;
-		cout<< jeu.getObj().Temp.tempsAtteint()<<endl;
+		//cout<<endl<<"passe1 " <<jeu.getObj().Temp.tempsRestant()<<endl;
+		//cout<< jeu.getObj().Temp.tempsAtteint()<<endl;
 		
 		
 		switch(c)
@@ -148,6 +155,15 @@ void txtBoucle (Jeu &jeu, vector<Recette> &R) {
 			case '8':
 				cout << "Jus selectionne "<<endl;
 				//jeu.compareRecette(R,jeu.tabClient,"Jus",id);
+				break;
+			case 'f':
+				cin>>ingred;
+				cout << ingred << " search "<<endl;
+				//jeu.compareRecette(R,jeu.tabClient,"Soda",id);
+				jeu.PreparerCommande(ingred);
+				break;
+			case 'p':
+				affTabPrep(jeu.tabPrep);
 				break;
 
 		}

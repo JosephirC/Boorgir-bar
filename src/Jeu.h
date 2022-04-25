@@ -35,8 +35,8 @@ class Jeu{
         vector<Commande> carte;     // Contient le chargement de la carte du restau
         vector<Ingredient> tabIng;  //[50]
         vector<Recette> tabRec;     //Contient le tableau de recette entier avec toutes les etapes possibles
-        vector<string> tabPrep[4];     //Contient les burger en cours de preparation
-
+        //vector<string> tabPreps;     //Contient les burger en cours de preparation
+        string tabPrep[4];
 
         Jeu();
 

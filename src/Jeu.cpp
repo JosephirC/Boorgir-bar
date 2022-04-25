@@ -38,8 +38,6 @@ Objectif & Jeu::getObj(){
      return obj;
  }
 
-
-
      
 ostream &operator<< (ostream & flux, const Ingredient &ing){
     flux << "Nom : " << ing.getNom() << " | Prix : " << ing.getPrix() << "$ | Emplacement : " << ing.getEmplacement() << " | Temps de cuisson : " << ing.getCuisson() << " sec"  << endl; 
@@ -164,7 +162,28 @@ void Jeu::creationClient(const unsigned int &I, vector<Client> & tabC,vector<Com
 
 // PreparerCommande : 
 string Jeu::PreparerCommande( const string & ing){
-    
+    int i=0;
+    if( ing=="Soda" || ing=="Jus") return ing;
+    if( ing=="PainBurger") {
+        while(i < 4){
+            if( tabPrep[i].empty() ){
+                tabPrep[i] = ing;
+                return ing;
+            }
+            else i++;
+        }
+    }
+    if( ing=="Steak"){
+        while(i < 4){
+            if( tabPrep[i] == "PainBurger"){
+                tabPrep[i] = "B_Steak";
+                return ing;
+            }
+            else i++;
+        }
+    }
+
+
     return "haha";
 }
 

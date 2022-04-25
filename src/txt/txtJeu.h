@@ -3,6 +3,7 @@
 
 #include "../Jeu.h"
 
+void affCarte(vector <Commande> carte);
 void txtBoucle (Jeu & j, vector<Recette> &R);
 
 #endif

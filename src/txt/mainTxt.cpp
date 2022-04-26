@@ -23,16 +23,10 @@ int main ( int argc, char** argv ) {
 
 	j.getObj().choixNiveau(1);
 	//cout<< j.getObj().finJeu()<<endl;
-	cout<<endl<<"ho " <<j.getObj().Temp.getTemps()<<endl;
-	cout<<endl<<"passe2 " <<j.getObj().Temp.tempsPasse()<<endl;
-	cout<<endl<<"passe1 " <<j.getObj().Temp.tempsRestant()<<endl;
-	cout<<endl<<"passe3 " <<j.getObj().Temp.tempsPasse()<<endl;
-	cout<<endl<<"passe1 " <<j.getObj().Temp.tempsRestant()<<endl;
-	cout<<endl<<"passe4 " <<j.getObj().Temp.tempsPasse()<<endl;
-	cout<<endl<<"passe1 " <<j.getObj().Temp.tempsRestant()<<endl;
-	cout<<endl<<"passe5 " <<j.getObj().Temp.tempsPasse()<<endl;
-	cout<<endl<<"passe1 " <<j.getObj().Temp.tempsRestant()<<endl;
-	cout<<endl<<"passe6 " <<j.getObj().Temp.tempsPasse()<<endl;
+	//cout<<endl<<"ho " <<j.getObj().Temp.getTemps()<<endl;
+	//cout<<endl<<"passe2 " <<j.getObj().Temp.tempsPasse()<<endl;
+	//cout<<endl<<"passe1 " <<j.getObj().Temp.tempsRestant()<<endl;
+	
 	vector<Recette> R;
 	
 

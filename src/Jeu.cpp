@@ -182,6 +182,7 @@ string Jeu::PreparerCommande( const string & ing){
             else i++;
         }
     }
+    
 
 
     return "haha";

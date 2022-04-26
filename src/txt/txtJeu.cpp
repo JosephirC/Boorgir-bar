@@ -58,6 +58,7 @@ void affTabPrep(string tabPrep[4]){
 	for(int i=0;i<4;i++){
 		cout<<"Bar de preparation "<<i<<": " <<tabPrep[i]<<endl;
 	}
+	cout<<endl;
 }
 
 

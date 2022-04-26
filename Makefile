@@ -1,5 +1,16 @@
+DIR_SDL = -I /usr/include/SDL2
+SDL_LIB = -lSDL2 -lSDL2_ttf -lSDL2_image -lSDL2_mixer
+
 all: bin/main bin/mainTxt
 
+bin/mainSdl: obj/mainSdl.o obj/Jeu.o obj/Recette.o obj/Ingredient.o obj/Commande.o obj/Client.o obj/Menu.o obj/Objectif.o obj/Temps.o obj/sdlJeu.o 
+	g++ obj/mainSdl.o obj/Jeu.o obj/Recette.o obj/Ingredient.o obj/Commande.o obj/Client.o obj/Menu.o obj/Objectif.o obj/Temps.o obj/sdlJeu.o -o bin/mainSDL $(SDL_LIB)
+
+obj/mainSdl.o: src/sdl2/mainSdl.cpp src/sdl2/sdlJeu.h
+	g++ -ggdb -Wall -c src/sdl2/mainSdl.cpp -o obj/mainSdl.obj
+
+obj/sdlJeu.o: src/sdl2/sdlJeu.cpp  src/sdl2/sdlJeu.h
+	g++ -ggdb -Wall -c src/sdl2/sdlJeu.cpp -o obj/sdlJeu.o
 
 bin/mainTxt: obj/mainTxt.o obj/Jeu.o obj/Recette.o obj/Ingredient.o obj/Commande.o obj/Client.o obj/Menu.o obj/Objectif.o obj/Temps.o obj/winTxt.o obj/txtJeu.o
 	g++ obj/mainTxt.o obj/Ingredient.o obj/Recette.o obj/Jeu.o obj/Commande.o obj/Client.o obj/Menu.o obj/Objectif.o obj/Temps.o obj/winTxt.o obj/txtJeu.o -o bin/mainTxt

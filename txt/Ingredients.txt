@@ -14,13 +14,13 @@ Jus 4 11 0
 
 Soda 5 12 0
 
-PainBurger 5 5 0
+PainB 5 5 0
 
 Steak 8 6 5
 
 SteakCuit 8 16 0
 
-PainHotdog 4 3 0
+PainHD 4 3 0
 
 Saucisse 7 4 5
 

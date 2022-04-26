@@ -89,16 +89,11 @@ SDL_Texture * Image::getTexture() const {
     return texture;
 }
 
-void Image::setSurface(SDL_Surface * surf) {
-    surface = surf;
-}
-
 void Image::chargerImage(vector<Image> & vecIm, const string & filenameIm){
     ifstream fileIm(filenameIm.c_str());
     string nom, chemin;
 
     if(fileIm.is_open()){
-
         while(nom >> chemin){
             Image im(nom, chemin);
             vecIm.push_back(im);
@@ -109,6 +104,41 @@ void Image::chargerImage(vector<Image> & vecIm, const string & filenameIm){
         cout << "Failed to open file..." << endl;
 }
 
+void Image::setSurface(SDL_Surface * surf) {
+    surface = surf;
+}
+
+void Image::setNom(const string & nomIm){
+    nom = nomIm;
+}
+
+void Image::setChemin(const string & cheminIm){
+    chemin = cheminIm;
+}
+
+void Image::setDimX(const int & x){
+    dimx = x;
+}
+
+void Image::setDimY(const int & y){
+    dimy = y;
+}
+
+string Image::getNom() const{
+    return nom;
+}
+
+string Image::getChemin() const{
+    return chemin;
+}
+
+int Image::getDimX() const{
+    return dimx;
+}
+
+int Image::getDimY() const{
+    return dimy;
+}
 
 // ============= CLASS SDLJEU =============== //
 
@@ -150,7 +180,7 @@ sdlJeu::sdlJeu () : jeu() {
     /********************************************************************************/
 
     // Creation de la fenetre
-    window = SDL_CreateWindow("Pacman", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, dimx, dimy, SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE);
+    window = SDL_CreateWindow("Boorgir-Bar", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, dimx, dimy, SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE);
     if (window == NULL) {
         cout << "Erreur lors de la creation de la fenetre : " << SDL_GetError() << endl; 
         SDL_Quit(); 
@@ -159,16 +189,24 @@ sdlJeu::sdlJeu () : jeu() {
 
     renderer = SDL_CreateRenderer(window,-1,SDL_RENDERER_ACCELERATED);
 
-    // IMAGES
-    im_pacman.loadFromFile("data/pacman.png",renderer);
+    /**************************IMAGES***********************************************************/
+
+    /*im_pacman.loadFromFile("data/pacman.png",renderer);
     im_mur.loadFromFile("data/mur.png",renderer);
     im_pastille.loadFromFile("data/pastille.png",renderer);
-    im_fantome.loadFromFile("data/fantome.png",renderer);
+    im_fantome.loadFromFile("data/fantome.png",renderer);*/
+
+    //Boucle qui permet de charger toutes les images grace au chemin stocker au tab dynamique
+    for(unsigned int i = 0; i < loaded_im.size(); i++){
+        loaded_im[i].loadFromFile(loaded_im[i].getChemin(), renderer);
+    }
+    /************************************************************************************/
 
 
 
+    /****************************************FONTS*******************************************/
 
-    // FONTS
+    /*****************************************CHANGE FICHIER DE FONT*************************************/
     font = TTF_OpenFont("data/DejaVuSansCondensed.ttf",50);
     if (font == NULL)
         font = TTF_OpenFont("../data/DejaVuSansCondensed.ttf",50);
@@ -177,11 +215,18 @@ sdlJeu::sdlJeu () : jeu() {
             SDL_Quit(); 
             exit(1);
 	}
-	font_color.r = 50;font_color.g = 50;font_color.b = 255;
-	font_im.setSurface(TTF_RenderText_Solid(font,"Pacman",font_color));
+
+    // FONT COLORS
+	font_color.r = 0;
+    font_color.g = 0;
+    font_color.b = 0;
+
+	font_im.setSurface(TTF_RenderText_Solid(font,"Boorgir-Bar",font_color));
 	font_im.loadFromCurrentSurface(renderer);
 
-    // SONS
+    /***********************************************SONS**************************************************/
+
+    /*****************************************CHANGE FICHIER DE SON*************************************/
     if (withSound)
     {
         sound = Mix_LoadWAV("data/son.wav");
@@ -194,6 +239,9 @@ sdlJeu::sdlJeu () : jeu() {
         }
     }
 }
+
+
+/***********************************************************************************************************/
 
 sdlJeu::~sdlJeu () {
     if (withSound) Mix_Quit();
@@ -210,23 +258,33 @@ void sdlJeu::sdlAff () {
     SDL_RenderClear(renderer);
 
 	int x,y;
-	const Terrain& ter = jeu.getConstTerrain();
-	const Pacman& pac = jeu.getConstPacman();
-	const Fantome& fan = jeu.getConstFantome();
+	//const Terrain& ter = jeu.getConstTerrain();
+	//const Pacman& pac = jeu.getConstPacman();
+	//const Fantome& fan = jeu.getConstFantome();
 
     // Afficher les sprites des murs et des pastilles
-	for (x=0;x<ter.getDimX();++x)
+	/*for (x=0;x<ter.getDimX();++x)
 		for (y=0;y<ter.getDimY();++y)
 			if (ter.getXY(x,y)=='#')
 				im_mur.draw(renderer,x*TAILLE_SPRITE,y*TAILLE_SPRITE,TAILLE_SPRITE,TAILLE_SPRITE);
 			else if (ter.getXY(x,y)=='.')
-				im_pastille.draw(renderer,x*TAILLE_SPRITE,y*TAILLE_SPRITE,TAILLE_SPRITE,TAILLE_SPRITE);
+				im_pastille.draw(renderer,x*TAILLE_SPRITE,y*TAILLE_SPRITE,TAILLE_SPRITE,TAILLE_SPRITE);*/
 
+
+
+    /***************************AFFICHAGE DES IMAGE********************************/
 	// Afficher le sprite de Pacman
-	im_pacman.draw(renderer,pac.getX()*TAILLE_SPRITE,pac.getY()*TAILLE_SPRITE,TAILLE_SPRITE,TAILLE_SPRITE);
+	//im_pacman.draw(renderer,pac.getX()*TAILLE_SPRITE,pac.getY()*TAILLE_SPRITE,TAILLE_SPRITE,TAILLE_SPRITE);
 
 	// Afficher le sprite du Fantome
-	im_fantome.draw(renderer,fan.getX()*TAILLE_SPRITE,fan.getY()*TAILLE_SPRITE,TAILLE_SPRITE,TAILLE_SPRITE);
+	//im_fantome.draw(renderer,fan.getX()*TAILLE_SPRITE,fan.getY()*TAILLE_SPRITE,TAILLE_SPRITE,TAILLE_SPRITE);
+
+
+    /*for(unsigned int i =0; i < loaded_im.size(); i++){
+        loaded_im[i].draw(renderer, )
+    }*/
+
+    /************************************************************************************/
 
     // Ecrire un titre par dessus
     SDL_Rect positionTitre;
@@ -239,44 +297,39 @@ void sdlJeu::sdlBoucle () {
     SDL_Event events;
 	bool quit = false;
 
-    Uint32 t = SDL_GetTicks(), nt;
-
-	// tant que ce n'est pas la fin ...
+    	// tant que ce n'est pas la fin ...
 	while (!quit) {
-
-        nt = SDL_GetTicks();
-        if (nt-t>500) {
-            jeu.actionsAutomatiques();
-            t = nt;
-        }
-
+        
 		// tant qu'il y a des evenements � traiter (cette boucle n'est pas bloquante)
 		while (SDL_PollEvent(&events)) {
-			if (events.type == SDL_QUIT) quit = true;           // Si l'utilisateur a clique sur la croix de fermeture
-			else if (events.type == SDL_KEYDOWN) {              // Si une touche est enfoncee
-                bool mangePastille = false;
-				switch (events.key.keysym.scancode) {
-				case SDL_SCANCODE_UP:
-					mangePastille = jeu.actionClavier('b');    // car Y inverse
-					break;
-				case SDL_SCANCODE_DOWN:
-					mangePastille = jeu.actionClavier('h');     // car Y inverse
-					break;
-				case SDL_SCANCODE_LEFT:
-					mangePastille = jeu.actionClavier('g');
-					break;
-				case SDL_SCANCODE_RIGHT:
-					mangePastille = jeu.actionClavier('d');
-					break;
-                case SDL_SCANCODE_ESCAPE:
-                case SDL_SCANCODE_Q:
-                    quit = true;
-                    break;
-				default: break;
-				}
-				if ((withSound) && (mangePastille))
-                    Mix_PlayChannel(-1,sound,0);
-			}
+			if (events.type == SDL_QUIT) quit = true;       // Si l'utilisateur a clique sur la croix de fermeture
+                else 
+                    if (events.type == SDL_KEYDOWN) {       // Si une touche est enfoncee
+                       
+                        bool mangePastille = false;
+                        switch (events.key.keysym.scancode) {
+                        case SDL_SCANCODE_UP:
+                            //mangePastille = jeu.actionClavier('b');    // car Y inverse
+                            break;
+                        case SDL_SCANCODE_DOWN:
+                            //mangePastille = jeu.actionClavier('h');     // car Y inverse
+                            break;
+                        case SDL_SCANCODE_LEFT:
+                            //mangePastille = jeu.actionClavier('g');
+                            break;
+                        case SDL_SCANCODE_RIGHT:
+                            //mangePastille = jeu.actionClavier('d');
+                            break;
+                        case SDL_SCANCODE_ESCAPE:
+                        case SDL_SCANCODE_Q:
+                            quit = true;
+                            break;
+                        default: break;
+                        }
+                        
+                        /*if ((withSound) && (mangePastille))
+                            Mix_PlayChannel(-1,sound,0);*/
+			        }
 		}
 
 		// on affiche le jeu sur le buffer cach�

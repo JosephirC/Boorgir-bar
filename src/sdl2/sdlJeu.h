@@ -17,13 +17,14 @@ class Image{
         bool has_changed;
         string nom;
         string chemin;
+        int dimx, dimy;
 
     public : 
 
         Image();
 
         Image(const string & nomIm, const string & cheminIm);
-        
+
         void loadFromFile(const char * filename, SDL_Renderer * renderer);
 
         void loadFromCurrentSurface(SDL_Renderer * renderer);
@@ -32,10 +33,25 @@ class Image{
 
         SDL_Textutre * getTexture() const;
 
-        void setSurface(SDL_Surface * surf);
-
         void chargerImage(vector<Image> & vecIm, const string & filenameIm); // cherger image dans un tableau dynamique;
 
+        void setSurface(SDL_Surface * surf);
+
+        void setNom(const string & nomIm); // peut etre inutile
+
+        void setChemin(const string & cheminIm); // peut etre inutile
+
+        void setDimX(const int & x);
+
+        void setDimY(const int & y);
+
+        string getNom() const;
+
+        string getChemin() const;
+
+        int getDimX() const;
+
+        int getDimY() const;
 };
 
 

@@ -4,6 +4,7 @@
 #include <stdlib.h>
 
 #include <fstream>
+#include <vector>
 #include <iostream>
 using namespace std;
 
@@ -18,6 +19,7 @@ Image::Image () {
     surface = NULL;
     texture = NULL;
     has_changed = false;
+    //chemin = "";
 }
 
 
@@ -94,7 +96,7 @@ void Image::chargerImage(vector<Image> & vecIm, const string & filenameIm){
     string nom, chemin;
 
     if(fileIm.is_open()){
-        while(nom >> chemin){
+        while(fileIm >> nom >> chemin){
             Image im(nom, chemin);
             vecIm.push_back(im);
         }
@@ -174,8 +176,8 @@ sdlJeu::sdlJeu () : jeu() {
 
     /************************** A VOIR CETTE PARTE **********************************/
 	int dimx, dimy;
-	dimx = 500
-	dimy = 500
+	dimx = 500;
+	dimy = 500;
 
     /********************************************************************************/
 
@@ -198,7 +200,7 @@ sdlJeu::sdlJeu () : jeu() {
 
     //Boucle qui permet de charger toutes les images grace au chemin stocker au tab dynamique
     for(unsigned int i = 0; i < loaded_im.size(); i++){
-        loaded_im[i].loadFromFile(loaded_im[i].getChemin(), renderer);
+        loaded_im[i].loadFromFile(loaded_im[i].getChemin().c_str(), renderer);
     }
     /************************************************************************************/
 
@@ -217,7 +219,7 @@ sdlJeu::sdlJeu () : jeu() {
 	}
 
     // FONT COLORS
-	font_color.r = 0;
+	font_color.r = 100;
     font_color.g = 0;
     font_color.b = 0;
 
@@ -288,7 +290,7 @@ void sdlJeu::sdlAff () {
 
     // Ecrire un titre par dessus
     SDL_Rect positionTitre;
-    positionTitre.x = 270;positionTitre.y = 49;positionTitre.w = 100;positionTitre.h = 30;
+    positionTitre.x = 20;positionTitre.y = 49;positionTitre.w = 300;positionTitre.h = 100;
     SDL_RenderCopy(renderer,font_im.getTexture(),NULL,&positionTitre);
 
 }
@@ -306,7 +308,7 @@ void sdlJeu::sdlBoucle () {
                 else 
                     if (events.type == SDL_KEYDOWN) {       // Si une touche est enfoncee
                        
-                        bool mangePastille = false;
+                        //bool mangePastille = false;
                         switch (events.key.keysym.scancode) {
                         case SDL_SCANCODE_UP:
                             //mangePastille = jeu.actionClavier('b');    // car Y inverse

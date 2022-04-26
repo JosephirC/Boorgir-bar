@@ -164,7 +164,7 @@ void Jeu::creationClient(const unsigned int &I, vector<Client> & tabC,vector<Com
 string Jeu::PreparerCommande( const string & ing){
     int i=0;
     if( ing=="Soda" || ing=="Jus") return ing;
-    if( ing=="PainBurger") {
+    if( ing=="PainB") {
         while(i < 4){
             if( tabPrep[i].empty() ){
                 tabPrep[i] = ing;
@@ -175,11 +175,19 @@ string Jeu::PreparerCommande( const string & ing){
     }
     if( ing=="Steak"){
         while(i < 4){
-            if( tabPrep[i] == "PainBurger"){
+            if( tabPrep[i] == "PainB"){
                 tabPrep[i] = "B_Steak";
                 return ing;
             }
             else i++;
+        }
+    }
+    if( ing=="Tomate"){
+        while(i < 4){
+            if( tabPrep[i] == "B_Steak"){
+                tabPrep[i] == "B_Steak";
+
+            }
         }
     }
     
@@ -191,7 +199,6 @@ string Jeu::PreparerCommande( const string & ing){
 
 
 /*
-
 string Jeu::creationRecette(const string & recette, vector<Recette> &vecRec){
     //bool trouve = false;
     for(unsigned int i = 0; i < vecRec.size(); i++){
@@ -209,6 +216,7 @@ string Jeu::creationRecette(const string & recette, vector<Recette> &vecRec){
     }
     return "";
 }
+
 
 bool Jeu::compareRecette(vector<Recette> &tabR, vector<Client> & tabC, const string & r, unsigned int & IdCl){
     bool egale = false;
@@ -279,5 +287,4 @@ void Jeu::effaceRecette(vector<Client> & Cl, unsigned int & IdCl, string & rec){
     }
     cout << "Done " << endl;
 }
-
 */

@@ -38,6 +38,16 @@ void affCarte(vector <Commande> carte){
 	}
 }
 
+void affRecette(vector<Recette> tabRec){
+	for(unsigned int i=0 ; i<tabRec.size(); i++){
+		cout<<tabRec[i].getNom()<< " de prix: "<<tabRec[i].getPrix()<<" dont les ingredients sont |";
+		for(unsigned int j=0;j<tabRec[i].getTab().size();j++){
+			cout<< tabRec[i].getTab()[j]<< " | ";
+		}
+		//cout<<
+	}
+}
+
 void affClient(vector <Client> tab){
 	cout<<endl<< "------------ Voici les clients -----------"<<endl;
 	unsigned int i,j; //j

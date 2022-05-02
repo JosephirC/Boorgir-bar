@@ -94,7 +94,7 @@ void txtBoucle (Jeu &jeu, vector<Recette> &R) {
 	//cout<<"boucle";
 	WinTXT win;
 	//unsigned int id;
-	string ingred;
+	string ingred,ingerdTmp;
 	int i=0;
 
 
@@ -135,7 +135,7 @@ void txtBoucle (Jeu &jeu, vector<Recette> &R) {
 				ok = false;
 				break;
 			
-			case '0':                //Je voulais faire une boucle mais switch ne me permet pas. A voir :)
+			/*case '0':                //Je voulais faire une boucle mais switch ne me permet pas. A voir :)
 				cout << "B_Steak_Salade_Tomate selectionne "<<endl;
 				//jeu.compareRecette(R,jeu.tabClient,"B_Steak_Salade_Tomate",id);
 				//jeu.effaceRecette(jeu.tabClient,id,"B_Steak_Salade_Tomate");
@@ -172,14 +172,18 @@ void txtBoucle (Jeu &jeu, vector<Recette> &R) {
 				cout << "Jus selectionne "<<endl;
 				//jeu.compareRecette(R,jeu.tabClient,"Jus",id);
 				break;
+				*/
 			case 'f':
 				cin>>ingred;
 				cout << ingred << " Ajouter a quelle case? "<<endl;
 				cin>>i;
 				cout << " La preparation sur la case: "<<i<<endl;
 				//jeu.compareRecette(R,jeu.tabClient,"Soda",id);
-				jeu.PreparerCommande(ingred,i);
+				ingerdTmp = jeu.PreparerCommande(ingred,i);
 				break;
+			case 'g':
+				unsigned int id;
+				jeu.effaceRecette(jeu.tabClient,id,ingerdTmp);
 			case 'p':
 				affTabPrep(jeu.tabPrep);
 				break;

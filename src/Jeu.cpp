@@ -162,7 +162,6 @@ void Jeu::creationClient(const unsigned int &I, vector<Client> & tabC,vector<Com
 
 // PreparerCommande : 
 string Jeu::PreparerCommande( const string & ing , int i ){
-    cout <<"toto";
     for (unsigned int j=0;j<tabRec.size();j++){
         if( ing=="Soda" || ing=="Jus" || ing=="Frites") return ing;
         if( ing==tabRec[j].getTab()[0] && tabRec[j].getTab()[1]=="Undefined"){
@@ -171,7 +170,6 @@ string Jeu::PreparerCommande( const string & ing , int i ){
         }
         if( ing==tabRec[j].getTab()[1] && tabPrep[i]==tabRec[j].getTab()[0]){
             tabPrep[i]=tabRec[j].getNom();
-            cout<<"hii";
             return tabPrep[i];
         }
     }
@@ -257,33 +255,21 @@ bool Jeu::compareRecette(vector<Recette> &tabR, vector<Client> & tabC, const str
         tabR.clear();
         return egale;
 }
-
+*/
 void Jeu::effaceRecette(vector<Client> & Cl, unsigned int & IdCl, string & rec){
-    vector<Recette> tabR;
     bool trouve = false;
-
-    trouve = compareRecette(tabR, Cl, rec, IdCl);
-    //cout << "trouve = " << trouve << endl;
-    //cout << "it worked " << endl;
-
-    cout << "la recette est : " << rec << endl;
-
     for(unsigned int i = 0; i < Cl.size(); i++){
         for(unsigned int j =0; j < Cl[i].com.size(); j++){
-    cout << " Client : " << i <<" Nom : " << Cl[i].com[j].getNom() << endl; 
-        }
-    }
-
-    for(unsigned int i = 0; i < Cl.size(); i++){
-        for(unsigned int j =0; j < Cl[i].com.size(); j++){
-            //cout << "Client : " << i <<" Nom : " << Cl[i].com[j].getNom() << endl; 
-
 
             if(Cl[i].com[j].getNom() == rec){
-                cout << endl << "!!Clien num : " << i << " Reccet : " << rec << endl << endl;
                 Cl[i].com.erase(Cl[i].com.begin() + j);    
-                //cout << "!!!Client : " << i <<" Nom : " << Cl[i].com[j].getNom() << endl; 
                 trouve = true;
+                for(unsigned int i=0; i<4;i++){
+                    if(tabPrep[i]==rec){
+                        //tabPrep[i]=NULL;
+                    }
+
+                } 
                 break;
             }
         }
@@ -292,11 +278,11 @@ void Jeu::effaceRecette(vector<Client> & Cl, unsigned int & IdCl, string & rec){
             }
 
     }
-    for(unsigned int i = 0; i < Cl.size(); i++){
+    
+  /*  for(unsigned int i = 0; i < Cl.size(); i++){
         for(unsigned int j =0; j < Cl[i].com.size(); j++){
     cout << " NOUVEAU Client : " << i <<" Nom : " << Cl[i].com[j].getNom() << endl; 
         }
     }
-    cout << "Done " << endl;
+    cout << "Done " << endl; */
 }
-*/

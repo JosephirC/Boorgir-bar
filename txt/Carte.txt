@@ -1,14 +1,14 @@
-B_Steak_Salade_Tomate 18
+PainBSteakSaladeTomate 18
 
-B_Steak_Salade_Tomate_Ketchup 19
+PainBSteakSaladeTomateKetchup 19
 
-B_Steak_Salade_Tomate_Mayo 19
+PainBSteakSaladeTomateMayo 19
 
-HD_Saucisse 11
+PainHDSaucisse 11
 
-HD_Saucisse_Ketchup 12
+PainHDSaucisseKetchup 12
 
-HD_Saucisse_Mayo 12
+PainHDSaucisseMayo 12
 
 Frites 6
 

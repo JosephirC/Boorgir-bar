@@ -65,7 +65,7 @@ class Jeu{
 
         void creationClient(const unsigned int &I, vector<Client> &tabC,vector<Commande> &carte );
 
-        string PreparerCommande( const string & ing);
+        string PreparerCommande( const string & ing, int i);
 
         string creationRecette(const string & recette,vector<Recette> &recVec);
         bool compareRecette(vector<Recette> & tabR, vector<Client> & tabC, const string & r, unsigned int & IdCl);

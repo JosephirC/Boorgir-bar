@@ -44,7 +44,7 @@ void affRecette(vector<Recette> tabRec){
 		for(unsigned int j=0;j<tabRec[i].getTab().size();j++){
 			cout<< tabRec[i].getTab()[j]<< " | ";
 		}
-		//cout<<
+		cout<<endl;
 	}
 }
 
@@ -95,6 +95,7 @@ void txtBoucle (Jeu &jeu, vector<Recette> &R) {
 	WinTXT win;
 	//unsigned int id;
 	string ingred;
+	int i=0;
 
 
 	do {
@@ -120,6 +121,10 @@ void txtBoucle (Jeu &jeu, vector<Recette> &R) {
 
 			case 'c':
 				affClient(jeu.tabClient);
+				break;
+
+			case 'u':
+				affRecette(jeu.tabRec);
 				break;
 
 			//case '0':
@@ -169,9 +174,11 @@ void txtBoucle (Jeu &jeu, vector<Recette> &R) {
 				break;
 			case 'f':
 				cin>>ingred;
-				cout << ingred << " search "<<endl;
+				cout << ingred << " Ajouter a quelle case? "<<endl;
+				cin>>i;
+				cout << " La preparation sur la case: "<<i<<endl;
 				//jeu.compareRecette(R,jeu.tabClient,"Soda",id);
-				jeu.PreparerCommande(ingred);
+				jeu.PreparerCommande(ingred,i);
 				break;
 			case 'p':
 				affTabPrep(jeu.tabPrep);

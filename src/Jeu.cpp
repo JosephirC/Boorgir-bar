@@ -161,8 +161,22 @@ void Jeu::creationClient(const unsigned int &I, vector<Client> & tabC,vector<Com
 }
 
 // PreparerCommande : 
-string Jeu::PreparerCommande( const string & ing){
-    int i=0;
+string Jeu::PreparerCommande( const string & ing , int i ){
+    cout <<"toto";
+    for (unsigned int j=0;j<tabRec.size();j++){
+        if( ing=="Soda" || ing=="Jus" || ing=="Frites") return ing;
+        if( ing==tabRec[j].getTab()[0] && tabRec[j].getTab()[1]=="Undefined"){
+            tabPrep[i]=tabRec[j].getNom();
+            return ing;
+        }
+        if( ing==tabRec[j].getTab()[1] && tabPrep[i]==tabRec[j].getTab()[0]){
+            tabPrep[i]=tabRec[j].getNom();
+            cout<<"hii";
+            return tabPrep[i];
+        }
+    }
+    return tabPrep[i];
+    /*int i=0;
     if( ing=="Soda" || ing=="Jus") return ing;
     if( ing=="PainB") {
         while(i < 4){
@@ -190,10 +204,8 @@ string Jeu::PreparerCommande( const string & ing){
             }
         }
     }
-    
+    */
 
-
-    return "haha";
 }
 
 

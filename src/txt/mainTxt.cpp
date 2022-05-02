@@ -11,7 +11,7 @@ int main ( int argc, char** argv ) {
 	cout<< "Q: Quit"<<endl;
 
 	cout<< "Aide: Vous pouvez utiliser la carte menu pour trouver les touches des ingredients."<<endl<<endl;
-
+	
 	Temps t(400);
 	//int test;
 	//test = t.tempsRestant;
@@ -19,6 +19,7 @@ int main ( int argc, char** argv ) {
 
 	Jeu j;
 	j.chargerCarte(j.carte, "./txt/Carte.txt");
+	j.chargerRecette(j.tabRec,"./txt/test.txt");
 	j.creationClient(4,j.tabClient ,j.carte);
 
 	j.getObj().choixNiveau(1);

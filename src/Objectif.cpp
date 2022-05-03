@@ -29,7 +29,6 @@ void Objectif::setTemps(Temps &t){
 
 
 void Objectif::choixNiveau(int choix) {
-    cout<<"no ? ";
     switch(choix)
     {
         case 1:

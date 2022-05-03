@@ -94,6 +94,8 @@ class Jeu{
         bool compareRecette(vector<Recette> & tabR, vector<Client> & tabC, const string & r, unsigned int & IdCl);
         /** < @brief permet d'effacer une recette */
         void effaceRecette(vector<Client> & Cl, unsigned int & IdCl, string & rec); 
+        
+        bool effacerClient(vector<Client> & Cl);
 
 
 };

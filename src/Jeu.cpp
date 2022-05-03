@@ -174,60 +174,8 @@ string Jeu::PreparerCommande( const string & ing , int i ){
         }
     }
     return tabPrep[i];
-    /*int i=0;
-    if( ing=="Soda" || ing=="Jus") return ing;
-    if( ing=="PainB") {
-        while(i < 4){
-            if( tabPrep[i].empty() ){
-                tabPrep[i] = ing;
-                return ing;
-            }
-            else i++;
-        }
-    }
-    if( ing=="Steak"){
-        while(i < 4){
-            if( tabPrep[i] == "PainB"){
-                tabPrep[i] = "B_Steak";
-                return ing;
-            }
-            else i++;
-        }
-    }
-    if( ing=="Tomate"){
-        while(i < 4){
-            if( tabPrep[i] == "B_Steak"){
-                tabPrep[i] == "B_Steak";
-
-            }
-        }
-    }
-    */
-
 }
-
-
-
 /*
-string Jeu::creationRecette(const string & recette, vector<Recette> &vecRec){
-    //bool trouve = false;
-    for(unsigned int i = 0; i < vecRec.size(); i++){
-        cout << endl << endl << "RECETTE PASSE EN PARAM : " << recette << endl;
-        cout << "rec ==== " << vecRec[i].getNom() << endl;
-        
-        if(recette == vecRec[i].getNom()){
-            //cout << trouve << endl;
-            //trouve = true; 
-            //cout << trouve << endl;
-            cout << "FOUND2"<< endl;
-            return recette;
-        }
-     
-    }
-    return "";
-}
-
-
 bool Jeu::compareRecette(vector<Recette> &tabR, vector<Client> & tabC, const string & r, unsigned int & IdCl){
     bool egale = false;
     //vector<Client> tabC; // pour le client
@@ -266,7 +214,7 @@ void Jeu::effaceRecette(vector<Client> & Cl, unsigned int & IdCl, string & rec){
                 trouve = true;
                 for(unsigned int i=0; i<4;i++){
                     if(tabPrep[i]==rec){
-                        //tabPrep[i]=NULL;
+                        tabPrep[i]="Undefined";
                     }
 
                 } 
@@ -276,13 +224,14 @@ void Jeu::effaceRecette(vector<Client> & Cl, unsigned int & IdCl, string & rec){
         if(trouve == true){
                 break;
             }
+    }
+}
 
+bool Jeu::effacerClient(vector<Client> & Cl){
+    //bool efface = false;
+    if(Cl.empty() == true ){
+        creationClient(4,tabClient ,carte);
+        return true;
     }
-    
-  /*  for(unsigned int i = 0; i < Cl.size(); i++){
-        for(unsigned int j =0; j < Cl[i].com.size(); j++){
-    cout << " NOUVEAU Client : " << i <<" Nom : " << Cl[i].com[j].getNom() << endl; 
-        }
-    }
-    cout << "Done " << endl; */
+    return false;
 }

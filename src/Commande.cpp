@@ -7,38 +7,46 @@
 using namespace std;
 
 
+/** < @brief un constructeur de Commande */
 Commande::Commande()
 {
     nomC = " ";
     prixC = 0;
 }
 
+/** < @brief un constructeur de Commande */
 Commande::Commande(string nom, unsigned int prix){
     nomC = nom;
     prixC = prix;
 }
 
+/** < @brief le destructeur de Commande */
 Commande:: ~Commande(){   
     
 }
 
+/** < @brief accesseur de Commande */
 void Commande::setNom(const string & nom){
     nomC = nom;
 }
 
+/** < @brief accesseur de Commande */ 
 void Commande::setPrix(const unsigned int & prix){
     prixC = prix;
 }
 
+/** < @brief retourne le nom de la commande */
 string Commande::getNom() const{
     return nomC;
 }
 
+/** < @brief fonction qui retourne le prix de la commande */
 unsigned int Commande::getPrix() const{
     return prixC;    
 }
 
 
+/** < @brief, choisi des recettes aleatoire du menu pour le donner au client */
 void Commande::commandeAleatoire(const vector<Commande> &carte, vector<Commande> & commandeAl){  // commandeAl : Tableau dynamique qui prend aleatoire des recettes de la carte
     //chargerCarte(carte, "./txt/Carte.txt");
 
@@ -123,6 +131,7 @@ void Commande::commandeAleatoire(const vector<Commande> &carte, vector<Commande>
     }
 }
 
+/** < @brief fonction qui calcule le prix que le client doit payer */
 void Commande::calculePrix(vector<Commande>  & commandeAl, unsigned int & prix){
     prix = 0;
     for(unsigned int i = 0; i<commandeAl.size(); i++){

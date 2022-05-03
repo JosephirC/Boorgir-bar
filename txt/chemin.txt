@@ -1,0 +1,71 @@
+Nom | Emplacement | Chemin
+
+Client1 1 "./img/client1.png"
+
+Client2 2 "./img/client2.png"
+
+Client3 3 "./img/client3.png"
+
+Client 4 "./img/client4.png
+
+
+
+Mayo 7 "./img/Mayo.png"
+
+Ketchup 8 "./img/Ketchup.png"
+
+Frites 9 "./img/Frites.png"
+
+Jus 11 "./Jus.png"
+
+Soda 12 "./Soda.png"
+
+
+
+Salade 1 "./img/Salade.png"
+
+Tomate 2 "./img/Tomate.png"
+
+PainHD 3 "./img/PainHD.png"
+
+Saucisse 4 "./img/Saucisse.png"
+
+PainB 5 "./img/PainB.png"
+
+Steak 6 "./img/Steak.png"
+
+
+
+PainBSteak "./img/PainbSteak.png"
+
+PainBSteakMayo "./img/PainBSteakMayo.png"
+
+PainBSteakKetchup "./img/PainbSteakKetchup.png"
+
+PainBSteakTomate "./img/PainBSteaktomate.png"
+
+PainBSteakTomateMayo "./img/PainBSteakTomateMayo"
+
+PainBSteakTomateKetchup "./img/PainBSteakTomateKetchup"
+
+PainBSteakSalade "./img/PainBSteakSalade"
+
+PainBSteakSaladeMayo "./img/PainBSteakSaladeMayo"
+
+PainBSteakSaladeKetchup "./img/PainBSteakSaladeKetchup"
+
+PainBSteakSaladeTomate "./img/PainBSteakSaladeTomate"
+
+PainBSteakSaladeTomateMayo "./img/PainBSteakSaladeTomateMayo.png"
+
+PainBSteakSaladeTomateKetchup "./img/PainBSteakSaladeTomateKetchup.png"
+
+
+
+PainHD
+
+PainHDSaucisse "./img/PainHDSaucisse.png"
+
+PainHDSaucisseMayo "./img/PainHDSaucisseMayo.png"
+
+PainHDSaucisseKetchup "./img/PainHDSaucisseKetchup.png"

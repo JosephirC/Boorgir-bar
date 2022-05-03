@@ -2,7 +2,7 @@ NomIngredient | Prix | Emplacement |  TempsCuisson
 
 Salade 2 1 0
 
-Tomates 3 2 0
+Tomate 3 2 0
 
 Frites 6 9 5
 

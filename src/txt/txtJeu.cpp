@@ -176,7 +176,10 @@ void txtBoucle (Jeu &jeu, vector<Recette> &R) {
 			case 'f':
 				cin>>ingred;
 				cout << ingred << " Ajouter a quelle case? "<<endl;
-				cin>>i;
+				while(i<1 && i>1){
+					cin>>i;
+					cout<<"I doit etre entre 1 et 4 votre i est: "<<i<<endl;
+				}
 				cout << " La preparation sur la case: "<<i<<endl;
 				//jeu.compareRecette(R,jeu.tabClient,"Soda",id);
 				ingerdTmp = jeu.PreparerCommande(ingred,i);

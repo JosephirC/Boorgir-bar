@@ -293,6 +293,11 @@ void sdlJeu::sdlAff () {
     positionTitre.x = 20;positionTitre.y = 49;positionTitre.w = 300;positionTitre.h = 100;
     SDL_RenderCopy(renderer,font_im.getTexture(),NULL,&positionTitre);
 
+    chargerImage(loaded_im, "./txt/test2.txt");
+    for(unsigned int i = 0, i < loaded_im.size(); i++){
+
+    }
+
 }
 
 void sdlJeu::sdlBoucle () {

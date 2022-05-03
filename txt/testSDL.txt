@@ -1,0 +1,23 @@
+Mayo "./img/Mayo.png"
+
+Ketchup"./img/Ketchup.png"
+
+Frites"./img/Frites.png"
+
+Jus "./Jus.png"
+
+Soda "./Soda.png"
+
+
+
+Salade "./img/Salade.png"
+
+Tomate "./img/Tomate.png"
+
+PainHD "./img/PainHD.png"
+
+Saucisse "./img/Saucisse.png"
+
+PainB "./img/PainB.png"
+
+Steak "./img/Steak.png"

@@ -11,7 +11,9 @@ class Commande{
 
     private :
   
+        /** < @brief varaible contenant le nom de la commande */
         string nomC;
+        /** < @brief  prix de la commande */
         unsigned int prixC;
 
 
@@ -24,9 +26,9 @@ class Commande{
         /** < @brief le destructeur de Commande */
         ~Commande();
 
-        /** < @brief accesseur de Commande */
+        /** < @brief mutateur de Commande */
         void setNom(const string &nom);
-        /** < @brief accesseur de Commande */
+        /** < @brief mutateur de Commande */
         void setPrix(const unsigned int & prix);
 
         /** < @brief retourne le nom de la commande */ 

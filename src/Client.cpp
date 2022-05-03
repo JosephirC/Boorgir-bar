@@ -16,7 +16,7 @@ Client::Client(const unsigned int idC, vector<Commande> & comm, unsigned int pri
 
 /** < @brief Destructeur de Client */ 
 Client::~Client(){
-
+ 
 }
 
 /** < @brief fonction qui retourne l'identifiant du Client */ 

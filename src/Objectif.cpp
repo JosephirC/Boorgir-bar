@@ -5,10 +5,12 @@
 
 using namespace  std;
 
+/** < @brief constructeur de Objectif */
 Objectif::Objectif() {
 
 }
 
+/** < @brief destructeur de Objectif */
 Objectif::~Objectif() {
 
 }
@@ -23,11 +25,14 @@ void Objectif::setTemps(Temps &t){
      t=Temp;
  } 
 */
+
+/** < @brief  retourne l'argent gagne pendant la partie */
  unsigned int Objectif::getArgent() const{
      return Argent;
  }
 
 
+/** < @brief permet de selectionner le niveau voulu */
 void Objectif::choixNiveau(int choix) {
     switch(choix)
     {

@@ -11,26 +11,37 @@ class Temps{
 
     private :
 
-        clock_t t1;    //le tick au debut
-        double temps;  //temps toal de l'evenemt que nous avons defini
+        /** < @brief le tick du debut */
+        clock_t t1;    
+        /** < @brief //temps total de l'evenement que nous avons defini */
+        double temps;  
 
     public :
 
+        /** < @brief un constructeur de Temps */
         Temps(); // useless, ps de sens
 
+        /** < @brief constructeur de Temps */
         Temps(double temps); // Dans le .cpp on fait temps = t 
         // on fait appelle a la fonction clock(), on la stocque dans t1, 
 
+        /** < @brief destructeur de Temps */
         ~Temps();
 
+        /** < @brief accesseur qui recupere le temps*/
         double getTemps() const;
+        /** < @brief mutateur qui recupere le temps */
         void setTemps(double t);
+        /** < @brief accesseur qui recupere le tick */
         clock_t getClock() const;
 
+        /** < @brief retourne le temps restant de la partie */
         double tempsRestant();
         // temps - (t2 - t1)
+        /** < @brief retourne le temps passe de la partie */
         double tempsPasse();
 
+        /** < @brief le temps total donne de la partie */
         bool tempsAtteint(); // temps_donne - (t2 - t1) avec t2 le temps qui se calcule au debut de la partie
 
       

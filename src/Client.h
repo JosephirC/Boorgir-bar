@@ -14,7 +14,9 @@ class Client{
 
         //Temps patience(unsigned int duree);
         //int emplacement;
+        /** < @brief identifiant du client */
         unsigned int idClient; 
+        /** < @brief prix total de la commande du client */
         int prixTot;
        
 

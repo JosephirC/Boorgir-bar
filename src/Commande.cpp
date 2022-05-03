@@ -25,12 +25,12 @@ Commande:: ~Commande(){
     
 }
 
-/** < @brief accesseur de Commande */
+/** < @brief mutateur de Commande */
 void Commande::setNom(const string & nom){
     nomC = nom;
 }
 
-/** < @brief accesseur de Commande */ 
+/** < @brief mutateur de Commande */ 
 void Commande::setPrix(const unsigned int & prix){
     prixC = prix;
 }

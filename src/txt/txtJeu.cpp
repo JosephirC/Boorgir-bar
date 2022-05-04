@@ -1,4 +1,5 @@
 #include <iostream>
+#include <stdlib.h>
 #ifdef _WIN32
 #include <windows.h>
 #else
@@ -112,7 +113,8 @@ void txtBoucle (Jeu &jeu, vector<Recette> &R) {
 		//cout<<endl<<"passe1 " <<jeu.getObj().Temp.tempsRestant()<<endl;
 		//cout<< jeu.getObj().Temp.tempsAtteint()<<endl;
 		
-		
+		//win.clear();
+
 		switch(c)
 		{
 			case 'm':
@@ -193,7 +195,7 @@ void txtBoucle (Jeu &jeu, vector<Recette> &R) {
 
 		}
 			
-
+		
 	} while (ok);
 
 }

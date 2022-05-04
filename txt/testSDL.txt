@@ -1,23 +1,23 @@
-Mayo "./img/Mayo.png"
+Mayo ./img/Mayo.png
 
-Ketchup"./img/Ketchup.png"
+Ketchup ./img/Ketchup.png
 
-Frites"./img/Frites.png"
+Frites ./img/Frites.png
 
-Jus "./Jus.png"
+Jus ./img/Jus.png
 
-Soda "./Soda.png"
+Soda ./img/Soda.png
 
 
 
-Salade "./img/Salade.png"
+Salade ./img/Salade.png
 
-Tomate "./img/Tomate.png"
+Tomate ./img/Tomate.png
 
-PainHD "./img/PainHD.png"
+PainHD ./img/PainHD.png
 
-Saucisse "./img/Saucisse.png"
+Saucisse ./img/Saucisse.png
 
-PainB "./img/PainB.png"
+PainB ./img/PainB.png
 
-Steak "./img/Steak.png"
+Steak ./img/Steak.png

@@ -10,9 +10,9 @@ int main()
 
     Image i;
     vector<Image> im;
-    i.chargerImage(im, )
+    //i.chargerImage(im, )
 
-    for(unsigned int i =0 i<)
+    //for(unsigned int i =0 i<)
 
     return 0;
 }

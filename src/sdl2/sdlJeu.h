@@ -32,7 +32,7 @@ class Image{
 
         SDL_Texture * getTexture() const;
 
-        void chargerImage(vector<Image> & vecIm, const string & filenameIm); // cherger image dans un tableau dynamique;
+        //static void chargerTxtImages(vector<Image> & vecIm, const string & filenameIm); // cherger image dans un tableau dynamique;
 
         void setSurface(SDL_Surface * surf);
 
@@ -75,12 +75,17 @@ class sdlJeu {
         bool souris;
         bool touche;
 
+        void sdlLoadImage();
+
     public :
 
         sdlJeu ();
         ~sdlJeu ();
         void sdlBoucle ();
         void sdlAff ();
+       
+
+        vector<Image> im;
 
 };
 

@@ -62,7 +62,7 @@ PainBSteakSaladeTomateKetchup "./img/PainBSteakSaladeTomateKetchup.png"
 
 
 
-PainHD
+PainHD "img/PainHD.png"
 
 PainHDSaucisse "./img/PainHDSaucisse.png"
 

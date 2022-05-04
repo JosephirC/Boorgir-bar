@@ -91,17 +91,18 @@ SDL_Texture * Image::getTexture() const {
     return texture;
 }
 
-void Image::chargerImage(vector<Image> & vecIm, const string & filenameIm){
+void chargerTxtImages(vector<Image> & vecIm, const string & filenameIm){
     ifstream fileIm(filenameIm.c_str());
     string nom, chemin;
 
     if(fileIm.is_open()){
         while(fileIm >> nom >> chemin){
+            cout <<"in" <<endl;
             Image im(nom, chemin);
             vecIm.push_back(im);
         }
     }
-
+    
     else
         cout << "Failed to open file..." << endl;
 }
@@ -202,6 +203,15 @@ sdlJeu::sdlJeu () : jeu() {
     for(unsigned int i = 0; i < loaded_im.size(); i++){
         loaded_im[i].loadFromFile(loaded_im[i].getChemin().c_str(), renderer);
     }
+
+    //Image i;
+    //i.chargerImage(loaded_im, "./txt/testSDL.txt");
+
+    /*for(unsigned int i =0; i<loaded_im.size(); i++){
+        cout << "Le nom est : " << loaded_im[i].getNom() << endl << " Le chemin est : " << loaded_im[i].getChemin() << endl << endl;
+        loaded_im[i].loadFromFile(loaded_im[i].getChemin().c_str(), renderer);
+    }*/
+
     /************************************************************************************/
 
 
@@ -254,6 +264,19 @@ sdlJeu::~sdlJeu () {
     SDL_Quit();
 }
 
+void sdlJeu::sdlLoadImage(){
+
+
+   chargerTxtImages(im, "./txt/testSDL.txt");
+    cout << "22"<<endl;
+    for(unsigned int i =0; i< im.size(); i++){
+        cout << "Chemin : " << im[i].getChemin() << endl;
+        im[i].loadFromFile(im[i].getChemin().c_str(), renderer);
+    }
+   
+
+}
+
 void sdlJeu::sdlAff () {
 	//Remplir l'�cran de blanc
     SDL_SetRenderDrawColor(renderer, 230, 240, 255, 255);
@@ -293,11 +316,86 @@ void sdlJeu::sdlAff () {
     positionTitre.x = 20;positionTitre.y = 49;positionTitre.w = 300;positionTitre.h = 100;
     SDL_RenderCopy(renderer,font_im.getTexture(),NULL,&positionTitre);
 
+    
+    SDL_Rect positionSalade;
+    positionSalade.x = 200;
+    positionSalade.y = 300;
+    positionSalade.w = 150;
+    positionSalade.h = 150;
+
+    SDL_Rect positionTomate;
+    positionTomate.x = 300;
+    positionTomate.y = 300;
+    positionTomate.w = 50;
+    positionTomate.h = 50;
+
+
+    SDL_Rect positionPainHD;
+    positionPainHD.x = 200;
+    positionPainHD.y = 200;
+    positionPainHD.w = 50;
+    positionPainHD.h = 50;
+
+    SDL_Rect positionSaucisse;
+    positionSaucisse.x = 300;
+    positionSaucisse.y = 200;
+    positionSaucisse.w = 50;
+    positionSaucisse.h = 50;
+
+    SDL_Rect positionPainB;
+    positionPainB.x = 200;
+    positionPainB.y = 100;
+    positionPainB.w = 50;
+    positionPainB.h = 50;
+
+    SDL_Rect positionSteak;
+    positionSteak.x = 300;
+    positionSteak.y = 100;
+    positionSteak.w = 50;
+    positionSteak.h = 50;
+
+    SDL_RenderCopy(renderer,font_im.getTexture(),NULL,&positionTitre);
+
+
+
+
+
+
+
+    //Salade.loadFromFile("./img/Salade.png", renderer);
+    //Salade.draw(renderer, 100, 100 ,120, 120);
+    //SDL_RenderCopy(renderer, Salade.getTexture(), NULL, &positionSalade);
+
+    /*vector<Image> ima;
+    Image i;
+    i.chargerImage(ima, "./txt/testSDL.txt");
+    for(unsigned int i =0; i<ima.size(); i++){
+        int x = 0;
+        int y = 0; 
+        int w = 100;
+        int h = 100;
+        Image im;
+        im.loadFromFile(ima[i].getChemin().c_str(), renderer);
+        im.draw(renderer, x + i * 10, y ,w, h);
+    }*/
+
+    for(unsigned i =0; i<im.size(); i++){
+        im[i].draw(renderer, 100, 100, 100,100 );
+    }
+
+
+
+    /*for(unsigned int i = 0; i < loaded_im.size(); i++){
+
+    }*/
+
 }
 
 void sdlJeu::sdlBoucle () {
     SDL_Event events;
 	bool quit = false;
+
+    sdlLoadImage();
 
     	// tant que ce n'est pas la fin ...
 	while (!quit) {

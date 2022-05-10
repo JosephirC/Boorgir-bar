@@ -16,8 +16,11 @@ Tomate ./img/Tomate.png
 
 PainHD ./img/PainHD.png
 
-Saucisse ./img/Saucisse.png
+Saucisse ./img/SaucisseCuit.png
 
 PainB ./img/PainB.png
 
-Steak ./img/Steak.png
+Steak ./img/SteakCuit.png
+
+
+

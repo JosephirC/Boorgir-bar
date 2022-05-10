@@ -1,5 +1,6 @@
 #include <iostream> 
 #include "sdlJeu.h"
+#include "sdlImage.h"
 
 using namespace std;
 

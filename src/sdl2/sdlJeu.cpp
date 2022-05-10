@@ -1,6 +1,7 @@
 #include <cassert>
 #include <time.h>
 #include "sdlJeu.h"
+#include "sdlImage.h"
 #include <stdlib.h>
 
 #include <fstream>
@@ -11,84 +12,6 @@ using namespace std;
 
 float temps () {
     return float(SDL_GetTicks()) / CLOCKS_PER_SEC;  // conversion des ms en secondes en divisant par 1000
-}
-
-// ============= CLASS IMAGE =============== //
-
-Image::Image () {
-    surface = NULL;
-    texture = NULL;
-    has_changed = false;
-    //chemin = "";
-}
-
-
-Image::Image(const string & nomIm, const string & cheminIm){
-    surface = NULL;
-    texture = NULL;
-    has_changed = false;
-    nom = nomIm; 
-    chemin = cheminIm;
-}
-
-void Image::loadFromFile (const char* filename, SDL_Renderer * renderer) {
-    surface = IMG_Load(filename);
-    if (surface == NULL) {
-        string nfn = string("../") + filename;
-        cout << "Error: cannot load "<< filename <<". Trying "<<nfn<<endl;
-        surface = IMG_Load(nfn.c_str());
-        if (surface == NULL) {
-            nfn = string("../") + nfn;
-            surface = IMG_Load(nfn.c_str());
-        }
-    }
-    if (surface == NULL) {
-        cout<<"Error: cannot load "<< filename <<endl;
-        SDL_Quit();
-        exit(1);
-    }
-
-    SDL_Surface * surfaceCorrectPixelFormat = SDL_ConvertSurfaceFormat(surface,SDL_PIXELFORMAT_ARGB8888,0);
-    SDL_FreeSurface(surface);
-    surface = surfaceCorrectPixelFormat;
-
-    texture = SDL_CreateTextureFromSurface(renderer,surfaceCorrectPixelFormat);
-    if (texture == NULL) {
-        cout << "Error: problem to create the texture of "<< filename<< endl;
-        SDL_Quit();
-        exit(1);
-    }
-}
-
-void Image::loadFromCurrentSurface (SDL_Renderer * renderer) {
-    texture = SDL_CreateTextureFromSurface(renderer,surface);
-    if (texture == NULL) {
-        cout << "Error: problem to create the texture from surface " << endl;
-        SDL_Quit();
-        exit(1);
-    }
-}
-
-void Image::draw (SDL_Renderer * renderer, int x, int y, int w, int h) {
-    int ok;
-    SDL_Rect r;
-    r.x = x;
-    r.y = y;
-    r.w = (w<0)?surface->w:w;
-    r.h = (h<0)?surface->h:h;
-
-    if (has_changed) {
-        ok = SDL_UpdateTexture(texture,NULL,surface->pixels,surface->pitch);
-        assert(ok == 0);
-        has_changed = false;
-    }
-
-    ok = SDL_RenderCopy(renderer,texture,NULL,&r);
-    assert(ok == 0);
-}
-
-SDL_Texture * Image::getTexture() const {
-    return texture;
 }
 
 void chargerTxtImages(vector<Image> & vecIm, const string & filenameIm){
@@ -105,42 +28,6 @@ void chargerTxtImages(vector<Image> & vecIm, const string & filenameIm){
     
     else
         cout << "Failed to open file..." << endl;
-}
-
-void Image::setSurface(SDL_Surface * surf) {
-    surface = surf;
-}
-
-void Image::setNom(const string & nomIm){
-    nom = nomIm;
-}
-
-void Image::setChemin(const string & cheminIm){
-    chemin = cheminIm;
-}
-
-void Image::setDimX(const int & x){
-    dimx = x;
-}
-
-void Image::setDimY(const int & y){
-    dimy = y;
-}
-
-string Image::getNom() const{
-    return nom;
-}
-
-string Image::getChemin() const{
-    return chemin;
-}
-
-int Image::getDimX() const{
-    return dimx;
-}
-
-int Image::getDimY() const{
-    return dimy;
 }
 
 // ============= CLASS SDLJEU =============== //
@@ -177,8 +64,8 @@ sdlJeu::sdlJeu () : jeu() {
 
     /************************** A VOIR CETTE PARTE **********************************/
 	int dimx, dimy;
-	dimx = 500;
-	dimy = 500;
+	dimx = 1500;
+	dimy = 800;
 
     /********************************************************************************/
 
@@ -200,9 +87,9 @@ sdlJeu::sdlJeu () : jeu() {
     im_fantome.loadFromFile("data/fantome.png",renderer);*/
 
     //Boucle qui permet de charger toutes les images grace au chemin stocker au tab dynamique
-    for(unsigned int i = 0; i < loaded_im.size(); i++){
+    /*for(unsigned int i = 0; i < loaded_im.size(); i++){
         loaded_im[i].loadFromFile(loaded_im[i].getChemin().c_str(), renderer);
-    }
+    }*/
 
     //Image i;
     //i.chargerImage(loaded_im, "./txt/testSDL.txt");
@@ -229,11 +116,11 @@ sdlJeu::sdlJeu () : jeu() {
 	}
 
     // FONT COLORS
-	font_color.r = 100;
+	font_color.r = 0;
     font_color.g = 0;
     font_color.b = 0;
 
-	font_im.setSurface(TTF_RenderText_Solid(font,"Boorgir-Bar",font_color));
+	font_im.setSurface(TTF_RenderText_Solid(font,"Weclcome to Boorgir-Bar my fine sir !",font_color));
 	font_im.loadFromCurrentSurface(renderer);
 
     /***********************************************SONS**************************************************/
@@ -266,6 +153,12 @@ sdlJeu::~sdlJeu () {
 
 void sdlJeu::sdlLoadImage(){
 
+    //Charger le background
+    
+
+    background.loadFromFile("./img/Backgr.png", renderer);
+
+     
 
    chargerTxtImages(im, "./txt/testSDL.txt");
     cout << "22"<<endl;
@@ -273,8 +166,6 @@ void sdlJeu::sdlLoadImage(){
         cout << "Chemin : " << im[i].getChemin() << endl;
         im[i].loadFromFile(im[i].getChemin().c_str(), renderer);
     }
-   
-
 }
 
 void sdlJeu::sdlAff () {
@@ -311,10 +202,7 @@ void sdlJeu::sdlAff () {
 
     /************************************************************************************/
 
-    // Ecrire un titre par dessus
-    SDL_Rect positionTitre;
-    positionTitre.x = 20;positionTitre.y = 49;positionTitre.w = 300;positionTitre.h = 100;
-    SDL_RenderCopy(renderer,font_im.getTexture(),NULL,&positionTitre);
+  
 
     
     SDL_Rect positionSalade;
@@ -354,7 +242,7 @@ void sdlJeu::sdlAff () {
     positionSteak.w = 50;
     positionSteak.h = 50;
 
-    SDL_RenderCopy(renderer,font_im.getTexture(),NULL,&positionTitre);
+    //SDL_RenderCopy(renderer,font_im.getTexture(),NULL,&positionTitre);
 
 
 
@@ -379,9 +267,16 @@ void sdlJeu::sdlAff () {
         im.draw(renderer, x + i * 10, y ,w, h);
     }*/
 
+
+    background.draw(renderer, 0,0, 1500,800);    
     for(unsigned i =0; i<im.size(); i++){
-        im[i].draw(renderer, 100, 100, 100,100 );
+        im[i].draw(renderer, 300, 600, 100,100 );
     }
+
+      // Ecrire un titre par dessus
+    SDL_Rect positionTitre;
+    positionTitre.x = 400;positionTitre.y = -5;positionTitre.w = 700;positionTitre.h = 70;
+    SDL_RenderCopy(renderer,font_im.getTexture(),NULL,&positionTitre);
 
 
 

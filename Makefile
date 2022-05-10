@@ -3,14 +3,17 @@ SDL_LIB = -lSDL2 -lSDL2_ttf -lSDL2_image -lSDL2_mixer
 
 all: bin/main bin/mainTxt bin/mainSdl
 
-bin/mainSdl: obj/mainSdl.o obj/Jeu.o obj/Recette.o obj/Ingredient.o obj/Commande.o obj/Client.o obj/Objectif.o obj/Temps.o obj/sdlJeu.o 
-	g++ obj/mainSdl.o obj/Jeu.o obj/Recette.o obj/Ingredient.o obj/Commande.o obj/Client.o obj/Objectif.o obj/Temps.o obj/sdlJeu.o -o bin/mainSdl $(SDL_LIB)
+bin/mainSdl: obj/mainSdl.o obj/Jeu.o obj/Recette.o obj/Ingredient.o obj/Commande.o obj/Client.o obj/Objectif.o obj/Temps.o obj/sdlJeu.o obj/sdlImage.o
+	g++ obj/mainSdl.o obj/Jeu.o obj/Recette.o obj/Ingredient.o obj/Commande.o obj/Client.o obj/Objectif.o obj/Temps.o obj/sdlJeu.o obj/sdlImage.o -o bin/mainSdl $(SDL_LIB)
 
-obj/mainSdl.o: src/sdl2/mainSdl.cpp src/sdl2/sdlJeu.h
+obj/mainSdl.o: src/sdl2/mainSdl.cpp src/sdl2/sdlJeu.h src/sdl2/sdlImage.h
 	g++ -ggdb -Wall -c src/sdl2/mainSdl.cpp -o obj/mainSdl.o $(DIR_SDL)
 
-obj/sdlJeu.o: src/sdl2/sdlJeu.cpp  src/sdl2/sdlJeu.h
+obj/sdlJeu.o: src/sdl2/sdlJeu.cpp  src/sdl2/sdlJeu.h src/sdl2/sdlImage.h
 	g++ -ggdb -Wall -c src/sdl2/sdlJeu.cpp -o obj/sdlJeu.o $(DIR_SDL)
+
+obj/sdlImage.o: src/sdl2/sdlImage.cpp src/sdl2/sdlImage.h
+	g++ -ggdb -Wall -c src/sdl2/sdlImage.cpp -o obj/sdlImage.o $(DIR_SDL)
 
 bin/mainTxt: obj/mainTxt.o obj/Jeu.o obj/Recette.o obj/Ingredient.o obj/Commande.o obj/Client.o obj/Objectif.o obj/Temps.o obj/winTxt.o obj/txtJeu.o
 	g++ obj/mainTxt.o obj/Ingredient.o obj/Recette.o obj/Jeu.o obj/Commande.o obj/Client.o obj/Objectif.o obj/Temps.o obj/winTxt.o obj/txtJeu.o -o bin/mainTxt $(SDL_LIB)

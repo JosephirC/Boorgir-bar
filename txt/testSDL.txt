@@ -21,6 +21,3 @@ Saucisse ./img/SaucisseCuit.png
 PainB ./img/PainB.png
 
 Steak ./img/SteakCuit.png
-
-
-

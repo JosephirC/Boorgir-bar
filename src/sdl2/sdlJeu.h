@@ -32,6 +32,8 @@ class sdlJeu {
 
         Image background;
 
+        unsigned int nbrIngJ;
+
         
 
     public :
@@ -45,6 +47,9 @@ class sdlJeu {
         
 
         vector<Image> im;
+
+        unsigned int getNbrIngJ() const;
+        
 
 };
 

@@ -65,7 +65,7 @@ sdlJeu::sdlJeu () : jeu() {
     /************************** A VOIR CETTE PARTE **********************************/
 	int dimx, dimy;
 	dimx = 1500;
-	dimy = 800;
+	dimy = 1500 +  0 *4;
 
     /********************************************************************************/
 
@@ -120,7 +120,7 @@ sdlJeu::sdlJeu () : jeu() {
     font_color.g = 0;
     font_color.b = 0;
 
-	font_im.setSurface(TTF_RenderText_Solid(font,"Weclcome to Boorgir-Bar my fine sir !",font_color));
+	font_im.setSurface(TTF_RenderText_Solid(font,"Welcome to Boorgir-Bar my fine sir !",font_color));
 	font_im.loadFromCurrentSurface(renderer);
 
     /***********************************************SONS**************************************************/
@@ -137,6 +137,9 @@ sdlJeu::sdlJeu () : jeu() {
                 exit(1);
         }
     }
+
+    /**********************Nombre d'ingredient ajoute par le joueur*************/
+    nbrIngJ = im.size() - 11;
 }
 
 
@@ -154,18 +157,20 @@ sdlJeu::~sdlJeu () {
 void sdlJeu::sdlLoadImage(){
 
     //Charger le background
-    
-
     background.loadFromFile("./img/Backgr.png", renderer);
 
      
-
+    //Charger les textures grace au fichier txt
    chargerTxtImages(im, "./txt/testSDL.txt");
     cout << "22"<<endl;
     for(unsigned int i =0; i< im.size(); i++){
         cout << "Chemin : " << im[i].getChemin() << endl;
         im[i].loadFromFile(im[i].getChemin().c_str(), renderer);
     }
+}
+
+unsigned int sdlJeu::getNbrIngJ() const{
+    return nbrIngJ;
 }
 
 void sdlJeu::sdlAff () {

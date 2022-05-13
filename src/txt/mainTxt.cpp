@@ -30,7 +30,7 @@ int main ( int argc, char** argv ) {
 	
 	vector<Recette> R;
 	
-
+	
 	txtBoucle(j,R);
     termClear();
 	return 0;

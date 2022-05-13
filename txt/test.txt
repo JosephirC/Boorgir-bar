@@ -48,7 +48,7 @@ PainHD 2 PainHD Undefined 0
 
 PainHDSaucisseKetchup 2 PainHDSaucisse Ketchup 12
 
-PainHDSaucisseMayo 2 PainHDSaucisse 12
+PainHDSaucisseMayo 2 PainHDSaucisse Mayo 12
 
 Frites 1 Frites 6
 

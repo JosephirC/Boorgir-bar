@@ -3,7 +3,7 @@
 #include "../Jeu.h"
 
 int main ( int argc, char** argv ) {
-	//srand(time(NULL));
+	srand(time(NULL));
     termClear();
 	cout<< "Bienvenu a Boorgir Bar!"<<endl<<endl;
 	cout<< "M: Menu"<<endl;
@@ -21,6 +21,7 @@ int main ( int argc, char** argv ) {
 	j.chargerCarte(j.carte, "./txt/Carte.txt");
 	j.chargerRecette(j.tabRec,"./txt/test.txt");
 	j.creationClient(4,j.tabClient ,j.carte);
+	j.chargerIngredient(j.tabIng,"./txt/Ingredients.txt");
 
 	j.getObj().choixNiveau(1);
 	//cout<< j.getObj().finJeu()<<endl;

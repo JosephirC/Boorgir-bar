@@ -49,18 +49,26 @@ void affRecette(vector<Recette> tabRec){
 	}
 }
 
+void affIng(vector<Ingredient> tabIng){
+	cout<<"----------Voici tous les Ingredients----------"<<endl;
+	for(unsigned int i=0 ; i<tabIng.size(); i++){
+		cout<<"Numero " <<i <<": "<<tabIng[i].getNom()<<endl;
+	}
+}
+
+
 void affClient(vector <Client> tab){
 	cout<<endl<< "------------ Voici les clients -----------"<<endl;
 	unsigned int i,j; //j
 	for (i = 0; i < tab.size(); i++) // unsigned int i = 0; i < v.size(); i++ présentent le risque que le compilateur ne sorte pas de la boucle le calcul de v.size() 
 	{
-		cout<<"Le client "<<tab[i].getIdC()<<" veut: "<<endl;
+		cout<<"Le client "<<tab[i].getIdC()<<" veut:";
 		for (j = 0; j < tab[i].com.size(); j++) {              //ici il faut afficher la commande du client
 			
 			cout<<" "<<tab[i].com[j].getNom() <<" ";
 			
 		}
-		cout<<tab[i].getPrix()<< "$ "<< endl <<endl;
+		cout<<" et doit payer "<<tab[i].getPrix()<< "$ "<< endl;
 	}
 	cout << endl;
 }
@@ -84,6 +92,17 @@ void theChoixIngredient(char c){
 
 }
 
+void affAide(){
+	cout<< "M: Menu"<<endl;
+	cout<< "C: Client"<<endl;
+	cout<< "I: Ingredient"<<endl;
+	cout<< "F: Pour preparer la nourriture sur le bar"<<endl;
+	cout<< "D: Pour donner la nourriture au client"<<endl;
+	cout<< "B: Pour afficher le bar"<<endl;
+	cout<< "A: Aide"<<endl;
+	cout<< "Q: Quit"<<endl;
+}
+
 
 
 
@@ -96,11 +115,12 @@ void txtBoucle (Jeu &jeu, vector<Recette> &R) {
 	WinTXT win;
 	//unsigned int id;
 	string ingred,ingerdTmp;
-	int i=0;
+	int i;
 
 
 	do {
 	    //txtAff(win,jeu);
+		//termClear();
 		
         #ifdef _WIN32
         Sleep(100);
@@ -114,6 +134,8 @@ void txtBoucle (Jeu &jeu, vector<Recette> &R) {
 		//cout<< jeu.getObj().Temp.tempsAtteint()<<endl;
 		
 		//win.clear();
+		
+	
 
 		switch(c)
 		{
@@ -125,71 +147,44 @@ void txtBoucle (Jeu &jeu, vector<Recette> &R) {
 				affClient(jeu.tabClient);
 				break;
 
-			case 'u':
+			case 'p':
 				affRecette(jeu.tabRec);
 				break;
+				
+			case 'i':
+				affIng(jeu.tabIng);
+				break;
 
-			//case '0':
-			//	txtChoixIng(0,carte);
-			//	break;
 
 			case 'q':
 				ok = false;
 				break;
+
+			case 'a':
+				affAide();
+				break;
 			
-			/*case '0':                //Je voulais faire une boucle mais switch ne me permet pas. A voir :)
-				cout << "B_Steak_Salade_Tomate selectionne "<<endl;
-				//jeu.compareRecette(R,jeu.tabClient,"B_Steak_Salade_Tomate",id);
-				//jeu.effaceRecette(jeu.tabClient,id,"B_Steak_Salade_Tomate");
-				break;
-			case '1':
-				cout << "B_Steak_Salade_Tomate_Ketchup selectionne "<<endl;
-				//jeu.compareRecette(R,jeu.tabClient,"B_Steak_Salade_Tomate_Ketchup",id);
-				break;
-			case '2':
-				cout << "B_Steak_Salade_Tomate_Mayo selectionne "<<endl;
-				//jeu.compareRecette(R,jeu.tabClient,"B_Steak_Salade_Tomate_Mayo",id);
-				break;
-			case '3':
-				cout << "HD_Saucisse selectionne "<<endl;
-				//jeu.compareRecette(R,jeu.tabClient,"HD_Saucisse",id);
-				break;
-			case '4':
-				cout << "HD_Saucisse_Ketchup selectionne "<<endl;
-				//jeu.compareRecette(R,jeu.tabClient,"HD_Saucisse_Ketchup",id);
-				break;	
-			case '5':
-				cout << "HD_Saucisse_Mayo selectionne "<<endl;
-				//jeu.compareRecette(R,jeu.tabClient,"HD_Saucisse_Mayo",id);
-				break;
-			case '6':
-				cout << "Frites selectionne "<<endl;
-				//jeu.compareRecette(R,jeu.tabClient,"Frites",id);
-				break;
-			case '7':
-				cout << "Soda selectionne "<<endl;
-				//jeu.compareRecette(R,jeu.tabClient,"Soda",id);
-				break;
-			case '8':
-				cout << "Jus selectionne "<<endl;
-				//jeu.compareRecette(R,jeu.tabClient,"Jus",id);
-				break;
-				*/
+				
 			case 'f':
+				cout<<"Quel ingredient? ";
 				cin>>ingred;
-				cout << ingred << " Ajouter a quelle case? "<<endl;
-				while(i<1 && i>1){
+				cout<<" "<< jeu.tabIng[stoi(ingred)].getNom() << " Ajouter a quel bar de preparation? ";
+				do{
 					cin>>i;
-					cout<<"I doit etre entre 1 et 4 votre i est: "<<i<<endl;
-				}
-				cout << " La preparation sur la case: "<<i<<endl;
+					if(i<1 && i>4) cout<<"I doit etre entre 1 et 4. Vous avez choisi le numero "<<i<<endl;
+					
+				}while(i<1 && i>4);
+				cout << "La preparation sur la case: "<<i<<endl;
 				//jeu.compareRecette(R,jeu.tabClient,"Soda",id);
-				ingerdTmp = jeu.PreparerCommande(ingred,i);
+				ingerdTmp = jeu.PreparerCommande(jeu.tabIng[stoi(ingred)].getNom(),i);
+				
+				
 				break;
 			case 'g':
 				unsigned int id;
 				jeu.effaceRecette(jeu.tabClient,id,ingerdTmp);
-			case 'p':
+
+			case 't':
 				affTabPrep(jeu.tabPrep);
 				break;
 

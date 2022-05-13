@@ -72,11 +72,11 @@ void Jeu::chargerIngredient(vector<Ingredient> &ingVec, const string &filenameIn
             //cout << nomIng << " " << prix << " " << pos << " " << tempsCuisson << endl;
         }
         
-        cout << "----------Voici tous les Ingredients----------" << endl << endl;
+        /*cout << "----------Voici tous les Ingredients----------" << endl << endl;
 
         for(unsigned int i = 0; i < ingVec.size(); i++){
             cout << ingVec[i] << endl;
-        }
+        }*/
 
         fileIng.close();
     }
@@ -143,15 +143,10 @@ void Jeu::chargerCarte(vector<Commande> &tabC, const string &fileCarte){
 
 
 void Jeu::creationClient(const unsigned int &I, vector<Client> & tabC,vector<Commande> & carte){
-    Commande com1;
-    vector<Commande> comAl;
-    unsigned int i, prix;
+    unsigned int i;
     for(i=0;i<I;i++){
-        com1.commandeAleatoire(carte, comAl);
-        com1.calculePrix(comAl, prix);
-        Client cli(i+1, comAl, prix);
+        Client cli(i+1, carte);
         tabC.push_back(cli);
-        comAl.clear();
     }
     /*for(unsigned int i = 0; i < tabC.size(); i++){
         for(unsigned int j =0; j < tabC[i].com.size(); j++){

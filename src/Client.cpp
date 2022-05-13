@@ -8,11 +8,15 @@ using namespace  std;
 
 
 /** < @brief Constructeur de Client */ 
-Client::Client(const unsigned int idC, vector<Commande> & comm, unsigned int prix){
+Client::Client(const unsigned int idC,vector<Commande> & carte){
+    Commande newCom;
+    prixTot=0;
     idClient=idC;
-    com=comm;
-    prixTot=prix;
+    newCom.commandeAleatoire(carte,com);
+    newCom.calculePrix(com, prixTot);
 }
+
+
 
 /** < @brief Destructeur de Client */ 
 Client::~Client(){
@@ -33,4 +37,3 @@ unsigned int Client::getIdC() const{
 
      return com;
  }*/
-

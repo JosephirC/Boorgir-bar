@@ -119,77 +119,80 @@ void txtBoucle (Jeu &jeu, vector<Recette> &R) {
 
 
 	do {
-	    //txtAff(win,jeu);
-		//termClear();
-		
-        #ifdef _WIN32
-        Sleep(100);
-		#else
-		usleep(100000);
-        #endif // WIN32
-		
-    	c=win.getCh();
 
-		//cout<<endl<<"passe1 " <<jeu.getObj().Temp.tempsRestant()<<endl;
-		//cout<< jeu.getObj().Temp.tempsAtteint()<<endl;
-		
-		//win.clear();
-		
-	
-
-		switch(c)
-		{
-			case 'm':
-				affCarte(jeu.carte);
-				break;
-
-			case 'c':
-				affClient(jeu.tabClient);
-				break;
-
-			case 'p':
-				affRecette(jeu.tabRec);
-				break;
-				
-			case 'i':
-				affIng(jeu.tabIng);
-				break;
-
-
-			case 'q':
-				ok = false;
-				break;
-
-			case 'a':
-				affAide();
-				break;
+		do{
+			//txtAff(win,jeu);
+			//termClear();
 			
-				
-			case 'f':
-				cout<<"Quel ingredient? ";
-				cin>>ingred;
-				cout<<" "<< jeu.tabIng[stoi(ingred)].getNom() << " Ajouter a quel bar de preparation? ";
-				do{
-					cin>>i;
-					if(i<1 && i>4) cout<<"I doit etre entre 1 et 4. Vous avez choisi le numero "<<i<<endl;
+			#ifdef _WIN32
+			Sleep(100);
+			#else
+			usleep(100000);
+			#endif // WIN32
+			
+			c=win.getCh();
+
+			//cout<<endl<<"passe1 " <<jeu.getObj().Temp.tempsRestant()<<endl;
+			//cout<< jeu.getObj().Temp.tempsAtteint()<<endl;
+			
+			//win.clear();
+			
+		
+
+
+			switch(c)
+			{
+				case 'm':
+					affCarte(jeu.carte);
+					break;
+
+				case 'c':
+					affClient(jeu.tabClient);
+					break;
+
+				case 'p':
+					affRecette(jeu.tabRec);
+					break;
 					
-				}while(i<1 && i>4);
-				cout << "La preparation sur la case: "<<i<<endl;
-				//jeu.compareRecette(R,jeu.tabClient,"Soda",id);
-				ingerdTmp = jeu.PreparerCommande(jeu.tabIng[stoi(ingred)].getNom(),i);
-				
-				
-				break;
-			case 'g':
-				unsigned int id;
-				jeu.effaceRecette(jeu.tabClient,id,ingerdTmp);
+				case 'i':
+					affIng(jeu.tabIng);
+					break;
 
-			case 't':
-				affTabPrep(jeu.tabPrep);
-				break;
 
+				case 'q':
+					ok = false;
+					break;
+
+				case 'a':
+					affAide();
+					break;
+				
+					
+				case 'f':
+					cout<<"Quel ingredient? ";
+					cin>>ingred;
+					cout<<" "<< jeu.tabIng[stoi(ingred)].getNom() << " Ajouter a quel bar de preparation? ";
+					do{
+						cin>>i;
+						if(i<1 && i>4) cout<<"I doit etre entre 1 et 4. Vous avez choisi le numero "<<i<<endl;
+						
+					}while(i<1 && i>4);
+					cout << "La preparation sur la case: "<<i<<endl;
+					//jeu.compareRecette(R,jeu.tabClient,"Soda",id);
+					ingerdTmp = jeu.PreparerCommande(jeu.tabIng[stoi(ingred)].getNom(),i);
+					
+					
+					break;
+				case 'g':
+					unsigned int id;
+					jeu.effaceRecette(jeu.tabClient,id,ingerdTmp);
+
+				case 't':
+					affTabPrep(jeu.tabPrep);
+					break;
+
+			}
 		}
-			
 		
 	} while (ok);
 

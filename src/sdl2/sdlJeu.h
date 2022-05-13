@@ -44,7 +44,11 @@ class sdlJeu {
         void sdlAff ();
         
         void sdlLoadImage();
-        
+
+       // void MenuPrincipal(Jeu & Game);
+       // bool afficherAccueil();
+       // void AttendreClic(int & x, int & y);
+       // void RenduImage (SDL_Renderer * renderer, char* nomImage, int x, int y, double angle, SDL_RendererFlip flip);
 
         vector<Image> im;
 

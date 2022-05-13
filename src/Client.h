@@ -17,7 +17,7 @@ class Client{
         /** < @brief identifiant du client */
         unsigned int idClient; 
         /** < @brief prix total de la commande du client */
-        int prixTot;
+        unsigned int prixTot ;
        
 
     public :
@@ -27,7 +27,7 @@ class Client{
         /** < @brief un construscteur de Client */ 
         Client();
         /** < @brief un constructeur de Client */ 
-        Client(const unsigned int idC, vector<Commande> & comm, unsigned int prix); // on appelle le constructeur de temps pour creer un objet de la classe 
+        Client(const unsigned int idC, vector<Commande> & carte); // on appelle le constructeur de temps pour creer un objet de la classe 
         /** < @brief le destructeur de Client */ 
         ~Client();
 

@@ -3,7 +3,10 @@
 #include "sdlJeu.h"
 #include "sdlImage.h"
 #include <stdlib.h>
-
+//#ifdef _WIN32
+//#include <windows.h>
+//#else
+//#endif // WIN32
 #include <fstream>
 #include <vector>
 #include <iostream>
@@ -339,3 +342,4 @@ void sdlJeu::sdlBoucle () {
         SDL_RenderPresent(renderer);
 	}
 }
+

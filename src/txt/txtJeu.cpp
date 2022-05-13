@@ -121,7 +121,7 @@ void txtBoucle (Jeu &jeu, vector<Recette> &R) {
 
 	do {
 
-		do{
+		
 			//txtAff(win,jeu);
 			//termClear();
 			
@@ -193,7 +193,7 @@ void txtBoucle (Jeu &jeu, vector<Recette> &R) {
 					break;
 
 			}
-		}while(okk);
+		
 		
 	} while (ok);
 

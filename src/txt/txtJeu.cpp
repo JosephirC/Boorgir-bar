@@ -110,7 +110,7 @@ void affAide(){
 void txtBoucle (Jeu &jeu, vector<Recette> &R) {
 	
 	bool ok = true;
-	bool okk = true;
+	//bool okk = true;
 	char c;
 	//cout<<"boucle";
 	WinTXT win;
@@ -121,7 +121,7 @@ void txtBoucle (Jeu &jeu, vector<Recette> &R) {
 
 	do {
 
-		do{
+		
 			//txtAff(win,jeu);
 			//termClear();
 			
@@ -193,7 +193,7 @@ void txtBoucle (Jeu &jeu, vector<Recette> &R) {
 					break;
 
 			}
-		}while(okk);
+		
 		
 	} while (ok);
 

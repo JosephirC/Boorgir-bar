@@ -96,7 +96,7 @@ class Jeu{
         /** < @brief permet d'effacer une recette */
         //void effaceRecette(vector<Client> & Cl, unsigned int & IdCl, string & rec); 
         void effaceRecette(vector<Client> & Cl, unsigned int & IdCl, unsigned int & IdRec);
-        
+        void effaceExtras(vector<Client> & Cl, unsigned int & IdCl, unsigned int & IdExtras);
         bool effacerClient(vector<Client> & Cl);
 
 

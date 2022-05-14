@@ -104,6 +104,9 @@ sdlJeu::sdlJeu () : jeu() {
         loaded_im[i].loadFromFile(loaded_im[i].getChemin().c_str(), renderer);
     }*/
 
+    sdlLoadImgFile();
+
+    //newImage.loadFromFile("img/Tomate.png", renderer);
     /************************************************************************************/
 
 
@@ -160,11 +163,13 @@ sdlJeu::~sdlJeu () {
 void sdlJeu::sdlLoadImgFile(){
 
     //Charger le background
-    //background.loadFromFile("./img/Backgr.png", renderer);
+    background.loadFromFile("./img/Backgr.png", renderer);
 
     for(unsigned int i =0; i< im.size(); i++){
         im[i].loadFromFile(im[i].getChemin().c_str(), renderer);
     }
+
+   newImage.loadFromFile("./img/Tomate.png", renderer);
 }
 
 /*vector<Image> sdlJeu::getImageVec() const{
@@ -236,7 +241,7 @@ void sdlJeu::sdlAff () {
     }*/
 
 
-    //background.draw(renderer, 0,0, 960,960);    
+    background.draw(renderer, 0,0, 960,960);    
     for(unsigned i =0; i<im.size(); i++){
 
         if(im[i].getEmplacement() < 7)
@@ -261,8 +266,6 @@ void sdlJeu::sdlAff () {
         {
             im[i].draw(renderer, im[i].getX(), im[i].getY(), im[i].getW(), im[i].getH());
         }
-
-        
     }
 
       // Ecrire un titre par dessus
@@ -352,32 +355,35 @@ void sdlJeu::mousePress(SDL_MouseButtonEvent& b){
     }
 
     //Case1
-
-    if(b.x > 411 && b.x < 550 && b.y > 727 && b.y < 827){
+    /*if(b.x > 411 && b.x < 550 && b.y > 727 && b.y < 827){
         //Image newImage(im[1].getNom(), im[1].getEmplacement(), im[1].getChemin(), im[1].getX(), im[1].getY(), im[1].getW(), im[1].getH());
        // newImage.loadFromFile( newImage.getChemin().c_str(), renderer);
         //newImage.draw(renderer, 476, 777, newImage.getW(), newImage.getH());
 
         //cout << "new Image chemin : " <<  newImage.getChemin() << endl;
 
-        Image Tomate("tomtes", 50, "srig", 476, 477, 40, 40);
+        /*Image Tomate("tomtes", 50, "srig", 476, 477, 40, 40);
         Tomate.loadFromFile("./img/Tomate.png", renderer);
         Tomate.draw(renderer, Tomate.getX(), Tomate.getY(), Tomate.getW(), Tomate.getH());
+        SDL_RenderPresent(renderer);*/
 
-    }
 
+       /* newImage.draw(renderer, 100, 100, 50, 50);
 
+    }*/
 
 }
 
 void sdlJeu::sdlBoucle () {
     SDL_Event events;
 	bool quit = false;
-
-    sdlLoadImgFile();
-
-    	// tant que ce n'est pas la fin ...
+    int mx, my;
+    // tant que ce n'est pas la fin ...
 	while (!quit) {
+        SDL_GetMouseState(&mx, &my);
+
+        // on affiche le jeu sur le buffer cach�
+        sdlAff();
         
 		// tant qu'il y a des evenements � traiter (cette boucle n'est pas bloquante)
 		while (SDL_PollEvent(&events)) {
@@ -411,15 +417,42 @@ void sdlJeu::sdlBoucle () {
 			        }
 
                     if(events.type == SDL_MOUSEBUTTONDOWN){
+
                         mousePress(events.button);
-                        break;
+
+                        //Case1
+                        if(mx > 411 && mx < 550 && my > 727 && my < 827 && isClicked == true){
+
+                            //Image newImage(im[1].getNom(), im[1].getEmplacement(), im[1].getChemin(), im[1].getX(), im[1].getY(), im[1].getW(), im[1].getH());
+                        // newImage.loadFromFile( newImage.getChemin().c_str(), renderer);
+                            //newImage.draw(renderer, 476, 777, newImage.getW(), newImage.getH());
+
+                            //cout << "new Image chemin : " <<  newImage.getChemin() << endl;
+
+                            /*Image Tomate("tomtes", 50, "srig", 476, 477, 40, 40);
+                            Tomate.loadFromFile("./img/Tomate.png", renderer);
+                            Tomate.draw(renderer, Tomate.getX(), Tomate.getY(), Tomate.getW(), Tomate.getH());
+                            */
+                           newImage.setX( mx);
+                           newImage.setY( my);
+                           newImage.setW(100);
+                           newImage.setH(100);
+                           im.push_back(newImage);
+                           //newImage.draw(renderer, 100, 100, 50, 50);
+                            isClicked = false;
+                            
+
+                            
+                        }
+
+                        
 
                     }
 
 		}
 
-		// on affiche le jeu sur le buffer cach�
-		sdlAff();
+		
+		
 
 		// on permute les deux buffers (cette fonction ne doit se faire qu'une seule fois dans la boucle)
         SDL_RenderPresent(renderer);

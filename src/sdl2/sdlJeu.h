@@ -38,6 +38,13 @@ class sdlJeu {
         vector<Image> im;
 
         loadImage loadImg;
+
+        //vector<Image> newImage;
+        Image newImage;
+
+        bool isClicked = true;
+
+
         
 
     public :

@@ -17,22 +17,6 @@ float temps () {
     return float(SDL_GetTicks()) / CLOCKS_PER_SEC;  // conversion des ms en secondes en divisant par 1000
 }
 
-void chargerTxtImages(vector<Image> & vecIm, const string & filenameIm){
-    ifstream fileIm(filenameIm.c_str());
-    string nom, chemin;
-
-    if(fileIm.is_open()){
-        while(fileIm >> nom >> chemin){
-            cout <<"in" <<endl;
-            Image im(nom, chemin);
-            vecIm.push_back(im);
-        }
-    }
-    
-    else
-        cout << "Failed to open file..." << endl;
-}
-
 // ============= CLASS SDLJEU =============== //
 
 sdlJeu::sdlJeu () : jeu() {
@@ -67,8 +51,8 @@ sdlJeu::sdlJeu () : jeu() {
 
     /************************** A VOIR CETTE PARTE **********************************/
 	int dimx, dimy;
-	dimx = 1500;
-	dimy = 1500 +  0 *4;
+	dimx = 960;
+	dimy = 960 +  0 *4;
 
     /********************************************************************************/
 
@@ -172,9 +156,33 @@ void sdlJeu::sdlLoadImage(){
     }
 }
 
+/*vector<Image> sdlJeu::getImageVec() const{
+    return im;
+}*/
+
+void sdlJeu::chargerTxtImages(vector<Image> & vecIm, const string & filenameIm){
+    ifstream fileIm(filenameIm.c_str());
+    string nom, chemin;
+    unsigned int emplacement, x , y, w, h;
+
+    if(fileIm.is_open()){
+        while(fileIm >> nom >> emplacement >>  chemin >> x >> y >> w >> h){
+            cout <<"in" <<endl;
+            Image ima(nom, emplacement, chemin, x , y, w, h);
+            vecIm.push_back(ima);
+        }
+
+        fileIm.close();
+    }
+    
+    else
+        cout << "Failed to open file..." << endl;
+}
+
 unsigned int sdlJeu::getNbrIngJ() const{
     return nbrIngJ;
 }
+
 
 void sdlJeu::sdlAff () {
 	//Remplir l'�cran de blanc
@@ -213,7 +221,35 @@ void sdlJeu::sdlAff () {
   
 
     
-    SDL_Rect positionSalade;
+    
+
+    //SDL_RenderCopy(renderer,font_im.getTexture(),NULL,&positionTitre);
+
+
+
+
+
+
+
+    //Salade.loadFromFile("./img/Salade.png", renderer);
+    //Salade.draw(renderer, 100, 100 ,120, 120);
+    //SDL_RenderCopy(renderer, Salade.getTexture(), NULL, &positionSalade);
+
+    /*vector<Image> ima;
+    Image i;
+    i.chargerImage(ima, "./txt/testSDL.txt");
+    for(unsigned int i =0; i<ima.size(); i++){
+        int x = 0;
+        int y = 0; 
+        int w = 100;
+        int h = 100;
+        Image im;
+        im.loadFromFile(ima[i].getChemin().c_str(), renderer);
+        im.draw(renderer, x + i * 10, y ,w, h);
+    }*/
+
+
+    /*SDL_Rect positionSalade;
     positionSalade.x = 200;
     positionSalade.y = 300;
     positionSalade.w = 150;
@@ -248,42 +284,41 @@ void sdlJeu::sdlAff () {
     positionSteak.x = 300;
     positionSteak.y = 100;
     positionSteak.w = 50;
-    positionSteak.h = 50;
-
-    //SDL_RenderCopy(renderer,font_im.getTexture(),NULL,&positionTitre);
+    positionSteak.h = 50;*/
 
 
-
-
-
-
-
-    //Salade.loadFromFile("./img/Salade.png", renderer);
-    //Salade.draw(renderer, 100, 100 ,120, 120);
-    //SDL_RenderCopy(renderer, Salade.getTexture(), NULL, &positionSalade);
-
-    /*vector<Image> ima;
-    Image i;
-    i.chargerImage(ima, "./txt/testSDL.txt");
-    for(unsigned int i =0; i<ima.size(); i++){
-        int x = 0;
-        int y = 0; 
-        int w = 100;
-        int h = 100;
-        Image im;
-        im.loadFromFile(ima[i].getChemin().c_str(), renderer);
-        im.draw(renderer, x + i * 10, y ,w, h);
-    }*/
-
-
-    background.draw(renderer, 0,0, 1500,800);    
+    background.draw(renderer, 0,0, 960,960);    
     for(unsigned i =0; i<im.size(); i++){
-        im[i].draw(renderer, 300, 600, 100,100 );
+
+        if(im[i].getEmplacement() < 7)
+        {
+            im[i].draw(renderer, im[i].getX(), im[i].getY(), im[i].getW(), im[i].getH());
+        }
+
+        if(im[i].getEmplacement() > 6 && im[i].getEmplacement() < 9)
+        {
+            im[i].draw(renderer, im[i].getX(), im[i].getY(), im[i].getW(), im[i].getH());
+        }
+
+        if(im[i].getEmplacement() == 9)
+        {
+            for(unsigned int f = 0; f < 3; f++){
+                for(unsigned int k = 0; k < 2; k++)
+                im[i].draw(renderer, im[i].getX()+k * 50, im[i].getY() + f * 70, im[i].getW(), im[i].getH());
+            }            
+        }
+      
+        if(im[i].getEmplacement() > 10)
+        {
+            im[i].draw(renderer, im[i].getX(), im[i].getY(), 100,100 );
+        }
+
+        
     }
 
       // Ecrire un titre par dessus
     SDL_Rect positionTitre;
-    positionTitre.x = 400;positionTitre.y = -5;positionTitre.w = 700;positionTitre.h = 70;
+    positionTitre.x = 130;positionTitre.y = -5;positionTitre.w = 700;positionTitre.h = 70;
     SDL_RenderCopy(renderer,font_im.getTexture(),NULL,&positionTitre);
 
 
@@ -291,6 +326,58 @@ void sdlJeu::sdlAff () {
     /*for(unsigned int i = 0; i < loaded_im.size(); i++){
 
     }*/
+
+
+
+
+    SDL_Rect rect;
+    rect.x = 280;
+    rect.y = 635;
+    rect.w = 100;
+    rect.h = 100;
+
+    SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
+    SDL_RenderDrawRect(renderer, &rect);
+    SDL_RenderPresent(renderer);
+
+
+
+    /*******************************************/
+
+    SDL_Event event;
+    SDL_Point mousePosition;
+
+    SDL_Rect salade;
+    salade.x = 200;
+    salade.y = 630;
+    salade.w = 100;
+    salade.h = 100;
+
+    // Mouse click coords from event handler
+    mousePosition.x = event.motion.x; 
+    mousePosition.y = event.motion.y;
+
+    if (SDL_PointInRect(&mousePosition, &salade)) {
+        // Do something
+        cout << "Aaaaaaaaaa" <<endl;
+        }
+    
+
+
+    
+
+}
+
+void sdlJeu::mousePress(SDL_MouseButtonEvent& b){
+    if(b.button == SDL_BUTTON_LEFT){
+        //handle a left-click
+        cout << b.x << " " << b.y << endl;
+    }
+    for(unsigned int i = 0; i < im.size(); i++){
+        if(b.x > im[i].getX() && b.x < im[i].getX() + im[i].getW() && b.y > im[i].getY() && b.y < im[i].getY() + im[i].getH()){
+            cout << "Je suis a l'image " << im[i].getNom() << " lol" << endl;
+        }
+    }
 
 }
 
@@ -333,6 +420,13 @@ void sdlJeu::sdlBoucle () {
                         /*if ((withSound) && (mangePastille))
                             Mix_PlayChannel(-1,sound,0);*/
 			        }
+
+                    if(events.type == SDL_MOUSEBUTTONDOWN){
+                        mousePress(events.button);
+                        break;
+
+                    }
+
 		}
 
 		// on affiche le jeu sur le buffer cach�

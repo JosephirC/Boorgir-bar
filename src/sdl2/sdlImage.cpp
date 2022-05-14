@@ -17,12 +17,17 @@ Image::Image () {
 }
 
 
-Image::Image(const string & nomIm, const string & cheminIm){
+Image::Image(const string & nomIm, const unsigned int & eIm, const string & cheminIm, const unsigned int & xIm, const unsigned int & yIm, const unsigned int & wIm, const unsigned int & hIm){
     surface = NULL;
     texture = NULL;
     has_changed = false;
     nom = nomIm; 
     chemin = cheminIm;
+    emplacement = eIm;
+    x = xIm;
+    y = yIm;
+    w = wIm;
+    h = hIm;
 }
 
 void Image::loadFromFile (const char* filename, SDL_Renderer * renderer) {
@@ -98,6 +103,26 @@ void Image::setChemin(const string & cheminIm){
     chemin = cheminIm;
 }
 
+void Image::setEmplacement(const unsigned int & e){
+    emplacement = e;
+}
+
+void Image::setX(const unsigned int & xI){
+    x = xI;
+}
+
+void Image::setY(const unsigned int & yI){
+    y = yI;
+}
+
+void Image::setW(const unsigned int & wI){
+    w = wI;
+}
+
+void Image::setH(const unsigned int & hI){
+    h = hI;
+}
+
 void Image::setDimX(const int & x){
     dimx = x;
 }
@@ -112,6 +137,26 @@ string Image::getNom() const{
 
 string Image::getChemin() const{
     return chemin;
+}
+
+unsigned int Image::getEmplacement() const{
+    return emplacement;
+}
+
+unsigned int Image::getX() const{
+    return x;
+}
+
+unsigned int Image::getY() const{
+    return y;
+}
+
+unsigned int Image::getW() const{
+    return w;
+}
+
+unsigned int Image::getH() const{
+    return h;
 }
 
 int Image::getDimX() const{

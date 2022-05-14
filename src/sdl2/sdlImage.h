@@ -18,13 +18,14 @@ class Image{
         SDL_Texture * texture;
         bool has_changed;
         string nom, chemin;
+        unsigned int emplacement, x , y, w, h;
         int dimx, dimy;
 
     public : 
 
         Image();
 
-        Image(const string & nomIm, const string & cheminIm);
+        Image(const string & nomIm, const unsigned int & eIm, const string & cheminIm, const unsigned int & xIm, const unsigned int & yIm, const unsigned int & wIm, const unsigned int & hIm);
 
         void loadFromFile(const char * filename, SDL_Renderer * renderer);
 
@@ -42,6 +43,16 @@ class Image{
 
         void setChemin(const string & cheminIm); // peut etre inutile
 
+        void setEmplacement(const unsigned int & e); // peut etre inutile
+
+        void setX(const unsigned int & xI);
+
+        void setY(const unsigned int & yI);
+
+        void setW(const unsigned int & wI);
+
+        void setH(const unsigned int & hI);
+
         void setDimX(const int & x);
 
         void setDimY(const int & y);
@@ -49,6 +60,16 @@ class Image{
         string getNom() const;
 
         string getChemin() const;
+
+        unsigned int getEmplacement() const;
+
+        unsigned int getX() const;
+
+        unsigned int getY() const;
+
+        unsigned int getW() const;
+
+        unsigned int getH() const;
 
         int getDimX() const;
 

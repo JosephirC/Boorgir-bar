@@ -25,7 +25,7 @@ class sdlJeu {
         Mix_Chunk * sound;
         bool withSound;
 
-        vector<Image> loaded_im;
+        //vector<Image> loaded_im;
 
         bool souris;
         bool touche;
@@ -33,6 +33,8 @@ class sdlJeu {
         Image background;
 
         unsigned int nbrIngJ;
+
+        vector<Image> im;
 
         
 
@@ -50,9 +52,17 @@ class sdlJeu {
        // void AttendreClic(int & x, int & y);
        // void RenduImage (SDL_Renderer * renderer, char* nomImage, int x, int y, double angle, SDL_RendererFlip flip);
 
-        vector<Image> im;
+        //vector<Image> getImageVec() const;
+
+        void setImageVector(vector<Image> vI);
+
+        void chargerTxtImages(vector<Image> & vecIm, const string & filenameIm);
 
         unsigned int getNbrIngJ() const;
+
+        void mousePress(SDL_MouseButtonEvent& b);
+  
+
         
 
 };

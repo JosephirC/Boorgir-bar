@@ -31,6 +31,7 @@ sdlJeu::sdlJeu () : jeu() {
     for(unsigned int i =0; i < loadImg.getLoadedImage().size(); i++){
         im.push_back(loadImg.getLoadedImage()[i]); 
     }
+    cout << endl << endl << "aa" << im.size() << endl; 
 
     // Initialisation de la SDL
     if (SDL_Init(SDL_INIT_VIDEO) < 0) {
@@ -64,7 +65,9 @@ sdlJeu::sdlJeu () : jeu() {
     /************************** A VOIR CETTE PARTE **********************************/
 	int dimx, dimy;
 	dimx = 960;
-	dimy = 960 +getNbrIngJ();
+	dimy = 960 +getNbrIngJ() * 66;
+
+    cout << "nbr ing apres dimy = " << getNbrIngJ() << endl;
 
     cout << "dimy " << dimy << endl;
     cout << "nbrIng " << getNbrIngJ() << endl;
@@ -157,7 +160,7 @@ sdlJeu::~sdlJeu () {
 void sdlJeu::sdlLoadImgFile(){
 
     //Charger le background
-    background.loadFromFile("./img/Backgr.png", renderer);
+    //background.loadFromFile("./img/Backgr.png", renderer);
 
     for(unsigned int i =0; i< im.size(); i++){
         im[i].loadFromFile(im[i].getChemin().c_str(), renderer);
@@ -233,45 +236,7 @@ void sdlJeu::sdlAff () {
     }*/
 
 
-    /*SDL_Rect positionSalade;
-    positionSalade.x = 200;
-    positionSalade.y = 300;
-    positionSalade.w = 150;
-    positionSalade.h = 150;
-
-    SDL_Rect positionTomate;
-    positionTomate.x = 300;
-    positionTomate.y = 300;
-    positionTomate.w = 50;
-    positionTomate.h = 50;
-
-
-    SDL_Rect positionPainHD;
-    positionPainHD.x = 200;
-    positionPainHD.y = 200;
-    positionPainHD.w = 50;
-    positionPainHD.h = 50;
-
-    SDL_Rect positionSaucisse;
-    positionSaucisse.x = 300;
-    positionSaucisse.y = 200;
-    positionSaucisse.w = 50;
-    positionSaucisse.h = 50;
-
-    SDL_Rect positionPainB;
-    positionPainB.x = 200;
-    positionPainB.y = 100;
-    positionPainB.w = 50;
-    positionPainB.h = 50;
-
-    SDL_Rect positionSteak;
-    positionSteak.x = 300;
-    positionSteak.y = 100;
-    positionSteak.w = 50;
-    positionSteak.h = 50;*/
-
-
-    background.draw(renderer, 0,0, 960,960);    
+    //background.draw(renderer, 0,0, 960,960);    
     for(unsigned i =0; i<im.size(); i++){
 
         if(im[i].getEmplacement() < 7)
@@ -324,34 +289,53 @@ void sdlJeu::sdlAff () {
 
     for(unsigned int i=0; i<6; i++){
         SDL_Rect rect2;
-        
-
             if(i%2 == 0){
                 rect2.x = 210;
                 rect2.y = 737 + i * 33;
                 rect2.w = 70;
                 rect2.h = 56;
             }
-
             if(i%2!=0){
                 rect2.x = 290;
                 rect2.y = 737 +(i-1)*33;
                 rect2.w = 70;
                 rect2.h = 56;
             }
-        
-        
-
-        
-
         SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
         SDL_RenderDrawRect(renderer, &rect2);
         //SDL_RenderPresent(renderer);
     }
+
+    
+    
+
+   
+    for(unsigned int i=0; i<4; i++){
+        SDL_Rect rect3;
+            if(i%2 == 0){
+                rect3.x = 409;
+                rect3.y = 725;
+                rect3.w = 141;
+                rect3.h = 102;
+            }
+            if(i%2!=0){
+                rect3.x = 560;
+                rect3.y = 725+(i-1)*56;
+                rect3.w = 141;
+                rect3.h = 102;
+            }
+        SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+        SDL_RenderDrawRect(renderer, &rect3);
+
+        //SDL_RenderPresent(renderer);
+    }
+
     
 }
 
 void sdlJeu::mousePress(SDL_MouseButtonEvent& b){
+    string nameClick;
+    unsigned int img;
     if(b.button == SDL_BUTTON_LEFT){
         //handle a left-click
         cout << b.x << " " << b.y << endl;
@@ -359,10 +343,27 @@ void sdlJeu::mousePress(SDL_MouseButtonEvent& b){
     for(unsigned int i = 0; i < im.size(); i++){
         if(b.x > im[i].getX() && b.x < im[i].getX() + im[i].getW() && b.y > im[i].getY() && b.y < im[i].getY() + im[i].getH()){
             cout << "Je suis a l'image " << im[i].getNom() << " lol de coords " << b.x << " " << b.y << endl;
+            nameClick = im[i].getNom();
+            img = i;
         }
     }
     if(b.x > 20  && b.x < 20 + 110 && b.y > 725 && b.y < 725 + 215){
         cout << "Je suis au block de " << im[2].getNom() << endl;
+    }
+
+    //Case1
+
+    if(b.x > 411 && b.x < 550 && b.y > 727 && b.y < 827){
+        //Image newImage(im[1].getNom(), im[1].getEmplacement(), im[1].getChemin(), im[1].getX(), im[1].getY(), im[1].getW(), im[1].getH());
+       // newImage.loadFromFile( newImage.getChemin().c_str(), renderer);
+        //newImage.draw(renderer, 476, 777, newImage.getW(), newImage.getH());
+
+        //cout << "new Image chemin : " <<  newImage.getChemin() << endl;
+
+        Image Tomate("tomtes", 50, "srig", 476, 477, 40, 40);
+        Tomate.loadFromFile("./img/Tomate.png", renderer);
+        Tomate.draw(renderer, Tomate.getX(), Tomate.getY(), Tomate.getW(), Tomate.getH());
+
     }
 
 

@@ -63,9 +63,9 @@ void affClient(vector <Client> tab){
 	for (i = 0; i < tab.size(); i++) // unsigned int i = 0; i < v.size(); i++ présentent le risque que le compilateur ne sorte pas de la boucle le calcul de v.size() 
 	{
 		cout<<"Le client "<<tab[i].getIdC()<<" veut:";
-		for (j = 0; j < tab[i].com.size(); j++) {              //ici il faut afficher la commande du client
+		for (j = 0; j < tab[i].getCom().size(); j++) {              //ici il faut afficher la commande du client
 			
-			cout<<" "<<tab[i].com[j].getNom() <<" ";
+			cout<<" "<<tab[i].getCom()[j].getNom() <<" ";
 			
 		}
 		cout<<" et doit payer "<<tab[i].getPrix()<< "$ "<< endl;
@@ -104,23 +104,47 @@ void preparerCommandeTxt(int &i,long unsigned int &ingred,Jeu &jeu){
 		cout<<"Quel ingredient? ";
 		cin>>ingred;
 	
-	}while(cin.fail() || ingred<0 || ingred>jeu.tabIng.size() );
+	}while(cin.fail() || ingred<0 || ingred>jeu.getTabIng().size() );
 	
 	
-	cout<<" "<< jeu.tabIng[ingred].getNom() << " Ajouter a quel bar de preparation? ";
+	cout<<" "<< jeu.getTabIng()[ingred].getNom() << " Ajouter a quel bar de preparation? ";
 	
 	do{
 		cin.clear();
 		cin.ignore();
 		cin>>i;
-		if(cin.fail() || i<1 || i>4) 
+		if(cin.fail() || i<0 || i>3) 
 			cout<<endl<<"I doit etre entre 1 et 4. Vous avez choisi "<<i<< " Choisissez a nouveau:  ";
 		
-	}while(cin.fail() || i<1 || i>4);
+	}while(cin.fail() || i<0 || i>3);
 	
 	cout << "La preparation sur la case: "<<i<<endl;
 }
 
+void donnerCommandeTxt(unsigned int & IdCl, unsigned int & IdRec,Jeu &jeu){
+	do{
+
+		cin.clear();
+		cin.ignore();
+		cout<<"Quel Case du bar? ";
+		cin>>IdRec;
+	
+	}while(cin.fail() || IdRec<0 || IdRec>3 ); //tabPrep fixea 4
+	
+	
+	cout<<" "<< jeu.tabPrep[IdRec] << " Donner a quel client? ";
+	
+	do{
+		cin.clear();
+		cin.ignore();
+		cin>>IdCl;
+		if(cin.fail() || IdCl<1 || IdCl>4) 
+			cout<<endl<<"I doit etre entre 1 et 4. Vous avez choisi "<<IdCl<< " Choisissez a nouveau:  ";
+		
+	}while(cin.fail() || IdCl<1 || IdCl>4 );
+	
+
+}
 
 void txtBoucle (Jeu &jeu, vector<Recette> &R) {
 	
@@ -133,6 +157,7 @@ void txtBoucle (Jeu &jeu, vector<Recette> &R) {
 	string ingerdTmp;
 	int i;
 	long unsigned int ingred;
+	unsigned int idCl,idRec;
 
 
 	do {
@@ -161,19 +186,19 @@ void txtBoucle (Jeu &jeu, vector<Recette> &R) {
 			switch(c)
 			{
 				case 'm':
-					affCarte(jeu.carte);
+					affCarte(jeu.getCarte());
 					break;
 
 				case 'c':
-					affClient(jeu.tabClient);
+					affClient(jeu.getTabClient());
 					break;
 
 				case 'p':
-					affRecette(jeu.tabRec);
+					affRecette(jeu.getTabRec());
 					break;
 					
 				case 'i':
-					affIng(jeu.tabIng);
+					affIng(jeu.getTabIng());
 					break;
 
 
@@ -189,13 +214,13 @@ void txtBoucle (Jeu &jeu, vector<Recette> &R) {
 				case 'f':
 					preparerCommandeTxt(i,ingred,jeu);
 					//jeu.compareRecette(R,jeu.tabClient,"Soda",id);
-					ingerdTmp = jeu.PreparerCommande(jeu.tabIng[ingred].getNom(),i);
+					ingerdTmp = jeu.PreparerCommande(jeu.getTabIng()[ingred].getNom(),i);
 					
 					
 					break;
 				case 'g':
-					unsigned int id;
-					jeu.effaceRecette(jeu.tabClient,id,ingerdTmp);
+					donnerCommandeTxt(idCl,idRec,jeu);
+					jeu.effaceRecette(jeu.getTabClient(),idCl,idRec);
 
 				case 't':
 					affTabPrep(jeu.tabPrep);

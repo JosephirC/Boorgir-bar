@@ -18,11 +18,13 @@ class Client{
         unsigned int idClient; 
         /** < @brief prix total de la commande du client */
         unsigned int prixTot ;
+
+        
        
 
     public :
-        
         vector<Commande> com;
+        
 
         /** < @brief un construscteur de Client */ 
         Client();
@@ -40,6 +42,12 @@ class Client{
         unsigned int getPrix() const;
 
         //Commande getCom();
+        /** < @brief, choisi des recettes aleatoire du menu pour le donner au client */
+        void commandeAleatoire(const vector<Commande> & carte, vector<Commande> & commendeAl); // remplie le tableau de commande avec des recette entre 1 et 3
+
+        /** < @brief fonction qui calcule le prix que le client doit payer */
+        void calculePrix(vector<Commande> &commandeAl, unsigned int & prix); // retourne le prix de la commande
+
 };
 
 #endif

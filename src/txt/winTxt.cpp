@@ -17,6 +17,7 @@
 #include <unistd.h>
 #endif
 
+/*
 void termMove(int x, int y) // deplace le curseur du terminal
 {
 #ifdef _WIN32
@@ -30,7 +31,7 @@ void termMove(int x, int y) // deplace le curseur du terminal
     printf("%s",t);
 #endif
 
-}
+}*/
 
 void termClear()  // efface le terminal
 {
@@ -41,6 +42,7 @@ void termClear()  // efface le terminal
 #endif
 }
 
+/*
 void termInit()      // configure la saisie : ne pas afficher les caracteres tapes
 {
 #ifdef _WIN32
@@ -73,12 +75,13 @@ void termInit()      // configure la saisie : ne pas afficher les caracteres tap
     tcsetattr(STDIN_FILENO, TCSANOW, &t);
 #endif
 }
+*/
 
 WinTXT::WinTXT () {
     //clear();
-    termInit();
+    //termInit();
 }
-
+/*
 void WinTXT::clear (char c) {
     for(int i=0;i<dimx;++i)
         for(int j=0;j<dimy;++j)
@@ -107,6 +110,7 @@ void WinTXT::draw (int x, int y) {
     }
     termMove(0,dimy);
 }
+*/
 
 #if not defined _WIN32
 int kbhit() {
@@ -129,6 +133,7 @@ void WinTXT::pause() {
     while(!kbhit());
 #endif
 }
+
 
 char WinTXT::getCh() { // lire un caractere si une touche a ete pressee
     char touche=0;

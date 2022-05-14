@@ -32,7 +32,7 @@ bool selectIng(vector <Commande> carte, Commande commande){
 
 
 void affCarte(vector <Commande> carte){
-	cout<<endl<< "----- Voici la Carte -------"<<endl;
+	cout<<endl<< "----- Voici le Menu d'aujourd'hui -------"<<endl;
 	for (unsigned int i = 0; i < carte.size(); i++) // unsigned int i = 0; i < v.size(); i++ présentent le risque que le compilateur ne sorte pas de la boucle le calcul de v.size() 
 	{
 		cout<<i<<" "<<carte[i].getNom()<<" "<<carte[i].getPrix()<< "$ "<<endl;
@@ -81,16 +81,9 @@ void affTabPrep(string tabPrep[4]){
 }
 
 
-Commande txtChoixIng(int c,vector <Commande> carte){   //cHint
-	return carte[c];
-}
-
-void theChoixIngredient(char c){
-	//int i=strtol("1",NULL,10)
-	//int i=strtol("c",NULL,10);
-	
-
-}
+//Commande txtChoixIng(int c,vector <Commande> carte){   //cHint
+//	return carte[c];
+//}
 
 void affAide(){
 	cout<< "M: Menu"<<endl;
@@ -100,11 +93,33 @@ void affAide(){
 	cout<< "D: Pour donner la nourriture au client"<<endl;
 	cout<< "B: Pour afficher le bar"<<endl;
 	cout<< "A: Aide"<<endl;
-	cout<< "Q: Quit"<<endl;
+	cout<< "Q: Quit"<<endl<<endl;
 }
 
+void preparerCommandeTxt(int &i,long unsigned int &ingred,Jeu &jeu){
+	do{
 
-
+		cin.clear();
+		cin.ignore();
+		cout<<"Quel ingredient? ";
+		cin>>ingred;
+	
+	}while(cin.fail() || ingred<0 || ingred>jeu.tabIng.size() );
+	
+	
+	cout<<" "<< jeu.tabIng[ingred].getNom() << " Ajouter a quel bar de preparation? ";
+	
+	do{
+		cin.clear();
+		cin.ignore();
+		cin>>i;
+		if(cin.fail() || i<1 || i>4) 
+			cout<<endl<<"I doit etre entre 1 et 4. Vous avez choisi "<<i<< " Choisissez a nouveau:  ";
+		
+	}while(cin.fail() || i<1 || i>4);
+	
+	cout << "La preparation sur la case: "<<i<<endl;
+}
 
 
 void txtBoucle (Jeu &jeu, vector<Recette> &R) {
@@ -115,8 +130,9 @@ void txtBoucle (Jeu &jeu, vector<Recette> &R) {
 	//cout<<"boucle";
 	WinTXT win;
 	//unsigned int id;
-	string ingred,ingerdTmp;
+	string ingerdTmp;
 	int i;
+	long unsigned int ingred;
 
 
 	do {
@@ -132,6 +148,7 @@ void txtBoucle (Jeu &jeu, vector<Recette> &R) {
 			#endif // WIN32
 			
 			c=win.getCh();
+
 
 			//cout<<endl<<"passe1 " <<jeu.getObj().Temp.tempsRestant()<<endl;
 			//cout<< jeu.getObj().Temp.tempsAtteint()<<endl;
@@ -170,17 +187,9 @@ void txtBoucle (Jeu &jeu, vector<Recette> &R) {
 				
 					
 				case 'f':
-					cout<<"Quel ingredient? ";
-					cin>>ingred;
-					cout<<" "<< jeu.tabIng[stoi(ingred)].getNom() << " Ajouter a quel bar de preparation? ";
-					do{
-						cin>>i;
-						if(i<1 && i>4) cout<<"I doit etre entre 1 et 4. Vous avez choisi le numero "<<i<<endl;
-						
-					}while(i<1 && i>4);
-					cout << "La preparation sur la case: "<<i<<endl;
+					preparerCommandeTxt(i,ingred,jeu);
 					//jeu.compareRecette(R,jeu.tabClient,"Soda",id);
-					ingerdTmp = jeu.PreparerCommande(jeu.tabIng[stoi(ingred)].getNom(),i);
+					ingerdTmp = jeu.PreparerCommande(jeu.tabIng[ingred].getNom(),i);
 					
 					
 					break;

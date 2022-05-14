@@ -185,7 +185,9 @@ void Jeu::effaceRecette(vector<Client> & Cl, unsigned int & IdCl, unsigned int &
     bool trouve = false;
         for(unsigned int j = 0; j < Cl[IdCl].getCom().size(); j++){
 
+            cout<<Cl[IdCl].getCom().size()<<endl;
             if(Cl[IdCl].getCom()[j].getNom() == tabPrep[IdRec] ){
+
                 cout<<Cl[IdCl].getCom()[j].getNom();
                 Cl[IdCl].getCom().erase(Cl[IdCl].getCom().begin() + j);    
                 trouve = true;
@@ -197,6 +199,26 @@ void Jeu::effaceRecette(vector<Client> & Cl, unsigned int & IdCl, unsigned int &
             }
     }
 }
+
+void Jeu::effaceExtras(vector<Client> & Cl, unsigned int & IdCl, unsigned int & IdExtras){
+    bool trouve = false;
+        for(unsigned int j = 0; j < Cl[IdCl].getCom().size(); j++){
+
+            cout<<Cl[IdCl].getCom().size()<<endl;
+            if(Cl[IdCl].getCom()[j].getNom() == tabPrep[IdExtras] ){
+
+                cout<<Cl[IdCl].getCom()[j].getNom();
+                Cl[IdCl].getCom().erase(Cl[IdCl].getCom().begin() + j);    
+                trouve = true;
+                tabPrep[IdExtras]="Undefined";
+                break;
+            }
+            if(trouve == true){
+                break;
+            }
+    }
+}
+
 
 bool Jeu::effacerClient(vector<Client> & Cl){
     //bool efface = false;

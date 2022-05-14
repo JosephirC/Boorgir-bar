@@ -18,10 +18,10 @@ int main ( int argc, char** argv ) {
 	//cout<< clock();
 
 	Jeu j;
-	j.chargerCarte(j.carte, "./txt/Carte.txt");
-	j.chargerRecette(j.tabRec,"./txt/test.txt");
-	j.creationClient(4,j.tabClient ,j.carte);
-	j.chargerIngredient(j.tabIng,"./txt/Ingredients.txt");
+	j.chargerCarte(j.getCarte(), "./txt/Carte.txt");
+	j.chargerRecette(j.getTabRec(),"./txt/test.txt");
+	j.creationClient(4,j.getTabClient() ,j.getCarte());
+	j.chargerIngredient(j.getTabIng(),"./txt/Ingredients.txt");
 
 	j.getObj().choixNiveau(1);
 	//cout<< j.getObj().finJeu()<<endl;

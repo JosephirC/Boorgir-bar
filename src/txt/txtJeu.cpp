@@ -220,6 +220,7 @@ void txtBoucle (Jeu &jeu, vector<Recette> &R) {
 					break;
 				case 'g':
 					donnerCommandeTxt(idCl,idRec,jeu);
+					idCl--;
 					jeu.effaceRecette(jeu.getTabClient(),idCl,idRec);
 
 				case 't':

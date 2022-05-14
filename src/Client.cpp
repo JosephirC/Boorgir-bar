@@ -32,8 +32,7 @@ unsigned int Client::getIdC() const{
      return prixTot;
  }
 
-vector<Commande> Client::getCom() const{
-
+vector<Commande> Client::getCom(){
      return com;
  }
 

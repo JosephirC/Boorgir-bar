@@ -10,24 +10,14 @@ Soda 12 ./img/Soda.png 172 880 34 62
 
 
 
-Salade 1 ./img/Salade.png 200 680 48 41
+Salade 1 ./img/Salade.png 222 744 48 41
 
-Tomate 2 ./img/Tomate.png 28 63 24 24
+Tomate 2 ./img/Tomate.png 305 745 40 40
 
-PainHD 3 ./img/PainHD.png 19 67 45 44
+PainHD 3 ./img/PainHD.png 218 805 49 48
 
-Saucisse 4 ./img/SaucisseCuit.png 27 67 18 96
+Saucisse 4 ./img/SaucisseCuit.png 320 805 10 53
 
-PainB 5 ./img/PainB.png 19 74 57 33
+PainB 5 ./img/PainB.png 216 880 57 33
 
-Steak 6 ./img/SteakCuit.png 28 73 41 33
-
-POTATO 10 ./img/PainBSteak.png 150 150 58 39
-
-POTATO 10 ./img/PainBSteak.png 150 150 58 39
-
-POTATO 10 ./img/PainBSteak.png 150 150 58 39
-
-POTATO 10 ./img/PainBSteak.png 150 150 58 39
-
-POTATO 10 ./img/PainBSteak.png 150 150 58 39
+Steak 6 ./img/SteakCuit.png 305 881 41 33

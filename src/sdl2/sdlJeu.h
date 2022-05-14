@@ -42,7 +42,14 @@ class sdlJeu {
         //vector<Image> newImage;
         Image newImage;
 
-        bool isClicked = true;
+        bool isClicked, display;
+
+        int mx, my;
+
+        string nameClick, imgChemin;
+
+        unsigned int nx, ny, nw, nh;
+
 
 
         
@@ -67,8 +74,11 @@ class sdlJeu {
 
         unsigned int getNbrIngJ() const;
 
+        void setNewImg(const string & nIm, const string & cIm, const unsigned int & xIm, const unsigned int & yIm, const unsigned int & wIm, const unsigned int & hIm);
+
         void mousePress(SDL_MouseButtonEvent& b);
-  
+
+        
 
         
 

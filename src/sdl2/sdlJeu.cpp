@@ -19,7 +19,15 @@ float temps () {
 
 // ============= CLASS SDLJEU =============== //
 
+unsigned int sdlJeu::getNbrIngJ() const{
+    cout << "inside getnbr we have nbr = to " << im.size() << endl;
+    return im.size() - nbrIngJ;
+}
+
 sdlJeu::sdlJeu () : jeu() {
+    /**********************Nombre d'ingredient ajoute par le joueur*************/
+    nbrIngJ = 11;
+
     // Initialisation de la SDL
     if (SDL_Init(SDL_INIT_VIDEO) < 0) {
         cout << "Erreur lors de l'initialisation de la SDL : " << SDL_GetError() << endl;
@@ -52,7 +60,10 @@ sdlJeu::sdlJeu () : jeu() {
     /************************** A VOIR CETTE PARTE **********************************/
 	int dimx, dimy;
 	dimx = 960;
-	dimy = 960 +  0 *4;
+	dimy = 960 +getNbrIngJ();
+
+    cout << "dimy " << dimy << endl;
+    cout << "nbrIng " << getNbrIngJ() << endl;
 
     /********************************************************************************/
 
@@ -125,8 +136,6 @@ sdlJeu::sdlJeu () : jeu() {
         }
     }
 
-    /**********************Nombre d'ingredient ajoute par le joueur*************/
-    nbrIngJ = im.size() - 11;
 }
 
 
@@ -148,7 +157,7 @@ void sdlJeu::sdlLoadImage(){
 
      
     //Charger les textures grace au fichier txt
-   chargerTxtImages(im, "./txt/testSDL.txt");
+   chargerTxtImages("./txt/testSDL.txt");
     cout << "22"<<endl;
     for(unsigned int i =0; i< im.size(); i++){
         cout << "Chemin : " << im[i].getChemin() << endl;
@@ -160,7 +169,7 @@ void sdlJeu::sdlLoadImage(){
     return im;
 }*/
 
-void sdlJeu::chargerTxtImages(vector<Image> & vecIm, const string & filenameIm){
+void sdlJeu::chargerTxtImages(const string & filenameIm){
     ifstream fileIm(filenameIm.c_str());
     string nom, chemin;
     unsigned int emplacement, x , y, w, h;
@@ -169,7 +178,7 @@ void sdlJeu::chargerTxtImages(vector<Image> & vecIm, const string & filenameIm){
         while(fileIm >> nom >> emplacement >>  chemin >> x >> y >> w >> h){
             cout <<"in" <<endl;
             Image ima(nom, emplacement, chemin, x , y, w, h);
-            vecIm.push_back(ima);
+            im.push_back(ima);
         }
 
         fileIm.close();
@@ -177,10 +186,9 @@ void sdlJeu::chargerTxtImages(vector<Image> & vecIm, const string & filenameIm){
     
     else
         cout << "Failed to open file..." << endl;
-}
 
-unsigned int sdlJeu::getNbrIngJ() const{
-    return nbrIngJ;
+
+    cout << "dans cherger on a " << im.size() << endl;
 }
 
 
@@ -310,7 +318,7 @@ void sdlJeu::sdlAff () {
       
         if(im[i].getEmplacement() > 10)
         {
-            im[i].draw(renderer, im[i].getX(), im[i].getY(), 100,100 );
+            im[i].draw(renderer, im[i].getX(), im[i].getY(), im[i].getW(), im[i].getH());
         }
 
         
@@ -328,18 +336,47 @@ void sdlJeu::sdlAff () {
     }*/
 
 
-
-
     SDL_Rect rect;
-    rect.x = 280;
-    rect.y = 635;
-    rect.w = 100;
-    rect.h = 100;
+    rect.x = 20;
+    rect.y = 725;
+    rect.w = 110;
+    rect.h = 215;
 
     SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
     SDL_RenderDrawRect(renderer, &rect);
-    SDL_RenderPresent(renderer);
+    //SDL_RenderPresent(renderer);
 
+    for(unsigned int i=0; i<6; i++){
+        SDL_Rect rect2;
+        
+
+            if(i%2 == 0){
+                rect2.x = 210;
+                rect2.y = 737 + i * 33;
+                rect2.w = 70;
+                rect2.h = 56;
+            }
+
+            if(i%2!=0){
+                rect2.x = 290;
+                rect2.y = 737 +(i-1)*33;
+                rect2.w = 70;
+                rect2.h = 56;
+            }
+        
+        
+
+        
+
+        SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
+        SDL_RenderDrawRect(renderer, &rect2);
+        //SDL_RenderPresent(renderer);
+    }
+
+    
+    
+
+    
 
 
     /*******************************************/
@@ -362,10 +399,6 @@ void sdlJeu::sdlAff () {
         cout << "Aaaaaaaaaa" <<endl;
         }
     
-
-
-    
-
 }
 
 void sdlJeu::mousePress(SDL_MouseButtonEvent& b){
@@ -375,9 +408,14 @@ void sdlJeu::mousePress(SDL_MouseButtonEvent& b){
     }
     for(unsigned int i = 0; i < im.size(); i++){
         if(b.x > im[i].getX() && b.x < im[i].getX() + im[i].getW() && b.y > im[i].getY() && b.y < im[i].getY() + im[i].getH()){
-            cout << "Je suis a l'image " << im[i].getNom() << " lol" << endl;
+            cout << "Je suis a l'image " << im[i].getNom() << " lol de coords " << b.x << " " << b.y << endl;
         }
     }
+    if(b.x > 20  && b.x < 20 + 110 && b.y > 725 && b.y < 725 + 215){
+        cout << "Je suis au block de " << im[2].getNom() << endl;
+    }
+
+
 
 }
 
@@ -385,7 +423,7 @@ void sdlJeu::sdlBoucle () {
     SDL_Event events;
 	bool quit = false;
 
-    sdlLoadImage();
+    //sdlLoadImage();
 
     	// tant que ce n'est pas la fin ...
 	while (!quit) {

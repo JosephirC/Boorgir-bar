@@ -56,7 +56,7 @@ class sdlJeu {
 
         void setImageVector(vector<Image> vI);
 
-        void chargerTxtImages(vector<Image> & vecIm, const string & filenameIm);
+        void chargerTxtImages(const string & filenameIm);
 
         unsigned int getNbrIngJ() const;
 

@@ -7,6 +7,7 @@ using namespace std;
 int main()
 {
     sdlJeu sj;
+    sj.sdlLoadImage();
     sj.sdlBoucle();
 
     Image i;

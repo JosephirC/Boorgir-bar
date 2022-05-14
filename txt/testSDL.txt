@@ -1,23 +1,33 @@
-Mayo 7 ./img/Mayo.png 105 580 100 100
+Mayo 7 ./img/Mayo.png 140 695 22 51
 
-Ketchup 8 ./img/Ketchup.png 140 580 100 100
+Ketchup 8 ./img/Ketchup.png 170 695 21 51
 
-Frites 9 ./img/Frites.png 1 590 100 100
+Frites 9 ./img/Frites.png 30 725 40 73
 
-Jus 11 ./img/Jus.png 100 770 100 100
+Jus 11 ./img/Jus.png 132 880 34 63
 
-Soda 12 ./img/Soda.png 144 770 100 100
+Soda 12 ./img/Soda.png 172 880 34 62
 
 
 
-Salade 1 ./img/Salade.png 200 630 100 100
+Salade 1 ./img/Salade.png 200 680 48 41
 
-Tomate 2 ./img/Tomate.png 280 635 100 100
+Tomate 2 ./img/Tomate.png 28 63 24 24
 
-PainHD 3 ./img/PainHD.png 197 675 100 100
+PainHD 3 ./img/PainHD.png 19 67 45 44
 
-Saucisse 4 ./img/SaucisseCuit.png 275 675 100 100
+Saucisse 4 ./img/SaucisseCuit.png 27 67 18 96
 
-PainB 5 ./img/PainB.png 197 740 100 100
+PainB 5 ./img/PainB.png 19 74 57 33
 
-Steak 6 ./img/SteakCuit.png 280 735 100 100
+Steak 6 ./img/SteakCuit.png 28 73 41 33
+
+POTATO 10 ./img/PainBSteak.png 150 150 58 39
+
+POTATO 10 ./img/PainBSteak.png 150 150 58 39
+
+POTATO 10 ./img/PainBSteak.png 150 150 58 39
+
+POTATO 10 ./img/PainBSteak.png 150 150 58 39
+
+POTATO 10 ./img/PainBSteak.png 150 150 58 39

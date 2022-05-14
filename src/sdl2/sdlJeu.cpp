@@ -3,10 +3,6 @@
 #include "sdlJeu.h"
 #include "sdlImage.h"
 #include <stdlib.h>
-//#ifdef _WIN32
-//#include <windows.h>
-//#else
-//#endif // WIN32
 #include <fstream>
 #include <vector>
 #include <iostream>
@@ -27,6 +23,14 @@ unsigned int sdlJeu::getNbrIngJ() const{
 sdlJeu::sdlJeu () : jeu() {
     /**********************Nombre d'ingredient ajoute par le joueur*************/
     nbrIngJ = 11;
+
+    /*******************Appelle a la classe de chargement des images*****************************/
+    loadImg.chargerTxtImages("./txt/testSDL.txt");
+    
+    //Copiage de notre tab dynamique dans le tab dynamique de sdlJeu
+    for(unsigned int i =0; i < loadImg.getLoadedImage().size(); i++){
+        im.push_back(loadImg.getLoadedImage()[i]); 
+    }
 
     // Initialisation de la SDL
     if (SDL_Init(SDL_INIT_VIDEO) < 0) {
@@ -150,17 +154,12 @@ sdlJeu::~sdlJeu () {
     SDL_Quit();
 }
 
-void sdlJeu::sdlLoadImage(){
+void sdlJeu::sdlLoadImgFile(){
 
     //Charger le background
     background.loadFromFile("./img/Backgr.png", renderer);
 
-     
-    //Charger les textures grace au fichier txt
-   chargerTxtImages("./txt/testSDL.txt");
-    cout << "22"<<endl;
     for(unsigned int i =0; i< im.size(); i++){
-        cout << "Chemin : " << im[i].getChemin() << endl;
         im[i].loadFromFile(im[i].getChemin().c_str(), renderer);
     }
 }
@@ -168,29 +167,6 @@ void sdlJeu::sdlLoadImage(){
 /*vector<Image> sdlJeu::getImageVec() const{
     return im;
 }*/
-
-void sdlJeu::chargerTxtImages(const string & filenameIm){
-    ifstream fileIm(filenameIm.c_str());
-    string nom, chemin;
-    unsigned int emplacement, x , y, w, h;
-
-    if(fileIm.is_open()){
-        while(fileIm >> nom >> emplacement >>  chemin >> x >> y >> w >> h){
-            cout <<"in" <<endl;
-            Image ima(nom, emplacement, chemin, x , y, w, h);
-            im.push_back(ima);
-        }
-
-        fileIm.close();
-    }
-    
-    else
-        cout << "Failed to open file..." << endl;
-
-
-    cout << "dans cherger on a " << im.size() << endl;
-}
-
 
 void sdlJeu::sdlAff () {
 	//Remplir l'�cran de blanc
@@ -372,32 +348,6 @@ void sdlJeu::sdlAff () {
         SDL_RenderDrawRect(renderer, &rect2);
         //SDL_RenderPresent(renderer);
     }
-
-    
-    
-
-    
-
-
-    /*******************************************/
-
-    SDL_Event event;
-    SDL_Point mousePosition;
-
-    SDL_Rect salade;
-    salade.x = 200;
-    salade.y = 630;
-    salade.w = 100;
-    salade.h = 100;
-
-    // Mouse click coords from event handler
-    mousePosition.x = event.motion.x; 
-    mousePosition.y = event.motion.y;
-
-    if (SDL_PointInRect(&mousePosition, &salade)) {
-        // Do something
-        cout << "Aaaaaaaaaa" <<endl;
-        }
     
 }
 
@@ -423,7 +373,7 @@ void sdlJeu::sdlBoucle () {
     SDL_Event events;
 	bool quit = false;
 
-    //sdlLoadImage();
+    sdlLoadImgFile();
 
     	// tant que ce n'est pas la fin ...
 	while (!quit) {

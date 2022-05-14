@@ -5,9 +5,10 @@
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_ttf.h>
 #include <SDL2/SDL_mixer.h>
+#include <vector>
 #include "../Jeu.h"
 #include "sdlImage.h"
-
+#include "sdlLoadImage.h"
 
 class sdlJeu {
 
@@ -36,6 +37,7 @@ class sdlJeu {
 
         vector<Image> im;
 
+        loadImage loadImg;
         
 
     public :
@@ -45,7 +47,7 @@ class sdlJeu {
         void sdlBoucle ();
         void sdlAff ();
         
-        void sdlLoadImage();
+        void sdlLoadImgFile();
 
        // void MenuPrincipal(Jeu & Game);
        // bool afficherAccueil();
@@ -55,8 +57,6 @@ class sdlJeu {
         //vector<Image> getImageVec() const;
 
         void setImageVector(vector<Image> vI);
-
-        void chargerTxtImages(const string & filenameIm);
 
         unsigned int getNbrIngJ() const;
 

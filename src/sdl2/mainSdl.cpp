@@ -1,13 +1,13 @@
 #include <iostream> 
 #include "sdlJeu.h"
 #include "sdlImage.h"
+#include "sdlLoadImage.h"
 
 using namespace std;
 
 int main()
 {
     sdlJeu sj;
-    sj.sdlLoadImage();
     sj.sdlBoucle();
 
     Image i;

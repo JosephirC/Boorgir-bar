@@ -19,11 +19,11 @@ class Client{
         /** < @brief prix total de la commande du client */
         unsigned int prixTot ;
 
-        
+        vector<Commande> com;        
        
 
     public :
-        vector<Commande> com;
+        
         
 
         /** < @brief un construscteur de Client */ 
@@ -40,6 +40,8 @@ class Client{
         unsigned int getIdC() const;
         /** < @brief fonction qui retourne le prix total de la commande du client */ 
         unsigned int getPrix() const;
+
+        vector<Commande> getCom() const;
 
         //Commande getCom();
         /** < @brief, choisi des recettes aleatoire du menu pour le donner au client */

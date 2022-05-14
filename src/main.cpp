@@ -10,7 +10,7 @@ using namespace std;
 
 int main()
 {
-    
+    /*
     srand(time(NULL));
     Jeu j;
     vector<Commande> carte;
@@ -20,7 +20,7 @@ int main()
 
     j.creationClient(4,j.tabClient ,j.carte);
     
-
+*/
 
     /*
     unsigned int prix;

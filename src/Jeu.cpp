@@ -12,14 +12,17 @@
 
 using namespace std;
 
+/** < @brief constructeur de la classe Jeu */
 Jeu::Jeu(){
 
 }
 
+/** < @brief constructeur de la classe Jeu */
 Jeu::Jeu(int typeJeu, int niveau){
 
 }
 
+/** < @brief destructeur de la classe Jeu */
 Jeu::~Jeu(){
     
 }
@@ -34,21 +37,27 @@ void Jeu::setCarte(vector<Commande> cart){
 }
 */
 
-
+/** < @brief accesseur : recupere les objectifs du jeu */
 Objectif & Jeu::getObj(){
      return obj;
  }
 
+/** < @brief accesseur : recupere le tableau des clients */
 vector<Client> & Jeu::getTabClient(){
      return tabClient;
  }
 
+/** < @brief accesseur : recupere la carte */
 vector<Commande> & Jeu::getCarte(){
      return carte;
 }
+
+/** < @brief accesseur : recupere le tableau des ingredients */
 vector<Ingredient> & Jeu::getTabIng(){
      return tabIng;
 }
+
+/** < @brief accesseur : recupere le tableau des recettes */
 vector<Recette> & Jeu::getTabRec(){
      return tabRec;
 }
@@ -72,6 +81,7 @@ ostream &operator<< (ostream & flux, const Recette &rec){
     return flux;
 }
 
+/** < @brief charge tous les ingredients*/
 void Jeu::chargerIngredient(vector<Ingredient> &ingVec, const string &filenameIng){
     //vector<Ingredient> ingVec;
     ifstream fileIng(filenameIng.c_str());
@@ -102,6 +112,7 @@ void Jeu::chargerIngredient(vector<Ingredient> &ingVec, const string &filenameIn
         cout << "Failed to open file..." << endl;
 }
 
+/** < @brief charge les recettes*/
 void Jeu::chargerRecette(vector<Recette> &recVec, const string &filenameRec){
     //vector<Recette> recVec;
     //vector<Ingredient> ingRecVec;             //pour mettre Ingredients
@@ -143,6 +154,8 @@ ostream &operator<< (ostream & flux, const Commande &c){
     return flux;
 }
 
+
+/** < @brief charge la carte */
 void Jeu::chargerCarte(vector<Commande> &tabC, const string &fileCarte){
     ifstream fileC(fileCarte.c_str());
     string nom;
@@ -158,6 +171,8 @@ void Jeu::chargerCarte(vector<Commande> &tabC, const string &fileCarte){
         cout << "Failed to open file..." << endl;
 }
 
+
+/** < @brief creation du client et de sa comande */
 void Jeu::creationClient(const unsigned int &I, vector<Client> & tabC,vector<Commande> & carte){
     unsigned int i;
     for(i=0;i<I;i++){
@@ -166,6 +181,8 @@ void Jeu::creationClient(const unsigned int &I, vector<Client> & tabC,vector<Com
     }
 }
 
+
+/** < @brief prepare la commande  */
 string Jeu::PreparerCommande( const string & ing , int i ){
     for (unsigned int j=0;j<tabRec.size();j++){
         if( ing=="Soda" || ing=="Jus" || ing=="Frites") return ing;
@@ -181,6 +198,7 @@ string Jeu::PreparerCommande( const string & ing , int i ){
     return tabPrep[i];
 }
 
+/** < @brief permet d'effacer une recette */
 void Jeu::effaceRecette(vector<Client> & Cl, unsigned int & IdCl, unsigned int & IdRec){
     bool trouve = false;
         for(unsigned int j = 0; j < Cl[IdCl].getCom().size(); j++){
@@ -200,6 +218,7 @@ void Jeu::effaceRecette(vector<Client> & Cl, unsigned int & IdCl, unsigned int &
     }
 }
 
+/** < @brief permet d'effacer un extra */
 void Jeu::effaceExtras(vector<Client> & Cl, unsigned int & IdCl, unsigned int & IdExtras){
     bool trouve = false;
         for(unsigned int j = 0; j < Cl[IdCl].getCom().size(); j++){
@@ -219,7 +238,7 @@ void Jeu::effaceExtras(vector<Client> & Cl, unsigned int & IdCl, unsigned int & 
     }
 }
 
-
+/** < @brief permet d'effacer un client */
 bool Jeu::effacerClient(vector<Client> & Cl){
     //bool efface = false;
     if(Cl.empty() == true ){

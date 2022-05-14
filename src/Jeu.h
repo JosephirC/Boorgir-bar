@@ -33,9 +33,6 @@ class Jeu{
         bool estSelectionne;
         //faire un tab statique de taille 11, chaque case contient les coordonnees x y pour chaque ingredient  dans SDL
 
-
-    public :
-
         /** < @brief Contient les Clients cree qui arrivent au restau */
         vector<Client> tabClient; 
         /** < @brief Contient le chargement de la carte du restau */  
@@ -45,6 +42,9 @@ class Jeu{
         /** < @brief Contient le tableau de recette entier avec toutes les etapes possibles */
         vector<Recette> tabRec;     
         /** < @brief Contient les burger en cours de preparation */
+
+
+    public :
         //vector<string> tabPreps; 
 
         string tabPrep[4];
@@ -67,10 +67,10 @@ class Jeu{
         /** < @brief charge la carte*/
         void chargerCarte(vector<Commande> & tabC, const string &fileCarte);
 
-        //const vector<Commande>& getCarte() const;
-        //void setCarte(vector<Commande> carte);
-        //const vector<Recette>& getvector() const {return tabRec;}
-        //void setvector(vector<Recette> vec){tabRec = vec;}
+        vector<Client> & getTabClient();
+        vector<Commande> & getCarte();
+        vector<Ingredient> & getTabIng();
+        vector<Recette> & getTabRec();
 
         /** < @brief  */
         string getNomCarte() const ; //Accesseur : recupere le nom de la recette de la carte
@@ -92,8 +92,10 @@ class Jeu{
         string creationRecette(const string & recette,vector<Recette> &recVec);
         /** < @brief fonction permettant de comparer les recettes */
         bool compareRecette(vector<Recette> & tabR, vector<Client> & tabC, const string & r, unsigned int & IdCl);
+        
         /** < @brief permet d'effacer une recette */
-        void effaceRecette(vector<Client> & Cl, unsigned int & IdCl, string & rec); 
+        //void effaceRecette(vector<Client> & Cl, unsigned int & IdCl, string & rec); 
+        void effaceRecette(vector<Client> & Cl, unsigned int & IdCl, unsigned int & IdRec);
         
         bool effacerClient(vector<Client> & Cl);
 

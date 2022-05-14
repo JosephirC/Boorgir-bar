@@ -34,9 +34,26 @@ void Jeu::setCarte(vector<Commande> cart){
 }
 */
 
+
 Objectif & Jeu::getObj(){
      return obj;
  }
+
+vector<Client> & Jeu::getTabClient(){
+     return tabClient;
+ }
+
+vector<Commande> & Jeu::getCarte(){
+     return carte;
+}
+vector<Ingredient> & Jeu::getTabIng(){
+     return tabIng;
+}
+vector<Recette> & Jeu::getTabRec(){
+     return tabRec;
+}
+
+
 
      
 ostream &operator<< (ostream & flux, const Ingredient &ing){
@@ -199,20 +216,16 @@ bool Jeu::compareRecette(vector<Recette> &tabR, vector<Client> & tabC, const str
         return egale;
 }
 */
-void Jeu::effaceRecette(vector<Client> & Cl, unsigned int & IdCl, string & rec){
+void Jeu::effaceRecette(vector<Client> & Cl, unsigned int & IdCl, unsigned int & IdRec){
     bool trouve = false;
     for(unsigned int i = 0; i < Cl.size(); i++){
-        for(unsigned int j =0; j < Cl[i].com.size(); j++){
+        for(unsigned int j =0; j < Cl[i].getCom().size(); j++){
 
-            if(Cl[i].com[j].getNom() == rec){
-                Cl[i].com.erase(Cl[i].com.begin() + j);    
+            if(Cl[i].getCom()[j].getNom() == tabPrep[IdRec] ){
+                
+                Cl[i].getCom().erase(Cl[i].getCom().begin() + j);    
                 trouve = true;
-                for(unsigned int i=0; i<4;i++){
-                    if(tabPrep[i]==rec){
-                        tabPrep[i]="Undefined";
-                    }
-
-                } 
+                tabPrep[IdRec]="Undefined";
                 break;
             }
         }

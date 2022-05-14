@@ -158,21 +158,14 @@ void Jeu::chargerCarte(vector<Commande> &tabC, const string &fileCarte){
         cout << "Failed to open file..." << endl;
 }
 
-
 void Jeu::creationClient(const unsigned int &I, vector<Client> & tabC,vector<Commande> & carte){
     unsigned int i;
     for(i=0;i<I;i++){
         Client cli(i+1, carte);
         tabC.push_back(cli);
     }
-    /*for(unsigned int i = 0; i < tabC.size(); i++){
-        for(unsigned int j =0; j < tabC[i].com.size(); j++){
-            cout << "Client : " << i <<" Nom : " << tabC[i].com[j].getNom() << " |Prix : " << tabC[i].com[j].getPrix() << endl; 
-        }
-    }*/
 }
 
-// PreparerCommande : 
 string Jeu::PreparerCommande( const string & ing , int i ){
     for (unsigned int j=0;j<tabRec.size();j++){
         if( ing=="Soda" || ing=="Jus" || ing=="Frites") return ing;
@@ -187,49 +180,19 @@ string Jeu::PreparerCommande( const string & ing , int i ){
     }
     return tabPrep[i];
 }
-/*
-bool Jeu::compareRecette(vector<Recette> &tabR, vector<Client> & tabC, const string & r, unsigned int & IdCl){
-    bool egale = false;
-    //vector<Client> tabC; // pour le client
-    //creationClient(I, tabC);
-    string rec = creationRecette(r,tabRec);
-    for(unsigned int i = 0; i < tabC.size(); i++){
-        for(unsigned int j = 0; j < tabC[i].com.size(); j++){
-            //cout << "Client : " << i <<"Nom : " << tabC[i].com[j].getNom() << endl;
-            //cout << "i = " << i << endl;
-            //cout << "lol" << endl;
-            cout << endl;
-            //cout << "recette " << rec << endl;
-            //cout << "nom" << tabC[i].com[j].getNom() << endl;
 
-            if(rec == tabC[i].com[j].getNom()){
-                cout << "test" << endl;
-                egale = true;
-                cout << "FOUND" << endl;
-                IdCl = i;
-                tabR.clear();
-                return egale;
-            }
-        }
-    }
-        tabR.clear();
-        return egale;
-}
-*/
 void Jeu::effaceRecette(vector<Client> & Cl, unsigned int & IdCl, unsigned int & IdRec){
     bool trouve = false;
-    for(unsigned int i = 0; i < Cl.size(); i++){
-        for(unsigned int j =0; j < Cl[i].getCom().size(); j++){
+        for(unsigned int j = 0; j < Cl[IdCl].getCom().size(); j++){
 
-            if(Cl[i].getCom()[j].getNom() == tabPrep[IdRec] ){
-                
-                Cl[i].getCom().erase(Cl[i].getCom().begin() + j);    
+            if(Cl[IdCl].getCom()[j].getNom() == tabPrep[IdRec] ){
+                cout<<Cl[IdCl].getCom()[j].getNom();
+                Cl[IdCl].getCom().erase(Cl[IdCl].getCom().begin() + j);    
                 trouve = true;
                 tabPrep[IdRec]="Undefined";
                 break;
             }
-        }
-        if(trouve == true){
+            if(trouve == true){
                 break;
             }
     }

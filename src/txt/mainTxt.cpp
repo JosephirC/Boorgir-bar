@@ -19,10 +19,10 @@ int main ( int argc, char** argv ) {
 	//cout<< clock();
 
 	Jeu j;
-	j.chargerCarte(j.getCarte(), "./txt/Carte.txt");
-	j.chargerRecette(j.getTabRec(),"./txt/test.txt");
-	j.creationClient(4,j.getTabClient() ,j.getCarte());
-	j.chargerIngredient(j.getTabIng(),"./txt/Ingredients.txt");
+	j.chargerCarte("./txt/Carte.txt");
+	j.chargerRecette("./txt/test.txt");
+	j.creationClient(4);
+	j.chargerIngredient("./txt/Ingredients.txt");
 
 	j.getObj().choixNiveau(1);
 	//cout<< j.getObj().finJeu()<<endl;
@@ -32,8 +32,6 @@ int main ( int argc, char** argv ) {
 	
 	vector<Recette> R;
 
-
-	cout<< j.getTabClient()[1].getCom()[1].getNom();
 	
 	txtBoucle(j,R);
     termClear();

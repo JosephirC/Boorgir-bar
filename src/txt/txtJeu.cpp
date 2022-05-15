@@ -155,6 +155,32 @@ void donnerCommandeTxt(unsigned int & IdCl, unsigned int & IdRec,Jeu &jeu){
 
 }
 
+void donnerExtrasTxt(unsigned int & IdCl, string s ,Jeu &jeu){
+	 unsigned int IdRec;
+	do{
+
+		cin.clear();
+		cin.ignore();
+		cout<<"Quel Accompagnement? 0=Frites 9=Jus 10=Soda";
+		cin>>IdRec;
+	
+	}while(cin.fail() || IdRec!=0 || IdRec!=9 ); //tabPrep fixea 4
+	
+	
+	cout<<" "<< jeu.tabPrep[IdRec] << " Donner a quel client? ";
+	
+	do{
+		cin.clear();
+		cin.ignore();
+		cin>>IdCl;
+		if(cin.fail() || IdCl<1 || IdCl>4) 
+			cout<<endl<<"I doit etre entre 1 et 4. Vous avez choisi "<<IdCl<< " Choisissez a nouveau:  ";
+		
+	}while(cin.fail() || IdCl<1 || IdCl>4 );
+	
+	
+}
+
 void txtBoucle (Jeu &jeu, vector<Recette> &R) {
 	
 	bool ok = true;
@@ -222,11 +248,16 @@ void txtBoucle (Jeu &jeu, vector<Recette> &R) {
 					
 				case 'f':
 					preparerCommandeTxt(i,ingred,jeu);
-					//jeu.compareRecette(R,jeu.tabClient,"Soda",id);
 					ingerdTmp = jeu.PreparerCommande(jeu.getTabIng()[ingred].getNom(),i);
 					
 					
 					break;
+				case 'd':
+					unsigned int te;
+					te=1;
+					jeu.effaceExtras(te,"Soda");
+					break;
+
 				case 'g':
 					donnerCommandeTxt(idCl,idRec,jeu);
 					idCl--;

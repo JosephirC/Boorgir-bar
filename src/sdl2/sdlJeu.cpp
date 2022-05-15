@@ -18,15 +18,38 @@ sdlJeu::sdlJeu () : jeu() {
     /**********************Nombre d'ingredient ajoute par le joueur*************/
     nbrIngJ = 26;
     newImage.setChemin("img/PainHD.png");
+    
     image0.setChemin(newImage.getChemin());
-    image1.setChemin(newImage.getChemin());
-    image2.setChemin(newImage.getChemin());
-    image3.setChemin(newImage.getChemin());
-    image0.setNom("Undefined");
-    image1.setNom("Undefined");
-    image2.setNom("Undefined");
-    image3.setNom("Undefined");
+    image0.setEmplacement(100);
+    image0.setX(0);
+    image0.setY(0);
+    image0.setW(0);
+    image0.setH(0);
+    image0.setCase(0);
 
+    image1.setChemin(newImage.getChemin());
+    image1.setEmplacement(100);
+    image1.setX(0);
+    image1.setY(0);
+    image1.setW(0);
+    image1.setH(0);
+    image1.setCase(0);
+
+    image2.setChemin(newImage.getChemin());
+    image2.setEmplacement(100);
+    image2.setX(0);
+    image2.setY(0);
+    image2.setW(0);
+    image2.setH(0);
+    image2.setCase(0);
+
+    image3.setChemin(newImage.getChemin());
+    image3.setEmplacement(100);
+    image3.setX(0);
+    image3.setY(0);
+    image3.setW(0);
+    image3.setH(0);
+    image3.setCase(0);
 
     /*******************Appelle a la classe de chargement des images*****************************/
     loadImg.chargerTxtImages("./txt/testSDL.txt");
@@ -108,7 +131,18 @@ sdlJeu::sdlJeu () : jeu() {
         loaded_im[i].loadFromFile(loaded_im[i].getChemin().c_str(), renderer);
     }*/
 
-    sdlLoadImgFile();
+    //sdlLoadImgFile();
+
+    background.loadFromFile("./img/Backgr.png", renderer);
+
+    for(unsigned int i =0; i< im.size(); i++){
+        im[i].loadFromFile(im[i].getChemin().c_str(), renderer);
+    }
+
+    image0.loadFromFile(image0.getChemin().c_str(), renderer);
+    image1.loadFromFile(image1.getChemin().c_str(), renderer);
+    image2.loadFromFile(image2.getChemin().c_str(), renderer);
+    image3.loadFromFile(image3.getChemin().c_str(), renderer);
 
     //newImage.loadFromFile("img/Tomate.png", renderer);
     /************************************************************************************/
@@ -164,7 +198,7 @@ sdlJeu::~sdlJeu () {
     SDL_Quit();
 }
 
-void sdlJeu::sdlLoadImgFile(){
+/*void sdlJeu::sdlLoadImgFile(){
 
     //Charger le background
     background.loadFromFile("./img/Backgr.png", renderer);
@@ -177,7 +211,7 @@ void sdlJeu::sdlLoadImgFile(){
     image1.loadFromFile(image1.getChemin().c_str(), renderer);
     image2.loadFromFile(image2.getChemin().c_str(), renderer);
     image3.loadFromFile(image3.getChemin().c_str(), renderer);
-}
+}*/
 
 unsigned int sdlJeu::getNbrIngJ() const{
     //cout << "inside getnbr we have nbr = to " << im.size() << endl;
@@ -296,8 +330,6 @@ void sdlJeu::sdlAff () {
     }
     
     //newImage.draw(renderer,newImage.getX() ,newImage.getY(), newImage.getW(), newImage.getH());
-     //cout << "44444444im0 chem" << image0.getChemin() << endl;
-
     image0.draw(renderer,image0.getX() ,image0.getY(), image0.getW(), image0.getH());
     image1.draw(renderer,image1.getX() ,image1.getY(), image1.getW(), image1.getH());
     image2.draw(renderer,image2.getX() ,image2.getY(), image2.getW(), image2.getH());
@@ -367,8 +399,9 @@ void sdlJeu::mousePress(SDL_MouseButtonEvent& b){
 
     for(unsigned int i = 0; i < im.size(); i++){
         if(b.x > im[i].getX() && b.x < im[i].getX() + im[i].getW() && b.y > im[i].getY() && b.y < im[i].getY() + im[i].getH()){
-                if(im[i].getNom() != "Frites" && im[i].getNom() != "Jus" && im[i].getNom() != "Soda")
+                if(im[i].getNom() != "Frites" && im[i].getNom() != "Jus" && im[i].getNom() != "Soda"){
                     setNewImg(im[i]);
+                }
         }
     }
 
@@ -378,8 +411,10 @@ void sdlJeu::mousePress(SDL_MouseButtonEvent& b){
 
      //Case0
     if(mx > 411 && mx < 550 && my > 727 && my < 827){
+        cout << "over her image0 name is " << image0.getNom() << endl;
        if(image0.getNom() != "Frites" && image0.getNom() != "Jus" && image0.getNom() != "Soda")
         {
+            
             string temp;
             temp = jeu.PreparerCommande(newImage.getNom(), 0);
             newImage.setNom("");
@@ -447,10 +482,10 @@ void sdlJeu::mousePress(SDL_MouseButtonEvent& b){
             }
         }            
     }
-   image0.loadFromFile(image0.getChemin().c_str(), renderer);
-   image1.loadFromFile(image1.getChemin().c_str(), renderer);
-   image2.loadFromFile(image2.getChemin().c_str(), renderer);
-   image3.loadFromFile(image3.getChemin().c_str(), renderer);
+    image0.loadFromFile(image0.getChemin().c_str(), renderer);
+    image1.loadFromFile(image1.getChemin().c_str(), renderer);
+    image2.loadFromFile(image2.getChemin().c_str(), renderer);
+    image3.loadFromFile(image3.getChemin().c_str(), renderer);
 }
 
 void sdlJeu::sdlBoucle () {
@@ -463,7 +498,6 @@ void sdlJeu::sdlBoucle () {
 
         // on affiche le jeu sur le buffer cachï¿½
         sdlAff();
-
 		// tant qu'il y a des evenements ï¿½ traiter (cette boucle n'est pas bloquante)
 		while (SDL_PollEvent(&events)) {
 			if (events.type == SDL_QUIT) quit = true;       // Si l'utilisateur a clique sur la croix de fermeture

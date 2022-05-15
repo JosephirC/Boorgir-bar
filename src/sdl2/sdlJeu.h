@@ -43,10 +43,9 @@ class sdlJeu {
         Image image0, image1, image2, image3;
 
         //bool isClicked;
-
         int mx, my; 
 
-        //bool isOccupied0, isOccupied1, isOccupied2, isOccupied3;
+        //bool a;
 
     public :
 
@@ -64,14 +63,13 @@ class sdlJeu {
 
         //vector<Image> getImageVec() const;
 
-        void setImageVector(vector<Image> vI);
+        void setImCons(Image imCons);
 
         unsigned int getNbrIngJ() const;
 
         //void setNewImg(const string & nIm, const unsigned int & eIm, const string & cIm, const unsigned int & xIm, const unsigned int & yIm, const unsigned int & wIm, const unsigned int & hIm);
 
         void setNewImg(Image i);
-
 
         void setIm0(Image i0);
 

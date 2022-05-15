@@ -10,6 +10,8 @@
 
 #include "../Jeu.h"
 
+
+/** < @brief  */
 void txtAff(WinTXT & win, const Jeu & jeu) {
 	
 }
@@ -30,7 +32,7 @@ bool selectIng(vector <Commande> carte, Commande commande){
 
 
 
-
+/** < @brief permet d'afficher la carte */
 void affCarte(vector <Commande> carte){
 	cout<<endl<< "----- Voici le Menu d'aujourd'hui -------"<<endl;
 	for (unsigned int i = 0; i < carte.size(); i++) // unsigned int i = 0; i < v.size(); i++ présentent le risque que le compilateur ne sorte pas de la boucle le calcul de v.size() 
@@ -39,6 +41,7 @@ void affCarte(vector <Commande> carte){
 	}
 }
 
+/** < @brief affiche la recette d'une commande */
 void affRecette(vector<Recette> tabRec){
 	for(unsigned int i=0 ; i<tabRec.size(); i++){
 		cout<<tabRec[i].getNom()<< " de prix: "<<tabRec[i].getPrix()<<" dont les ingredients sont |";
@@ -49,6 +52,7 @@ void affRecette(vector<Recette> tabRec){
 	}
 }
 
+/** < @brief affiche les ingredients */
 void affIng(vector<Ingredient> tabIng){
 	cout<<"----------Voici tous les Ingredients----------"<<endl;
 	for(unsigned int i=0 ; i<tabIng.size(); i++){
@@ -56,7 +60,7 @@ void affIng(vector<Ingredient> tabIng){
 	}
 }
 
-
+/** < @brief permet d'afficher un client */
 void affClient(vector <Client> tab){
 	cout<<endl<< "------------ Voici les clients -----------"<<endl;
 	unsigned int i,j; //j
@@ -73,6 +77,7 @@ void affClient(vector <Client> tab){
 	cout << endl;
 }
 
+/** < @brief affiche le tableau de preparation */
 void affTabPrep(string tabPrep[4]){
 	for(int i=0;i<4;i++){
 		cout<<"Bar de preparation "<<i<<": " <<tabPrep[i]<<endl;
@@ -85,6 +90,7 @@ void affTabPrep(string tabPrep[4]){
 //	return carte[c];
 //}
 
+/** < @brief affiche l'aide du jeu */
 void affAide(){
 	cout<< "M: Menu"<<endl;
 	cout<< "C: Client"<<endl;
@@ -96,6 +102,7 @@ void affAide(){
 	cout<< "Q: Quit"<<endl<<endl;
 }
 
+/** < @brief prepare la commande avec les ingredients choisis, en txt */
 void preparerCommandeTxt(int &i,long unsigned int &ingred,Jeu &jeu){
 	do{
 
@@ -121,6 +128,7 @@ void preparerCommandeTxt(int &i,long unsigned int &ingred,Jeu &jeu){
 	cout << "La preparation sur la case: "<<i<<endl;
 }
 
+/** < @brief donne la commande au client choisi en txt */
 void donnerCommandeTxt(unsigned int & IdCl, unsigned int & IdRec,Jeu &jeu){
 	do{
 

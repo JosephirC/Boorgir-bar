@@ -8,6 +8,7 @@
 
 using namespace std;
 
+/** < @brief fonction principale */
 int main()
 {
     /*

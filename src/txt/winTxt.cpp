@@ -33,7 +33,8 @@ void termMove(int x, int y) // deplace le curseur du terminal
 
 }*/
 
-void termClear()  // efface le terminal
+/** < @brief efface le terminal */
+void termClear()
 {
 #ifdef _WIN32
     system("cls");
@@ -134,8 +135,8 @@ void WinTXT::pause() {
 #endif
 }
 
-
-char WinTXT::getCh() { // lire un caractere si une touche a ete pressee
+/** < @brief lit un caractere si une touche a ete pressee */
+char WinTXT::getCh() {
     char touche=0;
 #ifdef _WIN32
     if (kbhit())

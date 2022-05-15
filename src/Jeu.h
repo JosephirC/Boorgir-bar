@@ -23,11 +23,12 @@ class Jeu{
 
         
         //Temps tempsJ(int periode);
+        /** < @brief Objectif de la partie */
         Objectif obj; 
 
         int additionArgent;  // additionArgent = tabC[i].paiement;
 
-        /** < @param Contient les burger en cours de preparation prend la valeur de l'emplacement de l'ingredient selectionner*/ 
+        /** < @param ingSelectionne Contient les burger en cours de preparation prend la valeur de l'emplacement de l'ingredient selectionner*/ 
         int ingSelectionne; /// REMARQUE IL FAUT METTRE L EMPLACEMENT ICI 
 
         bool estSelectionne;
@@ -41,21 +42,28 @@ class Jeu{
         vector<Ingredient> tabIng;  //[50]
         /** < @brief Contient le tableau de recette entier avec toutes les etapes possibles */
         vector<Recette> tabRec;     
-        /** < @brief Contient les burger en cours de preparation */
 
+        /** < @brief Contient les burger en cours de preparation */
+        // ?????? quel vecteur
 
     public :
         //vector<string> tabPreps; 
 
+        /** < @brief tableau de preparation */
         string tabPrep[4];
 
-        /** < @brief  */
+        /** < @brief constructeur de la classe Jeu */
         Jeu();
-        /** < @brief  */
+
+        
+        /** < @brief il faut lire un fichier .txt qui contient les niveau avec le nbr de client / temps en parametres dans le constructur avec un ifstream */
+        /** < @brief constructeur de la classe Jeu */
         Jeu(int typeJeu, int niveau); /** < @brief il faut lire un fichier .txt qui contient les niveau avec le nbr de client / temps en parametres dans le constructur avec un ifstream */
-        /** < @brief destructeur Jeu */
+        
+        /** < @brief destructeur de la classe Jeu */
         ~Jeu();
-        /** < @brief retourne les objetid$f du jeu */
+
+        /** < @brief accesseur : recupere les objectifs du jeu */
         Objectif & getObj();
 
         //void chargerIngredient(Ingredient *tabIng, const string& nom_ingredient);
@@ -64,23 +72,27 @@ class Jeu{
         void chargerIngredient(vector<Ingredient> & tabI, const string& fileIngredient);
         /** < @brief charge les recettes*/
         void chargerRecette(vector<Recette> & tabR, const string& fileRecette);
-        /** < @brief charge la carte*/
+        /** < @brief charge la carte */
         void chargerCarte(vector<Commande> & tabC, const string &fileCarte);
 
+        /** < @brief accesseur : recupere le tableau des clients */
         vector<Client> & getTabClient();
+        /** < @brief accesseur : recupere la carte */
         vector<Commande> & getCarte();
+        /** < @brief accesseur : recupere le tableau des ingredients */
         vector<Ingredient> & getTabIng();
+        /** < @brief accesseur : recupere le tableau des recettes */
         vector<Recette> & getTabRec();
 
-        /** < @brief  */
+        /** < @brief accesseur : recupere le nom de la recette de la carte */
         string getNomCarte() const ; //Accesseur : recupere le nom de la recette de la carte
         /** < @brief  */
         void commandeAleatoire(vector<string> carte, vector<string> & commandeAl);
 
 
-        /** < @brief  */
+        /** < @brief accesseur de Client */
         Client & getClient(const unsigned int &IdC) const;
-        /** < @brief  */
+        /** < @brief mutateur de Client */
         void setClient(const unsigned int &IdC, const Client &c);
 
         /** < @brief creation du client et de sa comande */
@@ -96,7 +108,9 @@ class Jeu{
         /** < @brief permet d'effacer une recette */
         //void effaceRecette(vector<Client> & Cl, unsigned int & IdCl, string & rec); 
         void effaceRecette(vector<Client> & Cl, unsigned int & IdCl, unsigned int & IdRec);
+        /** < @brief permet d'effacer un extra */
         void effaceExtras(vector<Client> & Cl, unsigned int & IdCl, unsigned int & IdExtras);
+        /** < @brief permet d'effacer un client */
         bool effacerClient(vector<Client> & Cl);
 
 

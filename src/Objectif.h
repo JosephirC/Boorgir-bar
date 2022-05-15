@@ -13,11 +13,13 @@ class Objectif{
         
         /** < @brief argent qu el'on doit atteindre au cours de la partie */
         int Argent;
+
+
         /** < @brief evolution du temps */
         Temps evolTemp;
          
          /** < @brief temps de la partie */
-        Temps Temp;
+        Temps T;
 
     public :
 

@@ -16,11 +16,11 @@ Objectif::~Objectif() {
 }
 
 Temps Objectif::getTemps() const{
-     return Temp;
+     return T;
  }
  
 void Objectif::setTemps(Temps &t){
-     t=Temp;
+     t=T;
 } 
 
 
@@ -35,28 +35,26 @@ void Objectif::choixNiveau(unsigned int choix) {
     switch(choix)
     {
         case 1:
-            Temp.setTemps(3);
+            T.setTemps(1);
             Argent=40;
             break;
         case 2:
-            Temp.setTemps(3);
+            T.setTemps(1);
             Argent=100;
             break;
         case 3:
-            Temp.setTemps(2);
+            T.setTemps(2);
             Argent=200;
             break;   
     }
 }
 
+
+
 // dans le jeu il faut faire une bouble dans la boucle cause when we finish the level we don't want to be kicked out
 bool Objectif::finJeu() const{
-    Temps objTemp(Temp);
-    bool retour=false;
-    if ( objTemp.tempsAtteint() == true ){
-        cout<< "TRUE"; 
+    if ( getTemps().tempsAtteint() == true ){
+        return true;
     }
-    else cout << "FALSE";
-    cout<< objTemp.tempsRestant() << "  "<<endl;
-    return retour;
+    else return false;
 }

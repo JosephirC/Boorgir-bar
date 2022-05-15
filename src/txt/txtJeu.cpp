@@ -80,6 +80,7 @@ void affClient(vector <Client> tab){
 
 /** < @brief affiche le tableau de preparation */
 void affTabPrep(string tabPrep[4]){
+	cout<<endl<< "------------ Voici le Bar -----------"<<endl;
 	for(int i=0;i<4;i++){
 		cout<<"Bar de preparation "<<i<<": " <<tabPrep[i]<<endl;
 	}
@@ -109,13 +110,13 @@ void preparerCommandeTxt(int &i,long unsigned int &ingred,Jeu &jeu){
 
 		cin.clear();
 		cin.ignore();
-		cout<<"Quel ingredient? ";
+		cout<<"-Quel ingredient? ";
 		cin>>ingred;
 	
 	}while(cin.fail() || ingred<0 || ingred>jeu.getTabIng().size() );
 	
 	
-	cout<<" "<< jeu.getTabIng()[ingred].getNom() << " Ajouter a quel bar de preparation? ";
+	cout<<" "<< jeu.getTabIng()[ingred].getNom() << "-Ajouter a quel bar de preparation? ";
 	
 	do{
 		cin.clear();
@@ -126,7 +127,7 @@ void preparerCommandeTxt(int &i,long unsigned int &ingred,Jeu &jeu){
 		
 	}while(cin.fail() || i<0 || i>3);
 	
-	cout << "La preparation sur la case: "<<i<<endl;
+	cout << "La preparation sur la case: "<<i<<"."<<endl;
 }
 
 /** < @brief donne la commande au client choisi en txt */
@@ -135,13 +136,13 @@ void donnerCommandeTxt(unsigned int & IdCl, unsigned int & IdRec,Jeu &jeu){
 
 		cin.clear();
 		cin.ignore();
-		cout<<"Quel Case du bar? ";
+		cout<<"-Quel Case du bar? ";
 		cin>>IdRec;
 	
 	}while(cin.fail() || IdRec<0 || IdRec>3 ); //tabPrep fixea 4
 	
 	
-	cout<<" "<< jeu.tabPrep[IdRec] << " Donner a quel client? ";
+	cout<<" "<< jeu.tabPrep[IdRec] << "-Donner a quel client? ";
 	
 	do{
 		cin.clear();
@@ -155,19 +156,24 @@ void donnerCommandeTxt(unsigned int & IdCl, unsigned int & IdRec,Jeu &jeu){
 
 }
 
-void donnerExtrasTxt(unsigned int & IdCl, string s ,Jeu &jeu){
+void donnerExtrasTxt(unsigned int & IdCl, string & s ,Jeu &jeu){
 	 unsigned int IdRec;
 	do{
 
 		cin.clear();
 		cin.ignore();
-		cout<<"Quel Accompagnement? 0=Frites 9=Jus 10=Soda";
+		cout<<"-Quel Accompagnement? 0=Frites 9=Jus 10=Soda";
 		cin>>IdRec;
 	
 	}while(cin.fail() || (IdRec!=0 && IdRec!=9 && IdRec!=10) ); //tabPrep fixea 4
 	
-	
-	cout<<" "<< jeu.tabPrep[IdRec] << " Donner a quel client? ";
+	if (IdRec==0) s="Frites";
+	if (IdRec==9) s="Jus";
+	if (IdRec==10) s="Soda";
+
+	cout<<"Vous avez choisi "<<IdRec<<" "<<s<<endl;
+
+	cout<<" "<< jeu.tabPrep[IdRec] << "-Donner a quel client? ";
 	
 	do{
 		cin.clear();
@@ -182,25 +188,21 @@ void donnerExtrasTxt(unsigned int & IdCl, string s ,Jeu &jeu){
 }
 
 
-void txtBoucle (Jeu &jeu, vector<Recette> &R) {
+void txtBoucle (Jeu &jeu) {
 	
-	bool ok = true;
-	bool okk = true;
+
 	char c;
 	//cout<<"boucle";
 	WinTXT win;
 	//unsigned int id;
-	string ingerdTmp;
+	string ingerdTmp,s;
 	int i;
 	long unsigned int ingred;
 	unsigned int idCl,idRec;
-
+	unsigned int prixinit=0;
+	jeu.setAdditionArgent(prixinit);
 
 	do {
-		do{
-		
-			//txtAff(win,jeu);
-			//termClear();
 			
 			#ifdef _WIN32
 			Sleep(100);
@@ -216,8 +218,6 @@ void txtBoucle (Jeu &jeu, vector<Recette> &R) {
 			
 			//win.clear();
 		
-
-
 			switch(c)
 			{
 				case 'm':
@@ -237,10 +237,6 @@ void txtBoucle (Jeu &jeu, vector<Recette> &R) {
 					break;
 
 
-				case 'q':
-					okk = false;
-					break;
-
 				case 'a':
 					affAide();
 					break;
@@ -249,36 +245,39 @@ void txtBoucle (Jeu &jeu, vector<Recette> &R) {
 				case 'f':
 					preparerCommandeTxt(i,ingred,jeu);
 					ingerdTmp = jeu.PreparerCommande(jeu.getTabIng()[ingred].getNom(),i);
-					
-					
 					break;
+
 				case 'd':
-					unsigned int te;
-					te=1;
-					jeu.effaceExtras(te,"Soda");
+					donnerExtrasTxt(idCl,s,jeu);
+					idCl--;
+					jeu.effaceExtras(idCl,s);
+					jeu.money(idCl);
+
 					break;
 
 				case 'g':
 					donnerCommandeTxt(idCl,idRec,jeu);
 					idCl--;
 					jeu.effaceRecette(idCl,idRec);
+					jeu.money(idCl);
 
-				case 't':
+				case 'b':
 					affTabPrep(jeu.tabPrep);
 					break;
 
-			}
-		
-		}while(okk);
-		
-		switch(c)
-			{
-				case 'q':
-					ok = false;
+				case 't':
+					cout<<"Le temps restant est de :"<<jeu.getObj().getTemps().tempsRestant()<<"!!!!"<<endl;
 					break;
+				case'y':
+					cout<<"Vous avez gagnez :"<<jeu.getAdditionArgent()<<"$"<<endl;
+					cout<<"Le but est de ramasser "<<jeu.getObj().getArgent()<<endl; 
 			}
 
-	} while (ok);
+
+		
+		}while( !jeu.getObj().finJeu() );
+
+		termClear();
 
 }
 
@@ -289,12 +288,13 @@ void objectifDuJeu(unsigned int &Niveau,Jeu &jeu){
 
 		cin.clear();
 		cin.ignore();
-		cout<<"Quel Niveau veux-tu jouer? 1,2,3 :) ";
+		cout<<"-Quel Niveau veux-tu jouer? Tu as le choix entre 1,2,3!  :) "<<endl;
 		cin>>Niveau;
 	
 	}while(cin.fail() || (Niveau!=1 && Niveau!=2 && Niveau!=3));
 	
 }
+
 void afficheExplication() {
 	cout<<"hii"<<endl;
 }
@@ -306,6 +306,12 @@ void txtBoucleAcc (Jeu &jeu) {
 	char c;
 	WinTXT win;
 	unsigned int niv;
+
+	cout<< "Bienvenu a Boorgir Bar!"<<endl<<endl;
+	cout<< "C: Choisissez le Niveau que vous voulez en appuyant sur la touche C"<<endl;
+	cout<< "A: Si vous êtes nouveau dans le jeu appuier sur A pour une explication du jeu"<<endl;
+	cout<< "Q: Si vous souhaitez quitter appuier sur Q"<<endl;
+
 
 	do {
 		
@@ -343,8 +349,35 @@ void txtBoucleAcc (Jeu &jeu) {
 			
 			//win.clear();
 			
-		
-		
 	} while (ok);
 
+}
+
+
+void txtBoucleFin(Jeu &jeu){
+	bool ok = true;
+	int retry;
+	WinTXT win;
+
+	do{
+
+		#ifdef _WIN32
+		Sleep(100);
+		#else
+		usleep(100000);
+		#endif // WIN32
+
+		cout<<"vous avez GAGNE!!!!"<<endl;
+		do{
+			cin.clear();
+			cin.ignore();
+			cout<<"Si tu souhaite rejouer appuie sur 1 sinon pour quitter appuie sur 2 ";
+			cin>>retry;
+		}while(cin.fail() || (retry!=1 && retry!=2) );
+
+		if (retry==1) txtBoucleAcc(jeu);
+		if (retry==2) ok=false;
+
+	} while (ok);
+	termClear();
 }

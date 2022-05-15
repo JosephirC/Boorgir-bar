@@ -19,20 +19,11 @@ using namespace  std;
 
 class Jeu{
 
-    private :
-
-        
-        //Temps tempsJ(int periode);
+    private :   
         /** < @brief Objectif de la partie */
         Objectif obj; 
 
         int additionArgent;  // additionArgent = tabC[i].paiement;
-
-        /** < @param ingSelectionne Contient les burger en cours de preparation prend la valeur de l'emplacement de l'ingredient selectionner*/ 
-        int ingSelectionne; /// REMARQUE IL FAUT METTRE L EMPLACEMENT ICI 
-
-        bool estSelectionne;
-        //faire un tab statique de taille 11, chaque case contient les coordonnees x y pour chaque ingredient  dans SDL
 
         /** < @brief Contient les Clients cree qui arrivent au restau */
         vector<Client> tabClient; 
@@ -84,34 +75,28 @@ class Jeu{
         /** < @brief accesseur : recupere le tableau des recettes */
         vector<Recette> & getTabRec();
 
+        int & getAdditionArgent();
+        void setAdditionArgent(unsigned int & i);
+
         /** < @brief accesseur : recupere le nom de la recette de la carte */
         string getNomCarte() const ; //Accesseur : recupere le nom de la recette de la carte
-        /** < @brief  */
-        void commandeAleatoire(vector<string> carte, vector<string> & commandeAl);
 
-
-        /** < @brief accesseur de Client */
-        Client & getClient(const unsigned int &IdC) const;
-        /** < @brief mutateur de Client */
-        void setClient(const unsigned int &IdC, const Client &c);
 
         /** < @brief creation du client et de sa comande */
         void creationClient(const unsigned int &I);
         /** < @brief prepare la commande  */
         string PreparerCommande( const string & ing, int i);
 
-        /** < @brief ajouter une nouvelle recete au menu */
-        string creationRecette(const string & recette,vector<Recette> &recVec);
-        /** < @brief fonction permettant de comparer les recettes */
-        bool compareRecette(vector<Recette> & tabR, vector<Client> & tabC, const string & r, unsigned int & IdCl);
-        
+ 
         /** < @brief permet d'effacer une recette */
         //void effaceRecette(vector<Client> & Cl, unsigned int & IdCl, string & rec); 
         void effaceRecette(unsigned int & IdCl, unsigned int & IdRec);
         /** < @brief permet d'effacer un extra */
        void effaceExtras(unsigned int & IdCl, const string & ing);
+
+       void money(unsigned int & );
         /** < @brief permet d'effacer un client */
-        bool effacerClient(vector<Client> & Cl);
+        bool effacerClient();
 
 
 

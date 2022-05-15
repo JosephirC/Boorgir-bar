@@ -52,7 +52,13 @@ vector<Recette> & Jeu::getTabRec(){
      return tabRec;
 }
 
+int & Jeu::getAdditionArgent(){
+    return additionArgent;
+}
 
+void Jeu::setAdditionArgent(unsigned int & i){
+    additionArgent=i;
+}
 
      
 ostream &operator<< (ostream & flux, const Ingredient &ing){
@@ -211,10 +217,17 @@ void Jeu::effaceExtras(unsigned int & IdCl, const string & ing){
     }  
 }
 
+void Jeu::money(unsigned int & i){ 
+    if(tabClient[i].getCom().size() == 0){
+        additionArgent+=tabClient[i].getPrix();
+        tabClient[i].setPrix(0);
+    } 
+}
+
 /** < @brief permet d'effacer un client */
-bool Jeu::effacerClient(vector<Client> & Cl){
+bool Jeu::effacerClient(){
     //bool efface = false;
-    if(Cl.empty() == true ){
+    if(tabClient.empty() == true ){
         creationClient(4);
         return true;
     }

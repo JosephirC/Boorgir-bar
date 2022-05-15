@@ -41,6 +41,7 @@ class Client{
         unsigned int getIdC() const;
         /** < @brief fonction qui retourne le prix total de la commande du client */ 
         unsigned int getPrix() const;
+        void setPrix(const unsigned int & prix);
 
         vector<Commande> getCom() const;
         void setCom(vector<Commande> c);

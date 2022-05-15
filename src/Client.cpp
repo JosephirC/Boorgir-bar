@@ -32,6 +32,11 @@ unsigned int Client::getIdC() const{
      return prixTot;
  }
 
+ /** < @brief fonction qui retourne le prix total de la commande du client */ 
+ void Client::setPrix(const unsigned int & prix){
+     prixTot=prix;
+ }
+
 vector<Commande> Client::getCom()const {
      return com;
  }

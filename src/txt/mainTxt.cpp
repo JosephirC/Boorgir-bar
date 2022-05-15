@@ -6,13 +6,13 @@
 int main ( int argc, char** argv ) {
 	srand(time(NULL));
     termClear();
-	cout<< "Bienvenu a Boorgir Bar!"<<endl<<endl;
-	cout<< "M: Menu"<<endl;
-	cout<< "C: Client"<<endl;
-	cout<< "Q: Quit"<<endl;
-
-	cout<< "Aide: Vous pouvez utiliser la carte menu pour trouver les touches des ingredients."<<endl<<endl;
 	
+	cout<< "Bienvenu a Boorgir Bar!"<<endl<<endl;
+	cout<< "C: Choisissez le Niveau que vous voulez en appuyant sur la touche C"<<endl;
+	cout<< "A: Si vous êtes nouveau dans le jeu appuier sur A pour une explication du jeu"<<endl;
+	cout<< "Q: Si vous souhaitez quitter appuier sur Q"<<endl;
+
+
 	Temps t(400);
 	//int test;
 	//test = t.tempsRestant;
@@ -32,6 +32,7 @@ int main ( int argc, char** argv ) {
 	
 	vector<Recette> R;
 
+	txtBoucleAcc(j);
 	
 	txtBoucle(j,R);
     termClear();

@@ -164,7 +164,7 @@ void donnerExtrasTxt(unsigned int & IdCl, string s ,Jeu &jeu){
 		cout<<"Quel Accompagnement? 0=Frites 9=Jus 10=Soda";
 		cin>>IdRec;
 	
-	}while(cin.fail() || IdRec!=0 || IdRec!=9 ); //tabPrep fixea 4
+	}while(cin.fail() || (IdRec!=0 && IdRec!=9 && IdRec!=10) ); //tabPrep fixea 4
 	
 	
 	cout<<" "<< jeu.tabPrep[IdRec] << " Donner a quel client? ";
@@ -178,13 +178,14 @@ void donnerExtrasTxt(unsigned int & IdCl, string s ,Jeu &jeu){
 		
 	}while(cin.fail() || IdCl<1 || IdCl>4 );
 	
-	
+
 }
+
 
 void txtBoucle (Jeu &jeu, vector<Recette> &R) {
 	
 	bool ok = true;
-	//bool okk = true;
+	bool okk = true;
 	char c;
 	//cout<<"boucle";
 	WinTXT win;
@@ -196,7 +197,7 @@ void txtBoucle (Jeu &jeu, vector<Recette> &R) {
 
 
 	do {
-
+		do{
 		
 			//txtAff(win,jeu);
 			//termClear();
@@ -214,7 +215,6 @@ void txtBoucle (Jeu &jeu, vector<Recette> &R) {
 			//cout<< jeu.getObj().Temp.tempsAtteint()<<endl;
 			
 			//win.clear();
-			
 		
 
 
@@ -238,7 +238,7 @@ void txtBoucle (Jeu &jeu, vector<Recette> &R) {
 
 
 				case 'q':
-					ok = false;
+					okk = false;
 					break;
 
 				case 'a':
@@ -268,6 +268,81 @@ void txtBoucle (Jeu &jeu, vector<Recette> &R) {
 					break;
 
 			}
+		
+		}while(okk);
+		
+		switch(c)
+			{
+				case 'q':
+					ok = false;
+					break;
+			}
+
+	} while (ok);
+
+}
+
+
+/** < @brief prepare la commande avec les ingredients choisis, en txt */
+void objectifDuJeu(unsigned int &Niveau,Jeu &jeu){
+	do{
+
+		cin.clear();
+		cin.ignore();
+		cout<<"Quel Niveau veux-tu jouer? 1,2,3 :) ";
+		cin>>Niveau;
+	
+	}while(cin.fail() || (Niveau!=1 && Niveau!=2 && Niveau!=3));
+	
+}
+void afficheExplication() {
+	cout<<"hii"<<endl;
+}
+
+
+void txtBoucleAcc (Jeu &jeu) {
+	
+	bool ok = true;
+	char c;
+	WinTXT win;
+	unsigned int niv;
+
+	do {
+		
+			//txtAff(win,jeu);
+			//termClear();
+			
+			#ifdef _WIN32
+			Sleep(100);
+			#else
+			usleep(100000);
+			#endif // WIN32
+			
+			c=win.getCh();
+			switch(c)
+			{
+				case 'c':
+					objectifDuJeu(niv,jeu);
+					jeu.getObj().choixNiveau(niv);
+					termClear();
+					affAide();
+					ok = false;
+					break;
+				case 'a':
+					afficheExplication();
+					break;
+
+				case 'q':
+					ok = false;
+					break;
+
+			}
+			
+			//cout<<endl<<"passe1 " <<jeu.getObj().Temp.tempsRestant()<<endl;
+			//cout<< jeu.getObj().Temp.tempsAtteint()<<endl;
+			
+			//win.clear();
+			
 		
 		
 	} while (ok);

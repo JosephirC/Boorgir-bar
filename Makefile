@@ -18,7 +18,7 @@ obj/sdlImage.o: src/sdl2/sdlImage.cpp src/sdl2/sdlImage.h
 obj/sdlLoadImage.o: src/sdl2/sdlLoadImage.h src/sdl2/sdlImage.h 
 	g++ -ggdb -Wall -c src/sdl2/sdlLoadImage.cpp -o obj/sdlLoadImage.o $(DIR_SDL)
 
-bin/mainTxt: obj/mainTxt.o obj/Jeu.o obj/Recette.o obj/Ingredient.o obj/Commande.o obj/Client.o obj/Objectif.o obj/Temps.o obj/winTxt.o obj/txtJeu.o
+bin/mainTxt: obj/mainTxt.o obj/Jeu.o obj/Recette.o obj/Ingredient.o obj/Commande.o obj/Client.o obj/Objectif.o obj/Temps.o obj/winTxt.o obj/txtJeu.o 
 	g++ obj/mainTxt.o obj/Ingredient.o obj/Recette.o obj/Jeu.o obj/Commande.o obj/Client.o obj/Objectif.o obj/Temps.o obj/winTxt.o obj/txtJeu.o -o bin/mainTxt $(SDL_LIB)
 
 obj/mainTxt.o: src/txt/mainTxt.cpp src/txt/winTxt.h src/txt/txtJeu.h

@@ -15,16 +15,14 @@ Objectif::~Objectif() {
 
 }
 
-/*
-double Objectif::getTemps() const{
+Temps Objectif::getTemps() const{
      return Temp;
  }
  
 void Objectif::setTemps(Temps &t){
-
      t=Temp;
- } 
-*/
+} 
+
 
 /** < @brief  retourne l'argent gagne pendant la partie */
  unsigned int Objectif::getArgent() const{
@@ -33,20 +31,20 @@ void Objectif::setTemps(Temps &t){
 
 
 /** < @brief permet de selectionner le niveau voulu */
-void Objectif::choixNiveau(int choix) {
+void Objectif::choixNiveau(unsigned int choix) {
     switch(choix)
     {
         case 1:
             Temp.setTemps(3);
-            Argent=300;
+            Argent=40;
             break;
         case 2:
             Temp.setTemps(3);
-            Argent=400;
+            Argent=100;
             break;
         case 3:
             Temp.setTemps(2);
-            Argent=400;
+            Argent=200;
             break;   
     }
 }

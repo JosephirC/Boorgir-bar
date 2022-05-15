@@ -15,11 +15,13 @@ class Objectif{
         int Argent;
         /** < @brief evolution du temps */
         Temps evolTemp;
+         
+         /** < @brief temps de la partie */
+        Temps Temp;
 
     public :
 
-        /** < @brief temps de la partie */
-        Temps Temp;
+       
         
         /** < @brief constructeur de Objectif */
         Objectif();
@@ -27,13 +29,13 @@ class Objectif{
         /** < @brief destructeur de Objectif */
         ~Objectif();
 
-        /*double getTemps() const;
-        void setTemps(Temps &t);*/
+        Temps getTemps() const;
+        void setTemps(Temps &t);
         
         /** < @brief  retourne l'argent gagne pendant la partie */
         unsigned int getArgent() const;
         /** < @brief permet de selectionner le niveau voulu */
-        void choixNiveau(int choix);
+        void choixNiveau(unsigned int choix);
 
         /** < @brief renvoie vraie si l'objectif de la partie est atteint */
         bool objAtteint(Temps temps_donnee); 

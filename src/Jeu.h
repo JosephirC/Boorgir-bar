@@ -69,11 +69,11 @@ class Jeu{
         //void chargerIngredient(Ingredient *tabIng, const string& nom_ingredient);
 
         /** < @brief charge tous les ingredients*/
-        void chargerIngredient(vector<Ingredient> & tabI, const string& fileIngredient);
+        void chargerIngredient(const string& fileIngredient);
         /** < @brief charge les recettes*/
-        void chargerRecette(vector<Recette> & tabR, const string& fileRecette);
+        void chargerRecette(const string& fileRecette);
         /** < @brief charge la carte */
-        void chargerCarte(vector<Commande> & tabC, const string &fileCarte);
+        void chargerCarte(const string &fileCarte);
 
         /** < @brief accesseur : recupere le tableau des clients */
         vector<Client> & getTabClient();
@@ -96,7 +96,7 @@ class Jeu{
         void setClient(const unsigned int &IdC, const Client &c);
 
         /** < @brief creation du client et de sa comande */
-        void creationClient(const unsigned int &I, vector<Client> &tabC,vector<Commande> &carte );
+        void creationClient(const unsigned int &I);
         /** < @brief prepare la commande  */
         string PreparerCommande( const string & ing, int i);
 
@@ -109,11 +109,10 @@ class Jeu{
         //void effaceRecette(vector<Client> & Cl, unsigned int & IdCl, string & rec); 
         void effaceRecette(unsigned int & IdCl, unsigned int & IdRec);
         /** < @brief permet d'effacer un extra */
-        void effaceExtras(vector<Client> & Cl, unsigned int & IdCl, unsigned int & IdExtras);
+       void effaceExtras(unsigned int & IdCl, const string & ing);
         /** < @brief permet d'effacer un client */
         bool effacerClient(vector<Client> & Cl);
 
-        void erase();
 
 
 };

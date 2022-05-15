@@ -47,6 +47,8 @@ class sdlJeu {
 
         int mx, my; 
 
+        bool isOccupied0, isOccupied1, isOccupied2, isOccupied3;
+
     public :
 
         sdlJeu ();

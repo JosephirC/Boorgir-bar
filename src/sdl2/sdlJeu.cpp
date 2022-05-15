@@ -379,7 +379,7 @@ void sdlJeu::mousePress(SDL_MouseButtonEvent& b){
         cout << "you can see me" << endl;
         if(b.x > im[i].getX() && b.x < im[i].getX() + im[i].getW() && b.y > im[i].getY() && b.y < im[i].getY() + im[i].getH()){
             cout << "2you can see me2" << endl;
-            if(newImage.getNom() != "Frites" && newImage.getNom() != "Jus" && newImage.getNom() != "Soda" /*&& isClicked == true*/){
+            if(im[i].getNom() != "Frites" && im[i].getNom() != "Jus" && im[i].getNom() != "Soda" /*&& isClicked == true*/){
                 cout << "33333333you can see me3" << endl;
                 cout << "Je suis a l'image " << im[i].getNom() << " de coords " << b.x << " " << b.y << endl;
                 //setNewImg(im[i].getNom(), im[i].getEmplacement(), im[i].getChemin(), mx, my, im[i].getW(), im[i].getH());

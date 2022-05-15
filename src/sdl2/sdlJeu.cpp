@@ -517,12 +517,14 @@ void sdlJeu::sdlBoucle () {
     SDL_Event events;
 	bool quit = false;
     jeu.getObj().choixNiveau(1);
+    
     jeu.creationClient(4);
     for(unsigned int i =0; i < jeu.getTabClient().size(); i++){
         for(unsigned int j = 0; j < jeu.getTabClient()[i].getCom().size(); j++){
             cout << "Le client " << i << " a commande " << jeu.getTabClient()[i].getCom()[j].getNom() << endl;
         }
     }
+
     // tant que ce n'est pas la fin ...
 	while (!quit) {
         SDL_GetMouseState(&mx, &my);

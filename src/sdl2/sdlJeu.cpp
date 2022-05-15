@@ -329,9 +329,9 @@ void sdlJeu::sdlAff () {
     Temps t;
     int timeRestant;
     do{
-         timeRestant= jeu.getObj().Temp.tempsRestant();
+         timeRestant= jeu.getObj().getTemps().tempsRestant();
     //cout << "time left : " <<timeRestant<<endl;
-    }while(jeu.getObj().Temp.tempsRestant() < 0);
+    }while(jeu.getObj().getTemps().tempsRestant() < 0);
 
     //while(timeRestant !=0){
         ostringstream timeLeft;

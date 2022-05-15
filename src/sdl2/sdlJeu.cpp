@@ -53,7 +53,7 @@ sdlJeu::sdlJeu () : jeu() {
 
     /*******************Appelle a la classe de chargement des images*****************************/
     loadImg.chargerTxtImages("./txt/testSDL.txt");
-    jeu.chargerRecette(jeu.getTabRec(),"./txt/test.txt");
+    jeu.chargerRecette("./txt/test.txt");
     
     //Copiage de notre tab dynamique dans le tab dynamique de sdlJeu
     for(unsigned int i =0; i < loadImg.getLoadedImage().size(); i++){

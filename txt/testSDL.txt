@@ -24,3 +24,35 @@ Saucisse 4 ./img/SaucisseCuit.png 320 805 10 53 0
 PainB 5 ./img/PainB.png 216 880 57 33 0
 
 Steak 6 ./img/SteakCuit.png 305 881 41 33 0
+
+
+PainBSteak 100 ./img/PainBSteak.png 0 0 58 39 0
+
+PainBSteakMayo 100 ./img/PainBSteakMayo.png 0 0 58 42 0
+
+PainBSteakKetchup 100 ./img/PainBSteakKetchup.png 0 0 57 42 0
+
+PainBSteakTomate 100 ./img/PainBSteakTomate.png 0 0 57 44 0
+
+PainBSteakTomateMayo 100 ./img/PainBSteakTomateMayo.png 0 0 57 48 0
+
+PainBSteakTomateKetchup 100 ./img/PainBSteakTomateKetchup.png 0 0 57 48 0
+
+PainBSteakSalade 100 ./img/PainBSteaKSalade.png 0 0 58 45 0
+
+PainBSteakSaladeMayo 100 ./img/PainBSteakSaladeMayo.png 0 0 57 48 0
+
+PainBSteakSaladeKetchup 100 ./img/PainBSteakSaladeKetchup.png 0 0 57 48 0
+
+PainBSteakSaladeTomate 100 ./img/PainBSteakSaladeTomate.png 0 0 57 50 0
+
+PainBSteakSaladeTomateMayo 100 ./img/PainBSteakSaladeTomateMayo.png 0 0 58 55 0
+
+PainBSteakSaladeTomateKetchup 100 ./img/PainBSteakSaladeTomateKetchup.png 0 0 56 54 0
+
+
+PainHDSaucisse 100 ./img/PainHDSaucisse.png 0 0 27 59 0
+
+PainHDSaucisseMayo 100 ./img/PainHDSaucisseMayo.png 0 0 28 59 0
+
+PainHDSaucisseKetchup 100 ./img/PainHDSaucisseKetchup.png 0 0 26 59 0

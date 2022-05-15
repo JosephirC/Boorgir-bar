@@ -17,13 +17,11 @@ float temps () {
 sdlJeu::sdlJeu () : jeu() {
     /**********************Nombre d'ingredient ajoute par le joueur*************/
     nbrIngJ = 11;
-    isClicked = true; 
     newImage.setChemin("img/PainHD.png");
     image0.setChemin(newImage.getChemin());
     image1.setChemin(newImage.getChemin());
     image2.setChemin(newImage.getChemin());
     image3.setChemin(newImage.getChemin());
-
     image0.setNom("Undefined");
     image1.setNom("Undefined");
     image2.setNom("Undefined");
@@ -175,17 +173,10 @@ void sdlJeu::sdlLoadImgFile(){
         im[i].loadFromFile(im[i].getChemin().c_str(), renderer);
     }
 
-    //newImage.loadFromFile(newImage.getChemin().c_str(),renderer);
     image0.loadFromFile(image0.getChemin().c_str(), renderer);
     image1.loadFromFile(image1.getChemin().c_str(), renderer);
     image2.loadFromFile(image2.getChemin().c_str(), renderer);
     image3.loadFromFile(image3.getChemin().c_str(), renderer);
-    /*if(display == true){
-         cout <<endl << endl<< "test 2  " << imgChemin << endl << endl;
-        newImage.loadFromFile(imgChemin.c_str(), renderer);
-    }*/
-
-    
 }
 
 unsigned int sdlJeu::getNbrIngJ() const{
@@ -298,13 +289,15 @@ void sdlJeu::sdlAff () {
             }            
         }
       
-        if(im[i].getEmplacement() > 10)
+        if(im[i].getEmplacement() == 11 || im[i].getEmplacement() == 12 )
         {
             im[i].draw(renderer, im[i].getX(), im[i].getY(), im[i].getW(), im[i].getH());
         }
     }
     
     //newImage.draw(renderer,newImage.getX() ,newImage.getY(), newImage.getW(), newImage.getH());
+     //cout << "44444444im0 chem" << image0.getChemin() << endl;
+
     image0.draw(renderer,image0.getX() ,image0.getY(), image0.getW(), image0.getH());
     image1.draw(renderer,image1.getX() ,image1.getY(), image1.getW(), image1.getH());
     image2.draw(renderer,image2.getX() ,image2.getY(), image2.getW(), image2.getH());
@@ -366,51 +359,30 @@ void sdlJeu::sdlAff () {
     
 }
 
-void sdlJeu::remplaceImage(Image I){
-    newImage = I;
-}
-
 void sdlJeu::mousePress(SDL_MouseButtonEvent& b){
     if(b.button == SDL_BUTTON_LEFT){
         //handle a left-click
-        cout << b.x << " " << b.y << endl;
+        //cout << b.x << " " << b.y << endl;
     }
+
     for(unsigned int i = 0; i < im.size(); i++){
-        cout << "you can see me" << endl;
         if(b.x > im[i].getX() && b.x < im[i].getX() + im[i].getW() && b.y > im[i].getY() && b.y < im[i].getY() + im[i].getH()){
-            cout << "2you can see me2" << endl;
-            if(im[i].getNom() != "Frites" && im[i].getNom() != "Jus" && im[i].getNom() != "Soda" /*&& isClicked == true*/){
-                cout << "33333333you can see me3" << endl;
-                cout << "Je suis a l'image " << im[i].getNom() << " de coords " << b.x << " " << b.y << endl;
-                //setNewImg(im[i].getNom(), im[i].getEmplacement(), im[i].getChemin(), mx, my, im[i].getW(), im[i].getH());
-                setNewImg(im[i]);
-                
-                isClicked = false;
-                cout << "Nom : "<<  " "<< newImage.getNom() <<
-                " | Emplacement " << " "<< newImage.getEmplacement() << 
-                " | Chemin : " << " "<< newImage.getChemin() <<
-                " | X : " << " "<< newImage.getX() << 
-                " | Y : " << " "<< newImage.getY() << 
-                " | W : " << " "<< newImage.getW() << 
-                " | H : " << " "<< newImage.getH() <<
-                " | Case : " << " " << newImage.getCase() << 
-                endl;
-            }            
+                if(im[i].getNom() != "Frites" && im[i].getNom() != "Jus" && im[i].getNom() != "Soda")
+                    setNewImg(im[i]);
         }
     }
 
-    if(b.x > 20  && b.x < 20 + 110 && b.y > 725 && b.y < 725 + 215){
+    /*if(b.x > 20  && b.x < 20 + 110 && b.y > 725 && b.y < 725 + 215){
         cout << "Je suis au block de " << im[2].getNom() << endl;
-    }
+    }*/
 
      //Case0
     if(mx > 411 && mx < 550 && my > 727 && my < 827){
        if(image0.getNom() != "Frites" && image0.getNom() != "Jus" && image0.getNom() != "Soda")
         {
             string temp;
-            cout << "new image name" << newImage.getNom() << endl;
             temp = jeu.PreparerCommande(newImage.getNom(), 0);
-            cout << "temp is " << temp << endl;
+            newImage.setNom("");
             for(unsigned int i = 0; i < im.size(); i++){
                 if(im[i].getNom() == temp){
                     setIm0(im[i]);
@@ -419,17 +391,7 @@ void sdlJeu::mousePress(SDL_MouseButtonEvent& b){
                     image0.setCase(0);
                 }
             }
-            cout << "IMAGE 0" << endl <<
-                "Nom : "<<  " "<< image0.getNom() <<
-                " | Emplacement " << " "<< image0.getEmplacement() << 
-                " | Chemin : " << " "<< image0.getChemin() <<
-                " | X : " << " "<< image0.getX() << 
-                " | Y : " << " "<< image0.getY() << 
-                " | W : " << " "<< image0.getW() << 
-                " | H : " << " "<< image0.getH() <<
-                " | Case : " << " " << image0.getCase() << 
-                endl;
-        }            
+        }
     }
 
     //Case1
@@ -437,27 +399,16 @@ void sdlJeu::mousePress(SDL_MouseButtonEvent& b){
        if(image1.getNom() != "Frites" && image1.getNom() != "Jus" && image1.getNom() != "Soda")
         {
             string temp;
-            cout << "new image name" << newImage.getNom() << endl;
-            temp = jeu.PreparerCommande(newImage.getNom(), 0);
-            cout << "temp is " << temp << endl;
+            temp = jeu.PreparerCommande(newImage.getNom(), 1);
+            newImage.setNom("");
             for(unsigned int i = 0; i < im.size(); i++){
                 if(im[i].getNom() == temp){
-                    setIm1(newImage);
+                    setIm1(im[i]);
                     image1.setX(560 + ((130 - image1.getW()) / 2));
                     image1.setY(727 + ((100 - image1.getH()) / 2));
                     image1.setCase(1);
                 }
             }
-            cout << "IMAGE 1" << endl<<
-                "Nom : "<<  " "<< image1.getNom() <<
-                " | Emplacement " << " "<< image1.getEmplacement() << 
-                " | Chemin : " << " "<< image1.getChemin() <<
-                " | X : " << " "<< image1.getX() << 
-                " | Y : " << " "<< image1.getY() << 
-                " | W : " << " "<< image1.getW() << 
-                " | H : " << " "<< image1.getH() <<
-                " | Case : " << " " << image1.getCase() << 
-                endl;
         }            
     }
 
@@ -466,27 +417,16 @@ void sdlJeu::mousePress(SDL_MouseButtonEvent& b){
        if(image2.getNom() != "Frites" && image2.getNom() != "Jus" && image2.getNom() != "Soda")
         {
             string temp;
-            cout << "new image name" << newImage.getNom() << endl;
-            temp = jeu.PreparerCommande(newImage.getNom(), 0);
-            cout << "temp is " << temp << endl;
+            temp = jeu.PreparerCommande(newImage.getNom(), 2);
+            newImage.setNom("");
             for(unsigned int i = 0; i < im.size(); i++){
                 if(im[i].getNom() == temp){
-                    setIm2(newImage);
+                    setIm2(im[i]);
                     image2.setX(411 + ((130 - image2.getW()) / 2));
                     image2.setY(837 + ((100 - image2.getH()) / 2));
                     image2.setCase(2);
                 }
             }
-            cout << "IMAGE 2" << endl<<
-                "Nom : "<<  " "<< image2.getNom() <<
-                " | Emplacement " << " "<< image2.getEmplacement() << 
-                " | Chemin : " << " "<< image2.getChemin() <<
-                " | X : " << " "<< image2.getX() << 
-                " | Y : " << " "<< image2.getY() << 
-                " | W : " << " "<< image2.getW() << 
-                " | H : " << " "<< image2.getH() <<
-                " | Case : " << " " << image2.getCase() << 
-                endl;
         }            
     }
 
@@ -495,31 +435,18 @@ void sdlJeu::mousePress(SDL_MouseButtonEvent& b){
        if(image3.getNom() != "Frites" && image3.getNom() != "Jus" && image3.getNom() != "Soda")
         {
             string temp;
-            cout << "new image name" << newImage.getNom() << endl;
-            temp = jeu.PreparerCommande(newImage.getNom(), 0);
-            cout << "temp is " << temp << endl;
+            temp = jeu.PreparerCommande(newImage.getNom(), 3);
+            newImage.setNom("");
             for(unsigned int i = 0; i < im.size(); i++){
                 if(im[i].getNom() == temp){
-                    setIm3(newImage);
+                    setIm3(im[i]);
                     image3.setX(560 + ((130 - image3.getW()) / 2));
                     image3.setY(837 + ((100 - image3.getH()) / 2));
                     image3.setCase(3);
                 }
             }
-            cout << "IMAGE 3" << endl<<
-                "Nom : "<<  " "<< image3.getNom() <<
-                " | Emplacement " << " "<< image3.getEmplacement() << 
-                " | Chemin : " << " "<< image3.getChemin() <<
-                " | X : " << " "<< image3.getX() << 
-                " | Y : " << " "<< image3.getY() << 
-                " | W : " << " "<< image3.getW() << 
-                " | H : " << " "<< image3.getH() <<
-                " | Case : " << " " << image3.getCase() << 
-                endl;
         }            
     }
-
-   //newImage.loadFromFile(newImage.getChemin().c_str(), renderer);
    image0.loadFromFile(image0.getChemin().c_str(), renderer);
    image1.loadFromFile(image1.getChemin().c_str(), renderer);
    image2.loadFromFile(image2.getChemin().c_str(), renderer);

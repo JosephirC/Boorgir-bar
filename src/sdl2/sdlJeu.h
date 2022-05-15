@@ -26,7 +26,6 @@ class sdlJeu {
         Mix_Chunk * sound;
         bool withSound;
 
-        //vector<Image> loaded_im;
 
         bool souris;
         bool touche;
@@ -43,11 +42,11 @@ class sdlJeu {
         Image newImage;
         Image image0, image1, image2, image3;
 
-        bool isClicked;
+        //bool isClicked;
 
         int mx, my; 
 
-        bool isOccupied0, isOccupied1, isOccupied2, isOccupied3;
+        //bool isOccupied0, isOccupied1, isOccupied2, isOccupied3;
 
     public :
 
@@ -84,7 +83,7 @@ class sdlJeu {
 
         void mousePress(SDL_MouseButtonEvent& b);
 
-        void remplaceImage(Image I);
+        //void remplaceImage(Image I);
 
         
 

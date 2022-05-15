@@ -24,11 +24,13 @@ loadImage::loadImage(const string & nomIm, const unsigned int & eIm, const strin
 void loadImage::chargerTxtImages(const string & filenameIm){
     ifstream fileIm(filenameIm.c_str());
     string nom, chemin;
-    unsigned int emplacement, x , y, w, h;
+    unsigned int emplacement, x , y, w, h, c;
 
     if(fileIm.is_open()){
-        while(fileIm >> nom >> emplacement >>  chemin >> x >> y >> w >> h){
-            Image ima(nom, emplacement, chemin, x , y, w, h);
+        string line;
+		getline(fileIm, line);
+        while(fileIm >> nom >> emplacement >>  chemin >> x >> y >> w >> h >> c){
+            Image ima(nom, emplacement, chemin, x , y, w, h, c);
             loaded_im.push_back(ima);
         }
         fileIm.close();

@@ -18,14 +18,15 @@ class Image{
         SDL_Texture * texture;
         bool has_changed;
         string nom, chemin;
-        unsigned int emplacement, x , y, w, h;
+        int x , y, w, h;
+        unsigned int emplacement, numCase;
         int dimx, dimy;
 
     public : 
 
         Image();
 
-        Image(const string & nomIm, const unsigned int & eIm, const string & cheminIm, const unsigned int & xIm, const unsigned int & yIm, const unsigned int & wIm, const unsigned int & hIm);
+        Image(const string & nomIm, const unsigned int & eIm, const string & cheminIm, const unsigned int & xIm, const unsigned int & yIm, const unsigned int & wIm, const unsigned int & hIm, const unsigned int & cIm);
 
         void loadFromFile(const char * filename, SDL_Renderer * renderer);
 
@@ -45,13 +46,15 @@ class Image{
 
         void setEmplacement(const unsigned int & e); // peut etre inutile
 
-        void setX(const unsigned int & xI);
+        void setX(const int & xI);
 
-        void setY(const unsigned int & yI);
+        void setY(const int & yI);
 
-        void setW(const unsigned int & wI);
+        void setW(const int & wI);
 
-        void setH(const unsigned int & hI);
+        void setH(const int & hI);
+
+        void setCase(const unsigned int & caseIm);
 
         void setDimX(const int & x);
 
@@ -63,13 +66,15 @@ class Image{
 
         unsigned int getEmplacement() const;
 
-        unsigned int getX() const;
+        int getX() const;
 
-        unsigned int getY() const;
+        int getY() const;
 
-        unsigned int getW() const;
+        int getW() const;
 
-        unsigned int getH() const;
+        int getH() const;
+
+        unsigned int getCase() const;
 
         int getDimX() const;
 

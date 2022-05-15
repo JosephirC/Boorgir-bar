@@ -17,7 +17,7 @@ Image::Image () {
 }
 
 
-Image::Image(const string & nomIm, const unsigned int & eIm, const string & cheminIm, const unsigned int & xIm, const unsigned int & yIm, const unsigned int & wIm, const unsigned int & hIm){
+Image::Image(const string & nomIm, const unsigned int & eIm, const string & cheminIm, const unsigned int & xIm, const unsigned int & yIm, const unsigned int & wIm, const unsigned int & hIm, const unsigned int & cIm){
     surface = NULL;
     texture = NULL;
     has_changed = false;
@@ -28,6 +28,7 @@ Image::Image(const string & nomIm, const unsigned int & eIm, const string & chem
     y = yIm;
     w = wIm;
     h = hIm;
+    numCase = cIm;
 }
 
 void Image::loadFromFile (const char* filename, SDL_Renderer * renderer) {
@@ -107,20 +108,24 @@ void Image::setEmplacement(const unsigned int & e){
     emplacement = e;
 }
 
-void Image::setX(const unsigned int & xI){
+void Image::setX(const int & xI){
     x = xI;
 }
 
-void Image::setY(const unsigned int & yI){
+void Image::setY(const int & yI){
     y = yI;
 }
 
-void Image::setW(const unsigned int & wI){
+void Image::setW(const int & wI){
     w = wI;
 }
 
-void Image::setH(const unsigned int & hI){
+void Image::setH(const int & hI){
     h = hI;
+}
+
+void Image::setCase(const unsigned int & caseIm){
+    numCase = caseIm;
 }
 
 void Image::setDimX(const int & x){
@@ -143,20 +148,24 @@ unsigned int Image::getEmplacement() const{
     return emplacement;
 }
 
-unsigned int Image::getX() const{
+int Image::getX() const{
     return x;
 }
 
-unsigned int Image::getY() const{
+int Image::getY() const{
     return y;
 }
 
-unsigned int Image::getW() const{
+int Image::getW() const{
     return w;
 }
 
-unsigned int Image::getH() const{
+int Image::getH() const{
     return h;
+}
+
+unsigned int Image::getCase() const{
+    return numCase;
 }
 
 int Image::getDimX() const{

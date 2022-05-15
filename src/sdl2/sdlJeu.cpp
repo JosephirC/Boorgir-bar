@@ -17,24 +17,27 @@ float temps () {
 sdlJeu::sdlJeu () : jeu() {
     /**********************Nombre d'ingredient ajoute par le joueur*************/
     nbrIngJ = 11;
-    nameClick = "";
-    isClicked = true;
-    display = false;
-    imgChemin = "img/Tomate.png";
-    nx = 0;
-    ny = 0;
-    nw = 0;
-    nh = 0;
-    
+    isClicked = true; 
+    newImage.setChemin("img/PainHD.png");
+    image0.setChemin(newImage.getChemin());
+    image1.setChemin(newImage.getChemin());
+    image2.setChemin(newImage.getChemin());
+    image3.setChemin(newImage.getChemin());
+
+    image0.setNom("Undefined");
+    image1.setNom("Undefined");
+    image2.setNom("Undefined");
+    image3.setNom("Undefined");
+
 
     /*******************Appelle a la classe de chargement des images*****************************/
     loadImg.chargerTxtImages("./txt/testSDL.txt");
+    jeu.chargerRecette(jeu.getTabRec(),"./txt/test.txt");
     
     //Copiage de notre tab dynamique dans le tab dynamique de sdlJeu
     for(unsigned int i =0; i < loadImg.getLoadedImage().size(); i++){
         im.push_back(loadImg.getLoadedImage()[i]); 
     }
-    cout << endl << endl << "aa" << im.size() << endl; 
 
     // Initialisation de la SDL
     if (SDL_Init(SDL_INIT_VIDEO) < 0) {
@@ -70,10 +73,10 @@ sdlJeu::sdlJeu () : jeu() {
 	dimx = 960;
 	dimy = 960 +getNbrIngJ() * 66;
 
-    cout << "nbr ing apres dimy = " << getNbrIngJ() << endl;
+    //cout << "nbr ing apres dimy = " << getNbrIngJ() << endl;
 
-    cout << "dimy " << dimy << endl;
-    cout << "nbrIng " << getNbrIngJ() << endl;
+    //cout << "dimy " << dimy << endl;
+    //cout << "nbrIng " << getNbrIngJ() << endl;
 
     /********************************************************************************/
 
@@ -172,27 +175,70 @@ void sdlJeu::sdlLoadImgFile(){
         im[i].loadFromFile(im[i].getChemin().c_str(), renderer);
     }
 
-    cout <<endl << endl<< "test 1  " << imgChemin << endl << endl;
-
+    //newImage.loadFromFile(newImage.getChemin().c_str(),renderer);
+    image0.loadFromFile(image0.getChemin().c_str(), renderer);
+    image1.loadFromFile(image1.getChemin().c_str(), renderer);
+    image2.loadFromFile(image2.getChemin().c_str(), renderer);
+    image3.loadFromFile(image3.getChemin().c_str(), renderer);
     /*if(display == true){
          cout <<endl << endl<< "test 2  " << imgChemin << endl << endl;
         newImage.loadFromFile(imgChemin.c_str(), renderer);
     }*/
+
     
 }
 
 unsigned int sdlJeu::getNbrIngJ() const{
-    cout << "inside getnbr we have nbr = to " << im.size() << endl;
+    //cout << "inside getnbr we have nbr = to " << im.size() << endl;
     return im.size() - nbrIngJ;
 }
 
-void sdlJeu::setNewImg(const string & nIm, const string & cIm, const unsigned int & xIm, const unsigned int & yIm, const unsigned int & wIm, const unsigned int & hIm){
-    nameClick = nIm;
-    imgChemin = cIm;
-    //nx = xIm;
-    //ny = yIm;
-    nw = wIm;
-    nh = hIm;
+/*void sdlJeu::setNewImg(const string & nIm, const unsigned int & eIm, const string & cIm, const unsigned int & xIm, const unsigned int & yIm, const unsigned int & wIm, const unsigned int & hIm){
+    newImage.setNom(nIm);
+    newImage.setEmplacement(100);
+    newImage.setChemin(cIm);
+    newImage.setW(wIm);
+    newImage.setH(hIm);
+}*/
+
+void sdlJeu::setNewImg(Image i){
+    newImage.setNom(i.getNom());
+    newImage.setEmplacement(100);
+    newImage.setChemin(i.getChemin());
+    newImage.setW(i.getW());
+    newImage.setH(i.getH());
+}
+
+void sdlJeu::setIm0(Image i){
+    image0.setNom(i.getNom());
+    image0.setEmplacement(100);
+    image0.setChemin(i.getChemin());
+    image0.setW(i.getW());
+    image0.setH(i.getH());
+}
+
+void sdlJeu::setIm1(Image i){
+    image1.setNom(i.getNom());
+    image1.setEmplacement(100);
+    image1.setChemin(i.getChemin());
+    image1.setW(i.getW());
+    image1.setH(i.getH());
+}
+
+void sdlJeu::setIm2(Image i){
+    image2.setNom(i.getNom());
+    image2.setEmplacement(100);
+    image2.setChemin(i.getChemin());
+    image2.setW(i.getW());
+    image2.setH(i.getH());
+}
+
+void sdlJeu::setIm3(Image i){
+    image3.setNom(i.getNom());
+    image3.setEmplacement(100);
+    image3.setChemin(i.getChemin());
+    image3.setW(i.getW());
+    image3.setH(i.getH());
 }
 
 /*vector<Image> sdlJeu::getImageVec() const{
@@ -200,11 +246,10 @@ void sdlJeu::setNewImg(const string & nIm, const string & cIm, const unsigned in
 }*/
 
 void sdlJeu::sdlAff () {
-	//Remplir l'�cran de blanc
-    SDL_SetRenderDrawColor(renderer, 230, 240, 255, 255);
+	//Remplir l'ï¿½cran de blanc
+    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
     SDL_RenderClear(renderer);
 
-	int x,y;
 	//const Terrain& ter = jeu.getConstTerrain();
 	//const Pacman& pac = jeu.getConstPacman();
 	//const Fantome& fan = jeu.getConstFantome();
@@ -229,38 +274,6 @@ void sdlJeu::sdlAff () {
 
     /*for(unsigned int i =0; i < loaded_im.size(); i++){
         loaded_im[i].draw(renderer, )
-    }*/
-
-    /************************************************************************************/
-
-  
-
-    
-    
-
-    //SDL_RenderCopy(renderer,font_im.getTexture(),NULL,&positionTitre);
-
-
-
-
-
-
-
-    //Salade.loadFromFile("./img/Salade.png", renderer);
-    //Salade.draw(renderer, 100, 100 ,120, 120);
-    //SDL_RenderCopy(renderer, Salade.getTexture(), NULL, &positionSalade);
-
-    /*vector<Image> ima;
-    Image i;
-    i.chargerImage(ima, "./txt/testSDL.txt");
-    for(unsigned int i =0; i<ima.size(); i++){
-        int x = 0;
-        int y = 0; 
-        int w = 100;
-        int h = 100;
-        Image im;
-        im.loadFromFile(ima[i].getChemin().c_str(), renderer);
-        im.draw(renderer, x + i * 10, y ,w, h);
     }*/
 
 
@@ -290,19 +303,21 @@ void sdlJeu::sdlAff () {
             im[i].draw(renderer, im[i].getX(), im[i].getY(), im[i].getW(), im[i].getH());
         }
     }
+    
+    //newImage.draw(renderer,newImage.getX() ,newImage.getY(), newImage.getW(), newImage.getH());
+    image0.draw(renderer,image0.getX() ,image0.getY(), image0.getW(), image0.getH());
+    image1.draw(renderer,image1.getX() ,image1.getY(), image1.getW(), image1.getH());
+    image2.draw(renderer,image2.getX() ,image2.getY(), image2.getW(), image2.getH());
+    image3.draw(renderer,image3.getX() ,image3.getY(), image3.getW(), image3.getH());
 
-      // Ecrire un titre par dessus
+    /************************************************************************************/
+
+    // Ecrire un titre par dessus
     SDL_Rect positionTitre;
     positionTitre.x = 130;positionTitre.y = -5;positionTitre.w = 700;positionTitre.h = 70;
     SDL_RenderCopy(renderer,font_im.getTexture(),NULL,&positionTitre);
 
-
-
-    /*for(unsigned int i = 0; i < loaded_im.size(); i++){
-
-    }*/
-
-
+    //Dessin des rectangles
     SDL_Rect rect;
     rect.x = 20;
     rect.y = 725;
@@ -311,7 +326,6 @@ void sdlJeu::sdlAff () {
 
     SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
     SDL_RenderDrawRect(renderer, &rect);
-    //SDL_RenderPresent(renderer);
 
     for(unsigned int i=0; i<6; i++){
         SDL_Rect rect2;
@@ -329,12 +343,7 @@ void sdlJeu::sdlAff () {
             }
         SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
         SDL_RenderDrawRect(renderer, &rect2);
-        //SDL_RenderPresent(renderer);
     }
-
-    
-    
-
    
     for(unsigned int i=0; i<4; i++){
         SDL_Rect rect3;
@@ -352,115 +361,186 @@ void sdlJeu::sdlAff () {
             }
         SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
         SDL_RenderDrawRect(renderer, &rect3);
-
-        //SDL_RenderPresent(renderer);
     }
 
     
 }
 
+void sdlJeu::remplaceImage(Image I){
+    newImage = I;
+}
+
 void sdlJeu::mousePress(SDL_MouseButtonEvent& b){
-    //string nameClick;
-    unsigned int img;
     if(b.button == SDL_BUTTON_LEFT){
         //handle a left-click
         cout << b.x << " " << b.y << endl;
     }
-
-
-    /*if( (b.x > 210 && b.x < 280 && b.y > 737 && b.y < 793) ||   // Salade
-        (b.x > 290 && b.x < 360 && b.y > 737 && b.y < 793) ||   // Tomate
-        (b.x > 210 && b.x < 280 && b.y > 803 && b.y < 859) ||   // PainHD
-        (b.x > 290 && b.x < 360 && b.y > 803 && b.y < 859) ||   // Saucisse
-        (b.x > 210 && b.x < 280 && b.y > 869 && b.y < 925) ||   // PainB
-        (b.x > 290 && b.x < 360 && b.y > 869 && b.y < 925) ||   // Steak
-        (b.x > 140 && b.x < 162 && b.y > 695 && b.y < 746) ||   // Mayo
-        (b.x > 170 && b.x < 191 && b.y > 695 && b.y < 746) ||   // Ketchup
-        (b.x > 132 && )
-    ){*/
-        for(unsigned int i = 0; i < im.size(); i++){
-            if(b.x > im[i].getX() && b.x < im[i].getX() + im[i].getW() && b.y > im[i].getY() && b.y < im[i].getY() + im[i].getH()){
-                if(im[i].getNom() != ""){
-                    cout << "Je suis a l'image " << im[i].getNom() << " lol de coords " << b.x << " " << b.y << endl;
-                    setNewImg(im[i].getNom(), im[i].getChemin(), mx, my, im[i].getW(), im[i].getH());
-                    //cout << "FUCK" << im[i].getNom() << " " << nameClick << endl;
-                    img = i;
-                    //display = true;
-                    //cout << "bro " << img << endl;
-                    //break;
-                    //cout << "tf" << img << endl;
-                }            
-            }
+    for(unsigned int i = 0; i < im.size(); i++){
+        cout << "you can see me" << endl;
+        if(b.x > im[i].getX() && b.x < im[i].getX() + im[i].getW() && b.y > im[i].getY() && b.y < im[i].getY() + im[i].getH()){
+            cout << "2you can see me2" << endl;
+            if(newImage.getNom() != "Frites" && newImage.getNom() != "Jus" && newImage.getNom() != "Soda" /*&& isClicked == true*/){
+                cout << "33333333you can see me3" << endl;
+                cout << "Je suis a l'image " << im[i].getNom() << " de coords " << b.x << " " << b.y << endl;
+                //setNewImg(im[i].getNom(), im[i].getEmplacement(), im[i].getChemin(), mx, my, im[i].getW(), im[i].getH());
+                setNewImg(im[i]);
+                
+                isClicked = false;
+                cout << "Nom : "<<  " "<< newImage.getNom() <<
+                " | Emplacement " << " "<< newImage.getEmplacement() << 
+                " | Chemin : " << " "<< newImage.getChemin() <<
+                " | X : " << " "<< newImage.getX() << 
+                " | Y : " << " "<< newImage.getY() << 
+                " | W : " << " "<< newImage.getW() << 
+                " | H : " << " "<< newImage.getH() <<
+                " | Case : " << " " << newImage.getCase() << 
+                endl;
+            }            
         }
-        cout << "bro" << endl;
-    //}
-    
-    
+    }
+
     if(b.x > 20  && b.x < 20 + 110 && b.y > 725 && b.y < 725 + 215){
         cout << "Je suis au block de " << im[2].getNom() << endl;
     }
 
-     //Case1
-    if(mx > 411 && mx < 550 && my > 727 && my < 827 && isClicked == true && nameClick != ""){
-
-        //Image newImage(im[1].getNom(), im[1].getEmplacement(), im[1].getChemin(), im[1].getX(), im[1].getY(), im[1].getW(), im[1].getH());
-    // newImage.loadFromFile( newImage.getChemin().c_str(), renderer);
-        //newImage.draw(renderer, 476, 777, newImage.getW(), newImage.getH());
-
-        //cout << "new Image chemin : " <<  newImage.getChemin() << endl;
-
-        /*Image Tomate("tomtes", 50, "srig", 476, 477, 40, 40);
-        Tomate.loadFromFile("./img/Tomate.png", renderer);
-        Tomate.draw(renderer, Tomate.getX(), Tomate.getY(), Tomate.getW(), Tomate.getH());
-        */
-       if(nameClick != "Frites" && nameClick != "Jus" && nameClick != "Soda")
+     //Case0
+    if(mx > 411 && mx < 550 && my > 727 && my < 827){
+       if(image0.getNom() != "Frites" && image0.getNom() != "Jus" && image0.getNom() != "Soda")
         {
-        cout << " test img is " << nameClick << endl;
-        newImage.setNom(nameClick);
-        newImage.setEmplacement(52);
-        newImage.setChemin(imgChemin);
-        cout << "nw bro " << nw << endl;
-        newImage.setX(411 + ((130 - nw) / 2));
-        newImage.setY(727 + ((100 - nh) / 2));
-        newImage.setW(nw);
-        newImage.setH(nh);
-        im.push_back(newImage);
-        //newImage.draw(renderer, 100, 100, 50, 50);
-        isClicked = false;
-        nameClick = "";
-
-        //cout << "naame " << nameClick << " " << newImage.getNom() << endl;
-        }    
-
-        
-        //newImage.loadFromFile("img/PainBSteak.png", renderer);
-        
+            string temp;
+            cout << "new image name" << newImage.getNom() << endl;
+            temp = jeu.PreparerCommande(newImage.getNom(), 0);
+            cout << "temp is " << temp << endl;
+            for(unsigned int i = 0; i < im.size(); i++){
+                if(im[i].getNom() == temp){
+                    setIm0(im[i]);
+                    image0.setX(411 + ((130 - image0.getW()) / 2));
+                    image0.setY(727 + ((100 - image0.getH()) / 2));
+                    image0.setCase(0);
+                }
+            }
+            cout << "IMAGE 0" << endl <<
+                "Nom : "<<  " "<< image0.getNom() <<
+                " | Emplacement " << " "<< image0.getEmplacement() << 
+                " | Chemin : " << " "<< image0.getChemin() <<
+                " | X : " << " "<< image0.getX() << 
+                " | Y : " << " "<< image0.getY() << 
+                " | W : " << " "<< image0.getW() << 
+                " | H : " << " "<< image0.getH() <<
+                " | Case : " << " " << image0.getCase() << 
+                endl;
+        }            
     }
 
-    cout << "load1" << endl;
-    newImage.loadFromFile(imgChemin.c_str(), renderer);
-    cout << "load 2" << endl;
-    //newImage.loadFromFile("img/Tomate.png", renderer);
-      
+    //Case1
+    if(mx > 560 && mx < 699 && my > 727 && my < 827){
+       if(image1.getNom() != "Frites" && image1.getNom() != "Jus" && image1.getNom() != "Soda")
+        {
+            string temp;
+            cout << "new image name" << newImage.getNom() << endl;
+            temp = jeu.PreparerCommande(newImage.getNom(), 0);
+            cout << "temp is " << temp << endl;
+            for(unsigned int i = 0; i < im.size(); i++){
+                if(im[i].getNom() == temp){
+                    setIm1(newImage);
+                    image1.setX(560 + ((130 - image1.getW()) / 2));
+                    image1.setY(727 + ((100 - image1.getH()) / 2));
+                    image1.setCase(1);
+                }
+            }
+            cout << "IMAGE 1" << endl<<
+                "Nom : "<<  " "<< image1.getNom() <<
+                " | Emplacement " << " "<< image1.getEmplacement() << 
+                " | Chemin : " << " "<< image1.getChemin() <<
+                " | X : " << " "<< image1.getX() << 
+                " | Y : " << " "<< image1.getY() << 
+                " | W : " << " "<< image1.getW() << 
+                " | H : " << " "<< image1.getH() <<
+                " | Case : " << " " << image1.getCase() << 
+                endl;
+        }            
+    }
 
+    //Case2
+    if(mx > 411 && mx < 550 && my > 837 && my < 937){
+       if(image2.getNom() != "Frites" && image2.getNom() != "Jus" && image2.getNom() != "Soda")
+        {
+            string temp;
+            cout << "new image name" << newImage.getNom() << endl;
+            temp = jeu.PreparerCommande(newImage.getNom(), 0);
+            cout << "temp is " << temp << endl;
+            for(unsigned int i = 0; i < im.size(); i++){
+                if(im[i].getNom() == temp){
+                    setIm2(newImage);
+                    image2.setX(411 + ((130 - image2.getW()) / 2));
+                    image2.setY(837 + ((100 - image2.getH()) / 2));
+                    image2.setCase(2);
+                }
+            }
+            cout << "IMAGE 2" << endl<<
+                "Nom : "<<  " "<< image2.getNom() <<
+                " | Emplacement " << " "<< image2.getEmplacement() << 
+                " | Chemin : " << " "<< image2.getChemin() <<
+                " | X : " << " "<< image2.getX() << 
+                " | Y : " << " "<< image2.getY() << 
+                " | W : " << " "<< image2.getW() << 
+                " | H : " << " "<< image2.getH() <<
+                " | Case : " << " " << image2.getCase() << 
+                endl;
+        }            
+    }
+
+    //Case3
+    if(mx > 560 && mx < 699 && my > 837 && my < 937){
+       if(image3.getNom() != "Frites" && image3.getNom() != "Jus" && image3.getNom() != "Soda")
+        {
+            string temp;
+            cout << "new image name" << newImage.getNom() << endl;
+            temp = jeu.PreparerCommande(newImage.getNom(), 0);
+            cout << "temp is " << temp << endl;
+            for(unsigned int i = 0; i < im.size(); i++){
+                if(im[i].getNom() == temp){
+                    setIm3(newImage);
+                    image3.setX(560 + ((130 - image3.getW()) / 2));
+                    image3.setY(837 + ((100 - image3.getH()) / 2));
+                    image3.setCase(3);
+                }
+            }
+            cout << "IMAGE 3" << endl<<
+                "Nom : "<<  " "<< image3.getNom() <<
+                " | Emplacement " << " "<< image3.getEmplacement() << 
+                " | Chemin : " << " "<< image3.getChemin() <<
+                " | X : " << " "<< image3.getX() << 
+                " | Y : " << " "<< image3.getY() << 
+                " | W : " << " "<< image3.getW() << 
+                " | H : " << " "<< image3.getH() <<
+                " | Case : " << " " << image3.getCase() << 
+                endl;
+        }            
+    }
+
+   //newImage.loadFromFile(newImage.getChemin().c_str(), renderer);
+   image0.loadFromFile(image0.getChemin().c_str(), renderer);
+   image1.loadFromFile(image1.getChemin().c_str(), renderer);
+   image2.loadFromFile(image2.getChemin().c_str(), renderer);
+   image3.loadFromFile(image3.getChemin().c_str(), renderer);
 }
 
 void sdlJeu::sdlBoucle () {
     SDL_Event events;
 	bool quit = false;
+
     // tant que ce n'est pas la fin ...
 	while (!quit) {
         SDL_GetMouseState(&mx, &my);
 
-        // on affiche le jeu sur le buffer cach�
+        // on affiche le jeu sur le buffer cachï¿½
         sdlAff();
-        
-		// tant qu'il y a des evenements � traiter (cette boucle n'est pas bloquante)
+
+		// tant qu'il y a des evenements ï¿½ traiter (cette boucle n'est pas bloquante)
 		while (SDL_PollEvent(&events)) {
 			if (events.type == SDL_QUIT) quit = true;       // Si l'utilisateur a clique sur la croix de fermeture
-                else 
-                    if (events.type == SDL_KEYDOWN) {       // Si une touche est enfoncee
-                       
+                else if (events.type == SDL_KEYDOWN) {       // Si une touche est enfoncee
                         //bool mangePastille = false;
                         switch (events.key.keysym.scancode) {
                         case SDL_SCANCODE_UP:
@@ -481,28 +561,14 @@ void sdlJeu::sdlBoucle () {
                             break;
                         default: break;
                         }
-                        
                         /*if ((withSound) && (mangePastille))
                             Mix_PlayChannel(-1,sound,0);*/
 			        }
-
                     if(events.type == SDL_MOUSEBUTTONDOWN){
-
                         mousePress(events.button);
-
-                       
-
-                        
-
                     }
-
 		}
-
-		
-		
-
 		// on permute les deux buffers (cette fonction ne doit se faire qu'une seule fois dans la boucle)
         SDL_RenderPresent(renderer);
 	}
 }
-

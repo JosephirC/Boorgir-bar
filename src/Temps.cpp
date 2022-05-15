@@ -28,7 +28,7 @@ double Temps::getTemps() const{
 /** < @brief mutateur qui recupere le temps */
 void Temps::setTemps(double t){
     temps = t;
-    t1 = clock()/(double)CLOCKS_PER_SEC*100;
+    t1 = clock()/(double)CLOCKS_PER_SEC;
  } 
 
 /** < @brief accesseur qui recupere le tick */
@@ -40,7 +40,7 @@ void Temps::setTemps(double t){
 //double timeInSeconds = clockTicksTaken / (double) CLOCKS_PER_SEC;
 /** < @brief retourne le temps passe de la partie */
 double Temps::tempsPasse(){
-    return (clock()/(double) CLOCKS_PER_SEC*100 - t1);   //used to be clock - t1
+    return (clock()/(double) CLOCKS_PER_SEC - t1);   //used to be clock - t1
 }
 
 /** < @brief retourne le temps restant de la partie */
@@ -50,7 +50,7 @@ double Temps::tempsRestant(){
 
 /** < @brief le temps total donne de la partie */
 bool Temps::tempsAtteint(){
-    return tempsRestant() <=0;
+    return tempsRestant() <= 0;
 
 }
 

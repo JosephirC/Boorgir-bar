@@ -26,11 +26,12 @@ class sdlJeu {
         Mix_Chunk * sound;
         bool withSound;
 
-
         bool souris;
         bool touche;
 
         Image background;
+        Image Argent;
+        Image Time;
 
         unsigned int nbrIngJ;
 
@@ -38,14 +39,10 @@ class sdlJeu {
 
         loadImage loadImg;
 
-        //vector<Image> newImage;
         Image newImage;
         Image image0, image1, image2, image3;
 
-        //bool isClicked;
         int mx, my; 
-
-        //bool a;
 
     public :
 
@@ -81,10 +78,9 @@ class sdlJeu {
 
         void mousePress(SDL_MouseButtonEvent& b);
 
-        //void remplaceImage(Image I);
+        void afficheCommande();
 
-        
-
+        void afficheClient();
 };
 
 #endif

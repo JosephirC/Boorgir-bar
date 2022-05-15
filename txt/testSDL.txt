@@ -56,3 +56,12 @@ PainHDSaucisse 100 ./img/PainHDSaucisse.png 0 0 27 59 0
 PainHDSaucisseMayo 100 ./img/PainHDSaucisseMayo.png 0 0 28 59 0
 
 PainHDSaucisseKetchup 100 ./img/PainHDSaucisseKetchup.png 0 0 26 59 0
+
+
+Client1 20 ./img/client1.png 95 400 155 281 0
+
+Client2 21 ./img/client2.png 300 400 155 281 1
+
+Client3 22 ./img/client3.png 500 400 155 281 2
+
+Client 23 ./img/client4.png 700 400 155 281 3

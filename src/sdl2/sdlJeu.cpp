@@ -2,8 +2,11 @@
 #include <time.h>
 #include "sdlJeu.h"
 #include "sdlImage.h"
+#include "../Temps.h"
 #include <stdlib.h>
+#include <string.h>
 #include <fstream>
+#include <sstream>
 #include <vector>
 #include <iostream>
 using namespace std;
@@ -112,27 +115,6 @@ sdlJeu::sdlJeu () : jeu() {
     renderer = SDL_CreateRenderer(window,-1,SDL_RENDERER_ACCELERATED);
 
     /**************************IMAGES***********************************************************/
-
-    /*im_pacman.loadFromFile("data/pacman.png",renderer);
-    im_mur.loadFromFile("data/mur.png",renderer);
-    im_pastille.loadFromFile("data/pastille.png",renderer);
-    im_fantome.loadFromFile("data/fantome.png",renderer);*/
-
-    //Boucle qui permet de charger toutes les images grace au chemin stocker au tab dynamique
-    /*for(unsigned int i = 0; i < loaded_im.size(); i++){
-        loaded_im[i].loadFromFile(loaded_im[i].getChemin().c_str(), renderer);
-    }*/
-
-    //Image i;
-    //i.chargerImage(loaded_im, "./txt/testSDL.txt");
-
-    /*for(unsigned int i =0; i<loaded_im.size(); i++){
-        cout << "Le nom est : " << loaded_im[i].getNom() << endl << " Le chemin est : " << loaded_im[i].getChemin() << endl << endl;
-        loaded_im[i].loadFromFile(loaded_im[i].getChemin().c_str(), renderer);
-    }*/
-
-    //sdlLoadImgFile();
-
     background.loadFromFile("./img/Backgr.png", renderer);
 
     for(unsigned int i =0; i< im.size(); i++){
@@ -143,12 +125,7 @@ sdlJeu::sdlJeu () : jeu() {
     image1.loadFromFile(image1.getChemin().c_str(), renderer);
     image2.loadFromFile(image2.getChemin().c_str(), renderer);
     image3.loadFromFile(image3.getChemin().c_str(), renderer);
-
-    //newImage.loadFromFile("img/Tomate.png", renderer);
     /************************************************************************************/
-
-
-
     /****************************************FONTS*******************************************/
 
     /*****************************************CHANGE FICHIER DE FONT*************************************/
@@ -165,9 +142,6 @@ sdlJeu::sdlJeu () : jeu() {
 	font_color.r = 0;
     font_color.g = 0;
     font_color.b = 0;
-
-	font_im.setSurface(TTF_RenderText_Solid(font,"Welcome to Boorgir-Bar my fine sir !",font_color));
-	font_im.loadFromCurrentSurface(renderer);
 
     /***********************************************SONS**************************************************/
 
@@ -217,14 +191,6 @@ unsigned int sdlJeu::getNbrIngJ() const{
     //cout << "inside getnbr we have nbr = to " << im.size() << endl;
     return im.size() - nbrIngJ;
 }
-
-/*void sdlJeu::setNewImg(const string & nIm, const unsigned int & eIm, const string & cIm, const unsigned int & xIm, const unsigned int & yIm, const unsigned int & wIm, const unsigned int & hIm){
-    newImage.setNom(nIm);
-    newImage.setEmplacement(100);
-    newImage.setChemin(cIm);
-    newImage.setW(wIm);
-    newImage.setH(hIm);
-}*/
 
 void sdlJeu::setNewImg(Image i){
     newImage.setNom(i.getNom());
@@ -301,7 +267,6 @@ void sdlJeu::sdlAff () {
         loaded_im[i].draw(renderer, )
     }*/
 
-
     background.draw(renderer, 0,0, 960,960);    
     for(unsigned i =0; i<im.size(); i++){
 
@@ -327,6 +292,13 @@ void sdlJeu::sdlAff () {
         {
             im[i].draw(renderer, im[i].getX(), im[i].getY(), im[i].getW(), im[i].getH());
         }
+
+        if(im[i].getEmplacement() > 19 && im[i].getEmplacement() < 24 )
+        {
+            im[i].draw(renderer, im[i].getX(), im[i].getY(), im[i].getW(), im[i].getH());
+        }
+
+
     }
     
     //newImage.draw(renderer,newImage.getX() ,newImage.getY(), newImage.getW(), newImage.getH());
@@ -337,56 +309,81 @@ void sdlJeu::sdlAff () {
 
     /************************************************************************************/
 
+    font_im.setSurface(TTF_RenderText_Solid(font,"Welcome to Boorgir-Bar my fine sir !",font_color));
+	font_im.loadFromCurrentSurface(renderer);
     // Ecrire un titre par dessus
     SDL_Rect positionTitre;
     positionTitre.x = 130;positionTitre.y = -5;positionTitre.w = 700;positionTitre.h = 70;
     SDL_RenderCopy(renderer,font_im.getTexture(),NULL,&positionTitre);
 
-    //Dessin des rectangles
-    SDL_Rect rect;
-    rect.x = 20;
-    rect.y = 725;
-    rect.w = 110;
-    rect.h = 215;
-
-    SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
-    SDL_RenderDrawRect(renderer, &rect);
-
-    for(unsigned int i=0; i<6; i++){
-        SDL_Rect rect2;
-            if(i%2 == 0){
-                rect2.x = 210;
-                rect2.y = 737 + i * 33;
-                rect2.w = 70;
-                rect2.h = 56;
-            }
-            if(i%2!=0){
-                rect2.x = 290;
-                rect2.y = 737 +(i-1)*33;
-                rect2.w = 70;
-                rect2.h = 56;
-            }
-        SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
-        SDL_RenderDrawRect(renderer, &rect2);
+    ostringstream argent;
+    int arg1 =0;
+    for(int i =0; i<20; i++){
+        arg1 = arg1 + i;
+        argent << arg1;
+        Argent.setSurface(TTF_RenderText_Solid(font, argent.str().c_str(), font_color));
+        Argent.loadFromCurrentSurface(renderer);
     }
-   
+    //SDL_Rect
+
+    Temps t;
+    int timeRestant;
+    do{
+         timeRestant= jeu.getObj().Temp.tempsRestant();
+    //cout << "time left : " <<timeRestant<<endl;
+    }while(jeu.getObj().Temp.tempsRestant() < 0);
+
+    //while(timeRestant !=0){
+        ostringstream timeLeft;
+        timeLeft << timeRestant;
+        Time.setSurface(TTF_RenderText_Solid(font, timeLeft.str().c_str(), font_color));
+        Time.loadFromCurrentSurface(renderer);
+        SDL_Rect timePos;
+        timePos.x = 400; timePos.y = 400;
+        timePos.w = 50;
+        timePos.h = 50;
+        SDL_RenderCopy(renderer, Time.getTexture(), NULL, &timePos);
+    
+    
+    
+        
+    //}
+    
+    
+    
+
+    //Dessin des rectangles   
     for(unsigned int i=0; i<4; i++){
-        SDL_Rect rect3;
+        SDL_Rect rect;
             if(i%2 == 0){
-                rect3.x = 409;
-                rect3.y = 725;
-                rect3.w = 141;
-                rect3.h = 102;
+                rect.x = 409;
+                rect.y = 725 + i*56;;
+                rect.w = 141;
+                rect.h = 102;
             }
             if(i%2!=0){
-                rect3.x = 560;
-                rect3.y = 725+(i-1)*56;
-                rect3.w = 141;
-                rect3.h = 102;
+                rect.x = 560;
+                rect.y = 725+(i-1)*56;
+                rect.w = 141;
+                rect.h = 102;
             }
         SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
-        SDL_RenderDrawRect(renderer, &rect3);
+        SDL_RenderDrawRect(renderer, &rect);
     }
+
+    /*for(unsigned int i =0; i < 4; i++){
+        SDL_Rect client;
+        client.x = 100 + i * 200;
+        client.y = 400;
+        client.w = 150;
+        client.h = 280;
+        SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+        SDL_RenderDrawRect(renderer, &client);
+    }*/
+
+    
+    
+
 
     
 }
@@ -394,7 +391,7 @@ void sdlJeu::sdlAff () {
 void sdlJeu::mousePress(SDL_MouseButtonEvent& b){
     if(b.button == SDL_BUTTON_LEFT){
         //handle a left-click
-        //cout << b.x << " " << b.y << endl;
+        cout << b.x << " " << b.y << endl;
     }
 
     for(unsigned int i = 0; i < im.size(); i++){
@@ -488,10 +485,20 @@ void sdlJeu::mousePress(SDL_MouseButtonEvent& b){
     image3.loadFromFile(image3.getChemin().c_str(), renderer);
 }
 
+void sdlJeu::afficheCommande(){
+    
+}
+
+void sdlJeu::afficheClient(){
+
+}
+
+
 void sdlJeu::sdlBoucle () {
     SDL_Event events;
 	bool quit = false;
-
+    jeu.getObj().choixNiveau(1);
+    
     // tant que ce n'est pas la fin ...
 	while (!quit) {
         SDL_GetMouseState(&mx, &my);

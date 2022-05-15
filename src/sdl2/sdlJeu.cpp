@@ -3,6 +3,7 @@
 #include "sdlJeu.h"
 #include "sdlImage.h"
 #include "../Temps.h"
+#include "../Client.h"
 #include <stdlib.h>
 #include <string.h>
 #include <fstream>
@@ -116,6 +117,8 @@ sdlJeu::sdlJeu () : jeu() {
 
     /**************************IMAGES***********************************************************/
     background.loadFromFile("./img/Backgr.png", renderer);
+    
+    
 
     for(unsigned int i =0; i< im.size(); i++){
         im[i].loadFromFile(im[i].getChemin().c_str(), renderer);
@@ -316,17 +319,17 @@ void sdlJeu::sdlAff () {
     positionTitre.x = 130;positionTitre.y = -5;positionTitre.w = 700;positionTitre.h = 70;
     SDL_RenderCopy(renderer,font_im.getTexture(),NULL,&positionTitre);
 
-    ostringstream argent;
+    /*ostringstream argent;
     int arg1 =0;
     for(int i =0; i<20; i++){
         arg1 = arg1 + i;
         argent << arg1;
         Argent.setSurface(TTF_RenderText_Solid(font, argent.str().c_str(), font_color));
         Argent.loadFromCurrentSurface(renderer);
-    }
+    }*/
     //SDL_Rect
 
-    Temps t;
+    /*Temps t;
     int timeRestant;
     do{
          timeRestant= jeu.getObj().getTemps().tempsRestant();
@@ -345,7 +348,7 @@ void sdlJeu::sdlAff () {
         SDL_RenderCopy(renderer, Time.getTexture(), NULL, &timePos);
     
     
-    
+    */
         
     //}
     
@@ -396,9 +399,19 @@ void sdlJeu::mousePress(SDL_MouseButtonEvent& b){
 
     for(unsigned int i = 0; i < im.size(); i++){
         if(b.x > im[i].getX() && b.x < im[i].getX() + im[i].getW() && b.y > im[i].getY() && b.y < im[i].getY() + im[i].getH()){
-                if(im[i].getNom() != "Frites" && im[i].getNom() != "Jus" && im[i].getNom() != "Soda"){
+                //if(im[i].getNom() != "Frites" && im[i].getNom() != "Jus" && im[i].getNom() != "Soda"){
                     setNewImg(im[i]);
-                }
+
+                    if(image0.getNom()== "PainBSteakSaladeTomateKetchup"){
+                            cout <<"wtf"<<endl;
+                            //cout << "Wtf newima" << newImage
+                            if(newImage.getNom() == "Ketchup" /*|| newImage.getNom() == "Mayo"*/){
+                                cout << "098743Can't add more sauce !" << endl;
+                                newImage.setNom("Tomate");
+                            }
+                            
+                        }
+                //}
         }
     }
 
@@ -406,78 +419,86 @@ void sdlJeu::mousePress(SDL_MouseButtonEvent& b){
         cout << "Je suis au block de " << im[2].getNom() << endl;
     }*/
 
-     //Case0
-    if(mx > 411 && mx < 550 && my > 727 && my < 827){
-        cout << "over her image0 name is " << image0.getNom() << endl;
-       if(image0.getNom() != "Frites" && image0.getNom() != "Jus" && image0.getNom() != "Soda")
-        {
-            
+   
+    
+    cout << "over her newImage name is " << newImage.getNom() << endl;
+    cout << "over her imago0 name is " << image0.getNom() << endl;
+    
+
+    /*if(newImage.getNom() == "Frites" || newImage.getNom() != "Jus" || newImage.getNom() != "Soda" ){
+        cout << "bruh" << endl;
+    }*/
+
+    if(newImage.getNom() != "Frites" || newImage.getNom() != "Jus" || newImage.getNom() != "Soda" /*&& newImage.getNom() != "Mayo"*/)
+    {
+        //Case0  
+        if(mx > 411 && mx < 550 && my > 727 && my < 827){   
             string temp;
             temp = jeu.PreparerCommande(newImage.getNom(), 0);
-            newImage.setNom("");
+            SDL_DestroyTexture(image0.getTexture());
             for(unsigned int i = 0; i < im.size(); i++){
                 if(im[i].getNom() == temp){
+                    cout << "image0 " << image0.getNom() << "lol" << endl; 
                     setIm0(im[i]);
+                    cout << "image0 " << image0.getNom() << "lol" << endl; 
                     image0.setX(411 + ((130 - image0.getW()) / 2));
                     image0.setY(727 + ((100 - image0.getH()) / 2));
                     image0.setCase(0);
                 }
             }
         }
-    }
 
-    //Case1
-    if(mx > 560 && mx < 699 && my > 727 && my < 827){
-       if(image1.getNom() != "Frites" && image1.getNom() != "Jus" && image1.getNom() != "Soda")
-        {
+        //Case1
+        if(mx > 560 && mx < 699 && my > 727 && my < 827){
             string temp;
             temp = jeu.PreparerCommande(newImage.getNom(), 1);
+            SDL_DestroyTexture(image1.getTexture());
             newImage.setNom("");
             for(unsigned int i = 0; i < im.size(); i++){
                 if(im[i].getNom() == temp){
                     setIm1(im[i]);
+                    cout << "image1 " << image1.getNom() << "lol" << endl; 
                     image1.setX(560 + ((130 - image1.getW()) / 2));
                     image1.setY(727 + ((100 - image1.getH()) / 2));
                     image1.setCase(1);
                 }
-            }
-        }            
-    }
+            }          
+        }
 
-    //Case2
-    if(mx > 411 && mx < 550 && my > 837 && my < 937){
-       if(image2.getNom() != "Frites" && image2.getNom() != "Jus" && image2.getNom() != "Soda")
-        {
+        //Case2
+        if(mx > 411 && mx < 550 && my > 837 && my < 937){
             string temp;
             temp = jeu.PreparerCommande(newImage.getNom(), 2);
+            SDL_DestroyTexture(image2.getTexture());
             newImage.setNom("");
             for(unsigned int i = 0; i < im.size(); i++){
                 if(im[i].getNom() == temp){
                     setIm2(im[i]);
+                    cout << "image2 " << image2.getNom() << "lol" << endl; 
                     image2.setX(411 + ((130 - image2.getW()) / 2));
                     image2.setY(837 + ((100 - image2.getH()) / 2));
                     image2.setCase(2);
                 }
-            }
-        }            
-    }
+            }          
+        }
 
-    //Case3
-    if(mx > 560 && mx < 699 && my > 837 && my < 937){
-       if(image3.getNom() != "Frites" && image3.getNom() != "Jus" && image3.getNom() != "Soda")
-        {
+
+        //Case3
+        if(mx > 560 && mx < 699 && my > 837 && my < 937){
             string temp;
             temp = jeu.PreparerCommande(newImage.getNom(), 3);
+            SDL_DestroyTexture(image3.getTexture());
             newImage.setNom("");
             for(unsigned int i = 0; i < im.size(); i++){
                 if(im[i].getNom() == temp){
                     setIm3(im[i]);
+                    cout << "image3 " << image3.getNom() << "lol" << endl; 
                     image3.setX(560 + ((130 - image3.getW()) / 2));
                     image3.setY(837 + ((100 - image3.getH()) / 2));
                     image3.setCase(3);
                 }
-            }
-        }            
+            }         
+        }
     }
     image0.loadFromFile(image0.getChemin().c_str(), renderer);
     image1.loadFromFile(image1.getChemin().c_str(), renderer);
@@ -489,22 +510,24 @@ void sdlJeu::afficheCommande(){
     
 }
 
-void sdlJeu::afficheClient(){
 
-}
 
 
 void sdlJeu::sdlBoucle () {
     SDL_Event events;
 	bool quit = false;
     jeu.getObj().choixNiveau(1);
-    
+    jeu.creationClient(4);
+    for(unsigned int i =0; i < jeu.getTabClient().size(); i++){
+        for(unsigned int j = 0; j < jeu.getTabClient()[i].getCom().size(); j++){
+            cout << "Le client " << i << " a commande " << jeu.getTabClient()[i].getCom()[j].getNom() << endl;
+        }
+    }
     // tant que ce n'est pas la fin ...
 	while (!quit) {
         SDL_GetMouseState(&mx, &my);
 
-        // on affiche le jeu sur le buffer cachï¿½
-        sdlAff();
+       
 		// tant qu'il y a des evenements ï¿½ traiter (cette boucle n'est pas bloquante)
 		while (SDL_PollEvent(&events)) {
 			if (events.type == SDL_QUIT) quit = true;       // Si l'utilisateur a clique sur la croix de fermeture
@@ -536,7 +559,19 @@ void sdlJeu::sdlBoucle () {
                         mousePress(events.button);
                     }
 		}
+         // on affiche le jeu sur le buffer cachï¿½
+        sdlAff();
 		// on permute les deux buffers (cette fonction ne doit se faire qu'une seule fois dans la boucle)
         SDL_RenderPresent(renderer);
 	}
+    /*SDL_DestroyTexture(background.getTexture());
+    for(unsigned int i =0; i<im.size(); i++){
+        SDL_DestroyTexture(im[i].getTexture());
+    }
+    
+    SDL_DestroyTexture(image0.getTexture());
+    SDL_DestroyTexture(image1.getTexture());
+    SDL_DestroyTexture(image2.getTexture());
+    SDL_DestroyTexture(image3.getTexture());*/
+
 }

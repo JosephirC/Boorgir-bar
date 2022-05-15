@@ -31,7 +31,9 @@ int main ( int argc, char** argv ) {
 	//cout<<endl<<"passe1 " <<j.getObj().Temp.tempsRestant()<<endl;
 	
 	vector<Recette> R;
-	
+
+
+	cout<< j.getTabClient()[1].getCom()[1].getNom();
 	
 	txtBoucle(j,R);
     termClear();

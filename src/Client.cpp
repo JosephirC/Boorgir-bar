@@ -32,9 +32,13 @@ unsigned int Client::getIdC() const{
      return prixTot;
  }
 
-vector<Commande> Client::getCom(){
+vector<Commande> Client::getCom()const {
      return com;
  }
+
+void Client::setCom(vector<Commande> c){
+    com = c;
+}
 
 /** < @brief, choisi des recettes aleatoire du menu pour le donner au client */
 void Client::commandeAleatoire(const vector<Commande> &carte, vector<Commande> & commandeAl){  // commandeAl : Tableau dynamique qui prend aleatoire des recettes de la carte

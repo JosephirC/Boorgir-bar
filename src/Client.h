@@ -41,7 +41,8 @@ class Client{
         /** < @brief fonction qui retourne le prix total de la commande du client */ 
         unsigned int getPrix() const;
 
-        vector<Commande> getCom();
+        vector<Commande> getCom() const;
+        void setCom(vector<Commande> c);
 
         //Commande getCom();
         /** < @brief, choisi des recettes aleatoire du menu pour le donner au client */

@@ -185,7 +185,7 @@ void Jeu::creationClient(const unsigned int &I, vector<Client> & tabC,vector<Com
 /** < @brief prepare la commande  */
 string Jeu::PreparerCommande( const string & ing , int i ){
     for (unsigned int j=0;j<tabRec.size();j++){
-        if( ing=="Soda" || ing=="Jus" || ing=="Frites") return ing;
+        if( ing=="Soda" || ing=="Jus" || ing=="Frites") break;
         if( ing==tabRec[j].getTab()[0] && tabRec[j].getTab()[1]=="Undefined"){
             tabPrep[i]=tabRec[j].getNom();
             return ing;
@@ -199,15 +199,18 @@ string Jeu::PreparerCommande( const string & ing , int i ){
 }
 
 /** < @brief permet d'effacer une recette */
-void Jeu::effaceRecette(vector<Client> & Cl, unsigned int & IdCl, unsigned int & IdRec){
+void Jeu::effaceRecette(unsigned int & IdCl, unsigned int & IdRec){
     bool trouve = false;
-        for(unsigned int j = 0; j < Cl[IdCl].getCom().size(); j++){
+        for(unsigned int j = 0; j < tabClient[IdCl].getCom().size() ; j++){
 
-            cout<<Cl[IdCl].getCom().size()<<endl;
-            if(Cl[IdCl].getCom()[j].getNom() == tabPrep[IdRec] ){
+            cout<<tabClient[IdCl].getCom().size()<<" size et nom "<<tabClient[IdCl].getCom()[j].getNom()<<endl;
+            if(tabClient[IdCl].getCom()[j].getNom() == tabPrep[IdRec]){
 
-                cout<<Cl[IdCl].getCom()[j].getNom();
-                Cl[IdCl].getCom().erase(Cl[IdCl].getCom().begin() + j);    
+                cout<<endl<<tabClient[IdCl].getCom()[j].getNom();
+                tabClient[IdCl].getCom().erase( tabClient[IdCl].getCom().begin()+2);  
+                
+                cout<<endl<<" AFTER: "<<tabClient[IdCl].getCom()[j].getNom()<< " et taille "<<tabClient[IdCl].getCom().size();
+                
                 trouve = true;
                 tabPrep[IdRec]="Undefined";
                 break;
@@ -218,15 +221,25 @@ void Jeu::effaceRecette(vector<Client> & Cl, unsigned int & IdCl, unsigned int &
     }
 }
 
+/*
+void Jeu::erase(){
+    for (unsigned int i=0 ; i<tabClient.size)
+}
+*/
 /** < @brief permet d'effacer un extra */
 void Jeu::effaceExtras(vector<Client> & Cl, unsigned int & IdCl, unsigned int & IdExtras){
     bool trouve = false;
         for(unsigned int j = 0; j < Cl[IdCl].getCom().size(); j++){
 
             cout<<Cl[IdCl].getCom().size()<<endl;
-            if(Cl[IdCl].getCom()[j].getNom() == tabPrep[IdExtras] ){
+            if(Cl[IdCl].getCom()[j].getNom() == tabPrep[IdExtras]){
 
                 cout<<Cl[IdCl].getCom()[j].getNom();
+
+                //tabClient[IdCl].setCom( Cl[IdCl].getCom().erase(Cl[IdCl].getCom().begin() + j));
+                //tabClient[IdCl].getCom().erase(Cl[IdCl].getCom().begin() + j);
+                //tabClient[IdCl].setCom(tabClient[IdCl].getCom());
+
                 Cl[IdCl].getCom().erase(Cl[IdCl].getCom().begin() + j);    
                 trouve = true;
                 tabPrep[IdExtras]="Undefined";

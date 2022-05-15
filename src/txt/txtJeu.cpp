@@ -64,6 +64,7 @@ void affIng(vector<Ingredient> tabIng){
 void affClient(vector <Client> tab){
 	cout<<endl<< "------------ Voici les clients -----------"<<endl;
 	unsigned int i,j; //j
+	
 	for (i = 0; i < tab.size(); i++) // unsigned int i = 0; i < v.size(); i++ présentent le risque que le compilateur ne sorte pas de la boucle le calcul de v.size() 
 	{
 		cout<<"Le client "<<tab[i].getIdC()<<" veut:";
@@ -229,7 +230,7 @@ void txtBoucle (Jeu &jeu, vector<Recette> &R) {
 				case 'g':
 					donnerCommandeTxt(idCl,idRec,jeu);
 					idCl--;
-					jeu.effaceRecette(jeu.getTabClient(),idCl,idRec);
+					jeu.effaceRecette(idCl,idRec);
 
 				case 't':
 					affTabPrep(jeu.tabPrep);

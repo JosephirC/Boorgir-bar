@@ -16,7 +16,7 @@ float temps () {
 // ============= CLASS SDLJEU =============== //
 sdlJeu::sdlJeu () : jeu() {
     /**********************Nombre d'ingredient ajoute par le joueur*************/
-    nbrIngJ = 11;
+    nbrIngJ = 26;
     newImage.setChemin("img/PainHD.png");
     image0.setChemin(newImage.getChemin());
     image1.setChemin(newImage.getChemin());
@@ -289,7 +289,7 @@ void sdlJeu::sdlAff () {
             }            
         }
       
-        if(im[i].getEmplacement() == 11 || im[i].getEmplacement() == 12 )
+        if(im[i].getEmplacement() > 10 && im[i].getEmplacement() < 13 )
         {
             im[i].draw(renderer, im[i].getX(), im[i].getY(), im[i].getW(), im[i].getH());
         }

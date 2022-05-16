@@ -31,8 +31,8 @@ class Client{
         /** < @brief Construscteur de Client */ 
         Client();
         /** < @brief Constructeur de Client 
-         * < @param idC identifiant du client
-         * < @param carte contient toutes les recettes possibles
+         * @param idC identifiant du client
+         * @param carte contient toutes les recettes possibles
         */ 
         Client(const unsigned int idC, vector<Commande> & carte); // on appelle le constructeur de temps pour creer un objet de la classe 
         /** < @brief Destructeur de Client */ 
@@ -43,19 +43,19 @@ class Client{
         /** < @brief Accesseur : recupere le prix total de la commande du client */ 
         unsigned int getPrix() const;
         /** < @brief Mutateur : modifie le prix total de la commande di client 
-         * < @param prix prix de la commande
+         * @param prix prix de la commande
         */
         void setPrix(const unsigned int & prix);
 
         /** < @brief Accesseur : recupere la commande */
         vector<Commande> getCom() const;
         /** < @brief Mutateur : modifie la commande 
-         * < @param c commande
+         * @param c commande
         */
         void setCom(vector<Commande> c);
 
         /** < @brief Choisi des recettes aleatoire du menu pour le donner au client
-         * < @param carte contient toutes les recettes possibles
+         * @param carte contient toutes les recettes possibles
          */
         void commandeAleatoire(const vector<Commande> & carte); // remplie le tableau de commande avec des recette entre 1 et 3
 
@@ -63,7 +63,7 @@ class Client{
         void calculePrix(); 
 
         /** < @brief Procedure: qui efface un element d'indice j du vecteur com
-         *  < @param j indice de a commande que l'on veut effacer
+         *  @param j indice de a commande que l'on veut effacer
         */
         void erase(int j);
 

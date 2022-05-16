@@ -34,19 +34,19 @@ class Objectif{
         /** < @brief Accesseur : recupere le temps */
         Temps getTemps() const;
         /** < @brief Mutateur : modifie le temps 
-         * <  @param t temps du jeu
+         *  @param t temps du jeu
         */
         void setTemps(Temps &t);
         
         /** < @brief Accesseur : recupere l'argent gagne pendant la partie */
         unsigned int getArgent() const ;
         /** < @brief Permet de selectionner le niveau voulu 
-         * <  @param choix choisir le niveau de difficulte
+         *  @param choix choisir le niveau de difficulte
         */
         void choixNiveau(unsigned int choix);
 
         /** < @brief Renvoie vraie si l'objectif de la partie est atteint 
-         * <  @param temps_donnee temps donnee pour une partie
+         *  @param temps_donnee temps donnee pour une partie
         */
         bool objAtteint(Temps temps_donnee); 
         /** < @brief Permet d'arreter la partie */

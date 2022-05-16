@@ -22,19 +22,19 @@ class Commande{
         /** < @brief Constructeur de Commande */
         Commande();
         /** < @brief Constructeur de Commande 
-         * < @param nom nom de la commande
-         * < @param prix prix de la commande
+         * @param nom nom de la commande
+         * @param prix prix de la commande
         */
         Commande(string nom, unsigned int prix);
         /** < @brief Destructeur de Commande */
         ~Commande();
 
         /** < @brief Mutateur : modifie le nom 
-         * < @param nom nom de la commande
+         * @param nom nom de la commande
         */
         void setNom(const string &nom);
         /** < @brief Mutateur : modifie le prix 
-         * < @param prix prix de la commande
+         * @param prix prix de la commande
         */
         void setPrix(const unsigned int & prix);
 

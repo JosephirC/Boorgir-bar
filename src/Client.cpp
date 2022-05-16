@@ -8,8 +8,8 @@ using namespace  std;
 
 
 /** < @brief Constructeur de Client 
- * < @param idC identifiant du client
- * < @param carte contient toutes les recettes possibles
+ * @param idC identifiant du client
+ * @param carte contient toutes les recettes possibles
 */ 
 Client::Client(const unsigned int idC,vector<Commande> & carte){
     prixTot=0;
@@ -36,7 +36,7 @@ unsigned int Client::getIdC() const{
  }
 
 /** < @brief Mutateur : modifie le prix total de la commande du client 
- * < @param prix prix de la commande
+ * @param prix prix de la commande
 */
  void Client::setPrix(const unsigned int & prix){
      prixTot=prix;
@@ -48,7 +48,7 @@ vector<Commande> Client::getCom()const {
  }
 
 /** < @brief Mutateur : modifie la commande 
- * < @param c commande
+ * @param c commande
 */
 void Client::setCom(vector<Commande> c){
     for(unsigned int i = 0; i< c.size(); i++){
@@ -58,7 +58,7 @@ void Client::setCom(vector<Commande> c){
 
 
 /** < @brief Choisi des recettes aleatoire du menu pour le donner au client 
- * < @param carte contient toutes les recettes possibles
+ * @param carte contient toutes les recettes possibles
 */
 void Client::commandeAleatoire(const vector<Commande> &carte){  
 
@@ -136,7 +136,7 @@ void Client::calculePrix(){
 }
 
 /** < @brief Procedure: qui efface un element d'indice j du vecteur com
- *  < @param j indice de la commande que l'on veut effacer 
+ *  @param j indice de la commande que l'on veut effacer 
 */
 void Client::erase(int j){
     com.erase( com.begin()+j);

@@ -21,7 +21,7 @@ Temps Objectif::getTemps() const{
  }
  
 /** < @brief Mutateur : modifie le temps 
- * <  @param t temps du jeu
+ *  @param t temps du jeu
 */
 void Objectif::setTemps(Temps &t){
      t=T;
@@ -34,7 +34,7 @@ void Objectif::setTemps(Temps &t){
  }
 
 /** < @brief Permet de selectionner le niveau voulu
- * <  @param choix choisir le niveau de difficulte
+ *  @param choix choisir le niveau de difficulte
  */
 void Objectif::choixNiveau(unsigned int choix) {
     switch(choix)

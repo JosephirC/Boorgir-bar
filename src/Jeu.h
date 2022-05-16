@@ -52,15 +52,15 @@ class Jeu{
         Objectif & getObj();
 
         /** < @brief Charge tous les ingredients
-         * < @param fileIngredient chemin vers le fichier Ingredient
+         * @param fileIngredient chemin vers le fichier Ingredient
         */
         void chargerIngredient(const string& fileIngredient);
         /** < @brief Charge les recettes
-         * < @param fileRecette chemin vers le fichier Recette
+         * @param fileRecette chemin vers le fichier Recette
         */
         void chargerRecette(const string& fileRecette);
         /** < @brief Charge la carte 
-         * < @param fileCarte chemin vers le fichier Carte
+         * @param fileCarte chemin vers le fichier Carte
         */
         void chargerCarte(const string &fileCarte);
 
@@ -77,7 +77,7 @@ class Jeu{
         unsigned int & getAdditionArgent();
 
         /** < @brief Mutateur : modifie la somme d'argent 
-         * < @param i somme d'argent
+         * @param i somme d'argent
         */
         void setAdditionArgent(unsigned int & i);
 
@@ -86,28 +86,28 @@ class Jeu{
 
 
         /** < @brief creation du client et de sa comande 
-         * < @param I taille du vecteur
+         * @param I taille du vecteur
         */
         void creationClient(const unsigned int &I);
         /** < @brief Prepare la commande 
-         * < @param ing ingredient 
-         * < @param i indice du client dont on recupere l'argent
+         * @param ing ingredient 
+         * @param i indice du client dont on recupere l'argent
          */
         string PreparerCommande( const string & ing, int i);
 
  
         /** < @brief Permet d'effacer une recette 
-         * < @param IdCl identifiant du client
-         * < @param IdRec identifiant de la recette
+         * @param IdCl identifiant du client
+         * @param IdRec identifiant de la recette
         */
         void effaceRecette(unsigned int & IdCl, unsigned int & IdRec);
         /** < @brief Permet d'effacer un extra 
-         * < @param IdCl identifiant du client
-         * < @param ing ingredient
+         * @param IdCl identifiant du client
+         * @param ing ingredient
         */
         void effaceExtras(unsigned int & IdCl, const string & ing);
         /** < @brief Calcule combien d'argent on a gagne au cours de la partie 
-         * < @param i indice du client dont on recupere l'argent
+         * @param i indice du client dont on recupere l'argent
         */
         void money(unsigned int & i);
         /** < @brief Permet d'effacer un client */

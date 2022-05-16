@@ -22,7 +22,7 @@ class Temps{
         Temps(); 
 
         /** < @brief Constructeur de Temps 
-         * < @param temps temps du jeu
+         *  @param temps temps du jeu
         */
         Temps(double temps); 
         /** < @brief Destructeur de Temps */
@@ -31,7 +31,7 @@ class Temps{
         /** < @brief Accesseur : recupere le temps*/
         double getTemps() const;
         /** < @brief Mutateur : modifie le temps 
-         * < @param t temps du jeu
+         *  @param t temps du jeu
         */
         void setTemps(double t);
         /** < @brief Accesseur : recupere le tick */

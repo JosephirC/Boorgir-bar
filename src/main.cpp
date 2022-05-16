@@ -12,7 +12,7 @@ using namespace std;
 int main()
 {
     Jeu j;
-    //j.testDeRegression();
+    j.testDeRegression();
 
     /*
     srand(time(NULL));

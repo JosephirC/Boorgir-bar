@@ -176,7 +176,19 @@ void objectifDuJeu(unsigned int &Niveau,Jeu &jeu){
 }
 
 void afficheExplication() {
-	cout<<"hii"<<endl;
+	cout<<endl;
+	cout<<"Deroulement du jeu:"<<endl;
+    cout<<"- Au debut 3 choix de niveau sont présentés, dépendament du Niveau choisi il y aura un objectif d'argent a collecter avant la fin du temps."<<endl;
+    cout<<"- Ensuite des clients arrive (avec la touche C) il faut verifier les commandes du client puis le preperer la commande"<<endl;
+    cout<<"- Au debut il faut OBLIGATOIREMENT poser (touche G pour give) un PAINB ou PAINHD grace a son numero que vous pouver trouver dans la liste d'ingredients (touche I) puis la viande dans CET ORDRE"<<endl;
+    cout<<"- Ensuite vous pouvez ajouter (touche G) les garniture dans l'ordre que vous voulez."<<endl;
+    cout<<"- Si le client veux des accompagnements (touche D) pour donner les frites soda ou jus"<<endl;
+	cout<<"- Vous Pouvez a tout moment verifier les touches en cas d'oubli grace a l'aide TOUCHE A!!"<<endl;
+
+    cout<<"- Si le temps est fini sans que l'objectif soit atteint sa affiche Perdu Sinon si l'objectif est atteint sa affiche Gagne"<<endl;
+    cout<<"- Puis vous pouvez recommencer ou sortir"<<endl;
+
+	cout<<"Etes vous prets maitenant a jouer?? Appuiez sur c "<<endl<<endl;
 }
 
 void txtBoucleAcc (Jeu & jeu,bool &ok){

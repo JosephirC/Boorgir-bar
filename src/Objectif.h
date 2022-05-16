@@ -16,7 +16,7 @@ class Objectif{
 
 
         /** < @param evolTemp Evolution du temps */
-        Temps evolTemp;
+        //Temps evolTemp;
          
          /** < @param T Temps de la partie */
         Temps T;
@@ -39,7 +39,7 @@ class Objectif{
         void setTemps(Temps &t);
         
         /** < @brief Accesseur : recupere l'argent gagne pendant la partie */
-        unsigned int getArgent() const;
+        unsigned int getArgent() const ;
         /** < @brief Permet de selectionner le niveau voulu 
          * <  @param choix choisir le niveau de difficulte
         */
@@ -50,7 +50,7 @@ class Objectif{
         */
         bool objAtteint(Temps temps_donnee); 
         /** < @brief Permet d'arreter la partie */
-        bool finJeu() const;
+        bool finJeu()const;
 
 };
 

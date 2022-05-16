@@ -145,7 +145,7 @@ void donnerCommandeTxt(unsigned int & IdCl, unsigned int & IdRec,Jeu &jeu){
 	
 	
 	cout<<" "<< jeu.tabPrep[IdRec] << " -Donner a quel client? ";
-	
+
 	do{
 		cin.clear();
 		cin.ignore();
@@ -400,8 +400,7 @@ void txtBoucle(Jeu &jeu,bool &ok) {
 		}
 
 		jeu.nouveauClient();
-
-	
+			
 	}while( !jeu.getObj().finJeu() && !jeu.argentAtteint() && ok);
 
 	if(jeu.getObj().finJeu()){

@@ -33,7 +33,9 @@ class Jeu{
         /** < @param tabIng Contient le tableau d'ingredients*/
         vector<Ingredient> tabIng;  //[50]
         /** < @param tabRec Contient le tableau de recette entier avec toutes les etapes possibles */
-        vector<Recette> tabRec;     
+        vector<Recette> tabRec;  
+
+   
 
     public :
 
@@ -73,6 +75,7 @@ class Jeu{
 
         /** < @brief Accesseur : recupere la somme d'argent */
         unsigned int & getAdditionArgent();
+
         /** < @brief Mutateur : modifie la somme d'argent 
          * < @param i somme d'argent
         */
@@ -106,7 +109,7 @@ class Jeu{
         /** < @brief Calcule combien d'argent on a gagne au cours de la partie 
          * < @param i indice du client dont on recupere l'argent
         */
-        void money(unsigned int & );
+        void money(unsigned int & i);
         /** < @brief Permet d'effacer un client */
         bool nouveauClient();
         /** < @brief Nous dit si on a atteint la somme d'argent demande de la partie */

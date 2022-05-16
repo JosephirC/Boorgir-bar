@@ -40,7 +40,7 @@ void Objectif::choixNiveau(unsigned int choix) {
     switch(choix)
     {
         case 1:
-            T.setTemps(0.08);
+            T.setTemps(0.02);
             Argent=30;
             break;
         case 2:
@@ -49,7 +49,7 @@ void Objectif::choixNiveau(unsigned int choix) {
             break;
         case 3:
             T.setTemps(1);
-            Argent=200;
+            Argent=250;
             break;   
     }
 }
@@ -58,6 +58,7 @@ void Objectif::choixNiveau(unsigned int choix) {
 /** < @brief Permet d'arreter la partie */
 bool Objectif::finJeu() const{
     if ( getTemps().tempsAtteint() == true ){
+        cout<< getTemps().tempsAtteint();
         return true;
     }
     else return false;

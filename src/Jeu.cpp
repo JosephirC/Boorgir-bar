@@ -60,6 +60,7 @@ unsigned int & Jeu::getAdditionArgent(){
     return additionArgent;
 }
 
+
 /** < @brief Mutateur : modifie la somme d'argent
  * < @param i somme d'argent
  */

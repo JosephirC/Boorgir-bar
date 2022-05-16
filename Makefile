@@ -1,12 +1,7 @@
 DIR_SDL = -I /usr/include/SDL2
 SDL_LIB = -lSDL2 -lSDL2_ttf -lSDL2_image -lSDL2_mixer
 
-<<<<<<< HEAD
-bin/main.o: Ingredient.o
-	g++ -Wall -c I
-=======
 all: bin/main bin/mainTxt bin/mainSdl
->>>>>>> 5694658434673258ae7d6a8f98dfe406a1644d16
 
 bin/mainSdl: obj/mainSdl.o obj/Jeu.o obj/Recette.o obj/Ingredient.o obj/Commande.o obj/Client.o obj/Objectif.o obj/Temps.o obj/sdlJeu.o obj/sdlImage.o obj/sdlLoadImage.o
 	g++ obj/mainSdl.o obj/Jeu.o obj/Recette.o obj/Ingredient.o obj/Commande.o obj/Client.o obj/Objectif.o obj/Temps.o obj/sdlJeu.o obj/sdlImage.o obj/sdlLoadImage.o -o bin/mainSdl $(SDL_LIB)

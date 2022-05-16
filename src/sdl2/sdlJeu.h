@@ -97,6 +97,8 @@ class sdlJeu {
         void drawImgCommande();
 
         void servirClient();
+        
+        void servirClientI(unsigned int & i);
 
 };
 

@@ -102,13 +102,13 @@ class sdlJeu {
 
         void servirClient();
 
+        void choisirExtra(SDL_MouseButtonEvent& b);
+
+        void viderExtra();
+
         void effacerTableImg(unsigned int & i);
 
         void viderTable();
-
-        void servirClientI(unsigned int & i);
-
-        void viderCommandeI(unsigned int & i/*, unsigned int & iDelete*/);
 
 };
 

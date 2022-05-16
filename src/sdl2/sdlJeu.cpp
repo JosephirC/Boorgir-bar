@@ -28,7 +28,7 @@ sdlJeu::sdlJeu () : jeu() {
     nbrClientServi =0;
     idService =0;
     aServir="";
-    newImage.setChemin("img/PainHD.png");
+    newImage.setChemin("img/Undefined.png");
     
     image0.setChemin(newImage.getChemin());
     image0.setEmplacement(100);
@@ -62,6 +62,7 @@ sdlJeu::sdlJeu () : jeu() {
     image3.setH(0);
     image3.setCase(0);
 
+    Plat.setNom("Plat");
     Plat.setChemin("img/Undefined.png");
     Plat.setEmplacement(100);
     Plat.setX(0);
@@ -290,7 +291,8 @@ void sdlJeu::sdlAff () {
         loaded_im[i].draw(renderer, )
     }*/
 
-    background.draw(renderer, 0,0, 960,960);    
+    background.draw(renderer, 0,0, 960,960);  
+    drawImgPlat();  
     for(unsigned i =0; i<im.size(); i++){
 
         if(im[i].getEmplacement() < 7)
@@ -419,27 +421,20 @@ void sdlJeu::sdlAff () {
 }
 
 void sdlJeu::mousePress(SDL_MouseButtonEvent& b){
-   /* if(b.button == SDL_BUTTON_LEFT){
-        //handle a left-click
-       
-    }*/
-
-     cout << b.x << " " << b.y << endl;
-
-    for(unsigned int i = 0; i < im.size(); i++){
+     //cout << b.x << " " << b.y << endl;
+    for(unsigned int i = 0; i < im.size(); i++){ 
         if(b.x > im[i].getX() && b.x < im[i].getX() + im[i].getW() && b.y > im[i].getY() && b.y < im[i].getY() + im[i].getH()){
-                //if(im[i].getNom() != "Frites" && im[i].getNom() != "Jus" && im[i].getNom() != "Soda"){
-                    setNewImg(im[i]);
-
-                    if(image0.getNom()== "PainBSteakSaladeTomateKetchup"){
-                            cout <<"wtf"<<endl;
-                            if(newImage.getNom() == "Ketchup"){
-                                cout << "Can't add more sauce !" << endl;
-                                newImage.setNom("Tomate");
-                            }
-                            
+            if(im[i].getNom() != "Plat"){
+                setNewImg(im[i]);
+                if(image0.getNom()== "PainBSteakSaladeTomateKetchup"){
+                        cout <<"wtf"<<endl;
+                        if(newImage.getNom() == "Ketchup"){
+                            cout << "Can't add more sauce !" << endl;
+                            newImage.setNom("Tomate");
                         }
-                //}
+                        
+                }
+            }
         }
     }
 
@@ -447,10 +442,6 @@ void sdlJeu::mousePress(SDL_MouseButtonEvent& b){
         cout << "Je suis au block de " << im[2].getNom() << endl;
     }*/
 
-   
-    
-    //cout << "over her newImage name is " << newImage.getNom() << endl;
-    //cout << "over her imago0 name is " << image0.getNom() << endl;
     
     if(newImage.getNom() != "Frites" || newImage.getNom() != "Jus" || newImage.getNom() != "Soda" /*&& newImage.getNom() != "Mayo"*/)
     {
@@ -544,37 +535,20 @@ void sdlJeu::drawImgClient(){
         if(im[i].getEmplacement() > 23 && im[i].getEmplacement() < 28)
             im[i].draw(renderer, im[i].getX(), im[i].getY(), im[i].getW(), im[i].getH());
     }
-
-
 }
 
 void sdlJeu::drawImgPlat(){
     for(unsigned int i=0; i< 4; i++){
-
-        if(i%2==0){
-      
+        if(i%2==0)
             Plat.draw(renderer, im[34].getX(), im[34].getY()+ i *50, im[34].getW(),im[34].getH());
             
-        }
-        if(i%2==1){
-
-           
-                Plat.draw(renderer, im[34].getX() + 156 , im[34].getY()+ (i-1)*51 , im[34].getW(), im[34].getH());
-            }
-
-        if(i == 3){
-           // Plat.draw(renderer, im[34].getX() + (i)*79  , im[34].getY(), im[34].getW(), im[34].getH());
-        }
-        
-
-        
+        if(i%2==1)
+            Plat.draw(renderer, im[34].getX() + 156 , im[34].getY()+ (i-1)*51 , im[34].getW(), im[34].getH());
+                  
     }
-    
 }
 
 void sdlJeu::chargeInfoClient(){
-    //jeu.chargerCarte("./txt/Carte.txt");
-    //jeu.creationClient(4);
     for(unsigned int i = 0; i < jeu.getTabClient().size(); i++){
         for(unsigned int j = 0; j < jeu.getTabClient()[i].getCom().size(); j++){
             //cout << endl<<"Le client " << i << " a commande " << jeu.getTabClient()[i].getCom()[j].getNom() << endl;
@@ -652,287 +626,6 @@ void sdlJeu::drawImgCommande(){
        imCom3[i].draw(renderer,  x + i * 35 , y, w,  h);
     }
 }
-
-void sdlJeu::servirClientI(unsigned int &i){
-
-    cout << "called in" << endl;
-
-    unsigned int zero = 0;
-    unsigned int one = 1;
-    unsigned int two = 2;
-    unsigned int three = 3;
-    unsigned int iDelete;
-
-    //Servir Client 0
-    if(i==0){
-        if(mx > 95 && mx < 250 && my > 400 && my < 681){
-            for(unsigned int i = 0; i < imCom0.size(); i++){
-                if(aServir == imCom0[i].getNom()){
-                    cout<< "On efface la com du client 0" << aServir << endl;
-                    unsigned int idCl =0;
-                    jeu.effaceRecette(idCl, i);\
-                    iDelete = i;
-                }
-            }
-            //viderCommandeI(zero, iDelete);
-        }
-    }
-
-    //Servir Client 1
-    if(i==1){
-        if(mx > 300 && mx < 455 && my > 400 && my < 681){
-            for(unsigned int i = 0; i < imCom1.size(); i++){
-                if(aServir == imCom1[i].getNom()){
-                    cout<< "On efface la com du client 1" << aServir << endl;
-                    unsigned int idCl =1;
-                    jeu.effaceRecette(idCl, i);
-                    iDelete = i;
-                }
-            }
-            //viderCommandeI(one, iDelete);
-        }
-    }
-
-    //Servir Client 2
-    if(i==2){
-        if(mx > 500 && mx < 655 && my > 400 && my < 681){
-            cout << "HELLLOOOOO??" << endl;
-            for(unsigned int i = 0; i < imCom2.size(); i++){
-                if(aServir == imCom2[i].getNom()){
-                    cout<< "On efface la com du client 2" << aServir << endl;
-                    unsigned int idCl =2;
-                    jeu.effaceRecette(idCl, i);
-                    iDelete = i;
-                }
-            }
-            //viderCommandeI(two, iDelete);
-        }
-    }
-
-    //Servir Client 3
-    if(i==3){
-        if(mx > 700 && mx < 855 && my > 400 && my < 681){
-            for(unsigned int i = 0; i < imCom3.size(); i++){
-                if(aServir == imCom3[i].getNom()){
-                    cout<< "On efface la com du client 3" << aServir << endl;
-                    unsigned int idCl =3;
-                    jeu.effaceRecette(idCl, i);
-                    iDelete = i;
-                }
-            }
-            //viderCommandeI(three, iDelete);
-        }
-    }
-}
-
-
-void sdlJeu::viderCommandeI(unsigned int & i/*, unsigned int & iDelete*/){
-
-    unsigned int zero = 0;
-    unsigned int one = 1;
-    unsigned int two = 2;
-    unsigned int three = 3;
-
-    //Vider Commande du Client 0
-    //cout << "On est au clien num " << i << "et on efface l'image d'indice " << iDelete << endl;
-    if(i ==0){
-        if(mx > 95 && mx < 250 && my > 400 && my < 681){
-            servirClient();
-            imCom0.erase(imCom0.begin() + idService);
-            for(unsigned int i =0; i<4; i++){
-                cout << "tab " << i << " est " << jeu.tabPrep[i] << endl; 
-            }
-            //servirClientI(zero);
-        }
-    }
-
-    //Vider Commande du Client 1
-    if(i ==1){
-        if(mx > 300 && mx < 455 && my > 400 && my < 681){
-            imCom1.erase(imCom1.begin() + idService);
-            for(unsigned int i =0; i<4; i++){
-                cout << "tab " << i << " est " << jeu.tabPrep[i] << endl; 
-            }
-            //servirClientI(one);
-        }
-    }
-
-    //Vider Commande du Client 2
-    if(i ==2){
-        if(mx > 500 && mx < 655 && my > 400 && my < 681){
-              cout << "HELLLOOOOO??" << endl;
-            imCom2.erase(imCom2.begin() + idService);
-            for(unsigned int i =0; i<4; i++){
-                cout << "tab " << i << " est " << jeu.tabPrep[i] << endl; 
-            }
-            //servirClientI(two);
-        }
-        
-    }
-
-    //Vider Commande du Client 3
-    if(i ==3){
-        if(mx > 700 && mx < 855 && my > 400 && my < 681){
-            imCom3.erase(imCom3.begin() + idService);
-            for(unsigned int i =0; i<4; i++){
-                cout << "tab " << i << " est " << jeu.tabPrep[i] << endl; 
-            }
-            //servirClientI(three);
-        }
-    }
-}
-
-
-/*void sdlJeu::servirClient(){
-  
-    //Bubble 0
-    if(mx > 110 && mx < 240 && my > 270 && my < 400){
-        //cout << "hola" <<endl;
-    }
-
-    unsigned int zero = 0;
-    unsigned int one = 1;
-    unsigned int two = 2;
-    unsigned int three = 3;
-
-    for(unsigned int i =0; i<imCom0.size(); i++){
-
-        //if(aServir!=""){
-            //Table 0
-            if(mx > 411 && mx < 550 && my > 727 && my < 827){
-                if(image0.getNom() == imCom0[i].getNom()){
-                    aServir = image0.getNom();
-                    idService = i;
-                    cout << "Client 0 veut recette de Tab 0" << endl;
-                }
-                
-                if(image0.getNom() == imCom1[i].getNom()){
-                    aServir = image0.getNom();
-                    idService = i;
-                    cout << "Client 1 veut recette de Tab 0" << endl;
-                }
-            
-                
-                if(image0.getNom() == imCom2[i].getNom()){
-                    aServir = image0.getNom();
-                    idService = i;
-                    cout << "Client 2 veut recette de Tab 0" << endl;
-                }
-
-                if(image0.getNom() == imCom3[i].getNom()){
-                    aServir = image0.getNom();
-                    idService = i;
-                    cout << "Client 3 veut recette de Tab 0 " << endl;
-                }
-            }
-            
-            if(mx > 95 && mx < 250 && my > 400 && my < 681){
-                viderCommandeI(zero);
-            }
-
-            //Table 1
-            if(mx > 560 && mx < 699 && my > 727 && my < 827){
-                cout << "im1" << image1.getNom() << endl;
-                if(image1.getNom() == imCom0[i].getNom()){
-                    aServir = image1.getNom();
-                    idService = i;
-                    cout << "Client 0 veut recette de Tab 1 " << endl;
-                }
-                
-                if(image1.getNom() == imCom1[i].getNom()){
-                    aServir = image1.getNom();
-                    idService = i;
-                    cout << "Client 1 veut recette de Tab 1" << endl;
-                }
-            
-                
-                if(image1.getNom() == imCom2[i].getNom()){
-                    aServir = image1.getNom();
-                    idService = i;
-                    cout << "Client 2 veut recette de Tab 1 " << endl;
-                }
-
-                if(image1.getNom() == imCom3[i].getNom()){
-                    aServir = image1.getNom();
-                    idService = i;
-                    cout << "Client 3 veut recette de Tab 1" << endl;
-                }
-            }
-            
-            if(mx > 300 && mx < 455 && my > 400 && my < 681){
-                viderCommandeI(one);
-            }
-
-            
-            //Table 2
-            if(mx > 411 && mx < 550 && my > 837 && my < 937){
-                cout << "im2" << image2.getNom() << endl;
-                if(image2.getNom() == imCom0[i].getNom()){
-                    aServir = image2.getNom();
-                    idService = i;
-                    cout << "Client 0 veut recette de Tab 2" << endl;
-                }
-                
-                if(image2.getNom() == imCom1[i].getNom()){
-                    aServir = image2.getNom();
-                    idService = i;
-                    cout << "Client 1 veut recette de Tab 2" << endl;
-                }
-            
-                
-                if(image2.getNom() == imCom2[i].getNom()){
-                    aServir = image2.getNom();
-                    idService = i;
-                    cout << "Client 2 veut recette de Tab 2 " << endl;
-                }
-
-                if(image2.getNom() == imCom3[i].getNom()){
-                    aServir = image2.getNom();
-                    idService = i;
-                    cout << "Client 3 veut recette de Tab 2" << endl;
-                }
-            }
-            if(mx > 500 && mx < 655 && my > 400 && my < 681){
-                viderCommandeI(two);
-            
-            }
-
-            
-            //Table 3
-            if(mx > 560 && mx < 699 && my > 837 && my < 937){
-                cout << "im3" << image3.getNom() << endl;
-                if(image3.getNom() == imCom0[i].getNom()){
-                    aServir = image3.getNom();
-                    cout << "Client 0 veut recette de Tab 3 " << endl;
-                }
-                
-                if(image3.getNom() == imCom1[i].getNom()){
-                    aServir = image3.getNom();
-                    cout << "Client 1 veut recette de Tab 3" << endl;
-                }
-            
-                
-                if(image3.getNom() == imCom2[i].getNom()){
-                    aServir = image3.getNom();
-                    cout << "Client 2 veut recette de Tab 3 " << endl;
-                }
-
-                if(image3.getNom() == imCom3[i].getNom()){
-                    aServir = image3.getNom();
-                    cout << "Client 3 veut recette de Tab 3 " << endl;
-                }
-            }
-            if(mx > 700 && mx < 855 && my > 400 && my < 681){
-                viderCommandeI(three);
-            }
-       // }
-    }
-
-        
-}*/
-
-
-//void checkTable0()
 
 void sdlJeu::servirClient(){
     unsigned int zero = 0;
@@ -1098,27 +791,58 @@ void sdlJeu::servirClient(){
     }
 }
 
+void sdlJeu::choisirExtra(SDL_MouseButtonEvent& b){
+
+    //Choix des Frites
+     if(b.x > 20  && b.x < 20 + 110 && b.y > 725 && b.y < 725 + 215){
+        aServir = "Frites";
+    }    
+
+    cout << "aServir" << aServir << endl;
+}
+
 void sdlJeu::effacerTableImg(unsigned int &i){
+
     if(idService == 0){
-        image0.setEmplacement(50);
-        image0.setChemin("");
-        cout << "im emp" << image0.getEmplacement() << endl;
-        image0.loadFromFile(newImage.getChemin().c_str(), renderer);
+        image0.setEmplacement(im[34].getEmplacement());
+        image0.setChemin("./img/Undefined.png");
+        image0.setX(432);
+        image0.setY(729);
+        image0.setW(96);
+        image0.setH(96);
+        image0.loadFromFile(image0.getChemin().c_str(), renderer);
     }
 
     if(idService == 1){
-        image0.setChemin("");
+        image1.setEmplacement(im[34].getEmplacement());
+        image1.setChemin("./img/Undefined.png");
+        image1.setX(432);
+        image1.setY(729);
+        image1.setW(96);
+        image1.setH(96);
+        image1.loadFromFile(image0.getChemin().c_str(), renderer);
         
     }
 
     if(idService == 2){
-        image0.setChemin("");
+        image2.setEmplacement(im[34].getEmplacement());
+        image2.setChemin("./img/Undefined.png");
+        image2.setX(432);
+        image2.setY(729);
+        image2.setW(96);
+        image2.setH(96);
+        image2.loadFromFile(image0.getChemin().c_str(), renderer);
     }
 
     if(idService == 3){
-        image0.setChemin("");
+        image3.setEmplacement(im[34].getEmplacement());
+        image3.setChemin("./img/Undefined.png");
+        image3.setX(432);
+        image3.setY(729);
+        image3.setW(96);
+        image3.setH(96);
+        image3.loadFromFile(image0.getChemin().c_str(), renderer);
     }
-
 }
 
 void sdlJeu::viderTable(){
@@ -1140,6 +864,7 @@ void sdlJeu::viderTable(){
                 for(unsigned int i =0; i<4; i++){
                     cout << "tab " << i << " est " << jeu.tabPrep[i] << endl; 
                  }
+                 imCom0.erase(imCom0.begin() + 0);
             }
         }
         aServir="";
@@ -1156,6 +881,7 @@ void sdlJeu::viderTable(){
                 for(unsigned int i =0; i<4; i++){
                     cout << "tab " << i << " est " << jeu.tabPrep[i] << endl; 
                  }
+                 imCom1.erase(imCom1.begin() + 0);
             }
         }
         aServir="";
@@ -1171,6 +897,7 @@ void sdlJeu::viderTable(){
                 for(unsigned int i =0; i<4; i++){
                     cout << "tab " << i << " est " << jeu.tabPrep[i] << endl; 
                  }
+                 imCom2.erase(imCom2.begin() + 0);
             }
        }
        aServir="";
@@ -1186,13 +913,12 @@ void sdlJeu::viderTable(){
                 for(unsigned int i =0; i<4; i++){
                     cout << "tab " << i << " est " << jeu.tabPrep[i] << endl; 
                 }
+                imCom3.erase(imCom3.begin() + 0);
             }
         }
         aServir="";
         effacerTableImg(idService);
      }
-
-
 }
 
 
@@ -1266,6 +992,7 @@ void sdlJeu::sdlBoucle () {
                         if(events.button.button == SDL_BUTTON_RIGHT){
                             servirClient();
                             viderTable();
+                            choisirExtra(events.button);
                             if(mx > 0 && mx < 50 && my > 0 && my < 50){
                                 
                                 for(unsigned int i = 0; i < jeu.getTabClient().size(); i++){
@@ -1285,7 +1012,7 @@ void sdlJeu::sdlBoucle () {
          // on affiche le jeu sur le buffer cachï¿½
         
         sdlAff();
-        drawImgPlat();
+        //drawImgPlat();
         drawImgClient();
         drawImgCommande();
 

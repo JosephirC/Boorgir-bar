@@ -14,11 +14,12 @@ class Client{
 
         //Temps patience(unsigned int duree);
         //int emplacement;
-        /** < @brief identifiant du client */
+        /** < @param idClient Identifiant du client */
         unsigned int idClient; 
-        /** < @brief prix total de la commande du client */
+        /** < @param prixTot Prix total de la commande du client */
         unsigned int prixTot ;
         
+        /** < @param com Vecteur commande */
         vector<Commande> com; 
                
        
@@ -27,36 +28,45 @@ class Client{
         
         
 
-        /** < @brief un construscteur de Client */ 
+        /** < @brief Construscteur de Client */ 
         Client();
-        /** < @brief un constructeur de Client */ 
+        /** < @brief Constructeur de Client 
+         * < @param idC identifiant du client
+         * < @param carte contient toutes les recettes possibles
+        */ 
         Client(const unsigned int idC, vector<Commande> & carte); // on appelle le constructeur de temps pour creer un objet de la classe 
-        /** < @brief le destructeur de Client */ 
+        /** < @brief Destructeur de Client */ 
         ~Client();
 
-        /** < @brief  */
-        int paiement(); // renvoie le prixTot
-
-        /** < @brief fonction qui retourne l'identifiant du Client */ 
+        /** < @brief Accesseur : recupere l'identifiant du Client */ 
         unsigned int getIdC() const;
-        /** < @brief fonction qui retourne le prix total de la commande du client */ 
+        /** < @brief Accesseur : recupere le prix total de la commande du client */ 
         unsigned int getPrix() const;
+        /** < @brief Mutateur : modifie le prix total de la commande di client 
+         * < @param prix prix de la commande
+        */
         void setPrix(const unsigned int & prix);
 
+        /** < @brief Accesseur : recupere la commande */
         vector<Commande> getCom() const;
+        /** < @brief Mutateur : modifie la commande 
+         * < @param c commande
+        */
         void setCom(vector<Commande> c);
 
-        //Commande getCom();
-        /** < @brief, choisi des recettes aleatoire du menu pour le donner au client */
+        /** < @brief Choisi des recettes aleatoire du menu pour le donner au client
+         * < @param carte contient toutes les recettes possibles
+         */
         void commandeAleatoire(const vector<Commande> & carte); // remplie le tableau de commande avec des recette entre 1 et 3
 
-        /** < @brief fonction qui calcule le prix que le client doit payer */
-        void calculePrix(); // retourne le prix de la commande
+        /** < @brief Procedure qui calcule le prix que le client doit payer */
+        void calculePrix(); 
 
         /** < @brief Procedure: qui efface un element d'indice j du vecteur com
-         * @param j:  
-         */
+         *  < @param j indice de a commande que l'on veut effacer
+        */
         void erase(int j);
+
 };
 
 #endif

@@ -12,66 +12,71 @@ class Ingredient{
 
     private :
 
-        /** < @param nom de l'ingredient */
+        /** < @param nomIng Nom de l'ingredient */
         string nomIng; 
-        /** < @brief prix de l'ingredient */
+        /** < @param prixIng Prix de l'ingredient */
         unsigned int prixIng;
-        /** < @brief emplacement de l'ingredient */
+        /** < @param emplacement Emplacement de l'ingredient */
         unsigned int emplacement;
-        /** < @brief nombre d'ingredients */
+        /** < @param nbrIng Nombre d'ingredients */
         unsigned int nbrIng;
-        /** < @brief temps de cuisson de certains ingredients */
+        /** < @param cuisson Temps de cuisson de certains ingredients */
         unsigned int cuisson;
 
 
     public :
 
-        /** < @brief un constructeur de Ingredient */
+        /** < @brief Constructeur de Ingredient */
         Ingredient();
-        /** < @brief un constructeur de Ingredient */
+        /** < @brief Constructeur de Ingredient 
+         * <  @param nomI nom de l'ingredient
+         * <  @param prixI prix de l'ingredient
+         * <  @param emplacementI emplacement de l'ingredient
+         * <  @param nbrI nombre d'ingredients
+        */
         Ingredient(const string & nomI, const unsigned int & prixI, const unsigned int & emplacementI, const unsigned int & nbrI, const unsigned int & cuissonI);
 
-        // ~Ingredient();
-
-        /** < @brief renvoie vraie si on a plus d'ingredients  */
-        bool ruptureStock(); 
-
-        /** < @brief acheter un ingredient s'il y en a plus en stock */
-        void achete(/*TypeIngredient*/);
-
-        //void lireIngredient(const string &nom_ingredient, prix);
-
-        /** < @brief muutateur qui modifie le nom de l'ingredient */
+        /** < @brief Mutateur : modifie le nom de l'ingredient 
+         *  < @param nomI Nom de l'ingredient 
+        */
         void setNom(const string & nomI); 
 
-        /** < @brief mutateur qui modifie le prix de l'ingredient */
+        /** < @brief Mutateur : modifie le prix de l'ingredient 
+         *  < @param prixI : Prix de l'ingredient 
+        */
         void setPrix(const unsigned int & prixI); 
 
-        /** < @brief mutateur qui modifie l'emplacement de l'ingredient */
+        /** < @brief Mutateur : modifie l'emplacement de l'ingredient 
+         * <  @param emplacementI 
+        */
         void setEmplacement(const unsigned int & emplacementI); 
 
-        /** < @brief mutateur qui modifie le nombre d'ingredient */
+        /** < @brief Mutateur : modifie le nombre d'ingredient 
+         * <  @param nbrI nombre d'ingredients
+        */
         void setNbr(const unsigned int & nbrI); 
         
-        /** < @brief mutateur qui modifie le temps de cuisson */
+        /** < @brief Mutateur : modifie le temps de cuisson 
+         * <  @param cuissonI cuisson de l'ingredient
+        */
         void setCuisson(const unsigned int & cuissonI); 
 
-        /** < @brief accesseur qui recupere le nom de l'ingredient  */
+        /** < @brief Accesseur : recupere le nom de l'ingredient  */
         string getNom() const; 
 
-        /** < @brief accesseur qui recupere le prix de l'ingredient */
+        /** < @brief Accesseur : recupere le prix de l'ingredient */
         unsigned int getPrix() const; 
 
-        /** < @brief accesseur qui recupere l'emplacement de l'ingredient */
+        /** < @brief Accesseur : recupere l'emplacement de l'ingredient */
         unsigned int getEmplacement() const; 
 
-        /** < @brief accesseur qui recupere le nombre d'ingredient */
+        /** < @brief Accesseur : recupere le nombre d'ingredient */
         unsigned int getNbr() const; 
 
-        /** < @brief accesseur qui recupere le temps de cuisson */
-        unsigned int getCuisson() const;     
+        /** < @brief Accesseur : recupere le temps de cuisson */
+        unsigned int getCuisson() const;   
+          
 }; 
 
-//ostream &operator<< (ostream & flux, const Ingredient &ing);
 
 #endif

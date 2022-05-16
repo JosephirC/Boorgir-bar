@@ -8,7 +8,7 @@
 
 using namespace std;
 
-/** < @brief fonction principale */
+/** < @brief Fonction principale */
 int main()
 {
     Jeu j;

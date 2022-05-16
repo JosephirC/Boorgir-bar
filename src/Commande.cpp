@@ -7,40 +7,47 @@
 using namespace std;
 
 
-/** < @brief un constructeur de Commande */
+/** < @brief Constructeur de Commande */
 Commande::Commande()
 {
     nomC = " ";
     prixC = 0;
 }
 
-/** < @brief un constructeur de Commande */
+/** < @brief Constructeur de Commande 
+ * < @param nom nom de la commande
+ * < @param prix prix de la commande
+*/
 Commande::Commande(string nom, unsigned int prix){
     nomC = nom;
     prixC = prix;
 }
 
-/** < @brief le destructeur de Commande */
+/** < @brief Destructeur de Commande */
 Commande:: ~Commande(){   
     
 }
 
-/** < @brief mutateur de Commande */
+/** < @brief Mutateur : recupere le nom 
+ * < @param nom nom de la commande
+*/
 void Commande::setNom(const string & nom){
     nomC = nom;
 }
 
-/** < @brief mutateur de Commande */ 
+/** < @brief Mutateur : recupere le prix 
+ * < @param prix prix de la commande
+*/
 void Commande::setPrix(const unsigned int & prix){
     prixC = prix;
 }
 
-/** < @brief retourne le nom de la commande */
+/** < @brief Accesseur : modifie le nom */ 
 string Commande::getNom() const{
     return nomC;
 }
 
-/** < @brief fonction qui retourne le prix de la commande */
+/** < @brief Accesseur : modifie le prix */
 unsigned int Commande::getPrix() const{
     return prixC;    
 }

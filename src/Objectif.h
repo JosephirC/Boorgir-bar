@@ -11,37 +11,45 @@ class Objectif{
 
     private :
         
-        /** < @brief argent qu el'on doit atteindre au cours de la partie */
+        /** < @param Argent Argent qu el'on doit atteindre au cours de la partie */
         int Argent;
 
 
-        /** < @brief evolution du temps */
+        /** < @param evolTemp Evolution du temps */
         Temps evolTemp;
          
-         /** < @brief temps de la partie */
+         /** < @param T Temps de la partie */
         Temps T;
 
     public :
 
        
         
-        /** < @brief constructeur de Objectif */
+        /** < @brief Constructeur de Objectif */
         Objectif();
 
-        /** < @brief destructeur de Objectif */
+        /** < @brief Destructeur de Objectif */
         ~Objectif();
 
+        /** < @brief Accesseur : recupere le temps */
         Temps getTemps() const;
+        /** < @brief Mutateur : modifie le temps 
+         * <  @param t temps du jeu
+        */
         void setTemps(Temps &t);
         
-        /** < @brief  retourne l'argent gagne pendant la partie */
+        /** < @brief Accesseur : recupere l'argent gagne pendant la partie */
         unsigned int getArgent() const;
-        /** < @brief permet de selectionner le niveau voulu */
+        /** < @brief Permet de selectionner le niveau voulu 
+         * <  @param choix choisir le niveau de difficulte
+        */
         void choixNiveau(unsigned int choix);
 
-        /** < @brief renvoie vraie si l'objectif de la partie est atteint */
+        /** < @brief Renvoie vraie si l'objectif de la partie est atteint 
+         * <  @param temps_donnee temps donnee pour une partie
+        */
         bool objAtteint(Temps temps_donnee); 
-        /** < @brief permet d'arreter la partie */
+        /** < @brief Permet d'arreter la partie */
         bool finJeu() const;
 
 };

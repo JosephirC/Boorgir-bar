@@ -254,12 +254,20 @@ void Jeu::money(unsigned int & i){
 
 /** < @brief Permet d'effacer un client */
 bool Jeu::nouveauClient(){
-    //bool efface = false;
+    for(unsigned int i=0; i<tabClient.size();i++){
+        if(tabClient[i].getCom().size() == 0 ){
+            tabClient[i].commandeAleatoire(carte);
+            tabClient[i].calculePrix();
+            return true;
+        }
+    }
+    return  false;
+    /*
     if(tabClient.empty() == true ){
         creationClient(4);
         return true;
     }
-    return false;
+    return false;*/
 }
 
 /** < @brief Nous dit si on a atteint la somme d'argent demande de la partie */
@@ -269,7 +277,23 @@ bool Jeu::argentAtteint(){
 }
 
 /** < @brief Fait le test de regression */
-void testDeRegression(){
+void Jeu::testDeRegression(){
+
+    //chargerCarte("./txt/Carte.txt");
+	//chargerRecette("./txt/test.txt");
+	//chargerIngredient("./txt/Ingredients.txt");
+
+
+    for(unsigned int i = 0; i < tabIng.size(); i++){
+        cout << tabIng[i] << endl;
+    }
     
-    
+
+    for(unsigned int i = 0; i < carte.size(); i++){
+        cout << carte[i] << endl;
+    }
+
+    for(unsigned int i = 0; i < tabRec.size(); i++){
+        cout << tabRec[i] << endl;
+    }
 }

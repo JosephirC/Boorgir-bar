@@ -73,6 +73,7 @@ class sdlJeu {
 
     public :
 
+        /** < @brief Constructeur de sdlJeu */
         sdlJeu ();
         ~sdlJeu ();
        

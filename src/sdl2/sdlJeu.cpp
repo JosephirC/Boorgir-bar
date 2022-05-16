@@ -26,8 +26,13 @@ sdlJeu::sdlJeu () : jeu() {
     
     nbrIngJ = 26;
     nbrClientServi =0;
+    zero = 0;
+    one = 1;
+    two = 2;
+    three = 3;
     idService =0;
     aServir="";
+    isExtra ="";
     newImage.setChemin("img/Undefined.png");
     
     image0.setChemin(newImage.getChemin());
@@ -628,10 +633,6 @@ void sdlJeu::drawImgCommande(){
 }
 
 void sdlJeu::servirClient(){
-    unsigned int zero = 0;
-    unsigned int one = 1;
-    unsigned int two = 2;
-    unsigned int three = 3;
 
     //Table 0
     if(mx > 411 && mx < 550 && my > 727 && my < 827){
@@ -791,14 +792,81 @@ void sdlJeu::servirClient(){
     }
 }
 
+void sdlJeu::viderExtra(unsigned int & i){
+
+    cout << "alo" << endl;
+    //Client 0
+    if(i == 0){
+        if(mx > 95 && mx < 250 && my > 400 && my < 681){
+            cout <<"well hello there" <<endl;
+            for(unsigned int i = 0; i < imCom0.size(); i++){
+                if(isExtra == imCom0[i].getNom()){
+                    imCom0.erase(imCom0.begin() + i);
+                    isExtra = "";
+                }
+            }
+        }
+    }
+    
+    //Client 1
+    if(i ==1){
+        if(mx > 300 && mx < 455 && my > 400 && my < 681){
+            for(unsigned int i = 0; i < imCom1.size(); i++){
+                if(isExtra == imCom1[i].getNom()){
+                    imCom1.erase(imCom1.begin() + i);
+                    isExtra = "";
+                }
+            }
+        }
+    }
+    
+    //Client 2
+    if(i ==2){
+        if(mx > 500 && mx < 655 && my > 400 && my < 681){
+            for(unsigned int i = 0; i < imCom2.size(); i++){
+                if(isExtra == imCom2[i].getNom()){
+                    imCom2.erase(imCom2.begin() + i);
+                    isExtra = "";
+                }
+            }
+        }
+    }
+    
+    //Client 3
+    if(i==3){
+        if(mx > 700 && mx < 855 && my > 400 && my < 681){
+            for(unsigned int i = 0; i < imCom3.size(); i++){
+                if(isExtra == imCom3[i].getNom()){
+                    imCom3.erase(imCom3.begin() + i);
+                    isExtra = "";
+                }
+            }
+        }
+    } 
+}
+
 void sdlJeu::choisirExtra(SDL_MouseButtonEvent& b){
 
+    cout << "in function " << endl;
     //Choix des Frites
-     if(b.x > 20  && b.x < 20 + 110 && b.y > 725 && b.y < 725 + 215){
-        aServir = "Frites";
-    }    
+    if(b.x > 20  && b.x < 20 + 110 && b.y > 725 && b.y < 725 + 215)
+        isExtra = "Frites";  
+   
 
-    cout << "aServir" << aServir << endl;
+    //Choix du Jus
+    if(b.x > 132 && b.x < 166 && b.y > 880 && b.y < 943)
+        isExtra = "Jus";
+
+    //Choix du Soda
+    if(b.x > 172 && b.x < 206 && b.y > 880 && b.y < 942)
+        isExtra = "Soda";
+
+    viderExtra(zero);
+    viderExtra(one);
+    viderExtra(two);
+    viderExtra(three);
+
+
 }
 
 void sdlJeu::effacerTableImg(unsigned int &i){
@@ -847,16 +915,8 @@ void sdlJeu::effacerTableImg(unsigned int &i){
 
 void sdlJeu::viderTable(){
 
-    cout << "id is " << idService << endl;
-
-    unsigned int zero = 0;
-    unsigned int one = 1;
-    unsigned int two = 2;
-    unsigned int three = 3;
-
     //Client 0
     if(mx > 95 && mx < 250 && my > 400 && my < 681){
-        cout << "bro" << endl;
        for(unsigned int i = 0; i < imCom0.size(); i++){
             if(aServir == imCom0[i].getNom()){
                 jeu.effaceRecette(zero, i);
@@ -921,6 +981,17 @@ void sdlJeu::viderTable(){
      }
 }
 
+void sdlJeu::rempliClient(){
+    if(imCom0.size() == 0 && imCom1.size() ==0 && imCom2.size() == 0 && imCom3.size() ==0){
+        
+        for(unsigned int i =0; i < jeu.getTabClient().size(); i++){
+
+            jeu.getTabClient()[i].commandeAleatoire(jeu.getCarte());
+        }
+        
+    }
+}
+
 
 void sdlJeu::sdlBoucle () {
     SDL_Event events;
@@ -959,6 +1030,7 @@ void sdlJeu::sdlBoucle () {
        
 		// tant qu'il y a des evenements ï¿½ traiter (cette boucle n'est pas bloquante)
 		while (SDL_PollEvent(&events)) {
+            rempliClient();
 			if (events.type == SDL_QUIT) quit = true;       // Si l'utilisateur a clique sur la croix de fermeture
                 else if (events.type == SDL_KEYDOWN) {       // Si une touche est enfoncee
                         //bool mangePastille = false;
@@ -984,16 +1056,26 @@ void sdlJeu::sdlBoucle () {
                         /*if ((withSound) && (mangePastille))
                             Mix_PlayChannel(-1,sound,0);*/
 			        }
+
                     if(events.type == SDL_MOUSEBUTTONDOWN){
                         if(events.button.button == SDL_BUTTON_LEFT){
                             mousePress(events.button);
                             //servirClient();
                         }
                         if(events.button.button == SDL_BUTTON_RIGHT){
-                            servirClient();
-                            viderTable();
-                            choisirExtra(events.button);
-                            if(mx > 0 && mx < 50 && my > 0 && my < 50){
+              
+                            //if(isExtra == false){
+                                servirClient();
+                                viderTable();   
+                            //}
+                            //else   
+                               /// if(isExtra == true){
+                                    choisirExtra(events.button);
+                                   // isExtra = false;
+                                ///}
+                                    
+                           
+                            /*if(mx > 0 && mx < 50 && my > 0 && my < 50){
                                 
                                 for(unsigned int i = 0; i < jeu.getTabClient().size(); i++){
                                     cout << "bbvv" << endl;
@@ -1005,7 +1087,7 @@ void sdlJeu::sdlBoucle () {
 
 
                                 }
-                            }         
+                            }  */       
                         }
                    
 		            }
@@ -1015,6 +1097,7 @@ void sdlJeu::sdlBoucle () {
         //drawImgPlat();
         drawImgClient();
         drawImgCommande();
+        
 
 		// on permute les deux buffers (cette fonction ne doit se faire qu'une seule fois dans la boucle)
         SDL_RenderPresent(renderer);

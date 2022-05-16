@@ -52,15 +52,17 @@ class sdlJeu {
         int mx, my; 
 
         unsigned int nbrClientServi;
+        unsigned int zero, one, two, three;
 
         string aServir;
+        string isExtra;
         unsigned int idService;
 
     public :
 
         sdlJeu ();
         ~sdlJeu ();
-        void sdlBoucle ();
+       
         void sdlAff ();
         
         void sdlLoadImgFile();
@@ -102,13 +104,17 @@ class sdlJeu {
 
         void servirClient();
 
-        void choisirExtra(SDL_MouseButtonEvent& b);
+        void viderExtra(unsigned int & i);
 
-        void viderExtra();
+        void choisirExtra(SDL_MouseButtonEvent& b);
 
         void effacerTableImg(unsigned int & i);
 
         void viderTable();
+
+        void rempliClient();
+
+        void sdlBoucle ();
 
 };
 

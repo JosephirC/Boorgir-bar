@@ -32,6 +32,12 @@ Image::Image(const string & nomIm, const unsigned int & eIm, const string & chem
 }
 
 void Image::loadFromFile (const char* filename, SDL_Renderer * renderer) {
+    cout << "appel" << endl;
+
+    if(surface !=NULL)
+    {
+        delete surface;
+    }
     surface = IMG_Load(filename);
     if (surface == NULL) {
         string nfn = string("../") + filename;

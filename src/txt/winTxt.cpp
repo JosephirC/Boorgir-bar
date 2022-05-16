@@ -33,7 +33,6 @@ void termMove(int x, int y) // deplace le curseur du terminal
 
 }*/
 
-/** < @brief efface le terminal */
 void termClear()
 {
 #ifdef _WIN32
@@ -135,7 +134,6 @@ void WinTXT::pause() {
 #endif
 }
 
-/** < @brief Accesseur : recupere un caractere si une touche a ete pressee */
 char WinTXT::getCh() {
     char touche=0;
 #ifdef _WIN32

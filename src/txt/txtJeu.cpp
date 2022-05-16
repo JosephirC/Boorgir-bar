@@ -12,7 +12,7 @@
 
 
 /** < @brief permet d'afficher la carte 
- * < @param carte  contient toutes les recettes possibles
+ * @param carte  contient toutes les recettes possibles
 */
 void affCarte(vector <Commande> carte){
 	cout<<endl<< "----- Voici le Menu d'aujourd'hui -------"<<endl;
@@ -23,7 +23,7 @@ void affCarte(vector <Commande> carte){
 }
 
 /** < @brief affiche la recette d'une commande 
- * < @param tabRec tableau de recettes
+ * @param tabRec tableau de recettes
 */
 void affRecette(vector<Recette> tabRec){
 	for(unsigned int i=0 ; i<tabRec.size(); i++){
@@ -36,7 +36,7 @@ void affRecette(vector<Recette> tabRec){
 }
 
 /** < @brief affiche les ingredients 
- * < @param tabIng tableau d'ingredients
+ * @param tabIng tableau d'ingredients
 */
 void affIng(vector<Ingredient> tabIng){
 	cout<<"----------Voici tous les Ingredients----------"<<endl;
@@ -46,7 +46,7 @@ void affIng(vector<Ingredient> tabIng){
 }
 
 /** < @brief permet d'afficher un client 
- * < @param tab tableau de clients
+ * @param tab tableau de clients
 */
 void affClient(vector <Client> tab){
 	cout<<endl<< "------------ Voici les clients -----------"<<endl;
@@ -66,7 +66,7 @@ void affClient(vector <Client> tab){
 }
 
 /** < @brief affiche le tableau de preparation 
- * < @param tabPrep tableau de preparation
+ * @param tabPrep tableau de preparation
 */
 void affTabPrep(string tabPrep[4]){
 	cout<<endl<< "------------ Voici le Bar -----------"<<endl;
@@ -99,9 +99,9 @@ void affAide(){
 }
 
 /** < @brief prepare la commande avec les ingredients choisis, en txt 
- * < @param i indice
- * < @param ingred ingredients
- * < @param jeu jeu
+ * @param i indice
+ * @param ingred ingredients
+ * @param jeu jeu
 */
 void preparerCommandeTxt(int &i,long unsigned int &ingred,Jeu &jeu){
 	do{
@@ -129,9 +129,9 @@ void preparerCommandeTxt(int &i,long unsigned int &ingred,Jeu &jeu){
 }
 
 /** < @brief donne la commande au client choisi en txt 
- * < @param IdCl identifiant du client
- * < @param IdRec identifiant de la recette
- * < @param jeu jeu
+ * @param IdCl identifiant du client
+ * @param IdRec identifiant de la recette
+ * @param jeu jeu
 */
 void donnerCommandeTxt(unsigned int & IdCl, unsigned int & IdRec,Jeu &jeu){
 	do{
@@ -159,9 +159,9 @@ void donnerCommandeTxt(unsigned int & IdCl, unsigned int & IdRec,Jeu &jeu){
 }
 
 /** < @brief Donne des extras en affichage txt
- * < @param IdCl identifiant du client
- * < @param s choisir un ingredient
- * < @param jeu jeu
+ * @param IdCl identifiant du client
+ * @param s choisir un ingredient
+ * @param jeu jeu
 */
 void donnerExtrasTxt(unsigned int & IdCl, string & s ,Jeu &jeu){
 	 unsigned int IdRec;
@@ -196,8 +196,8 @@ void donnerExtrasTxt(unsigned int & IdCl, string & s ,Jeu &jeu){
 
 
 /** < @brief prepare la commande avec les ingredients choisis, en txt 
- * < @param Niveau choisir un niveau de difficulte
- * < @param jeu jeu
+ * @param Niveau choisir un niveau de difficulte
+ * @param jeu jeu
 */
 void objectifDuJeu(unsigned int &Niveau,Jeu &jeu){
 	do{
@@ -218,8 +218,8 @@ void afficheExplication() {
 
 
 /** < @brief Acceuil du jeu 
- * < @param j jeu
- * < @param ok booleen qui fait sortir de la boucle
+ * @param j jeu
+ * @param ok booleen qui fait sortir de la boucle
 */
 void txtBoucleAcc (Jeu & jeu,bool &ok){
 
@@ -271,9 +271,9 @@ void txtBoucleAcc (Jeu & jeu,bool &ok){
 
 
 /** < @brief Fin du jeu 
- * < @param j jeu
- * < @param g message pour savoir si on a gagne ou perdue
- * < @param ok booleen qui fait sortir de la boucle
+ * @param j jeu
+ * @param g message pour savoir si on a gagne ou perdue
+ * @param ok booleen qui fait sortir de la boucle
 */
 void txtBoucleFin(Jeu &jeu, string g,bool &ok){
 	int retry;
@@ -307,8 +307,8 @@ void txtBoucleFin(Jeu &jeu, string g,bool &ok){
 
 
 /** < @brief Corps du jeu 
- * < @param j jeu
- * < @param ok booleen qui fait sortir de la boucle
+ * @param j jeu
+ * @param ok booleen qui fait sortir de la boucle
 */
 void txtBoucle(Jeu &jeu,bool &ok) {
 	ok=true;
@@ -420,7 +420,7 @@ void txtBoucle(Jeu &jeu,bool &ok) {
 }
 
 /** < @brief Boucle qui le jeu en boucle 
- * < @param j jeu
+ * @param j jeu
 */
 void boucleJeu(Jeu & j){
 	bool ok=true;

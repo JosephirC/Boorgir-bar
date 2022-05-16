@@ -11,7 +11,7 @@ Temps::Temps(){
 }
 
 /** < @brief Constructeur de Temps 
- * < @param t temps du jeu
+ *  @param t temps du jeu
 */
 Temps::Temps(double t){
     temps = t;
@@ -28,7 +28,7 @@ double Temps::getTemps() const{
  }
 
 /** < @brief Mutateur : modifie le temps 
- * < @param t temps du jeu
+ *  @param t temps du jeu
 */
 void Temps::setTemps(double t){
     temps = t;

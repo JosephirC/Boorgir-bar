@@ -12,10 +12,10 @@ Recette::Recette(){
 } */
 
 /** < @brief Constructeur de Recette 
- * <  @param recette recette
- * <  @param nbrIngR nombre d'ingredients dans la recette
- * <  @param tabIng tableau d'ingredients
- * <  @param prix prix de la recette
+ *  @param recette recette
+ *  @param nbrIngR nombre d'ingredients dans la recette
+ *  @param tabIng tableau d'ingredients
+ *  @param prix prix de la recette
 */
 Recette::Recette(const string recette, const unsigned int & nbrIngR, vector<string> tabIng, const unsigned int & prix){
     nomRec = recette;

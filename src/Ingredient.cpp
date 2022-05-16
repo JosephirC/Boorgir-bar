@@ -14,10 +14,10 @@ Ingredient::Ingredient(){
 }
 
 /** < @brief Constructeur de Ingredient 
- * <  @param nomI nom de l'ingredient
- * <  @param prixI prix de l'ingredient
- * <  @param emplacementI emplacement de l'ingredient
- * <  @param nbrI nombre d'ingredients
+ *  @param nomI nom de l'ingredient
+ *  @param prixI prix de l'ingredient
+ *  @param emplacementI emplacement de l'ingredient
+ *  @param nbrI nombre d'ingredients
 */
 Ingredient::Ingredient(const string & nomI, const unsigned int & prixI, const unsigned int & emplacementI, const unsigned int & nbrI, const unsigned int & cuissonI){
     nomIng = nomI;
@@ -47,7 +47,7 @@ void Ingredient::setNom(const string & nomI){
 } 
 
 /** < @brief Mutateur : modifie le prix de l'ingredient
- *  < @param prixI : Prix de l'ingredient
+ *  @param prixI : Prix de l'ingredient
 */
 void Ingredient::setPrix(const unsigned int & prixI){ 
     prixIng = prixI;
@@ -59,14 +59,14 @@ void Ingredient::setEmplacement(const unsigned int & emplacementI){
 } 
 
 /** < @brief Mutateur : modifie le nombre d'ingredient 
- * <  @param nbrI nombre d'ingredients
+ *  @param nbrI nombre d'ingredients
 */
 void Ingredient::setNbr(const unsigned int & nbrI){ 
     nbrIng = nbrI;
 }
 
 /** < @brief Mutateur : modifie le temps de cuisson 
- * <  @param cuissonI cuisson de l'ingredient
+ *  @param cuissonI cuisson de l'ingredient
 */
 void Ingredient::setCuisson(const unsigned int & cuissonI){ 
     cuisson = cuissonI;

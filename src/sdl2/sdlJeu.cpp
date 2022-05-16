@@ -556,14 +556,14 @@ void sdlJeu::drawImgPlat(){
             Plat.draw(renderer, im[34].getX(), im[34].getY()+ i *50, im[34].getW(),im[34].getH());
             
         }
-        if(i == 1){
+        if(i%2==1){
 
            
-                Plat.draw(renderer, 571 , im[34].getY(), im[34].getW(), im[34].getH());
+                Plat.draw(renderer, im[34].getX() + 156 , im[34].getY()+ (i-1)*51 , im[34].getW(), im[34].getH());
             }
 
         if(i == 3){
-            Plat.draw(renderer, im[34].getX() + (i)*79  , im[34].getY(), im[34].getW(), im[34].getH());
+           // Plat.draw(renderer, im[34].getX() + (i)*79  , im[34].getY(), im[34].getW(), im[34].getH());
         }
         
 
@@ -783,7 +783,7 @@ void sdlJeu::viderCommandeI(unsigned int & i/*, unsigned int & iDelete*/){
 }
 
 
-/*void sdlJeu::servirClient(){
+void sdlJeu::servirClient(){
   
     //Bubble 0
     if(mx > 110 && mx < 240 && my > 270 && my < 400){
@@ -929,7 +929,7 @@ void sdlJeu::viderCommandeI(unsigned int & i/*, unsigned int & iDelete*/){
     }
 
         
-}*/
+}
 
 
 //void checkTable0()

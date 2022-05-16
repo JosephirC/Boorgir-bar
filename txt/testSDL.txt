@@ -74,4 +74,4 @@ Bulle2 26 ./img/Bulle.png 510 270 130 130 2
 
 Bulle3 27 ./img/Bulle.png 710 270 130 130 3
 
-Undefined 28 ./img.Undefined,png 464 761 32 32 
+Undefined 28 ./img/Undefined,png 464 761 32 32 

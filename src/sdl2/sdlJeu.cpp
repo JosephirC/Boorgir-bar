@@ -304,7 +304,6 @@ void sdlJeu::sdlAff () {
         {
             im[i].draw(renderer, im[i].getX(), im[i].getY(), im[i].getW(), im[i].getH());
         }
-
         if(im[i].getEmplacement() == 28){
             cout << im[i].getX();
             im[i].draw(renderer, 100, 100, 50, 200);
@@ -317,6 +316,10 @@ void sdlJeu::sdlAff () {
     image1.draw(renderer,image1.getX() ,image1.getY(), image1.getW(), image1.getH());
     image2.draw(renderer,image2.getX() ,image2.getY(), image2.getW(), image2.getH());
     image3.draw(renderer,image3.getX() ,image3.getY(), image3.getW(), image3.getH());
+
+    /*for(unsigned i =0; i<im.size(); i++){
+         
+    }*/
 
     /************************************************************************************/
 

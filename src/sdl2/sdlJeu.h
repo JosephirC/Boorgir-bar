@@ -34,6 +34,7 @@ class sdlJeu {
         Image background;
         Image Argent;
         Image Time;
+        Image Plat;
 
         unsigned int nbrIngJ;
 
@@ -90,6 +91,8 @@ class sdlJeu {
         void mousePress(SDL_MouseButtonEvent& b);
 
         void drawImgClient();
+
+        void drawImgPlat();
 
         void chargeInfoClient();
 

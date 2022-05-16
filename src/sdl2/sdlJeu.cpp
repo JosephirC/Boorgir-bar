@@ -28,7 +28,7 @@ sdlJeu::sdlJeu () : jeu() {
     nbrClientServi =0;
     idService =0;
     aServir="";
-    newImage.setChemin("img/Undefined.png");
+    newImage.setChemin("img/PainHD.png");
     
     image0.setChemin(newImage.getChemin());
     image0.setEmplacement(100);
@@ -61,6 +61,14 @@ sdlJeu::sdlJeu () : jeu() {
     image3.setW(0);
     image3.setH(0);
     image3.setCase(0);
+
+    Plat.setChemin("img/Undefined.png");
+    Plat.setEmplacement(100);
+    Plat.setX(0);
+    Plat.setY(0);
+    Plat.setW(0);
+    Plat.setH(0);
+    Plat.setCase(0);
 
     /*******************Appelle a la classe de chargement des images*****************************/
     loadImg.chargerTxtImages("./txt/testSDL.txt");
@@ -103,7 +111,7 @@ sdlJeu::sdlJeu () : jeu() {
     /************************** A VOIR CETTE PARTE **********************************/
 	int dimx, dimy;
 	dimx = 960;
-	dimy = 960 +getNbrIngJ() * 66;
+	dimy = 960 /*+getNbrIngJ() * 66*/;
 
     //cout << "nbr ing apres dimy = " << getNbrIngJ() << endl;
 
@@ -131,10 +139,13 @@ sdlJeu::sdlJeu () : jeu() {
         im[i].loadFromFile(im[i].getChemin().c_str(), renderer);
     }
 
+    Plat.loadFromFile(Plat.getChemin().c_str(), renderer);
+
     image0.loadFromFile(image0.getChemin().c_str(), renderer);
     image1.loadFromFile(image1.getChemin().c_str(), renderer);
     image2.loadFromFile(image2.getChemin().c_str(), renderer);
     image3.loadFromFile(image3.getChemin().c_str(), renderer);
+    
 
     loadImgCommande();
     /************************************************************************************/
@@ -304,11 +315,6 @@ void sdlJeu::sdlAff () {
         {
             im[i].draw(renderer, im[i].getX(), im[i].getY(), im[i].getW(), im[i].getH());
         }
-        if(im[i].getEmplacement() == 28){
-            cout << im[i].getX();
-            im[i].draw(renderer, 100, 100, 50, 200);
-        }
-
     }
     
     //newImage.draw(renderer,newImage.getX() ,newImage.getY(), newImage.getW(), newImage.getH());
@@ -413,10 +419,12 @@ void sdlJeu::sdlAff () {
 }
 
 void sdlJeu::mousePress(SDL_MouseButtonEvent& b){
-    if(b.button == SDL_BUTTON_LEFT){
+   /* if(b.button == SDL_BUTTON_LEFT){
         //handle a left-click
-        //cout << b.x << " " << b.y << endl;
-    }
+       
+    }*/
+
+     cout << b.x << " " << b.y << endl;
 
     for(unsigned int i = 0; i < im.size(); i++){
         if(b.x > im[i].getX() && b.x < im[i].getX() + im[i].getW() && b.y > im[i].getY() && b.y < im[i].getY() + im[i].getH()){
@@ -538,6 +546,30 @@ void sdlJeu::drawImgClient(){
     }
 
 
+}
+
+void sdlJeu::drawImgPlat(){
+    for(unsigned int i=0; i< 4; i++){
+
+        if(i%2==0){
+      
+            Plat.draw(renderer, im[34].getX(), im[34].getY()+ i *50, im[34].getW(),im[34].getH());
+            
+        }
+        if(i == 1){
+
+           
+                Plat.draw(renderer, 571 , im[34].getY(), im[34].getW(), im[34].getH());
+            }
+
+        if(i == 3){
+            Plat.draw(renderer, im[34].getX() + (i)*79  , im[34].getY(), im[34].getW(), im[34].getH());
+        }
+        
+
+        
+    }
+    
 }
 
 void sdlJeu::chargeInfoClient(){
@@ -1251,8 +1283,9 @@ void sdlJeu::sdlBoucle () {
                    
 		            }
          // on affiche le jeu sur le buffer cachï¿½
+        
         sdlAff();
-
+        drawImgPlat();
         drawImgClient();
         drawImgCommande();
 

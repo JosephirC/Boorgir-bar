@@ -11,18 +11,30 @@ class Commande{
 
     private :
   
-        Recette tabC;
+        /** < @brief varaible contenant le nom de la commande */
+        string nomC;
+        /** < @brief  prix de la commande */
+        unsigned int prixC;
+
 
     public :
 
+        /** < @brief un constructeur de Commande */
         Commande();
-
+        /** < @brief un constructeur de Commande */
+        Commande(string nom, unsigned int prix);
+        /** < @brief le destructeur de Commande */
         ~Commande();
 
-        int nbrRecette(); // remplie le tableau de commande avec des recette entre 1 et 3
+        /** < @brief mutateur de Commande */
+        void setNom(const string &nom);
+        /** < @brief mutateur de Commande */
+        void setPrix(const unsigned int & prix);
 
-        int calculePrix(); // retourne le prix de la commande
-        
+        /** < @brief retourne le nom de la commande */ 
+        string getNom() const;
+        /** < @brief fonction qui retourne le prix de la commande */
+        unsigned int getPrix() const;
 };
 
 #endif

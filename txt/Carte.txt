@@ -1,0 +1,17 @@
+PainBSteakSaladeTomate 18
+
+PainBSteakSaladeTomateKetchup 19
+
+PainBSteakSaladeTomateMayo 19
+
+PainHDSaucisse 11
+
+PainHDSaucisseKetchup 12
+
+PainHDSaucisseMayo 12
+
+Frites 6
+
+Soda 5
+
+Jus 4

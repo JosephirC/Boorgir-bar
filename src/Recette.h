@@ -1,44 +1,48 @@
 #ifndef _RECETTE_H
 #define _RECETTE_H
 
-#include "Ingredrient.h"
+#include "Ingredient.h"
 #include <string>
 #include <iostream>
+#include <vector>
 
 using namespace  std;
-
-enum class TypeRecette {
-    Burger_Ketchup;
-    Burger_Mayo;
-    HotDog_Ketchup;
-    HotDog_Mayo;
-    Soda;
-    JusOrange;
-    Frite;
-}
 
 class Recette{
 
     private :
   
-        Ingredient ing[50];
+        /** < @brief variable contennant le nom de la recette */ 
         string nomRec;
-        int prixR;
+        /** < @brief nombre d'ingredients dans une seule recette et prix de la recette */
+        int nbrIngRec, prixR; 
+        //string * tabIng;
+        /** < @brief tableau d'ingredients contenu dans la recette */
+        vector<string> tabI;  //car c' est vect?
 
     public :
 
-        Recette();
+        //Recette();
 
-        ~Recette();
+        /** < @brief constructeur de Recette */
+        Recette(const string recette, const unsigned int & nbrInR, vector<string> tabIng, const unsigned int & prix);
 
-        //void lireRecette(tab, const string &nom_recette, prixR);
-         //Idee : Apres avoir appeler lireRecette(), est ce que je dois avoir un tableau calcul[] et puis dans une boucle durant chaque iteration je stocke le prix de chaque recette (i=0, i=1, i=2, etc)
+        /** < @brief accesseur qui recupere le nom de la recette */
+        string getNom() const; 
 
-        //int calculePrix(/*tabIng[j]*/); // retourne le prix d'une seule recette 
-        ^
-        |
+        /** < @brief accesseur qui recupere le prix de la recette */
+        unsigned int getPrix() const; 
 
-       // c'est pas la peine, on le met directement dans le .txt
+        /** < @brief retourne la table d'ingredients */
+        const vector<string>& getTab() const;
+        
+        /** < @brief accesseur qui recupere le nombre d'ingredient dans la recette */
+        unsigned int getNbr() const;
+
+        void affichage();
+
+
+        //~Recette();
 
 };
 

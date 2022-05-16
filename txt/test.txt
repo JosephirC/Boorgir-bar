@@ -1,0 +1,57 @@
+PainBSteakSaladeTomateKetchup 2 PainBSteakSaladeTomate Ketchup 19
+
+PainBSteakSaladeTomateKetchup 2 PainBSteakSaladeKetchup Tomate 19
+
+PainBSteakSaladeTomateKetchup 2 PainBSteakTomateKetchup Salade 19
+
+PainBSteakSaladeTomate 2 PainBSteakTomate Salade 0
+
+PainBSteakSaladeTomate 2 PainBSteakSalade Tomate 0
+
+PainBSteakSaladeKetchup 2 PainBSteakSalade Ketchup 0
+
+PainBSteakSaladeKetchup 2 PainBSteakKetchup Salade 0
+
+PainBSteakTomateKetchup 2 PainBSteakTomate Ketchup 0
+
+PainBSteakTomateKetchup 2 PainBSteakKetchup Tomate 0
+
+PainBSteakSalade 2 PainBSteak Salade 0
+
+PainBSteakKetchup 2 PainBSteak Ketchup 0
+
+PainBSteakTomate 2 PainBSteak Tomate 0
+
+PainBSteak 2 PainB Steak 0
+
+PainB 2 PainB Undefined 0
+
+PainBSteakSaladeTomateMayo 2 PainBSteakSaladeTomate Mayo 19
+
+PainBSteakSaladeTomateMayo 2 PainBSteakSaladeMayo Tomate 19
+
+PainBSteakSaladeTomateMayo 2 PainBSteakTomateMayo Salade 19
+
+PainBSteakSaladeMayo 2 PainBSteakSalade Mayo 0
+
+PainBSteakSaladeMayo 2 PainBSteakMayo Salade 0
+
+PainBSteakTomateMayo 2 PainBSteakTomate Mayo 0
+
+PainBSteakTomateMayo 2 PainBSteakMayo Tomate 0
+
+PainBSteakMayo 2 PainBSteak Mayo 0
+
+PainHDSaucisse 2 PainHD Saucisse 11
+
+PainHD 2 PainHD Undefined 0
+
+PainHDSaucisseKetchup 2 PainHDSaucisse Ketchup 12
+
+PainHDSaucisseMayo 2 PainHDSaucisse Mayo 12
+
+Frites 1 Frites 6
+
+Soda 1 Soda 5
+
+Jus 1 Jus 4

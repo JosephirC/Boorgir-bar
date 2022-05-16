@@ -34,52 +34,56 @@ void Ingredient::achete(){
     }
 }*/
 
-/** < @brief muutateur qui modifie le nom de l'ingredient */
-void Ingredient::setNom(const string & nomI){ //Mutateur : modifie le nom de l'ingredient
+/** < @brief Muutateur : modifie le nom de l'ingredient 
+ * @param nomI : Nom de l'ingredient
+*/
+void Ingredient::setNom(const string & nomI){ 
     nomIng = nomI;
 } 
 
-/** < @brief mutateur qui modifie le prix de l'ingredient */
-void Ingredient::setPrix(const unsigned int & prixI){ //Mutateur : modifie le prix de l'ingredient
+/** < @brief Mutateur : modifie le prix de l'ingredient 
+ * * @param prixI : Prix de l'ingredient
+*/
+void Ingredient::setPrix(const unsigned int & prixI){ 
     prixIng = prixI;
 } 
 
-/** < @brief mutateur qui modifie l'emplacement de l'ingredient */
-void Ingredient::setEmplacement(const unsigned int & emplacementI){ //Mutateur : modifie l'emplacement de l'ingredient
+/** < @brief Mutateur : qui modifie l'emplacement de l'ingredient */
+void Ingredient::setEmplacement(const unsigned int & emplacementI){ 
     emplacement = emplacementI;
 } 
 
-/** < @brief mutateur qui modifie le nombre d'ingredient */
-void Ingredient::setNbr(const unsigned int & nbrI){ //Mutateur : modifie le nombre d'ingredient
+/** < @brief Mutateur : qui modifie le nombre d'ingredient */
+void Ingredient::setNbr(const unsigned int & nbrI){ 
     nbrIng = nbrI;
 }
 
-/** < @brief mutateur qui modifie le temps de cuisson */
-void Ingredient::setCuisson(const unsigned int & cuissonI){ //Mutateur : modifie le temps de cuisson
+/** < @brief Mutateur : qui modifie le temps de cuisson */
+void Ingredient::setCuisson(const unsigned int & cuissonI){ 
     cuisson = cuissonI;
 }
 
-/** < @brief accesseur qui recupere le nom de l'ingredient  */
-string Ingredient::getNom() const{ //Accesseur : recupere le nom de l'ingredient 
+/** < @brief Accesseur : qui recupere le nom de l'ingredient  */
+string Ingredient::getNom() const{ 
     return nomIng;
 } 
 
-/** < @brief accesseur qui recupere le prix de l'ingredient */
+/** < @brief Accesseur : qui recupere le prix de l'ingredient */
 unsigned int Ingredient::getPrix() const{ //Accesseur : recupere le prix de l'ingredient
     return prixIng;
 }
 
-/** < @brief accesseur qui recupere l'emplacement de l'ingredient */
+/** < @brief Accesseur : qui recupere l'emplacement de l'ingredient */
 unsigned int Ingredient::getEmplacement() const{ //Accesseur : recupere l'emplacement de l'ingredient
     return emplacement;
 } 
 
-/** < @brief accesseur qui recupere le nombre d'ingredient */
+/** < @brief Accesseur : qui recupere le nombre d'ingredient */
 unsigned int Ingredient::getNbr() const{ //Accesseur : recupere le nombre d'ingredient
     return nbrIng;
 }
 
-/** < @brief accesseur qui recupere le temps de cuisson */
+/** < @brief Accesseur : qui recupere le temps de cuisson */
 unsigned int Ingredient::getCuisson() const{ //Accesseur : recupere le temps de cuisson
     return cuisson;
 }

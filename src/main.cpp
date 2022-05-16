@@ -11,6 +11,9 @@ using namespace std;
 /** < @brief fonction principale */
 int main()
 {
+    Jeu j;
+    //j.testDeRegression();
+
     /*
     srand(time(NULL));
     Jeu j;

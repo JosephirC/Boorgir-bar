@@ -199,10 +199,7 @@ void txtBoucleAcc (Jeu & jeu,bool &ok){
 	WinTXT win;
 	unsigned int niv;
 	unsigned int prixinit=0;
-	jeu.setAdditionArgent(prixinit);
-	cout<<jeu.getAdditionArgent();
-
-	jeu.getObj().getTemps().setClock();
+	
 
 
 
@@ -227,6 +224,9 @@ void txtBoucleAcc (Jeu & jeu,bool &ok){
 					jeu.getObj().choixNiveau(niv);
 					termClear();
 					affAide();
+					jeu.setAdditionArgent(prixinit);
+					jeu.getObj().getTemps().setClock();
+
 					ok = false;
 					break;
 				case 'a':

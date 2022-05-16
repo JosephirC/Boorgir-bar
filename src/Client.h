@@ -53,6 +53,9 @@ class Client{
         /** < @brief fonction qui calcule le prix que le client doit payer */
         void calculePrix(); // retourne le prix de la commande
 
+        /** < @brief Procedure: qui efface un element d'indice j du vecteur com
+         * @param j:  
+         */
         void erase(int j);
 };
 

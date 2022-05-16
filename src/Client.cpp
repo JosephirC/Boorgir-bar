@@ -47,9 +47,6 @@ void Client::setCom(vector<Commande> c){
     }
 }
 
-void Client::erase(int j){
-    com.erase( com.begin()+j);
-}
 
 /** < @brief, choisi des recettes aleatoire du menu pour le donner au client */
 void Client::commandeAleatoire(const vector<Commande> &carte){  // commandeAl : Tableau dynamique qui prend aleatoire des recettes de la carte
@@ -126,4 +123,9 @@ void Client::calculePrix(){
     for(unsigned int i = 0; i<com.size(); i++){
         prixTot = prixTot + com[i].getPrix();
     }
+}
+
+
+void Client::erase(int j){
+    com.erase( com.begin()+j);
 }

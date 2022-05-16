@@ -7,25 +7,12 @@
 
 using namespace  std;
 
-/*enum class TypeIngredient {
-    Tomate;
-    Salade;
-    Burger;
-    HotDog;
-    PainBurger;
-    PainHotdog;
-    Mayo;
-    Ketchup;
-    Soda;
-    JusOrange;
-    Frite;
-}*/
 
 class Ingredient{ 
 
     private :
 
-        /** < @brief nom de l'ingredient */
+        /** < @param nom de l'ingredient */
         string nomIng; 
         /** < @brief prix de l'ingredient */
         unsigned int prixIng;
@@ -35,9 +22,6 @@ class Ingredient{
         unsigned int nbrIng;
         /** < @brief temps de cuisson de certains ingredients */
         unsigned int cuisson;
-        //Temps temps(int t);
-
-        //il faut ajouter dans le .txt un temps de cuisson
 
 
     public :

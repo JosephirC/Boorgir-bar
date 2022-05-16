@@ -246,3 +246,8 @@ bool Jeu::argentAtteint(){
     if(additionArgent >= obj.getArgent() ) return true;
     return false;
 }
+
+
+void testDeRegression(){
+    
+}

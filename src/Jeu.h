@@ -100,6 +100,8 @@ class Jeu{
 
         bool argentAtteint();
 
+        void testDeRegression();
+
 };
 
 #endif

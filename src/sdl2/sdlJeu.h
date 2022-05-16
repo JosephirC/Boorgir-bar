@@ -53,6 +53,7 @@ class sdlJeu {
         unsigned int nbrClientServi;
 
         string aServir;
+        unsigned int idService;
 
     public :
 
@@ -97,8 +98,14 @@ class sdlJeu {
         void drawImgCommande();
 
         void servirClient();
-        
+
+        void effacerTableImg(unsigned int & i);
+
+        void viderTable();
+
         void servirClientI(unsigned int & i);
+
+        void viderCommandeI(unsigned int & i/*, unsigned int & iDelete*/);
 
 };
 

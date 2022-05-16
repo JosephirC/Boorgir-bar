@@ -271,4 +271,5 @@ bool Jeu::argentAtteint(){
 /** < @brief Fait le test de regression */
 void testDeRegression(){
     
+    
 }

@@ -783,7 +783,7 @@ void sdlJeu::viderCommandeI(unsigned int & i/*, unsigned int & iDelete*/){
 }
 
 
-void sdlJeu::servirClient(){
+/*void sdlJeu::servirClient(){
   
     //Bubble 0
     if(mx > 110 && mx < 240 && my > 270 && my < 400){
@@ -929,7 +929,7 @@ void sdlJeu::servirClient(){
     }
 
         
-}
+}*/
 
 
 //void checkTable0()

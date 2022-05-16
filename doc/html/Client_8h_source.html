@@ -88,39 +88,36 @@ $(function() {
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment"></span>        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> idClient; </div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> prixTot ;</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        vector&lt;Commande&gt; com; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;               </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;       </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    public :</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        vector&lt;Commande&gt; com; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;               </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;       </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    public :</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="classClient.html#ae51af7aa6b8f591496a8f6a4a87a14bf">   31</a></span>&#160;        <a class="code" href="classClient.html#ae51af7aa6b8f591496a8f6a4a87a14bf">Client</a>();</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <a class="code" href="classClient.html">Client</a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> idC, vector&lt;Commande&gt; &amp; carte); <span class="comment">// on appelle le constructeur de temps pour creer un objet de la classe </span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment"></span>        ~<a class="code" href="classClient.html">Client</a>();</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="classClient.html#a498835befd96d3d5040bcc2a353d3a81">   38</a></span>&#160;        <span class="keywordtype">int</span> <a class="code" href="classClient.html#a498835befd96d3d5040bcc2a353d3a81">paiement</a>(); <span class="comment">// renvoie le prixTot</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> getIdC() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> getPrix() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keywordtype">void</span> setPrix(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp; prix);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        vector&lt;Commande&gt; getCom() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keywordtype">void</span> setCom(vector&lt;Commande&gt; c);</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="comment">//Commande getCom();</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment"></span>        <span class="keywordtype">void</span> commandeAleatoire(<span class="keyword">const</span> vector&lt;Commande&gt; &amp; carte); <span class="comment">// remplie le tableau de commande avec des recette entre 1 et 3</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keywordtype">void</span> calculePrix(); <span class="comment">// retourne le prix de la commande</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keywordtype">void</span> erase(<span class="keywordtype">int</span> j);</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;};</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="classClient.html#ae51af7aa6b8f591496a8f6a4a87a14bf">   32</a></span>&#160;        <a class="code" href="classClient.html#ae51af7aa6b8f591496a8f6a4a87a14bf">Client</a>();</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <a class="code" href="classClient.html">Client</a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> idC, vector&lt;Commande&gt; &amp; carte); <span class="comment">// on appelle le constructeur de temps pour creer un objet de la classe </span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment"></span>        ~<a class="code" href="classClient.html">Client</a>();</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> getIdC() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> getPrix() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keywordtype">void</span> setPrix(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp; prix);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        vector&lt;Commande&gt; getCom() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keywordtype">void</span> setCom(vector&lt;Commande&gt; c);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keywordtype">void</span> commandeAleatoire(<span class="keyword">const</span> vector&lt;Commande&gt; &amp; carte); <span class="comment">// remplie le tableau de commande avec des recette entre 1 et 3</span></div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keywordtype">void</span> calculePrix(); </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keywordtype">void</span> erase(<span class="keywordtype">int</span> j);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;};</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aclassClient_html"><div class="ttname"><a href="classClient.html">Client</a></div><div class="ttdef"><b>Definition:</b> Client.h:11</div></div>
-<div class="ttc" id="aclassClient_html_a498835befd96d3d5040bcc2a353d3a81"><div class="ttname"><a href="classClient.html#a498835befd96d3d5040bcc2a353d3a81">Client::paiement</a></div><div class="ttdeci">int paiement()</div></div>
-<div class="ttc" id="aclassClient_html_ae51af7aa6b8f591496a8f6a4a87a14bf"><div class="ttname"><a href="classClient.html#ae51af7aa6b8f591496a8f6a4a87a14bf">Client::Client</a></div><div class="ttdeci">Client()</div><div class="ttdoc">un construscteur de Client</div></div>
+<div class="ttc" id="aclassClient_html_ae51af7aa6b8f591496a8f6a4a87a14bf"><div class="ttname"><a href="classClient.html#ae51af7aa6b8f591496a8f6a4a87a14bf">Client::Client</a></div><div class="ttdeci">Client()</div><div class="ttdoc">Construscteur de Client.</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

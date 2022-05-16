@@ -4,19 +4,19 @@
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classCommande_a5a90941a22b01f60d0700402180307c7}{Commande}} ()
-\begin{DoxyCompactList}\small\item\em un constructeur de \mbox{\hyperlink{classCommande}{Commande}} \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Constructeur de \mbox{\hyperlink{classCommande}{Commande}}. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classCommande_acbf4d64ab8ff81deca31934d84f70c34}{Commande}} (string nom, unsigned int prix)
-\begin{DoxyCompactList}\small\item\em un constructeur de \mbox{\hyperlink{classCommande}{Commande}} \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Constructeur de \mbox{\hyperlink{classCommande}{Commande}} $<$. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classCommande_aa01cf68d75741bdf9c2721d0907da68f}{$\sim$\+Commande}} ()
-\begin{DoxyCompactList}\small\item\em le destructeur de \mbox{\hyperlink{classCommande}{Commande}} \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Destructeur de \mbox{\hyperlink{classCommande}{Commande}}. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classCommande_a411aa4145b946ee34a82c5eadd852fd9}{set\+Nom}} (const string \&nom)
-\begin{DoxyCompactList}\small\item\em mutateur de \mbox{\hyperlink{classCommande}{Commande}} \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Mutateur \+: modifie le nom $<$. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classCommande_a35c180ffd88fecd1bec791ede5f899b6}{set\+Prix}} (const unsigned int \&prix)
-\begin{DoxyCompactList}\small\item\em mutateur de \mbox{\hyperlink{classCommande}{Commande}} \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Mutateur \+: modifie le prix $<$. \end{DoxyCompactList}\item 
 string \mbox{\hyperlink{classCommande_a6d75bd4d416067cf2d5f921b7bd5fedd}{get\+Nom}} () const
-\begin{DoxyCompactList}\small\item\em retourne le nom de la commande \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Accesseur \+: recupere le nom. \end{DoxyCompactList}\item 
 unsigned int \mbox{\hyperlink{classCommande_a13b74eb1319c469af0c2d5461c764763}{get\+Prix}} () const
-\begin{DoxyCompactList}\small\item\em fonction qui retourne le prix de la commande \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Accesseur \+: recupere le prix. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
@@ -28,7 +28,7 @@ unsigned int \mbox{\hyperlink{classCommande_a13b74eb1319c469af0c2d5461c764763}{g
 
 
 
-un constructeur de \mbox{\hyperlink{classCommande}{Commande}} 
+Constructeur de \mbox{\hyperlink{classCommande}{Commande}}. 
 
 $<$ \mbox{\Hypertarget{classCommande_acbf4d64ab8ff81deca31934d84f70c34}\label{classCommande_acbf4d64ab8ff81deca31934d84f70c34}} 
 \index{Commande@{Commande}!Commande@{Commande}}
@@ -38,9 +38,16 @@ $<$ \mbox{\Hypertarget{classCommande_acbf4d64ab8ff81deca31934d84f70c34}\label{cl
 
 
 
-un constructeur de \mbox{\hyperlink{classCommande}{Commande}} 
+Constructeur de \mbox{\hyperlink{classCommande}{Commande}} $<$. 
 
-$<$ \mbox{\Hypertarget{classCommande_aa01cf68d75741bdf9c2721d0907da68f}\label{classCommande_aa01cf68d75741bdf9c2721d0907da68f}} 
+$<$
+\begin{DoxyParams}{Parameters}
+{\em nom} & nom de la commande $<$\\
+\hline
+{\em prix} & prix de la commande \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classCommande_aa01cf68d75741bdf9c2721d0907da68f}\label{classCommande_aa01cf68d75741bdf9c2721d0907da68f}} 
 \index{Commande@{Commande}!````~Commande@{$\sim$Commande}}
 \index{````~Commande@{$\sim$Commande}!Commande@{Commande}}
 \doxysubsubsection{\texorpdfstring{$\sim$Commande()}{~Commande()}}
@@ -48,7 +55,7 @@ $<$ \mbox{\Hypertarget{classCommande_aa01cf68d75741bdf9c2721d0907da68f}\label{cl
 
 
 
-le destructeur de \mbox{\hyperlink{classCommande}{Commande}} 
+Destructeur de \mbox{\hyperlink{classCommande}{Commande}}. 
 
 $<$ 
 
@@ -61,7 +68,9 @@ $<$
 
 
 
-retourne le nom de la commande 
+Accesseur \+: recupere le nom. 
+
+Accesseur \+: modifie le nom.
 
 $<$ \mbox{\Hypertarget{classCommande_a13b74eb1319c469af0c2d5461c764763}\label{classCommande_a13b74eb1319c469af0c2d5461c764763}} 
 \index{Commande@{Commande}!getPrix@{getPrix}}
@@ -71,7 +80,9 @@ $<$ \mbox{\Hypertarget{classCommande_a13b74eb1319c469af0c2d5461c764763}\label{cl
 
 
 
-fonction qui retourne le prix de la commande 
+Accesseur \+: recupere le prix. 
+
+Accesseur \+: modifie le prix.
 
 $<$ \mbox{\Hypertarget{classCommande_a411aa4145b946ee34a82c5eadd852fd9}\label{classCommande_a411aa4145b946ee34a82c5eadd852fd9}} 
 \index{Commande@{Commande}!setNom@{setNom}}
@@ -81,9 +92,16 @@ $<$ \mbox{\Hypertarget{classCommande_a411aa4145b946ee34a82c5eadd852fd9}\label{cl
 
 
 
-mutateur de \mbox{\hyperlink{classCommande}{Commande}} 
+Mutateur \+: modifie le nom $<$. 
 
-$<$ \mbox{\Hypertarget{classCommande_a35c180ffd88fecd1bec791ede5f899b6}\label{classCommande_a35c180ffd88fecd1bec791ede5f899b6}} 
+Mutateur \+: recupere le nom $<$.
+
+$<$
+\begin{DoxyParams}{Parameters}
+{\em nom} & nom de la commande \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classCommande_a35c180ffd88fecd1bec791ede5f899b6}\label{classCommande_a35c180ffd88fecd1bec791ede5f899b6}} 
 \index{Commande@{Commande}!setPrix@{setPrix}}
 \index{setPrix@{setPrix}!Commande@{Commande}}
 \doxysubsubsection{\texorpdfstring{setPrix()}{setPrix()}}
@@ -91,9 +109,16 @@ $<$ \mbox{\Hypertarget{classCommande_a35c180ffd88fecd1bec791ede5f899b6}\label{cl
 
 
 
-mutateur de \mbox{\hyperlink{classCommande}{Commande}} 
+Mutateur \+: modifie le prix $<$. 
 
-$<$ 
+Mutateur \+: recupere le prix $<$.
+
+$<$
+\begin{DoxyParams}{Parameters}
+{\em prix} & prix de la commande \\
+\hline
+\end{DoxyParams}
+
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

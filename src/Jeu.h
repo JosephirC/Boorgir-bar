@@ -23,7 +23,7 @@ class Jeu{
         /** < @brief Objectif de la partie */
         Objectif obj; 
 
-        int additionArgent;  // additionArgent = tabC[i].paiement;
+        unsigned int additionArgent;  // additionArgent = tabC[i].paiement;
 
         /** < @brief Contient les Clients cree qui arrivent au restau */
         vector<Client> tabClient; 
@@ -75,7 +75,7 @@ class Jeu{
         /** < @brief accesseur : recupere le tableau des recettes */
         vector<Recette> & getTabRec();
 
-        int & getAdditionArgent();
+        unsigned int & getAdditionArgent();
         void setAdditionArgent(unsigned int & i);
 
         /** < @brief accesseur : recupere le nom de la recette de la carte */
@@ -96,9 +96,9 @@ class Jeu{
 
        void money(unsigned int & );
         /** < @brief permet d'effacer un client */
-        bool effacerClient();
+        bool nouveauClient();
 
-
+        bool argentAtteint();
 
 };
 

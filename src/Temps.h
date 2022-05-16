@@ -35,6 +35,10 @@ class Temps{
         /** < @brief accesseur qui recupere le tick */
         clock_t getClock() const;
 
+        void setClock();
+
+
+
         /** < @brief retourne le temps restant de la partie */
         double tempsRestant();
         // temps - (t2 - t1)

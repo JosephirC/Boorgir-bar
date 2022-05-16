@@ -3,11 +3,12 @@
 
 #include "../Jeu.h"
 
-/** < @brief  */
-void txtBoucle (Jeu & j);
 
-void txtBoucleAcc (Jeu & j);
 
-void txtBoucleFin(Jeu &jeu);
+void txtBoucle (Jeu & j,bool &ok);
+void txtBoucleAcc (Jeu & j,bool &ok);
+void txtBoucleFin(Jeu &jeu,string g, bool &ok);
+
+void boucleJeu(Jeu & j);
 
 #endif

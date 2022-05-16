@@ -65,3 +65,11 @@ Client2 21 ./img/client2.png 300 400 155 281 1
 Client3 22 ./img/client3.png 500 400 155 281 2
 
 Client 23 ./img/client4.png 700 400 155 281 3
+
+Bulle0 24 ./img/Bulle.png 110 270 130 130 0
+
+Bulle1 25 ./img/Bulle.png 310 270 130 130 1
+
+Bulle2 26 ./img/Bulle.png 510 270 130 130 2
+
+Bulle3 27 ./img/Bulle.png 710 270 130 130 3

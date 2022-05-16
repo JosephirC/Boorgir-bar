@@ -27,7 +27,7 @@ class Image{
         Image();
 
         Image(const string & nomIm, const unsigned int & eIm, const string & cheminIm, const unsigned int & xIm, const unsigned int & yIm, const unsigned int & wIm, const unsigned int & hIm, const unsigned int & cIm);
-
+        
         void loadFromFile(const char * filename, SDL_Renderer * renderer);
 
         void loadFromCurrentSurface(SDL_Renderer * renderer);

@@ -4,6 +4,8 @@
 #include "sdlImage.h"
 #include "../Temps.h"
 #include "../Client.h"
+//#include "../Jeu.h"
+#include "../Commande.h"
 #include <stdlib.h>
 #include <string.h>
 #include <fstream>
@@ -20,7 +22,11 @@ float temps () {
 // ============= CLASS SDLJEU =============== //
 sdlJeu::sdlJeu () : jeu() {
     /**********************Nombre d'ingredient ajoute par le joueur*************/
+
+    
     nbrIngJ = 26;
+    nbrClientServi =0;
+    aServir="";
     newImage.setChemin("img/PainHD.png");
     
     image0.setChemin(newImage.getChemin());
@@ -128,6 +134,8 @@ sdlJeu::sdlJeu () : jeu() {
     image1.loadFromFile(image1.getChemin().c_str(), renderer);
     image2.loadFromFile(image2.getChemin().c_str(), renderer);
     image3.loadFromFile(image3.getChemin().c_str(), renderer);
+
+    loadImgCommande();
     /************************************************************************************/
     /****************************************FONTS*******************************************/
 
@@ -296,12 +304,6 @@ void sdlJeu::sdlAff () {
             im[i].draw(renderer, im[i].getX(), im[i].getY(), im[i].getW(), im[i].getH());
         }
 
-        if(im[i].getEmplacement() > 19 && im[i].getEmplacement() < 24 )
-        {
-            im[i].draw(renderer, im[i].getX(), im[i].getY(), im[i].getW(), im[i].getH());
-        }
-
-
     }
     
     //newImage.draw(renderer,newImage.getX() ,newImage.getY(), newImage.getW(), newImage.getH());
@@ -382,6 +384,16 @@ void sdlJeu::sdlAff () {
         client.h = 280;
         SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
         SDL_RenderDrawRect(renderer, &client);
+    }
+
+    for(unsigned int i =0; i < 4; i++){
+        SDL_Rect commande;
+        commande.x = 100 + i * 200;
+        commande.y = 250;
+        commande.w = 150;
+        commande.h = 140;
+        SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+        SDL_RenderDrawRect(renderer, &commande);
     }*/
 
     
@@ -405,7 +417,7 @@ void sdlJeu::mousePress(SDL_MouseButtonEvent& b){
                     if(image0.getNom()== "PainBSteakSaladeTomateKetchup"){
                             cout <<"wtf"<<endl;
                             //cout << "Wtf newima" << newImage
-                            if(newImage.getNom() == "Ketchup" /*|| newImage.getNom() == "Mayo"*/){
+                            if(newImage.getNom() == "Ketchup"){
                                 cout << "098743Can't add more sauce !" << endl;
                                 newImage.setNom("Tomate");
                             }
@@ -421,14 +433,9 @@ void sdlJeu::mousePress(SDL_MouseButtonEvent& b){
 
    
     
-    cout << "over her newImage name is " << newImage.getNom() << endl;
-    cout << "over her imago0 name is " << image0.getNom() << endl;
+    //cout << "over her newImage name is " << newImage.getNom() << endl;
+    //cout << "over her imago0 name is " << image0.getNom() << endl;
     
-
-    /*if(newImage.getNom() == "Frites" || newImage.getNom() != "Jus" || newImage.getNom() != "Soda" ){
-        cout << "bruh" << endl;
-    }*/
-
     if(newImage.getNom() != "Frites" || newImage.getNom() != "Jus" || newImage.getNom() != "Soda" /*&& newImage.getNom() != "Mayo"*/)
     {
         //Case0  
@@ -444,6 +451,7 @@ void sdlJeu::mousePress(SDL_MouseButtonEvent& b){
                     image0.setX(411 + ((130 - image0.getW()) / 2));
                     image0.setY(727 + ((100 - image0.getH()) / 2));
                     image0.setCase(0);
+
                 }
             }
         }
@@ -482,7 +490,6 @@ void sdlJeu::mousePress(SDL_MouseButtonEvent& b){
             }          
         }
 
-
         //Case3
         if(mx > 560 && mx < 699 && my > 837 && my < 937){
             string temp;
@@ -506,24 +513,206 @@ void sdlJeu::mousePress(SDL_MouseButtonEvent& b){
     image3.loadFromFile(image3.getChemin().c_str(), renderer);
 }
 
-void sdlJeu::afficheCommande(){
-    
+void sdlJeu::drawImgClient(){
+    for(unsigned int i = 0; i <im.size(); i++){
+        if(im[i].getEmplacement() > 19 && im[i].getEmplacement() < 24)
+            im[i].draw(renderer, im[i].getX(), im[i].getY(), im[i].getW(), im[i].getH());
+
+        if(im[i].getEmplacement() > 23 && im[i].getEmplacement() < 28)
+            im[i].draw(renderer, im[i].getX(), im[i].getY(), im[i].getW(), im[i].getH());
+    }
+
+
 }
 
+void sdlJeu::chargeInfoClient(){
+    jeu.chargerCarte("./txt/Carte.txt");
+    jeu.creationClient(4);
+    for(unsigned int i = 0; i < jeu.getTabClient().size(); i++){
+        for(unsigned int j = 0; j < jeu.getTabClient()[i].getCom().size(); j++){
+            //cout << endl<<"Le client " << i << " a commande " << jeu.getTabClient()[i].getCom()[j].getNom() << endl;
+            for(unsigned int k = 0; k< im.size(); k++){
+                if(jeu.getTabClient()[i].getCom()[j].getNom() == im[k].getNom())
+                {
+                    if(i == 0)
+                        imCom0.push_back(im[k]);
+                    
+                    if(i == 1)
+                        imCom1.push_back(im[k]);
+                    
 
+                    if(i == 2)
+                        imCom2.push_back(im[k]);
+                    
+                    if(i == 3)
+                        imCom3.push_back(im[k]);
+                    
+                }
+            }
+        }
+    }
 
+}
+
+void sdlJeu::loadImgCommande(){
+    for(unsigned int i =0; i < imCom0.size(); i++){
+        imCom0[i].loadFromFile(imCom0[i].getChemin().c_str(), renderer);
+    }
+
+    for(unsigned int i =0; i < imCom1.size(); i++){
+        imCom1[i].loadFromFile(imCom1[i].getChemin().c_str(), renderer);
+    }
+    
+    for(unsigned int i =0; i < imCom2.size(); i++){
+        imCom2[i].loadFromFile(imCom2[i].getChemin().c_str(), renderer);
+    }
+    
+    for(unsigned int i =0; i < imCom3.size(); i++){
+        imCom3[i].loadFromFile(imCom3[i].getChemin().c_str(), renderer);
+    }
+}
+
+void sdlJeu::drawImgCommande(){
+    for(unsigned int i =0; i < imCom0.size(); i++){
+        unsigned int x = 85 + ((im[30].getW() - imCom0[i].getW())/2);
+        unsigned int y = im[30].getY() + ((im[30].getH() - imCom0[i].getH())/2);
+        unsigned int w = imCom0[i].getW() - (imCom0[i].getW()*0.3);
+        unsigned int h = imCom0[i].getH() - (imCom0[i].getH()*0.3);
+        imCom0[i].draw(renderer,  x + i * 35 , y, w,  h);
+    }
+
+    for(unsigned int i =0; i < imCom1.size(); i++){
+        unsigned int x = 290 + ((im[30].getW() - imCom1[i].getW())/2);
+        unsigned int y = im[30].getY() + ((im[30].getH() - imCom1[i].getH())/2);
+        unsigned int w = imCom1[i].getW() - (imCom1[i].getW()*0.3);
+        unsigned int h = imCom1[i].getH() - (imCom1[i].getH()*0.3);
+        imCom1[i].draw(renderer,  x + i * 35 , y, w,  h);
+    }
+    
+    for(unsigned int i =0; i < imCom2.size(); i++){
+        unsigned int x = 490 + ((im[30].getW() - imCom2[i].getW())/2);
+        unsigned int y = im[30].getY() + ((im[30].getH() - imCom2[i].getH())/2);
+        unsigned int w = imCom2[i].getW() - (imCom2[i].getW()*0.3);
+        unsigned int h = imCom2[i].getH() - (imCom2[i].getH()*0.3);
+        imCom2[i].draw(renderer,  x + i * 35 , y, w,  h);
+    }
+    
+    for(unsigned int i =0; i < imCom3.size(); i++){
+        unsigned int x = 690 + ((im[30].getW() - imCom3[i].getW())/2);
+        unsigned int y = im[30].getY() + ((im[30].getH() - imCom3[i].getH())/2);
+        unsigned int w = imCom3[i].getW() - (imCom3[i].getW()*0.3);
+        unsigned int h = imCom3[i].getH() - (imCom3[i].getH()*0.3);
+       imCom3[i].draw(renderer,  x + i * 35 , y, w,  h);
+    }
+}
+
+void sdlJeu::servirClient(){
+  
+
+    if(mx > 110 && mx < 240 && my > 270 && my < 400){
+        cout << "hola" <<endl;
+    }
+
+    for(unsigned int i =0; i<imCom0.size(); i++){
+        //Table 0
+        if(mx > 411 && mx < 550 && my > 727 && my < 827){
+            cout << "im0" << image0.getNom() << endl;
+            if(image0.getNom() == imCom0[i].getNom()){
+                aServir = image0.getNom();
+                cout << "seerve me0 " << endl;
+            }
+            
+            if(image1.getNom() == imCom1[i].getNom()){
+                aServir = image1.getNom();
+                cout << "seerve me1" << endl;
+            }
+        
+            
+            if(image2.getNom() == imCom2[i].getNom()){
+                aServir = image2.getNom();
+                cout << "seerve me2 " << endl;
+            }
+
+            if(image3.getNom() == imCom3[i].getNom()){
+                aServir = image3.getNom();
+                cout << "seerve me3 " << endl;
+            }
+        }
+    }
+
+      //Servir Client 0
+    if(mx > 95 && mx < 250 && my > 400 && my < 681){
+        for(unsigned int i = 0; i < imCom0.size(); i++){
+            if(aServir == imCom0[i].getNom()){
+                cout<< "delete me" << aServir << endl;
+                //jeu.effaceRecette(0, i);
+            }
+
+        }
+    }
+
+    //Servir Client 1
+    if(mx > 300 && mx < 455 && my > 400 && my < 681){
+        for(unsigned int i = 0; i < imCom1.size(); i++){
+            if(aServir == imCom1[i].getNom()){
+                cout<< "delete me" << aServir << endl;
+                //jeu.effaceRecette(0, i);
+            }
+
+        }
+    }
+
+    if(mx > 500 && mx < 555 && my > 400 && my < 681){
+        for(unsigned int i = 0; i < imCom2.size(); i++){
+            if(aServir == imCom2[i].getNom()){
+                cout<< "delete me" << aServir << endl;
+                //jeu.effaceRecette(0, i);
+            }
+
+        }
+    }
+
+    if(mx > 700 && mx < 855 && my > 400 && my < 681){
+        for(unsigned int i = 0; i < imCom3.size(); i++){
+            if(aServir == imCom3[i].getNom()){
+                cout<< "delete me" << aServir << endl;
+                //jeu.effaceRecette(0, i);
+            }
+
+        }
+    }
+}
 
 void sdlJeu::sdlBoucle () {
     SDL_Event events;
 	bool quit = false;
     jeu.getObj().choixNiveau(1);
-    
-    jeu.creationClient(4);
-    for(unsigned int i =0; i < jeu.getTabClient().size(); i++){
-        for(unsigned int j = 0; j < jeu.getTabClient()[i].getCom().size(); j++){
-            cout << "Le client " << i << " a commande " << jeu.getTabClient()[i].getCom()[j].getNom() << endl;
+    chargeInfoClient();
+    cout << imCom0.size() << " bru" << endl;
+     /*for(unsigned int i = 0; i < imCom0.size(); i++){
+            //cout << " 0for image " << i << " we have " << imCom0[i].getNom() << endl;
+            cout << "Nom : "<<  " "<< imCom0[i].getNom() <<
+            " | Emplacement " << " "<< imCom0[i].getEmplacement() << 
+            " | Chemin : " << " "<< imCom0[i].getChemin() <<
+            " | X : " << " "<< imCom0[i].getX() << 
+            " | Y : " << " "<< imCom0[i].getY() << 
+            " | W : " << " "<< imCom0[i].getW() << 
+            " | H : " << " "<< imCom0[i].getH() <<
+            endl;
+
         }
-    }
+        cout << endl;
+        for(unsigned int i = 0; i < imCom1.size(); i++){
+            cout << " 1for image " << i << " we have " << imCom1[i].getNom() << endl;
+        }
+        cout << endl;
+        for(unsigned int i = 0; i < imCom2.size(); i++){
+            cout << " 2for image " << i << " we have " << imCom2[i].getNom() << endl;
+        }
+        cout << endl;
+        for(unsigned int i = 0; i < imCom3.size(); i++){
+            cout << " 3for image " << i << " we have " << imCom3[i].getNom() << endl;
+        }*/
 
     // tant que ce n'est pas la fin ...
 	while (!quit) {
@@ -558,11 +747,22 @@ void sdlJeu::sdlBoucle () {
                             Mix_PlayChannel(-1,sound,0);*/
 			        }
                     if(events.type == SDL_MOUSEBUTTONDOWN){
-                        mousePress(events.button);
+                        if(events.button.button == SDL_BUTTON_LEFT){
+                            mousePress(events.button);
+                            //servirClient();
+                        }
+                        if(events.button.button == SDL_BUTTON_RIGHT){
+                            servirClient();
+                        }     
                     }
+                   
 		}
          // on affiche le jeu sur le buffer cachï¿½
         sdlAff();
+
+        drawImgClient();
+        drawImgCommande();
+
 		// on permute les deux buffers (cette fonction ne doit se faire qu'une seule fois dans la boucle)
         SDL_RenderPresent(renderer);
 	}

@@ -7,6 +7,8 @@
 #include <SDL2/SDL_mixer.h>
 #include <vector>
 #include "../Jeu.h"
+#include "../Client.h"
+#include "../Commande.h"
 #include "sdlImage.h"
 #include "sdlLoadImage.h"
 
@@ -36,13 +38,21 @@ class sdlJeu {
         unsigned int nbrIngJ;
 
         vector<Image> im;
-
+        vector<Image> imCom0;
+        vector<Image> imCom1;
+        vector<Image> imCom2;
+        vector<Image> imCom3;
+        
         loadImage loadImg;
 
         Image newImage;
         Image image0, image1, image2, image3;
 
         int mx, my; 
+
+        unsigned int nbrClientServi;
+
+        string aServir;
 
     public :
 
@@ -78,9 +88,16 @@ class sdlJeu {
 
         void mousePress(SDL_MouseButtonEvent& b);
 
-        void afficheCommande();
+        void drawImgClient();
 
-        void afficheClient();
+        void chargeInfoClient();
+
+        void loadImgCommande();
+
+        void drawImgCommande();
+
+        void servirClient();
+
 };
 
 #endif

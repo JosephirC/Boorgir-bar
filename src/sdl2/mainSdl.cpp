@@ -5,6 +5,7 @@
 
 using namespace std;
 
+/** < @brief Fonction principale de SDL */
 int main()
 {
     srand(time(NULL));

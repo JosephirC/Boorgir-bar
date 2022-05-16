@@ -16,26 +16,33 @@ class sdlJeu {
 
     private : 
 
+        /** < @param jeu classe Jeu */
         Jeu jeu;
 
+        /** < @param window Fenetre de SDL */
         SDL_Window * window;
+        /** < @param renderer Charge la fenetre graphique  */
         SDL_Renderer * renderer;
 
+        /** < @param font Calligraphie du texte */
         TTF_Font * font;
+        /** < @param font_im Image du texte */
         Image font_im;
+        /** < @param font_color Couleur du texte */
         SDL_Color font_color;
+
 
         Mix_Chunk * sound;
         bool withSound;
 
-        bool souris;
-        bool touche;
 
+        /** < @param background Fond d'ecran de l'image */
         Image background;
         Image Argent;
         Image Time;
         Image Plat;
 
+        /** < @param nbrIngJ Nombre d'ingredients  */
         unsigned int nbrIngJ;
 
         vector<Image> im;
@@ -49,13 +56,19 @@ class sdlJeu {
         Image newImage;
         Image image0, image1, image2, image3;
 
+        /** < @param mx coordonnee x de la souris
+        * @param my coordonnee y de la souris
+        */
         int mx, my; 
-
+*
+        /** < @param nbrClientServi Nombre de clients servies */
         unsigned int nbrClientServi;
         unsigned int zero, one, two, three;
 
+        /** < @param aServir Nombre de client a servir */
         string aServir;
         string isExtra;
+        /** < @param idService identifiant du Service */
         unsigned int idService;
 
     public :

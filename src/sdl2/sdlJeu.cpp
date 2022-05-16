@@ -177,14 +177,14 @@ sdlJeu::sdlJeu () : jeu() {
     /*****************************************CHANGE FICHIER DE SON*************************************/
     if (withSound)
     {
-        sound = Mix_LoadWAV("data/son.wav");
+        /*sound = Mix_LoadWAV("data/son.wav");
         if (sound == NULL) 
             sound = Mix_LoadWAV("../data/son.wav");
         if (sound == NULL) {
                 cout << "Failed to load son.wav! SDL_mixer Error: " << Mix_GetError() << endl; 
                 SDL_Quit();
                 exit(1);
-        }
+        }*/
     }
 
 }
@@ -1030,7 +1030,7 @@ void sdlJeu::sdlBoucle () {
        
 		// tant qu'il y a des evenements ï¿½ traiter (cette boucle n'est pas bloquante)
 		while (SDL_PollEvent(&events)) {
-            rempliClient();
+            //rempliClient();
 			if (events.type == SDL_QUIT) quit = true;       // Si l'utilisateur a clique sur la croix de fermeture
                 else if (events.type == SDL_KEYDOWN) {       // Si une touche est enfoncee
                         //bool mangePastille = false;

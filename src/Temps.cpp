@@ -36,6 +36,10 @@ void Temps::setTemps(double t){
      return t1;
  }
 
+ void Temps::setClock(){
+     t1 = clock()/(double)CLOCKS_PER_SEC;
+ }
+
 
 //double timeInSeconds = clockTicksTaken / (double) CLOCKS_PER_SEC;
 /** < @brief retourne le temps passe de la partie */

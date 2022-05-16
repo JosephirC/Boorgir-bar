@@ -15,6 +15,13 @@ using namespace std;
 /** < @brief constructeur de la classe Jeu */
 Jeu::Jeu(){
 
+    chargerCarte("./txt/Carte.txt");
+	chargerRecette("./txt/test.txt");
+	creationClient(4);
+	chargerIngredient("./txt/Ingredients.txt");
+	additionArgent = 0;
+
+
 }
 
 /** < @brief constructeur de la classe Jeu */
@@ -24,8 +31,9 @@ Jeu::Jeu(int typeJeu, int niveau){
 
 /** < @brief destructeur de la classe Jeu */
 Jeu::~Jeu(){
-    
+
 }
+
 
 /** < @brief accesseur : recupere les objectifs du jeu */
 Objectif & Jeu::getObj(){
@@ -52,7 +60,7 @@ vector<Recette> & Jeu::getTabRec(){
      return tabRec;
 }
 
-int & Jeu::getAdditionArgent(){
+unsigned int & Jeu::getAdditionArgent(){
     return additionArgent;
 }
 
@@ -225,11 +233,16 @@ void Jeu::money(unsigned int & i){
 }
 
 /** < @brief permet d'effacer un client */
-bool Jeu::effacerClient(){
+bool Jeu::nouveauClient(){
     //bool efface = false;
     if(tabClient.empty() == true ){
         creationClient(4);
         return true;
     }
+    return false;
+}
+
+bool Jeu::argentAtteint(){
+    if(additionArgent >= obj.getArgent() ) return true;
     return false;
 }

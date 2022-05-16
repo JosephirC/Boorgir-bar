@@ -35,15 +35,15 @@ void Objectif::choixNiveau(unsigned int choix) {
     switch(choix)
     {
         case 1:
-            T.setTemps(1);
-            Argent=40;
+            T.setTemps(0.08);
+            Argent=30;
             break;
         case 2:
-            T.setTemps(1);
-            Argent=100;
+            T.setTemps(0.5);
+            Argent=70;
             break;
         case 3:
-            T.setTemps(2);
+            T.setTemps(1);
             Argent=200;
             break;   
     }

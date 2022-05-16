@@ -10,7 +10,7 @@ private:
     int dimx;       
     /** < @param dimy hauteur */
     int dimy;      
-    /** < @brief  stocke le contenu de la fenetre dans un tableau 1D mais on y accede en 2D */
+    /** < @param win stocke le contenu de la fenetre dans un tableau 1D mais on y accede en 2D */
     char* win;      
 
 public:
@@ -21,7 +21,7 @@ public:
     void print (int x, int y, char* c);
     void draw (int x=0, int y=0);
     void pause();
-    /** < @brief lit un caractere si une touche a ete pressee */
+    /** < @brief Accesseur : recupere un caractere si une touche a ete pressee */
     char getCh();
 
 };

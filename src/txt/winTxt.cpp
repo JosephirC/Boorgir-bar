@@ -135,7 +135,7 @@ void WinTXT::pause() {
 #endif
 }
 
-/** < @brief lit un caractere si une touche a ete pressee */
+/** < @brief Accesseur : recupere un caractere si une touche a ete pressee */
 char WinTXT::getCh() {
     char touche=0;
 #ifdef _WIN32

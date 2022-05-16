@@ -11,30 +11,38 @@ class Commande{
 
     private :
   
-        /** < @brief varaible contenant le nom de la commande */
+        /** < @param nomC varaible contenant le nom de la commande */
         string nomC;
-        /** < @brief  prix de la commande */
+        /** < @param prixC  prix de la commande */
         unsigned int prixC;
 
 
     public :
 
-        /** < @brief un constructeur de Commande */
+        /** < @brief Constructeur de Commande */
         Commande();
-        /** < @brief un constructeur de Commande */
+        /** < @brief Constructeur de Commande 
+         * < @param nom nom de la commande
+         * < @param prix prix de la commande
+        */
         Commande(string nom, unsigned int prix);
-        /** < @brief le destructeur de Commande */
+        /** < @brief Destructeur de Commande */
         ~Commande();
 
-        /** < @brief mutateur de Commande */
+        /** < @brief Mutateur : modifie le nom 
+         * < @param nom nom de la commande
+        */
         void setNom(const string &nom);
-        /** < @brief mutateur de Commande */
+        /** < @brief Mutateur : modifie le prix 
+         * < @param prix prix de la commande
+        */
         void setPrix(const unsigned int & prix);
 
-        /** < @brief retourne le nom de la commande */ 
+        /** < @brief Accesseur : recupere le nom */ 
         string getNom() const;
-        /** < @brief fonction qui retourne le prix de la commande */
+        /** < @brief Accesseur : recupere le prix */
         unsigned int getPrix() const;
+        
 };
 
 #endif

@@ -5,32 +5,37 @@
 
 using namespace  std;
 
-/** < @brief constructeur de Objectif */
+/** < @brief Constructeur de Objectif */
 Objectif::Objectif() {
 
 }
 
-/** < @brief destructeur de Objectif */
+/** < @brief Destructeur de Objectif */
 Objectif::~Objectif() {
 
 }
 
+/** < @brief Accesseur : recupere le temps */
 Temps Objectif::getTemps() const{
      return T;
  }
  
+/** < @brief Mutateur : modifie le temps 
+ * <  @param t temps du jeu
+*/
 void Objectif::setTemps(Temps &t){
      t=T;
 } 
 
 
-/** < @brief  retourne l'argent gagne pendant la partie */
+/** < @brief Accesseur : recupere l'argent gagne pendant la partie */
  unsigned int Objectif::getArgent() const{
      return Argent;
  }
 
-
-/** < @brief permet de selectionner le niveau voulu */
+/** < @brief Permet de selectionner le niveau voulu
+ * <  @param choix choisir le niveau de difficulte
+ */
 void Objectif::choixNiveau(unsigned int choix) {
     switch(choix)
     {
@@ -50,8 +55,7 @@ void Objectif::choixNiveau(unsigned int choix) {
 }
 
 
-
-// dans le jeu il faut faire une bouble dans la boucle cause when we finish the level we don't want to be kicked out
+/** < @brief Permet d'arreter la partie */
 bool Objectif::finJeu() const{
     if ( getTemps().tempsAtteint() == true ){
         return true;

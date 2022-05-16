@@ -7,7 +7,10 @@
 using namespace  std;
 
 
-/** < @brief Constructeur de Client */ 
+/** < @brief Constructeur de Client 
+ * < @param idC identifiant du client
+ * < @param carte contient toutes les recettes possibles
+*/ 
 Client::Client(const unsigned int idC,vector<Commande> & carte){
     prixTot=0;
     idClient=idC;
@@ -22,25 +25,31 @@ Client::~Client(){
  
 }
 
-/** < @brief fonction qui retourne l'identifiant du Client */ 
+/** < @brief Accesseur : recupere l'identifiant du Client */ 
 unsigned int Client::getIdC() const{
      return idClient;
  }
 
-/** < @brief fonction qui retourne le prix total de la commande du client */ 
+/** < @brief Accesseur : recupere le prix total de la commande du client */ 
  unsigned int Client::getPrix() const{
      return prixTot;
  }
 
- /** < @brief fonction qui retourne le prix total de la commande du client */ 
+/** < @brief Mutateur : modifie le prix total de la commande du client 
+ * < @param prix prix de la commande
+*/
  void Client::setPrix(const unsigned int & prix){
      prixTot=prix;
  }
 
+/** < @brief Accesseur : recupere la commande */
 vector<Commande> Client::getCom()const {
      return com;
  }
 
+/** < @brief Mutateur : modifie la commande 
+ * < @param c commande
+*/
 void Client::setCom(vector<Commande> c){
     for(unsigned int i = 0; i< c.size(); i++){
         com.push_back(c[i]);
@@ -48,20 +57,21 @@ void Client::setCom(vector<Commande> c){
 }
 
 
-/** < @brief, choisi des recettes aleatoire du menu pour le donner au client */
-void Client::commandeAleatoire(const vector<Commande> &carte){  // commandeAl : Tableau dynamique qui prend aleatoire des recettes de la carte
-    //chargerCarte(carte, "./txt/Carte.txt");
+/** < @brief Choisi des recettes aleatoire du menu pour le donner au client 
+ * < @param carte contient toutes les recettes possibles
+*/
+void Client::commandeAleatoire(const vector<Commande> &carte){  
 
     unsigned int random1, random2, random3;
     unsigned int min1 = 0;
     unsigned int max1 = 5;
     unsigned int min2 = 6;
-    unsigned int max2 = 8; //  
+    unsigned int max2 = 8;  
 
     unsigned int frites = 6;
     unsigned int soda = 7;
     unsigned int jus = 8;
-    //unsigned int rien = ;
+  
 
     string recette1, recette2, recette3, nom1, nom2, nom3;
     unsigned int prix1, prix2, prix3;
@@ -117,7 +127,7 @@ void Client::commandeAleatoire(const vector<Commande> &carte){  // commandeAl : 
 
 }
 
-/** < @brief fonction qui calcule le prix que le client doit payer */
+/** < @brief Procedure qui calcule le prix que le client doit payer */
 void Client::calculePrix(){
     prixTot = 0;
     for(unsigned int i = 0; i<com.size(); i++){
@@ -125,7 +135,9 @@ void Client::calculePrix(){
     }
 }
 
-
+/** < @brief Procedure: qui efface un element d'indice j du vecteur com
+ *  < @param j indice de la commande que l'on veut effacer 
+*/
 void Client::erase(int j){
     com.erase( com.begin()+j);
 }

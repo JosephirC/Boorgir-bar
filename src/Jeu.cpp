@@ -12,7 +12,7 @@
 
 using namespace std;
 
-/** < @brief constructeur de la classe Jeu */
+/** < @brief Constructeur de la classe Jeu */
 Jeu::Jeu(){
 
     chargerCarte("./txt/Carte.txt");
@@ -24,46 +24,45 @@ Jeu::Jeu(){
 
 }
 
-/** < @brief constructeur de la classe Jeu */
-Jeu::Jeu(int typeJeu, int niveau){
-
-}
-
-/** < @brief destructeur de la classe Jeu */
+/** < @brief Destructeur de la classe Jeu */
 Jeu::~Jeu(){
 
 }
 
 
-/** < @brief accesseur : recupere les objectifs du jeu */
+/** < @brief Accesseur : recupere les objectifs du jeu */
 Objectif & Jeu::getObj(){
      return obj;
  }
 
-/** < @brief accesseur : recupere le tableau des clients */
+/** < @brief Accesseur : recupere le tableau des clients */
 vector<Client> & Jeu::getTabClient(){
      return tabClient;
  }
 
-/** < @brief accesseur : recupere la carte */
+/** < @brief Accesseur : recupere la carte */
 vector<Commande> & Jeu::getCarte(){
      return carte;
 }
 
-/** < @brief accesseur : recupere le tableau des ingredients */
+/** < @brief Accesseur : recupere le tableau des ingredients */
 vector<Ingredient> & Jeu::getTabIng(){
      return tabIng;
 }
 
-/** < @brief accesseur : recupere le tableau des recettes */
+/** < @brief Accesseur : recupere le tableau des recettes */
 vector<Recette> & Jeu::getTabRec(){
      return tabRec;
 }
 
+/** < @brief Accesseur : recupere la somme d'argent */
 unsigned int & Jeu::getAdditionArgent(){
     return additionArgent;
 }
 
+/** < @brief Mutateur : modifie la somme d'argent
+ * < @param i somme d'argent
+ */
 void Jeu::setAdditionArgent(unsigned int & i){
     additionArgent=i;
 }
@@ -85,7 +84,9 @@ ostream &operator<< (ostream & flux, const Recette &rec){
     return flux;
 }
 
-/** < @brief charge tous les ingredients*/
+/** < @brief Charge tous les ingredients
+ * < @param filenameIng chemin vers le fichier Ingredient
+*/
 void Jeu::chargerIngredient(const string &filenameIng){
     //vector<Ingredient> ingVec;
     ifstream fileIng(filenameIng.c_str());
@@ -116,7 +117,9 @@ void Jeu::chargerIngredient(const string &filenameIng){
         cout << "Failed to open file..." << endl;
 }
 
-/** < @brief charge les recettes*/
+/** < @brief Charge les recettes
+ * < @param filenameRec chemin vers le fichier Recette
+*/
 void Jeu::chargerRecette(const string &filenameRec){
     //vector<Recette> recVec;
     //vector<Ingredient> ingRecVec;             //pour mettre Ingredients
@@ -159,7 +162,9 @@ ostream &operator<< (ostream & flux, const Commande &c){
 }
 
 
-/** < @brief charge la carte */
+/** < @brief Charge la carte 
+ * < @param fileCarte chemin vers le fichier Carte
+*/
 void Jeu::chargerCarte(const string &fileCarte){
     ifstream fileC(fileCarte.c_str());
     string nom;
@@ -176,7 +181,9 @@ void Jeu::chargerCarte(const string &fileCarte){
 }
 
 
-/** < @brief creation du client et de sa comande */
+/** < @brief creation du client et de sa comande 
+ * < @param I taille du vecteur
+*/
 void Jeu::creationClient(const unsigned int &I){
     unsigned int i;
     for(i=0;i<I;i++){
@@ -186,7 +193,10 @@ void Jeu::creationClient(const unsigned int &I){
 }
 
 
-/** < @brief prepare la commande  */
+/** < @brief Prepare la commande 
+ * < @param ing ingredient
+ * < @param i indice du client dont on recupere l'argent
+ */
 string Jeu::PreparerCommande( const string & ing , int i ){
     for (unsigned int j=0;j<tabRec.size();j++){
         if( ing=="Soda" || ing=="Jus" || ing=="Frites") return tabPrep[i] ;
@@ -202,7 +212,10 @@ string Jeu::PreparerCommande( const string & ing , int i ){
     return tabPrep[i];
 }
 
-/** < @brief permet d'effacer une recette */
+/** < @brief Permet d'effacer une recette 
+ * < @param IdCl identifiant du client
+ * < @param IdRec identifiant de la recette
+*/
 void Jeu::effaceRecette(unsigned int & IdCl, unsigned int & IdRec){
         for(unsigned int j = 0; j < tabClient[IdCl].getCom().size() ; j++){
             if(tabClient[IdCl].getCom()[j].getNom() == tabPrep[IdRec]){
@@ -214,7 +227,10 @@ void Jeu::effaceRecette(unsigned int & IdCl, unsigned int & IdRec){
 }
 
 
-/** < @brief permet d'effacer un extra */
+/** < @brief Permet d'effacer un extra
+ * < @param IdCl identifiant du client
+ * < @param ing ingredient
+ */
 void Jeu::effaceExtras(unsigned int & IdCl, const string & ing){
     cout<<ing<<endl;
     for(unsigned int j = 0; j < tabClient[IdCl].getCom().size() ; j++){
@@ -225,6 +241,9 @@ void Jeu::effaceExtras(unsigned int & IdCl, const string & ing){
     }  
 }
 
+/** < @brief Calcule combien d'argent on a gagne au cours de la partie 
+ * < @param i indice du client dont on recupere l'argent
+*/
 void Jeu::money(unsigned int & i){ 
     if(tabClient[i].getCom().size() == 0){
         additionArgent+=tabClient[i].getPrix();
@@ -232,7 +251,7 @@ void Jeu::money(unsigned int & i){
     } 
 }
 
-/** < @brief permet d'effacer un client */
+/** < @brief Permet d'effacer un client */
 bool Jeu::nouveauClient(){
     //bool efface = false;
     if(tabClient.empty() == true ){
@@ -242,12 +261,13 @@ bool Jeu::nouveauClient(){
     return false;
 }
 
+/** < @brief Nous dit si on a atteint la somme d'argent demande de la partie */
 bool Jeu::argentAtteint(){
     if(additionArgent >= obj.getArgent() ) return true;
     return false;
 }
 
-
+/** < @brief Fait le test de regression */
 void testDeRegression(){
     
 }

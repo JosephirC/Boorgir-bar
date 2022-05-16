@@ -1,0 +1,264 @@
+\hypertarget{classJeu}{}\doxysection{Jeu Class Reference}
+\label{classJeu}\index{Jeu@{Jeu}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classJeu_acc5795ee00edf75516d3dfe65be3e6d6}{Jeu}} ()
+\begin{DoxyCompactList}\small\item\em constructeur de la classe \mbox{\hyperlink{classJeu}{Jeu}} \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classJeu_a970fc3b2facfaa3bbfb6eacb91f55810}{Jeu}} (int type\+Jeu, int niveau)
+\begin{DoxyCompactList}\small\item\em il faut lire un fichier .txt qui contient les niveau avec le nbr de client / temps en parametres dans le constructur avec un ifstream \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classJeu_a9cd19e73df169d7f09397be61ba8548c}{$\sim$\+Jeu}} ()
+\begin{DoxyCompactList}\small\item\em il faut lire un fichier .txt qui contient les niveau avec le nbr de client / temps en parametres dans le constructur avec un ifstream \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classObjectif}{Objectif}} \& \mbox{\hyperlink{classJeu_a07e9ade8fd53067397074a6d392441c7}{get\+Obj}} ()
+\begin{DoxyCompactList}\small\item\em accesseur \+: recupere les objectifs du jeu \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classJeu_a100ef61e703fc3910b6f8b7ebf3e3e8c}{charger\+Ingredient}} (const string \&file\+Ingredient)
+\begin{DoxyCompactList}\small\item\em charge tous les ingredients \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classJeu_a7ada59dc099476184ef78463db322f0a}{charger\+Recette}} (const string \&file\+Recette)
+\begin{DoxyCompactList}\small\item\em charge les recettes \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classJeu_a80066374b333b3935720d02da4a6473d}{charger\+Carte}} (const string \&file\+Carte)
+\begin{DoxyCompactList}\small\item\em charge la carte \end{DoxyCompactList}\item 
+vector$<$ \mbox{\hyperlink{classClient}{Client}} $>$ \& \mbox{\hyperlink{classJeu_a1d33bc3593ecc304817c1806e385005e}{get\+Tab\+Client}} ()
+\begin{DoxyCompactList}\small\item\em accesseur \+: recupere le tableau des clients \end{DoxyCompactList}\item 
+vector$<$ \mbox{\hyperlink{classCommande}{Commande}} $>$ \& \mbox{\hyperlink{classJeu_ac86676f98a32d8efdbf0da0b7b400d5c}{get\+Carte}} ()
+\begin{DoxyCompactList}\small\item\em accesseur \+: recupere la carte \end{DoxyCompactList}\item 
+vector$<$ \mbox{\hyperlink{classIngredient}{Ingredient}} $>$ \& \mbox{\hyperlink{classJeu_a783f7dc6d52237d7ae0a2e83bca4a4f8}{get\+Tab\+Ing}} ()
+\begin{DoxyCompactList}\small\item\em accesseur \+: recupere le tableau des ingredients \end{DoxyCompactList}\item 
+vector$<$ \mbox{\hyperlink{classRecette}{Recette}} $>$ \& \mbox{\hyperlink{classJeu_ac78989e835e825267d72d6a2eaf0eb19}{get\+Tab\+Rec}} ()
+\begin{DoxyCompactList}\small\item\em accesseur \+: recupere le tableau des recettes \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classJeu_a3ecb705b0c4a8d90c0295cc28e4e4f6a}\label{classJeu_a3ecb705b0c4a8d90c0295cc28e4e4f6a}} 
+unsigned int \& {\bfseries get\+Addition\+Argent} ()
+\item 
+\mbox{\Hypertarget{classJeu_aa06f4ac6f019f9009cf3915b0b4e20e2}\label{classJeu_aa06f4ac6f019f9009cf3915b0b4e20e2}} 
+void {\bfseries set\+Addition\+Argent} (unsigned int \&i)
+\item 
+string \mbox{\hyperlink{classJeu_aa0fe4e6de6ab5a635b07bf9adf1ab188}{get\+Nom\+Carte}} () const
+\begin{DoxyCompactList}\small\item\em accesseur \+: recupere le nom de la recette de la carte \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classJeu_ac9e968c38fe7eade1f81630c55db0a80}{creation\+Client}} (const unsigned int \&I)
+\begin{DoxyCompactList}\small\item\em creation du client et de sa comande \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{classJeu_af8d3530593f6e825bae479112386e7e8}{Preparer\+Commande}} (const string \&ing, int i)
+\begin{DoxyCompactList}\small\item\em prepare la commande ~\newline
+ \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classJeu_a608b25bae38604b732cd074b1a8a1840}{efface\+Recette}} (unsigned int \&Id\+Cl, unsigned int \&Id\+Rec)
+\begin{DoxyCompactList}\small\item\em permet d\textquotesingle{}effacer une recette \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classJeu_a2b207adf92860e6ff38954cb4f64c302}{efface\+Extras}} (unsigned int \&Id\+Cl, const string \&ing)
+\begin{DoxyCompactList}\small\item\em permet d\textquotesingle{}effacer un extra \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classJeu_a45c6e57afcb7863de26bc8cb1678c727}\label{classJeu_a45c6e57afcb7863de26bc8cb1678c727}} 
+void {\bfseries money} (unsigned int \&)
+\item 
+bool \mbox{\hyperlink{classJeu_a0ff445bc96177340f012bd0bc30d54c2}{nouveau\+Client}} ()
+\begin{DoxyCompactList}\small\item\em permet d\textquotesingle{}effacer un client \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classJeu_af16c13657f4a5321865b2f50271bb61c}\label{classJeu_af16c13657f4a5321865b2f50271bb61c}} 
+bool {\bfseries argent\+Atteint} ()
+\item 
+\mbox{\Hypertarget{classJeu_a88d34743db6bc46a3732b066f2b7892a}\label{classJeu_a88d34743db6bc46a3732b066f2b7892a}} 
+void {\bfseries test\+De\+Regression} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{classJeu_a1b1ae538bf63af759c5be1602885e5a6}{tab\+Prep}} \mbox{[}4\mbox{]}
+\begin{DoxyCompactList}\small\item\em Contient les burger en cours de preparation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classJeu_acc5795ee00edf75516d3dfe65be3e6d6}\label{classJeu_acc5795ee00edf75516d3dfe65be3e6d6}} 
+\index{Jeu@{Jeu}!Jeu@{Jeu}}
+\index{Jeu@{Jeu}!Jeu@{Jeu}}
+\doxysubsubsection{\texorpdfstring{Jeu()}{Jeu()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Jeu\+::\+Jeu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+constructeur de la classe \mbox{\hyperlink{classJeu}{Jeu}} 
+
+$<$ \mbox{\Hypertarget{classJeu_a970fc3b2facfaa3bbfb6eacb91f55810}\label{classJeu_a970fc3b2facfaa3bbfb6eacb91f55810}} 
+\index{Jeu@{Jeu}!Jeu@{Jeu}}
+\index{Jeu@{Jeu}!Jeu@{Jeu}}
+\doxysubsubsection{\texorpdfstring{Jeu()}{Jeu()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Jeu\+::\+Jeu (\begin{DoxyParamCaption}\item[{int}]{type\+Jeu,  }\item[{int}]{niveau }\end{DoxyParamCaption})}
+
+
+
+il faut lire un fichier .txt qui contient les niveau avec le nbr de client / temps en parametres dans le constructur avec un ifstream 
+
+constructeur de la classe \mbox{\hyperlink{classJeu}{Jeu}}
+
+$<$ $<$ constructeur de la classe \mbox{\hyperlink{classJeu}{Jeu}}
+
+$<$ \mbox{\Hypertarget{classJeu_a9cd19e73df169d7f09397be61ba8548c}\label{classJeu_a9cd19e73df169d7f09397be61ba8548c}} 
+\index{Jeu@{Jeu}!````~Jeu@{$\sim$Jeu}}
+\index{````~Jeu@{$\sim$Jeu}!Jeu@{Jeu}}
+\doxysubsubsection{\texorpdfstring{$\sim$Jeu()}{~Jeu()}}
+{\footnotesize\ttfamily Jeu\+::$\sim$\+Jeu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+il faut lire un fichier .txt qui contient les niveau avec le nbr de client / temps en parametres dans le constructur avec un ifstream 
+
+destructeur de la classe \mbox{\hyperlink{classJeu}{Jeu}}
+
+$<$ $<$ destructeur de la classe \mbox{\hyperlink{classJeu}{Jeu}}
+
+$<$ 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classJeu_a80066374b333b3935720d02da4a6473d}\label{classJeu_a80066374b333b3935720d02da4a6473d}} 
+\index{Jeu@{Jeu}!chargerCarte@{chargerCarte}}
+\index{chargerCarte@{chargerCarte}!Jeu@{Jeu}}
+\doxysubsubsection{\texorpdfstring{chargerCarte()}{chargerCarte()}}
+{\footnotesize\ttfamily void Jeu\+::charger\+Carte (\begin{DoxyParamCaption}\item[{const string \&}]{file\+Carte }\end{DoxyParamCaption})}
+
+
+
+charge la carte 
+
+$<$ \mbox{\Hypertarget{classJeu_a100ef61e703fc3910b6f8b7ebf3e3e8c}\label{classJeu_a100ef61e703fc3910b6f8b7ebf3e3e8c}} 
+\index{Jeu@{Jeu}!chargerIngredient@{chargerIngredient}}
+\index{chargerIngredient@{chargerIngredient}!Jeu@{Jeu}}
+\doxysubsubsection{\texorpdfstring{chargerIngredient()}{chargerIngredient()}}
+{\footnotesize\ttfamily void Jeu\+::charger\+Ingredient (\begin{DoxyParamCaption}\item[{const string \&}]{filename\+Ing }\end{DoxyParamCaption})}
+
+
+
+charge tous les ingredients 
+
+$<$ \mbox{\Hypertarget{classJeu_a7ada59dc099476184ef78463db322f0a}\label{classJeu_a7ada59dc099476184ef78463db322f0a}} 
+\index{Jeu@{Jeu}!chargerRecette@{chargerRecette}}
+\index{chargerRecette@{chargerRecette}!Jeu@{Jeu}}
+\doxysubsubsection{\texorpdfstring{chargerRecette()}{chargerRecette()}}
+{\footnotesize\ttfamily void Jeu\+::charger\+Recette (\begin{DoxyParamCaption}\item[{const string \&}]{filename\+Rec }\end{DoxyParamCaption})}
+
+
+
+charge les recettes 
+
+$<$ \mbox{\Hypertarget{classJeu_ac9e968c38fe7eade1f81630c55db0a80}\label{classJeu_ac9e968c38fe7eade1f81630c55db0a80}} 
+\index{Jeu@{Jeu}!creationClient@{creationClient}}
+\index{creationClient@{creationClient}!Jeu@{Jeu}}
+\doxysubsubsection{\texorpdfstring{creationClient()}{creationClient()}}
+{\footnotesize\ttfamily void Jeu\+::creation\+Client (\begin{DoxyParamCaption}\item[{const unsigned int \&}]{I }\end{DoxyParamCaption})}
+
+
+
+creation du client et de sa comande 
+
+$<$ \mbox{\Hypertarget{classJeu_a2b207adf92860e6ff38954cb4f64c302}\label{classJeu_a2b207adf92860e6ff38954cb4f64c302}} 
+\index{Jeu@{Jeu}!effaceExtras@{effaceExtras}}
+\index{effaceExtras@{effaceExtras}!Jeu@{Jeu}}
+\doxysubsubsection{\texorpdfstring{effaceExtras()}{effaceExtras()}}
+{\footnotesize\ttfamily void Jeu\+::efface\+Extras (\begin{DoxyParamCaption}\item[{unsigned int \&}]{Id\+Cl,  }\item[{const string \&}]{ing }\end{DoxyParamCaption})}
+
+
+
+permet d\textquotesingle{}effacer un extra 
+
+$<$ \mbox{\Hypertarget{classJeu_a608b25bae38604b732cd074b1a8a1840}\label{classJeu_a608b25bae38604b732cd074b1a8a1840}} 
+\index{Jeu@{Jeu}!effaceRecette@{effaceRecette}}
+\index{effaceRecette@{effaceRecette}!Jeu@{Jeu}}
+\doxysubsubsection{\texorpdfstring{effaceRecette()}{effaceRecette()}}
+{\footnotesize\ttfamily void Jeu\+::efface\+Recette (\begin{DoxyParamCaption}\item[{unsigned int \&}]{Id\+Cl,  }\item[{unsigned int \&}]{Id\+Rec }\end{DoxyParamCaption})}
+
+
+
+permet d\textquotesingle{}effacer une recette 
+
+$<$ \mbox{\Hypertarget{classJeu_ac86676f98a32d8efdbf0da0b7b400d5c}\label{classJeu_ac86676f98a32d8efdbf0da0b7b400d5c}} 
+\index{Jeu@{Jeu}!getCarte@{getCarte}}
+\index{getCarte@{getCarte}!Jeu@{Jeu}}
+\doxysubsubsection{\texorpdfstring{getCarte()}{getCarte()}}
+{\footnotesize\ttfamily vector$<$ \mbox{\hyperlink{classCommande}{Commande}} $>$ \& Jeu\+::get\+Carte (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+accesseur \+: recupere la carte 
+
+$<$ \mbox{\Hypertarget{classJeu_aa0fe4e6de6ab5a635b07bf9adf1ab188}\label{classJeu_aa0fe4e6de6ab5a635b07bf9adf1ab188}} 
+\index{Jeu@{Jeu}!getNomCarte@{getNomCarte}}
+\index{getNomCarte@{getNomCarte}!Jeu@{Jeu}}
+\doxysubsubsection{\texorpdfstring{getNomCarte()}{getNomCarte()}}
+{\footnotesize\ttfamily string Jeu\+::get\+Nom\+Carte (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+accesseur \+: recupere le nom de la recette de la carte 
+
+$<$ \mbox{\Hypertarget{classJeu_a07e9ade8fd53067397074a6d392441c7}\label{classJeu_a07e9ade8fd53067397074a6d392441c7}} 
+\index{Jeu@{Jeu}!getObj@{getObj}}
+\index{getObj@{getObj}!Jeu@{Jeu}}
+\doxysubsubsection{\texorpdfstring{getObj()}{getObj()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classObjectif}{Objectif}} \& Jeu\+::get\+Obj (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+accesseur \+: recupere les objectifs du jeu 
+
+$<$ \mbox{\Hypertarget{classJeu_a1d33bc3593ecc304817c1806e385005e}\label{classJeu_a1d33bc3593ecc304817c1806e385005e}} 
+\index{Jeu@{Jeu}!getTabClient@{getTabClient}}
+\index{getTabClient@{getTabClient}!Jeu@{Jeu}}
+\doxysubsubsection{\texorpdfstring{getTabClient()}{getTabClient()}}
+{\footnotesize\ttfamily vector$<$ \mbox{\hyperlink{classClient}{Client}} $>$ \& Jeu\+::get\+Tab\+Client (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+accesseur \+: recupere le tableau des clients 
+
+$<$ \mbox{\Hypertarget{classJeu_a783f7dc6d52237d7ae0a2e83bca4a4f8}\label{classJeu_a783f7dc6d52237d7ae0a2e83bca4a4f8}} 
+\index{Jeu@{Jeu}!getTabIng@{getTabIng}}
+\index{getTabIng@{getTabIng}!Jeu@{Jeu}}
+\doxysubsubsection{\texorpdfstring{getTabIng()}{getTabIng()}}
+{\footnotesize\ttfamily vector$<$ \mbox{\hyperlink{classIngredient}{Ingredient}} $>$ \& Jeu\+::get\+Tab\+Ing (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+accesseur \+: recupere le tableau des ingredients 
+
+$<$ \mbox{\Hypertarget{classJeu_ac78989e835e825267d72d6a2eaf0eb19}\label{classJeu_ac78989e835e825267d72d6a2eaf0eb19}} 
+\index{Jeu@{Jeu}!getTabRec@{getTabRec}}
+\index{getTabRec@{getTabRec}!Jeu@{Jeu}}
+\doxysubsubsection{\texorpdfstring{getTabRec()}{getTabRec()}}
+{\footnotesize\ttfamily vector$<$ \mbox{\hyperlink{classRecette}{Recette}} $>$ \& Jeu\+::get\+Tab\+Rec (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+accesseur \+: recupere le tableau des recettes 
+
+$<$ \mbox{\Hypertarget{classJeu_a0ff445bc96177340f012bd0bc30d54c2}\label{classJeu_a0ff445bc96177340f012bd0bc30d54c2}} 
+\index{Jeu@{Jeu}!nouveauClient@{nouveauClient}}
+\index{nouveauClient@{nouveauClient}!Jeu@{Jeu}}
+\doxysubsubsection{\texorpdfstring{nouveauClient()}{nouveauClient()}}
+{\footnotesize\ttfamily bool Jeu\+::nouveau\+Client (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+permet d\textquotesingle{}effacer un client 
+
+$<$ \mbox{\Hypertarget{classJeu_af8d3530593f6e825bae479112386e7e8}\label{classJeu_af8d3530593f6e825bae479112386e7e8}} 
+\index{Jeu@{Jeu}!PreparerCommande@{PreparerCommande}}
+\index{PreparerCommande@{PreparerCommande}!Jeu@{Jeu}}
+\doxysubsubsection{\texorpdfstring{PreparerCommande()}{PreparerCommande()}}
+{\footnotesize\ttfamily string Jeu\+::\+Preparer\+Commande (\begin{DoxyParamCaption}\item[{const string \&}]{ing,  }\item[{int}]{i }\end{DoxyParamCaption})}
+
+
+
+prepare la commande ~\newline
+ 
+
+$<$ 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classJeu_a1b1ae538bf63af759c5be1602885e5a6}\label{classJeu_a1b1ae538bf63af759c5be1602885e5a6}} 
+\index{Jeu@{Jeu}!tabPrep@{tabPrep}}
+\index{tabPrep@{tabPrep}!Jeu@{Jeu}}
+\doxysubsubsection{\texorpdfstring{tabPrep}{tabPrep}}
+{\footnotesize\ttfamily string Jeu\+::tab\+Prep\mbox{[}4\mbox{]}}
+
+
+
+Contient les burger en cours de preparation. 
+
+$<$ $<$ tableau de preparation 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/Jeu.\+h\item 
+src/Jeu.\+cpp\end{DoxyCompactItemize}

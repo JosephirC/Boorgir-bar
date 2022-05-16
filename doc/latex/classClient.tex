@@ -1,0 +1,155 @@
+\hypertarget{classClient}{}\doxysection{Client Class Reference}
+\label{classClient}\index{Client@{Client}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classClient_ae51af7aa6b8f591496a8f6a4a87a14bf}{Client}} ()
+\begin{DoxyCompactList}\small\item\em un construscteur de \mbox{\hyperlink{classClient}{Client}} \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classClient_ab115e4ab3dd9d77d0fc7ceae03050ea6}{Client}} (const unsigned int idC, vector$<$ \mbox{\hyperlink{classCommande}{Commande}} $>$ \&carte)
+\begin{DoxyCompactList}\small\item\em un constructeur de \mbox{\hyperlink{classClient}{Client}} \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classClient_a840e519ca781888cbd54181572ebe3a7}{$\sim$\+Client}} ()
+\begin{DoxyCompactList}\small\item\em le destructeur de \mbox{\hyperlink{classClient}{Client}} \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classClient_a498835befd96d3d5040bcc2a353d3a81}{paiement}} ()
+\begin{DoxyCompactList}\small\item\em ~\newline
+ \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{classClient_a1bfb2cb8112f872b975fb095bec71efb}{get\+IdC}} () const
+\begin{DoxyCompactList}\small\item\em fonction qui retourne l\textquotesingle{}identifiant du \mbox{\hyperlink{classClient}{Client}} \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{classClient_a3e45b89b15040ee950a0ab302f0053cc}{get\+Prix}} () const
+\begin{DoxyCompactList}\small\item\em fonction qui retourne le prix total de la commande du client \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classClient_a3140b4c5e07061fa47945707b55350e7}{set\+Prix}} (const unsigned int \&prix)
+\begin{DoxyCompactList}\small\item\em fonction qui retourne le prix total de la commande du client \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classClient_aef1229dfb9564163fee8a5d340d770cc}\label{classClient_aef1229dfb9564163fee8a5d340d770cc}} 
+vector$<$ \mbox{\hyperlink{classCommande}{Commande}} $>$ {\bfseries get\+Com} () const
+\item 
+\mbox{\Hypertarget{classClient_a418393289b8c17eab1204dc0d12009aa}\label{classClient_a418393289b8c17eab1204dc0d12009aa}} 
+void {\bfseries set\+Com} (vector$<$ \mbox{\hyperlink{classCommande}{Commande}} $>$ c)
+\item 
+void \mbox{\hyperlink{classClient_a9796ee3bfd06e1186c1c491c48858686}{commande\+Aleatoire}} (const vector$<$ \mbox{\hyperlink{classCommande}{Commande}} $>$ \&carte)
+\begin{DoxyCompactList}\small\item\em , choisi des recettes aleatoire du menu pour le donner au client \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classClient_aeb66d84d78dcdb8b2aeaa32f1ad26d93}{calcule\+Prix}} ()
+\begin{DoxyCompactList}\small\item\em fonction qui calcule le prix que le client doit payer \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classClient_a0a460bbd7ba2cfaee7c153582107972a}{erase}} (int j)
+\begin{DoxyCompactList}\small\item\em Procedure\+: qui efface un element d\textquotesingle{}indice j du vecteur com. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classClient_ae51af7aa6b8f591496a8f6a4a87a14bf}\label{classClient_ae51af7aa6b8f591496a8f6a4a87a14bf}} 
+\index{Client@{Client}!Client@{Client}}
+\index{Client@{Client}!Client@{Client}}
+\doxysubsubsection{\texorpdfstring{Client()}{Client()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Client\+::\+Client (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+un construscteur de \mbox{\hyperlink{classClient}{Client}} 
+
+$<$ \mbox{\Hypertarget{classClient_ab115e4ab3dd9d77d0fc7ceae03050ea6}\label{classClient_ab115e4ab3dd9d77d0fc7ceae03050ea6}} 
+\index{Client@{Client}!Client@{Client}}
+\index{Client@{Client}!Client@{Client}}
+\doxysubsubsection{\texorpdfstring{Client()}{Client()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Client\+::\+Client (\begin{DoxyParamCaption}\item[{const unsigned int}]{idC,  }\item[{vector$<$ \mbox{\hyperlink{classCommande}{Commande}} $>$ \&}]{carte }\end{DoxyParamCaption})}
+
+
+
+un constructeur de \mbox{\hyperlink{classClient}{Client}} 
+
+Constructeur de \mbox{\hyperlink{classClient}{Client}}.
+
+$<$ \mbox{\Hypertarget{classClient_a840e519ca781888cbd54181572ebe3a7}\label{classClient_a840e519ca781888cbd54181572ebe3a7}} 
+\index{Client@{Client}!````~Client@{$\sim$Client}}
+\index{````~Client@{$\sim$Client}!Client@{Client}}
+\doxysubsubsection{\texorpdfstring{$\sim$Client()}{~Client()}}
+{\footnotesize\ttfamily Client\+::$\sim$\+Client (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+le destructeur de \mbox{\hyperlink{classClient}{Client}} 
+
+Destructeur de \mbox{\hyperlink{classClient}{Client}}.
+
+$<$ 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classClient_aeb66d84d78dcdb8b2aeaa32f1ad26d93}\label{classClient_aeb66d84d78dcdb8b2aeaa32f1ad26d93}} 
+\index{Client@{Client}!calculePrix@{calculePrix}}
+\index{calculePrix@{calculePrix}!Client@{Client}}
+\doxysubsubsection{\texorpdfstring{calculePrix()}{calculePrix()}}
+{\footnotesize\ttfamily void Client\+::calcule\+Prix (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+fonction qui calcule le prix que le client doit payer 
+
+$<$ \mbox{\Hypertarget{classClient_a9796ee3bfd06e1186c1c491c48858686}\label{classClient_a9796ee3bfd06e1186c1c491c48858686}} 
+\index{Client@{Client}!commandeAleatoire@{commandeAleatoire}}
+\index{commandeAleatoire@{commandeAleatoire}!Client@{Client}}
+\doxysubsubsection{\texorpdfstring{commandeAleatoire()}{commandeAleatoire()}}
+{\footnotesize\ttfamily void Client\+::commande\+Aleatoire (\begin{DoxyParamCaption}\item[{const vector$<$ \mbox{\hyperlink{classCommande}{Commande}} $>$ \&}]{carte }\end{DoxyParamCaption})}
+
+
+
+, choisi des recettes aleatoire du menu pour le donner au client 
+
+$<$ \mbox{\Hypertarget{classClient_a0a460bbd7ba2cfaee7c153582107972a}\label{classClient_a0a460bbd7ba2cfaee7c153582107972a}} 
+\index{Client@{Client}!erase@{erase}}
+\index{erase@{erase}!Client@{Client}}
+\doxysubsubsection{\texorpdfstring{erase()}{erase()}}
+{\footnotesize\ttfamily void Client\+::erase (\begin{DoxyParamCaption}\item[{int}]{j }\end{DoxyParamCaption})}
+
+
+
+Procedure\+: qui efface un element d\textquotesingle{}indice j du vecteur com. 
+
+$<$
+\begin{DoxyParams}{Parameters}
+{\em j} & ~\newline
+ \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classClient_a1bfb2cb8112f872b975fb095bec71efb}\label{classClient_a1bfb2cb8112f872b975fb095bec71efb}} 
+\index{Client@{Client}!getIdC@{getIdC}}
+\index{getIdC@{getIdC}!Client@{Client}}
+\doxysubsubsection{\texorpdfstring{getIdC()}{getIdC()}}
+{\footnotesize\ttfamily unsigned int Client\+::get\+IdC (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+fonction qui retourne l\textquotesingle{}identifiant du \mbox{\hyperlink{classClient}{Client}} 
+
+$<$ \mbox{\Hypertarget{classClient_a3e45b89b15040ee950a0ab302f0053cc}\label{classClient_a3e45b89b15040ee950a0ab302f0053cc}} 
+\index{Client@{Client}!getPrix@{getPrix}}
+\index{getPrix@{getPrix}!Client@{Client}}
+\doxysubsubsection{\texorpdfstring{getPrix()}{getPrix()}}
+{\footnotesize\ttfamily unsigned int Client\+::get\+Prix (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+fonction qui retourne le prix total de la commande du client 
+
+$<$ \mbox{\Hypertarget{classClient_a498835befd96d3d5040bcc2a353d3a81}\label{classClient_a498835befd96d3d5040bcc2a353d3a81}} 
+\index{Client@{Client}!paiement@{paiement}}
+\index{paiement@{paiement}!Client@{Client}}
+\doxysubsubsection{\texorpdfstring{paiement()}{paiement()}}
+{\footnotesize\ttfamily int Client\+::paiement (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+~\newline
+ 
+
+$<$ \mbox{\Hypertarget{classClient_a3140b4c5e07061fa47945707b55350e7}\label{classClient_a3140b4c5e07061fa47945707b55350e7}} 
+\index{Client@{Client}!setPrix@{setPrix}}
+\index{setPrix@{setPrix}!Client@{Client}}
+\doxysubsubsection{\texorpdfstring{setPrix()}{setPrix()}}
+{\footnotesize\ttfamily void Client\+::set\+Prix (\begin{DoxyParamCaption}\item[{const unsigned int \&}]{prix }\end{DoxyParamCaption})}
+
+
+
+fonction qui retourne le prix total de la commande du client 
+
+$<$ 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/Client.\+h\item 
+src/Client.\+cpp\end{DoxyCompactItemize}

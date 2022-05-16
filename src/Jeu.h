@@ -20,86 +20,98 @@ using namespace  std;
 class Jeu{
 
     private :   
-        /** < @brief Objectif de la partie */
+
+        /** < @param obj Objectif de la partie */
         Objectif obj; 
+        /** < @param additionArgent Additionne l'argent gagne */
+        unsigned int additionArgent;  
 
-        unsigned int additionArgent;  // additionArgent = tabC[i].paiement;
-
-        /** < @brief Contient les Clients cree qui arrivent au restau */
+        /** < @param tabClient Contient les Clients cree qui arrivent au restau */
         vector<Client> tabClient; 
-        /** < @brief Contient le chargement de la carte du restau */  
+        /** < @param carte Contient le chargement de la carte du restau */  
         vector<Commande> carte; 
-
+        /** < @param tabIng Contient le tableau d'ingredients*/
         vector<Ingredient> tabIng;  //[50]
-        /** < @brief Contient le tableau de recette entier avec toutes les etapes possibles */
+        /** < @param tabRec Contient le tableau de recette entier avec toutes les etapes possibles */
         vector<Recette> tabRec;     
 
-        /** < @brief Contient les burger en cours de preparation */
-        // ?????? quel vecteur
-
     public :
-        //vector<string> tabPreps; 
 
-        /** < @brief tableau de preparation */
+        /** < @param tabPrep Tableau de preparation */
         string tabPrep[4];
 
-        /** < @brief constructeur de la classe Jeu */
+        /** < @brief Constructeur de la classe Jeu */
         Jeu();
-
         
-        /** < @brief il faut lire un fichier .txt qui contient les niveau avec le nbr de client / temps en parametres dans le constructur avec un ifstream */
-        /** < @brief constructeur de la classe Jeu */
-        Jeu(int typeJeu, int niveau); /** < @brief il faut lire un fichier .txt qui contient les niveau avec le nbr de client / temps en parametres dans le constructur avec un ifstream */
-        
-        /** < @brief destructeur de la classe Jeu */
+        /** < @brief Destructeur de la classe Jeu */
         ~Jeu();
 
-        /** < @brief accesseur : recupere les objectifs du jeu */
+        /** < @brief Accesseur : recupere les objectifs du jeu */
         Objectif & getObj();
 
-        //void chargerIngredient(Ingredient *tabIng, const string& nom_ingredient);
-
-        /** < @brief charge tous les ingredients*/
+        /** < @brief Charge tous les ingredients
+         * < @param fileIngredient chemin vers le fichier Ingredient
+        */
         void chargerIngredient(const string& fileIngredient);
-        /** < @brief charge les recettes*/
+        /** < @brief Charge les recettes
+         * < @param fileRecette chemin vers le fichier Recette
+        */
         void chargerRecette(const string& fileRecette);
-        /** < @brief charge la carte */
+        /** < @brief Charge la carte 
+         * < @param fileCarte chemin vers le fichier Carte
+        */
         void chargerCarte(const string &fileCarte);
 
-        /** < @brief accesseur : recupere le tableau des clients */
+        /** < @brief Accesseur : recupere le tableau des clients */
         vector<Client> & getTabClient();
-        /** < @brief accesseur : recupere la carte */
+        /** < @brief Accesseur : recupere la carte */
         vector<Commande> & getCarte();
-        /** < @brief accesseur : recupere le tableau des ingredients */
+        /** < @brief Accesseur : recupere le tableau des ingredients */
         vector<Ingredient> & getTabIng();
-        /** < @brief accesseur : recupere le tableau des recettes */
+        /** < @brief Accesseur : recupere le tableau des recettes */
         vector<Recette> & getTabRec();
 
+        /** < @brief Accesseur : recupere la somme d'argent */
         unsigned int & getAdditionArgent();
+        /** < @brief Mutateur : modifie la somme d'argent 
+         * < @param i somme d'argent
+        */
         void setAdditionArgent(unsigned int & i);
 
-        /** < @brief accesseur : recupere le nom de la recette de la carte */
-        string getNomCarte() const ; //Accesseur : recupere le nom de la recette de la carte
+        /** < @brief Accesseur : recupere le nom de la recette de la carte */
+        string getNomCarte() const ;
 
 
-        /** < @brief creation du client et de sa comande */
+        /** < @brief creation du client et de sa comande 
+         * < @param I taille du vecteur
+        */
         void creationClient(const unsigned int &I);
-        /** < @brief prepare la commande  */
+        /** < @brief Prepare la commande 
+         * < @param ing ingredient 
+         * < @param i indice du client dont on recupere l'argent
+         */
         string PreparerCommande( const string & ing, int i);
 
  
-        /** < @brief permet d'effacer une recette */
-        //void effaceRecette(vector<Client> & Cl, unsigned int & IdCl, string & rec); 
+        /** < @brief Permet d'effacer une recette 
+         * < @param IdCl identifiant du client
+         * < @param IdRec identifiant de la recette
+        */
         void effaceRecette(unsigned int & IdCl, unsigned int & IdRec);
-        /** < @brief permet d'effacer un extra */
-       void effaceExtras(unsigned int & IdCl, const string & ing);
-
-       void money(unsigned int & );
-        /** < @brief permet d'effacer un client */
+        /** < @brief Permet d'effacer un extra 
+         * < @param IdCl identifiant du client
+         * < @param ing ingredient
+        */
+        void effaceExtras(unsigned int & IdCl, const string & ing);
+        /** < @brief Calcule combien d'argent on a gagne au cours de la partie 
+         * < @param i indice du client dont on recupere l'argent
+        */
+        void money(unsigned int & );
+        /** < @brief Permet d'effacer un client */
         bool nouveauClient();
-
+        /** < @brief Nous dit si on a atteint la somme d'argent demande de la partie */
         bool argentAtteint();
-
+        /** < @brief Fait le test de regression */ 
         void testDeRegression();
 
 };

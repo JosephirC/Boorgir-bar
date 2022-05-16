@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['affichagesdl_57',['AffichageSDL',['../classAffichageSDL.html',1,'']]],
-  ['affichagetxt_58',['AffichageTxt',['../classAffichageTxt.html',1,'']]]
+  ['client_60',['Client',['../classClient.html',1,'']]],
+  ['commande_61',['Commande',['../classCommande.html',1,'']]]
 ];

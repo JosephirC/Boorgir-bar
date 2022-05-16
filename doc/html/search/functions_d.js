@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['_7eclient_115',['~Client',['../classClient.html#a840e519ca781888cbd54181572ebe3a7',1,'Client']]],
-  ['_7ecommande_116',['~Commande',['../classCommande.html#aa01cf68d75741bdf9c2721d0907da68f',1,'Commande']]],
-  ['_7ejeu_117',['~Jeu',['../classJeu.html#a9cd19e73df169d7f09397be61ba8548c',1,'Jeu']]],
-  ['_7eobjectif_118',['~Objectif',['../classObjectif.html#a43315143466dc501df8f2858ffa46636',1,'Objectif']]],
-  ['_7etemps_119',['~Temps',['../classTemps.html#ae1c856d0ec4896edc710022e87e6088f',1,'Temps']]]
+  ['temps_116',['Temps',['../classTemps.html#a0146b538b96214826a580019b4684daa',1,'Temps::Temps()'],['../classTemps.html#a9eaa66e3e9e08193d4bd0363256b15d0',1,'Temps::Temps(double temps)']]],
+  ['tempsatteint_117',['tempsAtteint',['../classTemps.html#aa31c19a19100dfe47da1158f38a3038d',1,'Temps']]],
+  ['tempspasse_118',['tempsPasse',['../classTemps.html#a9a184fbf2782c56f161c7b11332b6346',1,'Temps']]],
+  ['tempsrestant_119',['tempsRestant',['../classTemps.html#a27f5b41d744e399014ce1565c62de25e',1,'Temps']]],
+  ['testderegression_120',['testDeRegression',['../classJeu.html#a88d34743db6bc46a3732b066f2b7892a',1,'Jeu']]]
 ];

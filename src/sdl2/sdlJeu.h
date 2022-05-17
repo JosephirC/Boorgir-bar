@@ -73,7 +73,9 @@ class sdlJeu {
 
     public :
 
+        /** < @brief Constructeur de sdlJeu */
         sdlJeu ();
+         /** < @brief Destructeur de sdlJeu */
         ~sdlJeu ();
        
         void sdlAff ();
@@ -92,15 +94,15 @@ class sdlJeu {
         unsigned int getNbrIngJ() const;
 
         //void setNewImg(const string & nIm, const unsigned int & eIm, const string & cIm, const unsigned int & xIm, const unsigned int & yIm, const unsigned int & wIm, const unsigned int & hIm);
-
+        /** < @brief Mutateur : modifie la nouvelle image */
         void setNewImg(Image i);
-
+        /** < @brief Mutateur : modifie l'image 0 */
         void setIm0(Image i0);
-
+        /** < @brief Mutateur : modifie l'image 1 */
         void setIm1(Image i1);
-
+        /** < @brief Mutateur : modifie l'image 2 */
         void setIm2(Image i2);
-
+        /** < @brief Mutateur : modifie l'image 2 */
         void setIm3(Image i3);
 
         void mousePress(SDL_MouseButtonEvent& b);

@@ -60,7 +60,7 @@ class sdlJeu {
         * @param my coordonnee y de la souris
         */
         int mx, my; 
-*
+
         /** < @param nbrClientServi Nombre de clients servies */
         unsigned int nbrClientServi;
         unsigned int zero, one, two, three;
